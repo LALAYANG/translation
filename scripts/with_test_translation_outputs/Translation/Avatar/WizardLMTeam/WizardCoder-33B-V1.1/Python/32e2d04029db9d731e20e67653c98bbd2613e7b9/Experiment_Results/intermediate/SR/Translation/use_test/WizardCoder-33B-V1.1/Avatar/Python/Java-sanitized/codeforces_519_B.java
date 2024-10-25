@@ -1,0 +1,32 @@
+import java.util.Scanner;
+
+public class codeforces_519_B {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int n = scanner.nextInt();
+        int[] a = new int[n];
+        int[] b = new int[n];
+        int[] c = new int[n];
+        int x = 0;
+        int y = 0;
+        int z = 0;
+
+        for (int i = 0; i < n; i++) {
+            a[i] = scanner.nextInt();
+            x += a[i];
+        }
+
+        for (int i = 0; i < n; i++) {
+            b[i] = scanner.nextInt();
+            y += b[i];
+        }
+
+        for (int i = 0; i < n; i++) {
+            c[i] = scanner.nextInt();
+            z += c[i];
+        }
+
+        System.out.println(Math.abs(x - y));
+        System.out.println(Math.abs(y - z));
+    }
+}
