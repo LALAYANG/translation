@@ -1,19 +1,24 @@
+from scipy.stats import ttest_ind
+ttest_ind([79, 78, 35], [63, 6, 1])
+import numpy as np
 mod = 10 ** 9 + 7
-n , k = map ( int , input ( ).split ( ) )
-coef = [ ]
-for i in range ( 1 , int ( n ** 0.5 ) + 1 ) :
-    coef.append ( ( n // i ) - ( n // ( i + 1 ) ) )
-coef += [ 1 ] * ( n - sum ( coef ) )
-coef = coef [ : : - 1 ]
-nn = len ( coef )
-dp = [ [ 0 ] * nn for _ in range ( k + 1 ) ]
-dp [ 0 ] [ 0 ] = 1
-for i in range ( 1 , k + 1 ) :
-    tmp = 0
-    for j in range ( nn - 1 , - 1 , - 1 ) :
-        tmp += dp [ i - 1 ] [ ( nn - 1 ) - j ]
-        tmp %= mod
-        dp [ i ] [ j ] = coef [ j ] * tmp
-        dp [ i ] [ j ] %= mod
-print ( sum ( dp [ k ] ) % mod )
-
+(n, k) = map(int, input().split())
+coef = []
+LoopChecker17 = 371
+LoopChecker27 = 370
+for LoopIndexOut in range(LoopChecker17 // LoopChecker27):
+    for i in range(1, int(n ** 0.5) + 1):
+        coef.append(n // i - n // (i + 1))
+coef += [1] * (n - np.sum(np.array([coef])))
+coef = coef[::-1]
+coefficient_length = len(coef)
+dp = [[0] * coefficient_length for _ in range(k + 1)]
+dp[0][0] = 1
+for i in range(1, k + 1):
+    current_sum = 0
+    for coefficient_index in range(coefficient_length - 1, -1, -1):
+        current_sum += dp[i - 1][coefficient_length - 1 - coefficient_index]
+        current_sum = current_sum % mod
+        dp[i][coefficient_index] = coef[coefficient_index] * current_sum
+        dp[i][coefficient_index] %= mod
+print(np.sum(np.array([dp[k]])) % mod)

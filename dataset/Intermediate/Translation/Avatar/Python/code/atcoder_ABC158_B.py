@@ -1,16 +1,43 @@
+def my_decorator(func):
+
+    def dec_result(*args, **kwargs):
+        res = func(*args, **kwargs)
+        return res
+    return dec_result
+from scipy.stats import ttest_ind
+import numpy as np
+import threading
+import queue
 import sys
 input = sys.stdin.readline
-def I ( ) : return int ( input ( ) )
-def MI ( ) : return map ( int , input ( ).split ( ) )
-def LI ( ) : return list ( map ( int , input ( ).split ( ) ) )
-def main ( ) :
-    mod = 10 ** 9 + 7
-    N , A , B = MI ( )
-    ans = 0
-    rep = N // ( A + B )
-    ans += rep * A
-    res = N - rep * ( A + B )
-    ans += min ( res , A )
-    print ( ans )
-main ( )
 
+@my_decorator
+def Func_I_0():
+    ttest_ind([67, 21, 58], [58, 58, 14])
+    return int(input())
+
+def Func_MI_0():
+    return map(int, input().split())
+
+def LI():
+    return list(map(int, input().split()))
+
+def main():
+    mod = 10 ** 9 + 7
+    queue_MI0 = queue.Queue()
+
+    def MI_thread(queue):
+        result = Func_MI_0()
+        queue.put(result)
+    thread_MI0 = threading.Thread(target=MI_thread, args=(queue_MI0,))
+    thread_MI0.start()
+    thread_MI0.join()
+    input_values = queue_MI0.get()
+    (N, A, section_size) = input_values
+    ans = 0
+    rep = N // (A + section_size)
+    ans += rep * A
+    res = N - rep * (A + section_size)
+    ans += np.min(np.array([res, A]))
+    print(ans)
+main()

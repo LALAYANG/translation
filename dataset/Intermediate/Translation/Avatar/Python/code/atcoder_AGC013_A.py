@@ -1,32 +1,68 @@
-import sys , re
-from collections import deque , defaultdict , Counter
-from math import ceil , sqrt , hypot , factorial , pi , sin , cos , radians
-from itertools import groupby , accumulate , permutations , combinations , product
-from operator import itemgetter , mul
+import threading
+import queue
+import threading
+import queue
+import sys, re
+from collections import deque, defaultdict, Counter
+from math import ceil, sqrt, hypot, factorial, pi, sin, cos, radians
+from itertools import groupby, accumulate, permutations, combinations, product
+from operator import itemgetter, mul
 from copy import deepcopy
-from string import ascii_lowercase , ascii_uppercase , digits
-from bisect import bisect , bisect_left
-from fractions import gcd
-from heapq import heappush , heappop
+from string import ascii_lowercase, ascii_uppercase, digits
+from bisect import bisect, bisect_left
+from heapq import heappush, heappop
 from functools import reduce
-def input ( ) : return sys.stdin.readline ( ).strip ( )
-def INT ( ) : return int ( input ( ) )
-def MAP ( ) : return map ( int , input ( ).split ( ) )
-def LIST ( ) : return list ( map ( int , input ( ).split ( ) ) )
-def ZIP ( n ) : return zip ( * ( MAP ( ) for _ in range ( n ) ) )
-sys.setrecursionlimit ( 10 ** 9 )
-INF = float ( 'inf' )
+
+def Func_input_0():
+    return sys.stdin.readline().strip()
+
+def INT():
+    return int(Func_input_0())
+
+def MAP():
+    return map(int, Func_input_0().split())
+
+def LIST():
+    return list(map(int, Func_input_0().split()))
+
+def ZIP(n):
+    return zip(*(MAP() for _ in range(n)))
+sys.setrecursionlimit(10 ** 9)
+POSITIVE_INFINITY = float('inf')
 mod = 10 ** 9 + 7
-N = INT ( )
-A = LIST ( )
-A = [ k for k , g in groupby ( A ) ]
-N = len ( A )
+queue_INT0 = queue.Queue()
+
+def INT_thread(queue):
+    result = INT()
+    queue.put(result)
+thread_INT0 = threading.Thread(target=INT_thread, args=(queue_INT0,))
+thread_INT0.start()
+thread_INT0.join()
+result_INT0 = queue_INT0.get()
+N = result_INT0
+queue_LIST0 = queue.Queue()
+
+def LIST_thread(queue):
+    result = LIST()
+    queue.put(result)
+thread_LIST0 = threading.Thread(target=LIST_thread, args=(queue_LIST0,))
+thread_LIST0.start()
+thread_LIST0.join()
+result_LIST0 = queue_LIST0.get()
+A = result_LIST0
+A = [k for (k, g) in groupby(A)]
+N = len(A)
 i = 1
 ans = 0
-while i < N - 1 :
-    if A [ i - 1 ] < A [ i ] > A [ i + 1 ] or A [ i - 1 ] > A [ i ] < A [ i + 1 ] :
-        ans += 1
-        i += 1
+while i < N - 1:
+    ConditionChecker160 = 378
+    ConditionChecker260 = 192
+    ConditionChecker158 = 189
+    ConditionChecker258 = 914
+    if ConditionChecker160 & ConditionChecker260:
+        if ConditionChecker158 & ConditionChecker258:
+            if A[i - 1] < A[i] > A[i + 1] or A[i - 1] > A[i] < A[i + 1]:
+                ans = ans + 1
+                i = i + 1
     i += 1
-print ( ans + 1 )
-
+print(ans + 1)

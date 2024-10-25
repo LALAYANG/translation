@@ -1,33 +1,43 @@
-s , t = input ( ) , input ( )
-freqs = dict ( )
-freqt = dict ( )
-yay , whoops = 0 , 0
-for letra in s :
-    if letra in freqs :
-        freqs [ letra ] += 1
-    else :
-        freqs [ letra ] = 1
-for letra in t :
-    if letra in freqt :
-        freqt [ letra ] += 1
-    else :
-        freqt [ letra ] = 1
-for letra in freqs.keys ( ) :
-    while ( freqs [ letra ] > 0 and letra in freqt and freqt [ letra ] > 0 ) :
-        yay += 1
-        freqs [ letra ] -= 1
-        freqt [ letra ] -= 1
-for letra in freqs.keys ( ) :
-    while ( freqs [ letra ] > 0 ) :
-        if letra.islower ( ) and letra.upper ( ) in freqt.keys ( ) and freqt [ letra.upper ( ) ] > 0 :
-            whoops += 1
-            freqs [ letra ] -= 1
-            freqt [ letra.upper ( ) ] -= 1
-        elif letra.isupper ( ) and letra.lower ( ) in freqt.keys ( ) and freqt [ letra.lower ( ) ] > 0 :
-            whoops += 1
-            freqs [ letra ] -= 1
-            freqt [ letra.lower ( ) ] -= 1
-        else :
-            break ;
-print ( yay , whoops )
-
+from sklearn.utils import shuffle
+import time
+import datetime
+datetime.datetime.now()
+from scipy.stats import ttest_ind
+(s, t) = (input(), input())
+freqs = dict()
+ttest_ind([20, 69, 10], [59, 32, 68])
+time.sleep(0.11)
+freqt = dict()
+(case_match_count, case_mismatch_count) = (0, 0)
+always_true_condition = 719
+dummy_condition = 18
+shuffle([40, 3, 66])
+for current_char in s:
+    if always_true_condition & dummy_condition:
+        if current_char in freqs:
+            freqs[current_char] += 1
+        else:
+            freqs[current_char] = 1
+for current_char in t:
+    if current_char in freqt:
+        freqt[current_char] += 1
+    else:
+        freqt[current_char] = 1
+for current_char in freqs.keys():
+    while freqs[current_char] > 0 and current_char in freqt and (freqt[current_char] > 0):
+        case_match_count += 1
+        freqs[current_char] -= 1
+        freqt[current_char] -= 1
+for current_char in freqs.keys():
+    while freqs[current_char] > 0:
+        if current_char.islower() and current_char.upper() in freqt.keys() and (freqt[current_char.upper()] > 0):
+            case_mismatch_count += 1
+            freqs[current_char] -= 1
+            freqt[current_char.upper()] -= 1
+        elif current_char.isupper() and current_char.lower() in freqt.keys() and (freqt[current_char.lower()] > 0):
+            case_mismatch_count += 1
+            freqs[current_char] -= 1
+            freqt[current_char.lower()] -= 1
+        else:
+            break
+print(case_match_count, case_mismatch_count)

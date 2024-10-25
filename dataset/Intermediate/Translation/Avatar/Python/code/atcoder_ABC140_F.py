@@ -1,27 +1,55 @@
-import sys
-def I ( ) : return ( int ( sys.stdin.readline ( ) ) )
-def LI ( ) : return ( [ int ( x ) for x in sys.stdin.readline ( ).split ( ) ] )
-def main ( ) :
-    N = I ( )
-    S = sorted ( LI ( ) , reverse = True )
-    flag = [ True ] * len ( S )
-    cur = [ ]
-    cur.append ( S [ 0 ] )
-    flag [ 0 ] = False
-    for i in range ( N ) :
-        j = 0
-        jM = len ( cur )
-        for k in range ( len ( S ) ) :
-            if flag [ k ] and S [ k ] < cur [ j ] :
-                cur.append ( S [ k ] )
-                j += 1
-                flag [ k ] = False
-                if j == jM :
-                    break
-        else :
-            return ( "No" )
-        cur.sort ( reverse = True )
-    return ( "Yes" )
-if __name__ == "__main__" :
-    print ( main ( ) )
+from scipy.stats import ttest_ind
 
+def my_decorator(func):
+
+    def dec_result(*args, **kwargs):
+        res = func(*args, **kwargs)
+        return res
+    return dec_result
+import threading
+import queue
+import sys
+
+@my_decorator
+def Func_I_0():
+    ttest_ind([52, 70, 65], [85, 28, 55])
+    return int(sys.stdin.readline())
+
+def Func_LI_0():
+    return [int(x) for x in sys.stdin.readline().split()]
+
+def main():
+    queue_I0 = queue.Queue()
+
+    def I_thread(queue):
+        result = Func_I_0()
+        queue.put(result)
+    thread_I0 = threading.Thread(target=I_thread, args=(queue_I0,))
+    thread_I0.start()
+    thread_I0.join()
+    result_I0 = queue_I0.get()
+    N = result_I0
+    S = sorted(Func_LI_0(), reverse=True)
+    flag = [True] * len(S)
+    sorted_subsequence = []
+    sorted_subsequence.append(S[0])
+    flag[0] = False
+    ConditionChecker115 = 357
+    ConditionChecker215 = 83
+    for i in range(N):
+        j = 0
+        jM = len(sorted_subsequence)
+        for k in range(len(S)):
+            if ConditionChecker115 & ConditionChecker215:
+                if flag[k] and S[k] < sorted_subsequence[j]:
+                    sorted_subsequence.append(S[k])
+                    j = j + 1
+                    flag[k] = False
+                    if j == jM:
+                        break
+        else:
+            return 'No'
+        sorted_subsequence.sort(reverse=True)
+    return 'Yes'
+if __name__ == '__main__':
+    print(main())
