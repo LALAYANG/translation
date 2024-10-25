@@ -1,0 +1,33 @@
++ '[' -z '' ']'
++ case "$-" in
++ __lmod_vx=x
++ '[' -n x ']'
++ set +x
+Shell debugging temporarily silenced: export LMOD_SH_DBG_ON=1 for this output (/usr/share/lmod/lmod/init/bash)
+Shell debugging restarted
++ unset __lmod_vx
++ model=codellama/CodeLlama-34b-Instruct-hf
++ dataset=Avatar
++ cache=/u/yangc9/huggingface
++ task=Translation
++ src=Python
++ tgt=Java
++ '[' Translation == Synthesis ']'
++ python3 translate.py --model codellama/CodeLlama-34b-Instruct-hf --dataset Avatar --source_lang Python --target_lang Java --cache_dir /u/yangc9/huggingface --use_test
+  File "/u/yangc9/codemind/scripts/translate.py", line 283
+    parser.add_argument('--gpu_id', help='gpu id to use', default=0,1,2, type=int)
+                                                                                 ^
+SyntaxError: positional argument follows keyword argument
++ python3 clean_generations_translation.py --model codellama/CodeLlama-34b-Instruct-hf --dataset Avatar --source_lang Python --target_lang Java --remove_prompt --use_test
+Traceback (most recent call last):
+  File "/u/yangc9/codemind/scripts/clean_generations_translation.py", line 49, in <module>
+    for solution_path in tqdm(load_solutions(folder_path, EXTENSIONS[args.target_lang])):
+  File "/u/yangc9/codemind/scripts/clean_generations_translation.py", line 7, in load_solutions
+    files = os.listdir(samples_dir)
+FileNotFoundError: [Errno 2] No such file or directory: '../Experiment_Results/intermediate/SR/Translation/use_test/CodeLlama-34b-Instruct-hf/Avatar/Python/Java'
++ python3 -u test_translation.py --dataset Avatar --source_lang Python --target_lang Java --model codellama/CodeLlama-34b-Instruct-hf --test_type use_test
+testing translations
+../Experiment_Results/intermediate/SR/Translation/use_test/CodeLlama-34b-Instruct-hf/Avatar/Python/Java-sanitized/pass_id.txt
+#Success: 0
+Success: []
+Fail: []

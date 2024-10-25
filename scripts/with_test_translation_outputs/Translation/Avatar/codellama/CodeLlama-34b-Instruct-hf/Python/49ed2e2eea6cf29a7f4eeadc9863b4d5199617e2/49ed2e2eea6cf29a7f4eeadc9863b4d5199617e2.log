@@ -1,0 +1,18 @@
++ '[' -z '' ']'
++ case "$-" in
++ __lmod_vx=x
++ '[' -n x ']'
++ set +x
+Shell debugging temporarily silenced: export LMOD_SH_DBG_ON=1 for this output (/usr/share/lmod/lmod/init/bash)
+Shell debugging restarted
++ unset __lmod_vx
++ model=codellama/CodeLlama-34b-Instruct-hf
++ dataset=Avatar
++ cache=/u/yangc9/huggingface
++ task=Translation
++ src=Python
++ tgt=Java
++ '[' Translation == Synthesis ']'
++ python3 translate.py --model codellama/CodeLlama-34b-Instruct-hf --dataset Avatar --source_lang Python --target_lang Java --cache_dir /u/yangc9/huggingface --use_test
+found 250 inputs
+Loading checkpoint shards:   0%|          | 0/7 [00:00<?, ?it/s]Loading checkpoint shards:  14%|█▍        | 1/7 [02:24<14:27, 144.58s/it]Loading checkpoint shards:  29%|██▊       | 2/7 [04:49<12:04, 144.89s/it]
