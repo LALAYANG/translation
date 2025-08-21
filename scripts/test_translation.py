@@ -47,6 +47,7 @@ def main(args):
 
                 try:
                     stdout, stderr_data = p.communicate(input=f_in.encode(), timeout=10)
+                    print(stdout, stderr_data)
                 except subprocess.TimeoutExpired:
                     infinite_loop.append(files[i])
                     continue
@@ -90,6 +91,7 @@ def main(args):
 
                     try:
                         stdout, stderr_data = p.communicate(input=f_in.encode(), timeout=10)
+                        print(stdout, stderr_data)
                     except subprocess.TimeoutExpired:
                         infinite_loop.append(files[i])
                         break

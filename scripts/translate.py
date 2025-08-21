@@ -2,18 +2,29 @@ import os
 import logging
 from dotenv import load_dotenv
 import argparse
+from matplotlib.pylab import dtype
 import torch
+import openai
+from openai import OpenAI
 from tqdm import tqdm
 from transformers import AutoTokenizer, AutoModelForCausalLM, BitsAndBytesConfig
 from vllm import LLM, SamplingParams
 import openai
+import json
+
 
 
 os.makedirs(f'logs', exist_ok=True)
 logging.basicConfig(filename=f"logs/translation.log", level=logging.INFO, format='%(asctime)s %(levelname)s %(module)s - %(funcName)s: %(message)s', datefmt='%Y-%m-%d %H:%M:%S')
 
 
+def read_json(file_path):
+    with open(file_path, "r") as f:
+        data = json.load(f)
+    return data
+    
 def main(args):
+    alter_avatar_examples = read_json('avatar_alter.json')
 
     extensions = {'Python': 'py', 'Java': 'java'}
 
@@ -52,70 +63,76 @@ def main(args):
 
     tokenizer, model = None, None
     if 'gpt-' in args.model :
-        model = openai.OpenAI(
+        client = openai.OpenAI(
                     # This is the default and can be omitted
                     api_key=os.getenv('OPENAIKEY'),
-                )
-    elif 'starcoder2' in args.model:
-        kwargs = {}
-        tokenizer = AutoTokenizer.from_pretrained(args.model, token=os.getenv('AUTH_TOKEN'), cache_dir=args.cache_dir)
-        model = AutoModelForCausalLM.from_pretrained(args.model, token=os.getenv('AUTH_TOKEN'), cache_dir=args.cache_dir, device_map='auto', **kwargs)       
-
-        # model = LLM(model="bigcode/starcoder2-15b", tokenizer="bigcode/starcoder2-15b", **kwargs)
+        )
     else:
-        kwargs = {}
-        tokenizer = AutoTokenizer.from_pretrained(args.model, token=os.getenv('AUTH_TOKEN'), cache_dir=args.cache_dir)
-        if "70b" in args.model or "34b" in args.model or "33B" in args.model or "33b" in args.model:
-            model = AutoModelForCausalLM.from_pretrained(args.model, device_map="auto", token=os.getenv('AUTH_TOKEN'), cache_dir=args.cache_dir, 
-                    quantization_config=BitsAndBytesConfig(
-                    load_in_4bit=True,
-                    bnb_4bit_compute_dtype=torch.bfloat16,
-                    bnb_4bit_use_double_quant=True,
-                    bnb_4bit_quant_type='nf4'
-                ))
-        else:
-            model = AutoModelForCausalLM.from_pretrained(args.model, token=os.getenv('AUTH_TOKEN'), cache_dir=args.cache_dir, device_map='auto', **kwargs)       
-    # loop over input files
-    os.makedirs(out_folder, exist_ok=True)
-    for f in tqdm(in_files):
+        tokenizer = AutoTokenizer.from_pretrained(
+            args.model,
+            token=os.getenv('AUTH_TOKEN'),
+            cache_dir=args.cache_dir
+        )
+        vllm_model = LLM(
+            model=args.model,
+            trust_remote_code=True,
+            max_model_len=4096,
+            tensor_parallel_size=2,
+            dtype="bfloat16"
+        )
+        sampling = SamplingParams(
+            max_tokens=4096,
+            temperature=0.0,
+        )
+    prompts = []
+    file_names = []
 
+    os.makedirs(out_folder, exist_ok=True)
+    print(f"Translating {len(in_files)} files...")
+    for f in tqdm(in_files):
+        if "pycache" in f:
+            continue
         base_name = f.split('.')[0]
-        # print(base_name)
         test_input = open(f'{test_folder}/{base_name}_0.in', 'r').read()
         test_output = ''
         if args.use_test:
             test_output = open(f'{test_folder}/{base_name}_0.out', 'r').read()
-        # elif args.use_misleading_test:
-        #     test_output = open(f'{test_folder}/{base_name}_misleading_out.txt', 'r').read()
 
         if len(test_input) > 500 or len(test_output) > 500:
-            continue
+            # continue
+            test_input = test_input[:500]
+            test_output = test_output[:500]
 
         prompt_file = f'{in_folder}/{f}'
+        icl = ""
+        if base_name in alter_avatar_examples:
+            icl = alter_avatar_examples[base_name]
 
         with open(prompt_file, "r", encoding="ISO-8859-1", errors='ignore') as fin:
             prompt = fin.readlines()
+            # add ICL
+            # prompt += f"\n```\n\nThe following is a semantically equivalent program which may help your understanding:\n```{icl}\n"
 
-            if 'CodeLlama' in args.model:
+            if 'codellama' in args.model:
                 if args.use_test or args.use_misleading_test:
                     prompt = f"Translate the following {args.source_lang} code to {args.target_lang} and enclose your solution inside ```{args.target_lang.lower()} and ```.\nA sample test case is provided below:\n\nTest input:\n" + test_input + "\nExpected output:\n" + test_output + "\n\n```\n" + "".join(prompt) + "\n```\n"
                 else:
                     prompt = f"Translate the following {args.source_lang} code to {args.target_lang} and enclose your solution inside ```{args.target_lang.lower()} and ```:\n```\n" + "".join(prompt) + "\n```\n. Do not print other explanation."
                 prompt = f"[INST] <<SYS>>\nYou are an expert {args.target_lang} programmer and assistant\n<</SYS>>\n\n{prompt}[/INST]\n"
 
-            elif 'Magicoder' in args.model:
+            elif 'magicoder' in args.model:
                 if args.use_test or args.use_misleading_test:
                     prompt = f"You are an exceptionally intelligent coding assistant that consistently delivers accurate and reliable responses to user instructions.\n\n@@ Instruction\nTranslate the following {args.source_lang} code to {args.target_lang} and enclose your solution inside ```{args.target_lang.lower()} and ```.\nA sample test case is provided below:\n\nTest input:\n" + test_input + "\nExpected output:\n" + test_output + "\n\n```\n" + "".join(prompt) + "\n```\n\n@@ Response\n"
                 else:
                     prompt = f"You are an exceptionally intelligent coding assistant that consistently delivers accurate and reliable responses to user instructions.\n\n@@ Instruction\nTranslate the following {args.source_lang} code to {args.target_lang} and enclose your solution inside ```{args.target_lang.lower()} and ```:\n```\n" + "".join(prompt) + "\n```\n\n@@ Response\n"
 
-            elif 'WizardCoder' in args.model:
+            elif 'wizardcoder' in args.model:
                 if args.use_test or args.use_misleading_test:
                     prompt = f"Below is an instruction that describes a task. Write a response that appropriately completes the request.\n\n### Instruction:\nTranslate the following {args.source_lang} code to {args.target_lang} and enclose your solution inside ```{args.target_lang.lower()} and ```.\nA sample test case is provided below:\n\nTest input:\n" + test_input + "\nExpected output:\n" + test_output + "\n\n```\n" + "".join(prompt) + "\n```\n\n### Response:\n"
                 else:
                     prompt = f"Below is an instruction that describes a task. Write a response that appropriately completes the request.\n\n### Instruction:\nTranslate the following {args.source_lang} code to {args.target_lang} and enclose your solution inside ```{args.target_lang.lower()} and ```:\n```\n" + "".join(prompt) + "\n```\n\nDo not print other explanation.\n### Response:\n"
 
-            elif 'deepseek-coder' in args.model:
+            elif 'deepseek-coder' in args.model or 'semcoder' in args.model or 'multi' in args.model:
                 if args.use_test or args.use_misleading_test:
                     prompt = f"You are an expert Python programmer.Your task is to write a Python function to solve a programming problem.\n\n### Instruction:\nTranslate the following {args.source_lang} code to {args.target_lang} and enclose your solution inside ```{args.target_lang.lower()} and ```.\nA sample test case is provided below:\n\nTest input:\n" + test_input + "\nExpected output:\n" + test_output + "\n\n```\n" + "".join(prompt) + "\n```\n\n### Response:\n"
                 else:
@@ -137,7 +154,7 @@ def main(args):
                 prompt = prefix_token + prompt + suffix_token
             
 
-            elif args.model in ['gpt-4', 'gpt-3.5', 'gpt-4-turbo']:
+            elif 'gpt' in args.model: #in ['gpt-4', 'gpt-3.5', 'gpt-4-turbo']:
                 if args.use_test or args.use_misleading_test:
                     prompt = "Translate the following code from " + args.source_lang + " to " + args.target_lang + " and enclose your solution inside ```" + args.target_lang.lower() + "and" + "```.\nA sample test case is provided below:\n\nTest input:\n" + test_input + "\nExpected output:\n" + test_output + "\n\n```\n" + "".join(prompt) + "\n```\n"
                 else:
@@ -148,130 +165,87 @@ def main(args):
                     prompt = "Translate the following code from " + args.source_lang + " to " + args.target_lang + " and enclose your solution inside ```" + args.target_lang.lower() + "```.\nA sample test case is provided below:\n\nTest input:\n" + test_input + "\nExpected output:\n" + test_output + "\n\n```\n" + "".join(prompt) + "\n```\n"
                 else:
                     prompt = "Translate the following code from " + args.source_lang + " to " + args.target_lang + " and enclose your solution inside ```" + args.target_lang.lower() + "```:\n```\n" + "".join(prompt) + "\n```\n"
+            prompts.append(prompt)
+            file_names.append(f)
+    
+    # ---- generate AFTER the loop ----
+    if not prompts:
+        return  # nothing to do
+
+    if 'gpt-' in args.model:
+        # OpenAI Chat API – one by one (Chat API is per request)
+        for f, prompt in zip(file_names, prompts):
             try:
-
-                # if 'starcoder2' in args.model:
-                #     total_input_tokens = len(model.get_tokenizer().encode(prompt))
-                #     model_max_length = 2048
-                #     if total_input_tokens >= model_max_length:
-                #         out_file = f'{out_folder}/{f.split(".")[0]}.{ext}'
-                #         with open(out_file, 'w') as fot:
-                #             print("# Token size exceeded.", file=fot)
-                #         continue
-                #     max_new_tokens = model_max_length - total_input_tokens
-                #     vllm_outputs = model.generate(
-                #         prompt,
-                #         SamplingParams(
-                #             temperature=0.0,
-                #             max_tokens=max_new_tokens,
-                #             stop=['<|endoftext|>'],
-                #             top_p=1.0,
-                #         ),
-                #         use_tqdm=False,
-                #     )
-
-                #     gen_strs = [x.outputs[0].text.replace("\t", "    ") for x in vllm_outputs]
-                #     generated_output = gen_strs[0]
-
-                if 'gpt' in args.model:
-                    try:
-                        response = model.chat.completions.create(
-                            model="gpt-4-turbo", # if 'gpt-4' in args.model else "gpt-3.5-turbo",
-                            messages=[
-                                {
-                                    "role": "system",
-                                    "content": "You are an expert " + args.target_lang + " programmer and assistant"
-                                },
-                                {
-                                    "role": "user",
-                                    "content": prompt
-                                }
-                            ]
-                        )
-                        generated_output = response.choices[0].message.content
-                    except openai.BadRequestError as e:
-                        generated_output = f'token size exceeded. {e}'
-
-                elif args.model in ['codeqwen']:
+                resp = client.chat.completions.create(
+                    model=args.model,
                     messages=[
-                                {
-                                    "role": "system",
-                                    "content": "You are an expert " + args.target_lang + " programmer and assistant"
-                                },
-                                {
-                                    "role": "user",
-                                    "content": prompt
-                                }
-                            ]
-                    text = tokenizer.apply_chat_template(
-                        messages,
-                        tokenize=False,
-                        add_generation_prompt=True
-                    )
-        
-                    model_inputs = tokenizer([text], return_tensors="pt").to("cuda:0")
-
-                    generated_ids = model.generate(
-                        model_inputs.input_ids,
-                        max_new_tokens=512,
-                        temperature = 0,
-                        do_sample=False
-                    )
-                    generated_ids = [
-                        output_ids[len(input_ids):] for input_ids, output_ids in zip(model_inputs.input_ids, generated_ids)
-                    ]
-                    generated_output = tokenizer.batch_decode(generated_ids, skip_special_tokens=True)[0]
-                # elif args.model in ['granite']:
-                #     messages=[
-                #                 {
-                #                     "role": "system",
-                #                     "content": "You are an expert " + args.target_lang + " programmer and assistant"
-                #                 },
-                #                 {
-                #                     "role": "user",
-                #                     "content": prompt
-                #                 }
-                #             ]
-                    text = tokenizer.apply_chat_template(
-                        messages,
-                        tokenize=False,
-                        add_generation_prompt=True
-                    )
-                    input_tokens = tokenizer(text, return_tensors="pt")
-                    for i in input_tokens:
-                        input_tokens[i] = input_tokens[i].to("cuda:0")
-
-                    output = model.generate(**input_tokens, max_new_tokens=2048, num_beams=1, do_sample=False)
-                    generated_output = tokenizer.batch_decode(output)[0]                                                                 
-                else:
-                    inputs = tokenizer.encode(prompt, return_tensors="pt").to(device)
-                    total_input_tokens = inputs.shape[1]
-                    model_max_length = 2048
-                    if total_input_tokens >= model_max_length:
-                        out_file = f'{out_folder}/{f.split(".")[0]}.{ext}'
-                        with open(out_file, 'w') as fot:
-                            print("# Token size exceeded.", file=fot)
-                        continue
-                    max_new_tokens = model_max_length - total_input_tokens
-
-                    raw_outputs = ''
-                    raw_outputs = model.generate(
-                        inputs,
-                        max_new_tokens=max_new_tokens,
-                        do_sample=False,
-                        pad_token_id=tokenizer.eos_token_id,
-                    )
-
-                    generated_output = tokenizer.decode(raw_outputs[0])
-
+                        {"role": "system", "content": "You are a helpful assistant."},
+                        {"role": "user", "content": prompt},
+                    ],
+                    temperature=0,
+                )
+                generated_output = resp.choices[0].message.content
                 out_file = f'{out_folder}/{f.split(".")[0]}.{ext}'
                 with open(out_file, 'w') as fot:
                     print(generated_output, file=fot)
+            except Exception as e:
+                print("Error:", e)
+    else:
+        # vLLM – batch generate in parallel
+        vllm_outputs = vllm_model.generate(prompts, sampling)
+        for f, out in zip(file_names, vllm_outputs):
+            generated_output = out.outputs[0].text
+            out_file = f'{out_folder}/{f.split(".")[0]}.{ext}'
+            with open(out_file, 'w') as fot:
+                print(generated_output, file=fot)
+    # ---------------------------------
 
-            except (ValueError, FileNotFoundError) as e:
-                print(e)
-                continue
 
+            # try:
+            #     if 'gpt' in args.model:
+            #         try:
+            #                 client = OpenAI(
+            #                     # base_url="http://127.0.0.1:11434/v1", #11434 #130.126.137.50
+            #                     api_key=os.environ.get('OPENAI_API_KEY'),
+            #                 )
+            #                 raw_outputs = ''
+            #                 print(prompt)
+            #                 message = [
+            #                     {"role": "user", "content": "You are a helpful assistant."},
+            #                     {"role": "user", "content": prompt}]
+
+            #                 raw_outputs = client.chat.completions.create(
+            #                     model=args.model,
+            #                     messages=message,
+            #                     temperature=0,
+            #                 )
+            #                 generated_output = raw_outputs.choices[0].message.content
+            #                 print(generated_output)
+            #         except Exception as e:
+            #             print(e)
+            #             generated_output = e
+            #             continue                                                            
+            #     else:
+            #         tokenizer = AutoTokenizer.from_pretrained(args.model, token=os.getenv('AUTH_TOKEN'), cache_dir=args.cache_dir)
+            #         model = LLM(model=args.model, trust_remote_code = True, max_model_len = 4096, tensor_parallel_size = 2, dtype = "bfloat16")
+            #         sampling = SamplingParams(
+            #             max_tokens=4096,
+            #             temperature=0.0,   # deterministic (like do_sample=False)
+            #         )
+
+            #         # Generate
+            #         outputs = model.generate([prompt], sampling)
+            #         generated_output = outputs[0].outputs[0].text
+            #         print("Generated output:", generated_output)
+
+
+            #     out_file = f'{out_folder}/{f.split(".")[0]}.{ext}'
+            #     with open(out_file, 'w') as fot:
+            #         print(generated_output, file=fot)
+
+            # except (ValueError, FileNotFoundError) as e:
+            #     print(e)
+            #     continue
 
 if __name__ == "__main__":
     load_dotenv()
@@ -281,7 +255,7 @@ if __name__ == "__main__":
     parser.add_argument('--source_lang', help='source language to use for code translation', required=True, type=str)
     parser.add_argument('--target_lang', help='target language to use for code translation', required=True, type=str)
     parser.add_argument('--gpu_id', help='gpu id to use', default=0, type=int)
-    parser.add_argument('--cache_dir', help='cache directory for huggingface models', required=True, type=str)
+    parser.add_argument('--cache_dir', help='cache directory for huggingface models', required=False, type=str)
     parser.add_argument('--use_test', help='use test dataset', action='store_true')
     parser.add_argument('--use_misleading_test', help='use test dataset', action='store_true')
     parser.add_argument('--der', action='store_true')
