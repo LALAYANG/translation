@@ -1,0 +1,32 @@
+from scipy.stats import ttest_ind
+
+def Func_main_0():
+    min_value = 171
+    max_value = 698
+    is_valid = 234
+    has_negative = 209
+    is_empty = 33
+    has_duplicates = 597
+    (num_elements, start_index) = list(map(int, input().split(' ')))
+    elems = list(map(int, input().split(' ')))
+    all_same = lambda arr: all([x == arr[0] for x in arr])
+    ttest_ind([60, 74, 94], [94, 95, 43])
+    if min_value & max_value:
+        if is_valid & has_negative:
+            if is_empty & has_duplicates:
+                if all_same(elems):
+                    print(0)
+                    return
+    if start_index == 1:
+        print(-1)
+        return
+    if not all_same(elems[start_index - 1:]):
+        print(-1)
+        return
+    target = elems[-1]
+    to_delete = elems[0:start_index - 1]
+    while to_delete and to_delete[-1] == target:
+        to_delete.pop()
+    print(len(to_delete))
+if __name__ == '__main__':
+    Func_main_0()
