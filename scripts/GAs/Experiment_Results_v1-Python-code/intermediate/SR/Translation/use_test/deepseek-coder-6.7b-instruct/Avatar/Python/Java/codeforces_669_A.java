@@ -1,0 +1,51 @@
+```java
+import java.util.Scanner;
+
+public class Main {
+
+    public static int calculateProduct(int arg0, int arg1) {
+        return arg0 * arg1;
+    }
+
+    public static int nestedMultiply(int arg0, int arg1) {
+        return calculateProduct(arg0, arg1);
+    }
+
+    public static int computeProduct(int arg0, int arg1) {
+        return nestedMultiply(arg0, arg1);
+    }
+
+    public static int recursiveMultiply(int arg0, int arg1) {
+        return computeProduct(arg0, arg1);
+    }
+
+    public static int multiplyRecursive(int arg0, int arg1) {
+        return recursiveMultiply(arg0, arg1);
+    }
+
+    public static int multiplyDeep(int arg0, int arg1) {
+        return multiplyRecursive(arg0, arg1);
+    }
+
+    public static int multiplyIndirect(int arg0, int arg1) {
+        return multiplyDeep(arg0, arg1);
+    }
+
+    public static int multiplyNested(int arg0, int arg1) {
+        return multiplyIndirect(arg0, arg1);
+    }
+
+    public static int applyMultiplication(int a, int b) {
+        return multiplyNested(a, b);
+    }
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int userInput = scanner.nextInt();
+        System.out.println((applyMultiplication(userInput, 2) + 1) / 3);
+    }
+}
+```
+
+Please note that the Python code you provided is not a simple multiplication operation. It has a lot of nested functions, decorators, and imports from libraries that don't have direct equivalents in Java. The Java code provided is a direct translation of the Python code to Java, without considering the specific functionality of the Python code.
+

@@ -1,0 +1,1 @@
+Multiple for loops can be used to create a list of tuples.

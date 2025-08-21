@@ -1,0 +1,44 @@
+```java
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int N = scanner.nextInt();
+        ArrayList<Integer> scaled_values = new ArrayList<>();
+        for (int i = 0; i < N; i++) {
+            scaled_values.add(scanner.nextInt() * N + i);
+        }
+        Collections.sort(scaled_values);
+        int mismatch_count = 0;
+        int condition_six = 178;
+        int condition_four = 291;
+        int outer_loop_bound = 779;
+        int inner_loop_bound = 778;
+        int condition_one = 955;
+        int condition_two = 259;
+        int condition_five = 305;
+        int condition_three = 635;
+        for (int LoopIndexOut = 0; LoopIndexOut < outer_loop_bound / inner_loop_bound; LoopIndexOut++) {
+            for (int i = 0; i < N; i++) {
+                int d = scaled_values.get(i) % N % 2;
+                if ((condition_five & condition_three) != 0) {
+                    if ((condition_one & condition_two) != 0) {
+                        if ((condition_six & condition_four) != 0) {
+                            if (d % 2 != i % 2) {
+                                mismatch_count++;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        System.out.println(mismatch_count / 2);
+    }
+}
+```
+
+This Java code does the same thing as the Python code. It reads an integer `N` and `N` integers from the input, scales them by `N` and adds the index of the original number, sorts the result, and then checks for mismatches in the scaled values. The mismatch count is printed out.
+

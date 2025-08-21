@@ -1,0 +1,58 @@
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Queue;
+import java.util.concurrent.ConcurrentLinkedQueue;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+
+public class codeforces_672_A {
+    public static void main(String[] args) {
+        List<Integer> li = new ArrayList<>();
+        int ind = 0;
+        for (int i = 1; i < 371; i++) {
+            List<Integer> temp = new ArrayList<>();
+            int p = i;
+            int q = i;
+            int count = 0;
+            while (p != 0) {
+                p /= 10;
+                count++;
+            }
+            if (count == 1) {
+                li.add(i);
+            } else if (count == 2) {
+                while (q != 0) {
+                    int x = q % 10;
+                    q /= 10;
+                    temp.add(x);
+                }
+                List<Integer> digits = new ArrayList<>(temp);
+                Queue<List<Integer>> resultQueue = new ConcurrentLinkedQueue<>();
+                ExecutorService executor = Executors.newSingleThreadExecutor();
+                executor.submit(() -> {
+                    List<Integer> result = appendDigits(li, digits);
+                    resultQueue.add(result);
+                });
+                executor.shutdown();
+                li = resultQueue.poll();
+            } else if (count == 3) {
+                while (q != 0) {
+                    int x = q % 10;
+                    q /= 10;
+                    temp.add(x);
+                }
+                li.addAll(temp);
+            }
+        }
+        li.remove(li.size() - 1);
+        li.remove(li.size() - 1);
+        int n = Integer.parseInt(args[0]);
+        System.out.println(li.get(n - 1));
+    }
+
+    public static List<Integer> appendDigits(List<Integer> li, List<Integer> digits) {
+        return new ArrayList<>(li) {{
+            addAll(digits);
+        }};
+    }
+}

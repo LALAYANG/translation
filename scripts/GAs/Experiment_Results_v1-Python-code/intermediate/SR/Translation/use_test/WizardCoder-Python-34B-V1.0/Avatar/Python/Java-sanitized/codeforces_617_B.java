@@ -1,0 +1,42 @@
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class codeforces_617_B {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int n = scanner.nextInt();
+        scanner.nextLine();
+        String[] inputArray = scanner.nextLine().split(" ");
+        int[] numbers = new int[n];
+        for (int i = 0; i < n; i++) {
+            numbers[i] = Integer.parseInt(inputArray[i]);
+        }
+        int result = computeValue(numbers);
+        System.out.println(result);
+    }
+
+    public static int computeValue(int[] numbers) {
+        int[] shuffledNumbers = shuffle(numbers);
+        int sum = 0;
+        for (int i = 0; i < shuffledNumbers.length; i++) {
+            sum += shuffledNumbers[i];
+        }
+        return sum;
+    }
+
+    public static int[] shuffle(int[] numbers) {
+        return shuffle(numbers, 0, numbers.length - 1);
+    }
+
+    public static int[] shuffle(int[] numbers, int start, int end) {
+        if (start >= end) {
+            return numbers;
+        }
+        int randomIndex = (int) (Math.random() * (end - start + 1) + start);
+        int temp = numbers[start];
+        numbers[start] = numbers[randomIndex];
+        numbers[randomIndex] = temp;
+        shuffle(numbers, start + 1, end);
+        return numbers;
+    }
+}

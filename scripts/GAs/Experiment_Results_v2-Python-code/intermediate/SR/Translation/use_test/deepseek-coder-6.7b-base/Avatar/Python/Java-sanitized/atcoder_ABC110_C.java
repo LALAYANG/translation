@@ -1,0 +1,32 @@
+import java.util.Scanner;
+import java.util.Arrays;
+
+public class atcoder_ABC110_C {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String s = sc.next();
+        String t = sc.next();
+        int[] sCount = new int[26];
+        int[] tCount = new int[26];
+        for (int i = 0; i < s.length(); i++) {
+            sCount[s.charAt(i) - 'a']++;
+        }
+        for (int i = 0; i < t.length(); i++) {
+            tCount[t.charAt(i) - 'a']++;
+        }
+        Arrays.sort(sCount);
+        Arrays.sort(tCount);
+        boolean isSame = true;
+        for (int i = 0; i < 26; i++) {
+            if (sCount[i] != tCount[i]) {
+                isSame = false;
+                break;
+            }
+        }
+        if (isSame) {
+            System.out.println("Yes");
+        } else {
+            System.out.println("No");
+        }
+    }
+}

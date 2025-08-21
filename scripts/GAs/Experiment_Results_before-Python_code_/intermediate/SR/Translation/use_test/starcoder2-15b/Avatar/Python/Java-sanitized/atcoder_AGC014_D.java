@@ -1,0 +1,65 @@
+import java.io.*;
+import java.util.*;
+
+public class atcoder_AGC014_D {
+    static int N;
+    static int[] par;
+    static int[] child_num;
+    static boolean[] seen;
+    static ArrayList<Integer>[] adj;
+    static Queue<Integer> que;
+    static Queue<Integer> seq;
+
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        N = Integer.parseInt(br.readLine());
+        adj = new ArrayList[N + 1];
+        for (int i = 0; i <= N; i++) {
+            adj[i] = new ArrayList<>();
+        }
+        for (int i = 0; i < N - 1; i++) {
+            StringTokenizer st = new StringTokenizer(br.readLine());
+            int a = Integer.parseInt(st.nextToken());
+            int b = Integer.parseInt(st.nextToken());
+            adj[a].add(b);
+            adj[b].add(a);
+        }
+        que = new LinkedList<>();
+        que.add(1);
+        seen = new boolean[N + 1];
+        seen[1] = true;
+        par = new int[N + 1];
+        child_num = new int[N + 1];
+        while (!que.isEmpty()) {
+            int v = que.poll();
+            for (int u : adj[v]) {
+                if (!seen[u]) {
+                    seen[u] = true;
+                    par[u] = v;
+                    child_num[v]++;
+                    que.add(u);
+                }
+            }
+        }
+        seq = new LinkedList<>();
+        for (int i = 1; i <= N; i++) {
+            if (child_num[i] == 0) {
+                seq.add(i);
+            }
+        }
+        while (!seq.isEmpty()) {
+            int c = seq.poll();
+            seen[c] = false;
+            if (!seen[par[c]]) {
+                System.out.println("First");
+                return;
+            }
+            seen[par[c]] = false;
+            child_num[par[par[c]]]--;
+            if (child_num[par[par[c]]] == 0) {
+                seq.add(par[par[c]]);
+            }
+        }
+        System.out.println("Second");
+    }
+}

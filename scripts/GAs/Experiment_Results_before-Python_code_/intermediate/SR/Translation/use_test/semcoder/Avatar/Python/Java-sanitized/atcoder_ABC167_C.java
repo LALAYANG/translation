@@ -1,0 +1,21 @@
+import java.util.Scanner;
+
+public class atcoder_ABC167_C {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int m = sc.nextInt();
+        int x = sc.nextInt();
+
+        int[][] c = new int[n][m];
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < m; j++) {
+                c[i][j] = sc.nextInt();
+            }
+        }
+
+        // Implement the logic here to find the minimum cost
+
+        sc.close();
+    }
+}

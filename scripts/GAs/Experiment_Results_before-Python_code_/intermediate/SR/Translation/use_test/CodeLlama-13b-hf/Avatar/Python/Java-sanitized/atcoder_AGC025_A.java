@@ -1,0 +1,19 @@
+import java.util.Scanner;
+
+public class atcoder_AGC025_A {
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int[] a = {10, 100, 1000, 10000, 100000};
+        int new_ = 0;
+        for (int i = 0; i < n.length(); i++) {
+            new_ += Integer.parseInt(n.charAt(i));
+        }
+        if (a.contains(n)) {
+            System.out.println(10);
+        } else {
+            System.out.println(new_);
+        }
+    }
+}

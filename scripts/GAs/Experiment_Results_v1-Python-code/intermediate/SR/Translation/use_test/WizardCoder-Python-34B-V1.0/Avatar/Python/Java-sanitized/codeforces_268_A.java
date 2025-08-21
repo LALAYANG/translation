@@ -1,0 +1,27 @@
+import java.util.Scanner;
+
+public class codeforces_268_A {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int n = scanner.nextInt();
+        int[][] matrix = new int[n][2];
+        int common_count = 0;
+
+        for (int i = 0; i < n; i++) {
+            matrix[i][0] = scanner.nextInt();
+            matrix[i][1] = scanner.nextInt();
+        }
+
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                if (i != j) {
+                    if (matrix[i][1] == matrix[j][0]) {
+                        common_count++;
+                    }
+                }
+            }
+        }
+
+        System.out.println(common_count);
+    }
+}

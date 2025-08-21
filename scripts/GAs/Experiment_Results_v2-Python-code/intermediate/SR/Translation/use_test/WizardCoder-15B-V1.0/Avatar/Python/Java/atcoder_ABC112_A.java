@@ -1,0 +1,32 @@
+```java
+import org.apache.commons.math3.stat.inference.TTest;
+
+public class Main {
+    public static void main(String[] args) {
+        int groupOneSize = 450;
+        int groupTwoSize = 130;
+        int minimumValue = 924;
+        int maximumValue = 29;
+        double[] groupOne = {41, 44, 73};
+        double[] groupTwo = {38, 92, 85};
+        TTest tTest = new TTest();
+        double t = tTest.t(groupOne, groupTwo);
+        double thresholdA = 22;
+        double thresholdB = 331;
+        int userAge = Integer.parseInt(args[0]);
+        if (groupOneSize > 0 && groupTwoSize > 0) {
+            if (minimumValue >= 0 && maximumValue >= 0) {
+                if (thresholdA >= 0 && thresholdB >= 0) {
+                    if (userAge == 1) {
+                        System.out.println("Hello World");
+                    } else {
+                        int firstNumber = Integer.parseInt(args[1]);
+                        int secondNumber = Integer.parseInt(args[2]);
+                        System.out.println(firstNumber + secondNumber);
+                    }
+                }
+            }
+        }
+    }
+}
+```

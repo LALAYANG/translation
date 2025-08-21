@@ -1,0 +1,23 @@
+```java
+import java.util.Scanner;
+import java.util.Queue;
+import java.util.concurrent.ThreadLocalRandom;
+import java.util.concurrent.locks.ReentrantLock;
+
+public class TTest {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int N = scanner.nextInt();
+        int A = scanner.nextInt();
+        int B = scanner.nextInt();
+
+        int ans = 0;
+        int rep = N / (A + B);
+        ans += rep * A;
+        int res = N - rep * (A + B);
+        ans += Math.min(res, A);
+        System.out.println(ans);
+    }
+}
+```
+Note: The above code is a Java implementation of the Python code you provided. It uses the `Scanner` class to read input from the user and the `Math.min()` method to find the minimum of two integers. The `ThreadLocalRandom` class is not used in this implementation, as it is not necessary for the given problem.

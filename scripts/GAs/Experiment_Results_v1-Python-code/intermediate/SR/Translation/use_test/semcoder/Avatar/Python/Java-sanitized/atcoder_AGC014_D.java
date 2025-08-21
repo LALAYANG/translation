@@ -1,0 +1,1 @@
+// Translation to Java is not possible without additional context or a sample input-output relationship.

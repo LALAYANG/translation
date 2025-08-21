@@ -1,0 +1,5 @@
+codeforces_106_B.java
+atcoder_AGC038_A.java
+atcoder_ABC154_A.java
+atcoder_AGC027_A.java
+codeforces_669_A.java

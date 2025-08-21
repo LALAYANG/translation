@@ -1,0 +1,4664 @@
++ model=deepseek-ai/deepseek-coder-6.7b-base
++ dataset=Avatar
++ cache=tmp
++ src=Python
++ tgt=Java
++ python3 translate.py --model deepseek-ai/deepseek-coder-6.7b-base --dataset Avatar --source_lang Python --target_lang Java --cache_dir tmp --use_test
+INFO 08-21 10:36:14 [__init__.py:241] Automatically detected platform cuda.
+found 250 inputs
+INFO 08-21 10:36:15 [utils.py:326] non-default args: {'model': 'deepseek-ai/deepseek-coder-6.7b-base', 'trust_remote_code': True, 'dtype': 'bfloat16', 'max_model_len': 4096, 'tensor_parallel_size': 2, 'disable_log_stats': True}
+The argument `trust_remote_code` is to be used with Auto classes. It has no effect here and is ignored.
+INFO 08-21 10:36:22 [__init__.py:711] Resolved architecture: LlamaForCausalLM
+INFO 08-21 10:36:22 [__init__.py:1750] Using max model len 4096
+INFO 08-21 10:36:23 [scheduler.py:222] Chunked prefill is enabled with max_num_batched_tokens=16384.
+[1;36m(EngineCore_0 pid=1001363)[0;0m INFO 08-21 10:36:23 [core.py:636] Waiting for init message from front-end.
+[1;36m(EngineCore_0 pid=1001363)[0;0m INFO 08-21 10:36:23 [core.py:74] Initializing a V1 LLM engine (v0.10.1.1) with config: model='deepseek-ai/deepseek-coder-6.7b-base', speculative_config=None, tokenizer='deepseek-ai/deepseek-coder-6.7b-base', skip_tokenizer_init=False, tokenizer_mode=auto, revision=None, override_neuron_config={}, tokenizer_revision=None, trust_remote_code=True, dtype=torch.bfloat16, max_seq_len=4096, download_dir=None, load_format=auto, tensor_parallel_size=2, pipeline_parallel_size=1, disable_custom_all_reduce=False, quantization=None, enforce_eager=False, kv_cache_dtype=auto, device_config=cuda, decoding_config=DecodingConfig(backend='auto', disable_fallback=False, disable_any_whitespace=False, disable_additional_properties=False, reasoning_backend=''), observability_config=ObservabilityConfig(show_hidden_metrics_for_version=None, otlp_traces_endpoint=None, collect_detailed_traces=None), seed=0, served_model_name=deepseek-ai/deepseek-coder-6.7b-base, enable_prefix_caching=True, chunked_prefill_enabled=True, use_async_output_proc=True, pooler_config=None, compilation_config={"level":3,"debug_dump_path":"","cache_dir":"","backend":"","custom_ops":[],"splitting_ops":["vllm.unified_attention","vllm.unified_attention_with_output","vllm.mamba_mixer2"],"use_inductor":true,"compile_sizes":[],"inductor_compile_config":{"enable_auto_functionalized_v2":false},"inductor_passes":{},"cudagraph_mode":1,"use_cudagraph":true,"cudagraph_num_of_warmups":1,"cudagraph_capture_sizes":[512,504,496,488,480,472,464,456,448,440,432,424,416,408,400,392,384,376,368,360,352,344,336,328,320,312,304,296,288,280,272,264,256,248,240,232,224,216,208,200,192,184,176,168,160,152,144,136,128,120,112,104,96,88,80,72,64,56,48,40,32,24,16,8,4,2,1],"cudagraph_copy_inputs":false,"full_cuda_graph":false,"pass_config":{},"max_capture_size":512,"local_cache_dir":null}
+[1;36m(EngineCore_0 pid=1001363)[0;0m WARNING 08-21 10:36:23 [multiproc_worker_utils.py:273] Reducing Torch parallelism from 26 threads to 1 to avoid unnecessary CPU contention. Set OMP_NUM_THREADS in the external environment to tune this value as needed.
+[1;36m(EngineCore_0 pid=1001363)[0;0m INFO 08-21 10:36:23 [shm_broadcast.py:289] vLLM message queue communication handle: Handle(local_reader_ranks=[0, 1], buffer_handle=(2, 16777216, 10, 'psm_b31cad5f'), local_subscribe_addr='ipc:///tmp/f3003521-98c0-480a-be1b-4acf5194d6ce', remote_subscribe_addr=None, remote_addr_ipv6=False)
+[1;36m(EngineCore_0 pid=1001363)[0;0m [1;36m(VllmWorker TP0 pid=1001369)[0;0m INFO 08-21 10:36:26 [shm_broadcast.py:289] vLLM message queue communication handle: Handle(local_reader_ranks=[0], buffer_handle=(1, 10485760, 10, 'psm_cd2fdece'), local_subscribe_addr='ipc:///tmp/fee377b0-277b-4b5d-95c2-ac6a2076a5ef', remote_subscribe_addr=None, remote_addr_ipv6=False)
+[1;36m(EngineCore_0 pid=1001363)[0;0m [1;36m(VllmWorker TP1 pid=1001371)[0;0m INFO 08-21 10:36:26 [shm_broadcast.py:289] vLLM message queue communication handle: Handle(local_reader_ranks=[0], buffer_handle=(1, 10485760, 10, 'psm_e1c78d57'), local_subscribe_addr='ipc:///tmp/7f3a5abd-3e21-4fde-9752-c27e3d4463c1', remote_subscribe_addr=None, remote_addr_ipv6=False)
+[1;36m(EngineCore_0 pid=1001363)[0;0m [1;36m(VllmWorker TP1 pid=1001371)[0;0m INFO 08-21 10:36:26 [__init__.py:1418] Found nccl from library libnccl.so.2
+[1;36m(EngineCore_0 pid=1001363)[0;0m [1;36m(VllmWorker TP0 pid=1001369)[0;0m INFO 08-21 10:36:26 [__init__.py:1418] Found nccl from library libnccl.so.2
+[1;36m(EngineCore_0 pid=1001363)[0;0m [1;36m(VllmWorker TP0 pid=1001369)[0;0m INFO 08-21 10:36:26 [pynccl.py:70] vLLM is using nccl==2.26.2
+[1;36m(EngineCore_0 pid=1001363)[0;0m [1;36m(VllmWorker TP1 pid=1001371)[0;0m INFO 08-21 10:36:26 [pynccl.py:70] vLLM is using nccl==2.26.2
+[1;36m(EngineCore_0 pid=1001363)[0;0m [1;36m(VllmWorker TP0 pid=1001369)[0;0m INFO 08-21 10:36:27 [custom_all_reduce.py:35] Skipping P2P check and trusting the driver's P2P report.
+[1;36m(EngineCore_0 pid=1001363)[0;0m [1;36m(VllmWorker TP1 pid=1001371)[0;0m INFO 08-21 10:36:27 [custom_all_reduce.py:35] Skipping P2P check and trusting the driver's P2P report.
+[1;36m(EngineCore_0 pid=1001363)[0;0m [1;36m(VllmWorker TP0 pid=1001369)[0;0m INFO 08-21 10:36:27 [shm_broadcast.py:289] vLLM message queue communication handle: Handle(local_reader_ranks=[1], buffer_handle=(1, 4194304, 6, 'psm_a22ee75f'), local_subscribe_addr='ipc:///tmp/c6bec110-939d-49c3-8382-acc919e11496', remote_subscribe_addr=None, remote_addr_ipv6=False)
+[1;36m(EngineCore_0 pid=1001363)[0;0m [1;36m(VllmWorker TP0 pid=1001369)[0;0m INFO 08-21 10:36:27 [parallel_state.py:1134] rank 0 in world size 2 is assigned as DP rank 0, PP rank 0, TP rank 0, EP rank 0
+[1;36m(EngineCore_0 pid=1001363)[0;0m [1;36m(VllmWorker TP1 pid=1001371)[0;0m INFO 08-21 10:36:27 [parallel_state.py:1134] rank 1 in world size 2 is assigned as DP rank 0, PP rank 0, TP rank 1, EP rank 1
+[1;36m(EngineCore_0 pid=1001363)[0;0m [1;36m(VllmWorker TP0 pid=1001369)[0;0m WARNING 08-21 10:36:27 [topk_topp_sampler.py:61] FlashInfer is not available. Falling back to the PyTorch-native implementation of top-p & top-k sampling. For the best performance, please install FlashInfer.
+[1;36m(EngineCore_0 pid=1001363)[0;0m [1;36m(VllmWorker TP1 pid=1001371)[0;0m WARNING 08-21 10:36:27 [topk_topp_sampler.py:61] FlashInfer is not available. Falling back to the PyTorch-native implementation of top-p & top-k sampling. For the best performance, please install FlashInfer.
+[1;36m(EngineCore_0 pid=1001363)[0;0m [1;36m(VllmWorker TP1 pid=1001371)[0;0m INFO 08-21 10:36:27 [gpu_model_runner.py:1953] Starting to load model deepseek-ai/deepseek-coder-6.7b-base...
+[1;36m(EngineCore_0 pid=1001363)[0;0m [1;36m(VllmWorker TP0 pid=1001369)[0;0m INFO 08-21 10:36:27 [gpu_model_runner.py:1953] Starting to load model deepseek-ai/deepseek-coder-6.7b-base...
+[1;36m(EngineCore_0 pid=1001363)[0;0m [1;36m(VllmWorker TP1 pid=1001371)[0;0m INFO 08-21 10:36:27 [gpu_model_runner.py:1985] Loading model from scratch...
+[1;36m(EngineCore_0 pid=1001363)[0;0m [1;36m(VllmWorker TP0 pid=1001369)[0;0m INFO 08-21 10:36:27 [gpu_model_runner.py:1985] Loading model from scratch...
+[1;36m(EngineCore_0 pid=1001363)[0;0m [1;36m(VllmWorker TP1 pid=1001371)[0;0m INFO 08-21 10:36:27 [cuda.py:328] Using Flash Attention backend on V1 engine.
+[1;36m(EngineCore_0 pid=1001363)[0;0m [1;36m(VllmWorker TP0 pid=1001369)[0;0m INFO 08-21 10:36:27 [cuda.py:328] Using Flash Attention backend on V1 engine.
+[1;36m(EngineCore_0 pid=1001363)[0;0m [1;36m(VllmWorker TP0 pid=1001369)[0;0m INFO 08-21 10:36:28 [weight_utils.py:296] Using model weights format ['*.safetensors']
+[1;36m(EngineCore_0 pid=1001363)[0;0m [1;36m(VllmWorker TP1 pid=1001371)[0;0m INFO 08-21 10:36:28 [weight_utils.py:296] Using model weights format ['*.safetensors']
+[1;36m(EngineCore_0 pid=1001363)[0;0m [1;36m(VllmWorker TP0 pid=1001369)[0;0m Loading safetensors checkpoint shards:   0% Completed | 0/2 [00:00<?, ?it/s]
+[1;36m(EngineCore_0 pid=1001363)[0;0m [1;36m(VllmWorker TP0 pid=1001369)[0;0m Loading safetensors checkpoint shards:  50% Completed | 1/2 [00:00<00:00,  1.69it/s]
+[1;36m(EngineCore_0 pid=1001363)[0;0m [1;36m(VllmWorker TP0 pid=1001369)[0;0m Loading safetensors checkpoint shards: 100% Completed | 2/2 [00:02<00:00,  1.25s/it]
+[1;36m(EngineCore_0 pid=1001363)[0;0m [1;36m(VllmWorker TP0 pid=1001369)[0;0m Loading safetensors checkpoint shards: 100% Completed | 2/2 [00:02<00:00,  1.15s/it]
+[1;36m(EngineCore_0 pid=1001363)[0;0m [1;36m(VllmWorker TP0 pid=1001369)[0;0m 
+[1;36m(EngineCore_0 pid=1001363)[0;0m [1;36m(VllmWorker TP0 pid=1001369)[0;0m INFO 08-21 10:36:30 [default_loader.py:262] Loading weights took 2.46 seconds
+[1;36m(EngineCore_0 pid=1001363)[0;0m [1;36m(VllmWorker TP1 pid=1001371)[0;0m INFO 08-21 10:36:31 [default_loader.py:262] Loading weights took 2.39 seconds
+[1;36m(EngineCore_0 pid=1001363)[0;0m [1;36m(VllmWorker TP0 pid=1001369)[0;0m INFO 08-21 10:36:31 [gpu_model_runner.py:2007] Model loading took 6.3248 GiB and 3.151916 seconds
+[1;36m(EngineCore_0 pid=1001363)[0;0m [1;36m(VllmWorker TP1 pid=1001371)[0;0m INFO 08-21 10:36:31 [gpu_model_runner.py:2007] Model loading took 6.3248 GiB and 3.263566 seconds
+[1;36m(EngineCore_0 pid=1001363)[0;0m [1;36m(VllmWorker TP1 pid=1001371)[0;0m INFO 08-21 10:36:41 [backends.py:548] Using cache directory: /home/ubuntu/.cache/vllm/torch_compile_cache/d977cfa9e2/rank_1_0/backbone for vLLM's torch.compile
+[1;36m(EngineCore_0 pid=1001363)[0;0m [1;36m(VllmWorker TP1 pid=1001371)[0;0m INFO 08-21 10:36:41 [backends.py:559] Dynamo bytecode transform time: 9.57 s
+[1;36m(EngineCore_0 pid=1001363)[0;0m [1;36m(VllmWorker TP0 pid=1001369)[0;0m INFO 08-21 10:36:41 [backends.py:548] Using cache directory: /home/ubuntu/.cache/vllm/torch_compile_cache/d977cfa9e2/rank_0_0/backbone for vLLM's torch.compile
+[1;36m(EngineCore_0 pid=1001363)[0;0m [1;36m(VllmWorker TP0 pid=1001369)[0;0m INFO 08-21 10:36:41 [backends.py:559] Dynamo bytecode transform time: 9.62 s
+[1;36m(EngineCore_0 pid=1001363)[0;0m [1;36m(VllmWorker TP1 pid=1001371)[0;0m INFO 08-21 10:36:48 [backends.py:161] Directly load the compiled graph(s) for dynamic shape from the cache, took 6.085 s
+[1;36m(EngineCore_0 pid=1001363)[0;0m [1;36m(VllmWorker TP0 pid=1001369)[0;0m INFO 08-21 10:36:48 [backends.py:161] Directly load the compiled graph(s) for dynamic shape from the cache, took 6.639 s
+[1;36m(EngineCore_0 pid=1001363)[0;0m [1;36m(VllmWorker TP1 pid=1001371)[0;0m INFO 08-21 10:36:50 [monitor.py:34] torch.compile takes 9.57 s in total
+[1;36m(EngineCore_0 pid=1001363)[0;0m [1;36m(VllmWorker TP0 pid=1001369)[0;0m INFO 08-21 10:36:50 [monitor.py:34] torch.compile takes 9.62 s in total
+[1;36m(EngineCore_0 pid=1001363)[0;0m [1;36m(VllmWorker TP0 pid=1001369)[0;0m INFO 08-21 10:36:51 [gpu_worker.py:276] Available KV cache memory: 62.03 GiB
+[1;36m(EngineCore_0 pid=1001363)[0;0m [1;36m(VllmWorker TP1 pid=1001371)[0;0m INFO 08-21 10:36:51 [gpu_worker.py:276] Available KV cache memory: 62.03 GiB
+[1;36m(EngineCore_0 pid=1001363)[0;0m INFO 08-21 10:36:51 [kv_cache_utils.py:849] GPU KV cache size: 254,080 tokens
+[1;36m(EngineCore_0 pid=1001363)[0;0m INFO 08-21 10:36:51 [kv_cache_utils.py:853] Maximum concurrency for 4,096 tokens per request: 62.03x
+[1;36m(EngineCore_0 pid=1001363)[0;0m INFO 08-21 10:36:51 [kv_cache_utils.py:849] GPU KV cache size: 254,080 tokens
+[1;36m(EngineCore_0 pid=1001363)[0;0m INFO 08-21 10:36:51 [kv_cache_utils.py:853] Maximum concurrency for 4,096 tokens per request: 62.03x
+[1;36m(EngineCore_0 pid=1001363)[0;0m [1;36m(VllmWorker TP0 pid=1001369)[0;0m Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):   0%|          | 0/67 [00:00<?, ?it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):   3%|▎         | 2/67 [00:00<00:03, 18.79it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):   7%|▋         | 5/67 [00:00<00:02, 21.15it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  12%|█▏        | 8/67 [00:00<00:02, 22.00it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  16%|█▋        | 11/67 [00:00<00:02, 21.48it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  21%|██        | 14/67 [00:00<00:02, 20.84it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  25%|██▌       | 17/67 [00:00<00:02, 20.94it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  30%|██▉       | 20/67 [00:00<00:02, 21.46it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  34%|███▍      | 23/67 [00:01<00:02, 21.26it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  39%|███▉      | 26/67 [00:01<00:01, 20.91it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  43%|████▎     | 29/67 [00:01<00:01, 20.72it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  48%|████▊     | 32/67 [00:01<00:01, 20.40it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  52%|█████▏    | 35/67 [00:01<00:01, 19.79it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  55%|█████▌    | 37/67 [00:01<00:01, 19.65it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  58%|█████▊    | 39/67 [00:01<00:01, 18.87it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  61%|██████    | 41/67 [00:02<00:01, 18.59it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  64%|██████▍   | 43/67 [00:02<00:01, 18.88it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  67%|██████▋   | 45/67 [00:02<00:01, 18.50it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  70%|███████   | 47/67 [00:02<00:01, 18.35it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  73%|███████▎  | 49/67 [00:02<00:01, 17.89it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  76%|███████▌  | 51/67 [00:02<00:00, 17.48it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  79%|███████▉  | 53/67 [00:02<00:00, 17.05it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  82%|████████▏ | 55/67 [00:02<00:00, 16.82it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  85%|████████▌ | 57/67 [00:02<00:00, 16.78it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  88%|████████▊ | 59/67 [00:03<00:00, 16.86it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  91%|█████████ | 61/67 [00:03<00:00, 17.15it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  94%|█████████▍| 63/67 [00:03<00:00, 16.73it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  97%|█████████▋| 65/67 [00:03<00:00, 17.30it/s][1;36m(EngineCore_0 pid=1001363)[0;0m [1;36m(VllmWorker TP1 pid=1001371)[0;0m INFO 08-21 10:36:55 [custom_all_reduce.py:196] Registering 4355 cuda graph addresses
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE): 100%|██████████| 67/67 [00:03<00:00, 19.03it/s]
+[1;36m(EngineCore_0 pid=1001363)[0;0m [1;36m(VllmWorker TP0 pid=1001369)[0;0m INFO 08-21 10:36:55 [custom_all_reduce.py:196] Registering 4355 cuda graph addresses
+[1;36m(EngineCore_0 pid=1001363)[0;0m [1;36m(VllmWorker TP1 pid=1001371)[0;0m INFO 08-21 10:36:55 [gpu_model_runner.py:2708] Graph capturing finished in 4 secs, took 0.59 GiB
+[1;36m(EngineCore_0 pid=1001363)[0;0m [1;36m(VllmWorker TP0 pid=1001369)[0;0m INFO 08-21 10:36:55 [gpu_model_runner.py:2708] Graph capturing finished in 4 secs, took 0.59 GiB
+[1;36m(EngineCore_0 pid=1001363)[0;0m INFO 08-21 10:36:55 [core.py:214] init engine (profile, create kv cache, warmup model) took 24.06 seconds
+INFO 08-21 10:36:56 [llm.py:298] Supported_tasks: ['generate']
+Translating 250 files...
+  0%|          | 0/250 [00:00<?, ?it/s]100%|██████████| 250/250 [00:00<00:00, 7203.94it/s]
+Adding requests:   0%|          | 0/250 [00:00<?, ?it/s]Adding requests:  16%|█▌        | 39/250 [00:00<00:00, 389.18it/s]Adding requests:  42%|████▏     | 105/250 [00:00<00:00, 540.46it/s]Adding requests:  64%|██████▍   | 160/250 [00:00<00:00, 541.91it/s]Adding requests:  86%|████████▌ | 215/250 [00:00<00:00, 281.40it/s]Adding requests: 100%|██████████| 250/250 [00:00<00:00, 356.76it/s]
+Processed prompts:   0%|          | 0/250 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts:   0%|          | 1/250 [00:00<02:16,  1.82it/s, est. speed input: 1188.30 toks/s, output: 10.92 toks/s]Processed prompts:   2%|▏         | 4/250 [00:02<02:11,  1.88it/s, est. speed input: 737.98 toks/s, output: 46.83 toks/s] Processed prompts:   2%|▏         | 5/250 [00:02<01:58,  2.07it/s, est. speed input: 689.74 toks/s, output: 78.78 toks/s]Processed prompts:   2%|▏         | 6/250 [00:02<01:36,  2.53it/s, est. speed input: 690.98 toks/s, output: 111.79 toks/s]Processed prompts:   3%|▎         | 7/250 [00:02<01:16,  3.19it/s, est. speed input: 714.69 toks/s, output: 145.46 toks/s]Processed prompts:   4%|▍         | 10/250 [00:02<00:38,  6.20it/s, est. speed input: 938.89 toks/s, output: 254.42 toks/s]Processed prompts:   6%|▋         | 16/250 [00:03<00:18, 12.76it/s, est. speed input: 1210.86 toks/s, output: 469.77 toks/s]Processed prompts:   8%|▊         | 19/250 [00:03<00:15, 14.69it/s, est. speed input: 1294.51 toks/s, output: 566.95 toks/s]Processed prompts:   9%|▉         | 23/250 [00:03<00:12, 18.73it/s, est. speed input: 1498.79 toks/s, output: 704.91 toks/s]Processed prompts:  11%|█         | 28/250 [00:03<00:09, 23.35it/s, est. speed input: 1753.44 toks/s, output: 873.21 toks/s]Processed prompts:  12%|█▏        | 31/250 [00:03<00:11, 19.03it/s, est. speed input: 1836.21 toks/s, output: 935.40 toks/s]Processed prompts:  14%|█▍        | 35/250 [00:03<00:09, 21.52it/s, est. speed input: 2002.57 toks/s, output: 1060.25 toks/s]Processed prompts:  15%|█▌        | 38/250 [00:03<00:09, 21.93it/s, est. speed input: 2109.80 toks/s, output: 1146.10 toks/s]Processed prompts:  16%|█▋        | 41/250 [00:04<00:10, 19.65it/s, est. speed input: 2154.77 toks/s, output: 1215.46 toks/s]Processed prompts:  18%|█▊        | 45/250 [00:04<00:09, 22.30it/s, est. speed input: 2273.56 toks/s, output: 1338.93 toks/s]Processed prompts:  20%|█▉        | 49/250 [00:04<00:08, 24.51it/s, est. speed input: 2399.07 toks/s, output: 1461.60 toks/s]Processed prompts:  21%|██        | 52/250 [00:04<00:10, 18.33it/s, est. speed input: 2384.92 toks/s, output: 1498.53 toks/s]Processed prompts:  22%|██▏       | 56/250 [00:04<00:09, 20.45it/s, est. speed input: 2490.34 toks/s, output: 1615.32 toks/s]Processed prompts:  24%|██▎       | 59/250 [00:04<00:09, 21.12it/s, est. speed input: 2736.56 toks/s, output: 1697.00 toks/s]Processed prompts:  25%|██▍       | 62/250 [00:05<00:08, 21.78it/s, est. speed input: 2802.79 toks/s, output: 1779.81 toks/s]Processed prompts:  26%|██▌       | 65/250 [00:05<00:08, 22.29it/s, est. speed input: 2872.85 toks/s, output: 1861.64 toks/s]Processed prompts:  27%|██▋       | 68/250 [00:05<00:08, 20.77it/s, est. speed input: 2921.09 toks/s, output: 1928.10 toks/s]Processed prompts:  29%|██▉       | 72/250 [00:05<00:07, 24.81it/s, est. speed input: 3049.48 toks/s, output: 2059.02 toks/s]Processed prompts:  30%|███       | 75/250 [00:05<00:06, 25.78it/s, est. speed input: 3120.39 toks/s, output: 2147.36 toks/s]Processed prompts:  31%|███       | 78/250 [00:05<00:08, 21.13it/s, est. speed input: 3125.72 toks/s, output: 2195.82 toks/s]Processed prompts:  32%|███▏      | 81/250 [00:05<00:07, 21.90it/s, est. speed input: 3181.96 toks/s, output: 2277.22 toks/s]Processed prompts:  34%|███▎      | 84/250 [00:06<00:07, 21.64it/s, est. speed input: 3225.39 toks/s, output: 2351.03 toks/s]Processed prompts:  35%|███▍      | 87/250 [00:06<00:08, 19.64it/s, est. speed input: 3316.60 toks/s, output: 2408.82 toks/s]Processed prompts:  37%|███▋      | 93/250 [00:06<00:06, 25.21it/s, est. speed input: 3503.07 toks/s, output: 2605.74 toks/s]Processed prompts:  39%|███▉      | 98/250 [00:06<00:05, 28.18it/s, est. speed input: 3621.09 toks/s, output: 2764.23 toks/s]Processed prompts:  41%|████      | 102/250 [00:06<00:06, 24.57it/s, est. speed input: 3663.71 toks/s, output: 2847.68 toks/s]Processed prompts:  42%|████▏     | 105/250 [00:06<00:07, 20.25it/s, est. speed input: 3659.57 toks/s, output: 2883.35 toks/s]Processed prompts:  43%|████▎     | 108/250 [00:07<00:07, 18.27it/s, est. speed input: 3660.74 toks/s, output: 2929.58 toks/s]Processed prompts:  44%|████▍     | 111/250 [00:07<00:07, 19.18it/s, est. speed input: 3709.42 toks/s, output: 3007.77 toks/s]Processed prompts:  46%|████▌     | 114/250 [00:07<00:09, 14.47it/s, est. speed input: 3707.10 toks/s, output: 3004.40 toks/s]Processed prompts:  46%|████▋     | 116/250 [00:08<00:13, 10.17it/s, est. speed input: 3618.25 toks/s, output: 2936.15 toks/s]Processed prompts:  47%|████▋     | 118/250 [00:08<00:16,  7.80it/s, est. speed input: 3514.78 toks/s, output: 2868.42 toks/s]Processed prompts:  48%|████▊     | 121/250 [00:08<00:13,  9.72it/s, est. speed input: 3579.85 toks/s, output: 2953.37 toks/s]Processed prompts:  49%|████▉     | 123/250 [00:09<00:19,  6.49it/s, est. speed input: 3427.55 toks/s, output: 2842.75 toks/s]Processed prompts:  50%|█████     | 125/250 [00:09<00:20,  6.21it/s, est. speed input: 3369.13 toks/s, output: 2826.64 toks/s]Processed prompts:  51%|█████     | 127/250 [00:09<00:17,  7.21it/s, est. speed input: 3425.48 toks/s, output: 2874.45 toks/s]Processed prompts:  52%|█████▏    | 129/250 [00:10<00:17,  6.77it/s, est. speed input: 3370.04 toks/s, output: 2870.52 toks/s]Processed prompts:  52%|█████▏    | 130/250 [00:10<00:21,  5.56it/s, est. speed input: 3307.96 toks/s, output: 2824.27 toks/s]Processed prompts:  53%|█████▎    | 133/250 [00:10<00:14,  8.24it/s, est. speed input: 3472.46 toks/s, output: 2933.71 toks/s]Processed prompts:  54%|█████▍    | 136/250 [00:11<00:14,  7.72it/s, est. speed input: 3488.51 toks/s, output: 2957.58 toks/s]Processed prompts:  55%|█████▌    | 138/250 [00:12<00:27,  4.07it/s, est. speed input: 3255.17 toks/s, output: 2769.95 toks/s]Processed prompts:  56%|█████▌    | 139/250 [00:12<00:29,  3.74it/s, est. speed input: 3200.25 toks/s, output: 2734.06 toks/s]Processed prompts:  56%|█████▌    | 140/250 [00:12<00:28,  3.79it/s, est. speed input: 3164.53 toks/s, output: 2729.34 toks/s]Processed prompts:  56%|█████▋    | 141/250 [00:13<00:32,  3.32it/s, est. speed input: 3117.33 toks/s, output: 2686.71 toks/s]Processed prompts:  57%|█████▋    | 142/250 [00:14<00:45,  2.35it/s, est. speed input: 2991.46 toks/s, output: 2574.96 toks/s]Processed prompts:  57%|█████▋    | 143/250 [00:15<01:05,  1.63it/s, est. speed input: 2790.08 toks/s, output: 2423.76 toks/s]Processed prompts:  58%|█████▊    | 144/250 [00:18<02:25,  1.37s/it, est. speed input: 2317.87 toks/s, output: 2020.19 toks/s]Processed prompts:  58%|█████▊    | 145/250 [01:05<23:55, 13.67s/it, est. speed input: 688.65 toks/s, output: 620.81 toks/s]  Processed prompts:  58%|█████▊    | 146/250 [01:14<21:08, 12.20s/it, est. speed input: 626.79 toks/s, output: 589.58 toks/s]Processed prompts:  59%|█████▉    | 147/250 [01:14<15:23,  8.96s/it, est. speed input: 635.32 toks/s, output: 621.93 toks/s]Processed prompts:  59%|█████▉    | 148/250 [01:16<11:48,  6.95s/it, est. speed input: 633.26 toks/s, output: 644.63 toks/s]Processed prompts:  60%|█████▉    | 149/250 [01:17<08:33,  5.08s/it, est. speed input: 642.65 toks/s, output: 678.55 toks/s]Processed prompts:  60%|██████    | 151/250 [01:21<05:59,  3.63s/it, est. speed input: 639.97 toks/s, output: 720.79 toks/s]Processed prompts:  61%|██████    | 152/250 [01:21<04:31,  2.77s/it, est. speed input: 650.94 toks/s, output: 758.01 toks/s]Processed prompts:  61%|██████    | 153/250 [01:24<04:27,  2.76s/it, est. speed input: 640.44 toks/s, output: 771.47 toks/s]Processed prompts:  62%|██████▏   | 155/250 [01:24<02:38,  1.67s/it, est. speed input: 658.41 toks/s, output: 843.76 toks/s]Processed prompts:  62%|██████▏   | 156/250 [01:24<02:10,  1.39s/it, est. speed input: 665.11 toks/s, output: 877.12 toks/s]Processed prompts:  63%|██████▎   | 157/250 [01:25<01:56,  1.25s/it, est. speed input: 668.52 toks/s, output: 906.50 toks/s]Processed prompts:  63%|██████▎   | 158/250 [01:26<01:33,  1.02s/it, est. speed input: 675.32 toks/s, output: 940.41 toks/s]Processed prompts:  64%|██████▎   | 159/250 [01:26<01:17,  1.18it/s, est. speed input: 681.83 toks/s, output: 973.98 toks/s]Processed prompts:  64%|██████▍   | 160/250 [01:27<01:14,  1.21it/s, est. speed input: 685.06 toks/s, output: 1003.17 toks/s]Processed prompts:  64%|██████▍   | 161/250 [01:27<01:05,  1.35it/s, est. speed input: 689.87 toks/s, output: 1034.76 toks/s]Processed prompts:  65%|██████▍   | 162/250 [01:28<00:59,  1.48it/s, est. speed input: 694.64 toks/s, output: 1066.38 toks/s]Processed prompts:  65%|██████▌   | 163/250 [01:28<00:48,  1.80it/s, est. speed input: 701.19 toks/s, output: 1100.75 toks/s]Processed prompts:  66%|██████▌   | 164/250 [01:29<00:47,  1.81it/s, est. speed input: 705.26 toks/s, output: 1131.46 toks/s]Processed prompts:  66%|██████▌   | 165/250 [01:30<01:11,  1.19it/s, est. speed input: 701.34 toks/s, output: 1149.55 toks/s]Processed prompts:  66%|██████▋   | 166/250 [01:31<01:03,  1.32it/s, est. speed input: 704.78 toks/s, output: 1179.60 toks/s]Processed prompts:  67%|██████▋   | 167/250 [01:31<00:51,  1.62it/s, est. speed input: 710.28 toks/s, output: 1213.04 toks/s]Processed prompts:  67%|██████▋   | 168/250 [01:31<00:40,  2.05it/s, est. speed input: 716.44 toks/s, output: 1247.67 toks/s]Processed prompts:  68%|██████▊   | 169/250 [01:32<00:41,  1.94it/s, est. speed input: 719.34 toks/s, output: 1276.87 toks/s]Processed prompts:  68%|██████▊   | 170/250 [01:32<00:44,  1.79it/s, est. speed input: 721.30 toks/s, output: 1304.74 toks/s]Processed prompts:  68%|██████▊   | 171/250 [01:33<00:39,  2.02it/s, est. speed input: 725.59 toks/s, output: 1336.84 toks/s]Processed prompts:  69%|██████▉   | 172/250 [01:33<00:39,  1.98it/s, est. speed input: 728.28 toks/s, output: 1366.24 toks/s]Processed prompts:  69%|██████▉   | 173/250 [01:34<00:44,  1.73it/s, est. speed input: 728.95 toks/s, output: 1392.16 toks/s]Processed prompts:  70%|███████   | 175/250 [01:35<00:30,  2.44it/s, est. speed input: 738.50 toks/s, output: 1459.41 toks/s]Processed prompts:  70%|███████   | 176/250 [01:35<00:32,  2.27it/s, est. speed input: 740.53 toks/s, output: 1487.98 toks/s]Processed prompts:  71%|███████   | 177/250 [01:35<00:32,  2.27it/s, est. speed input: 743.08 toks/s, output: 1517.78 toks/s]Processed prompts:  71%|███████   | 178/250 [01:36<00:28,  2.52it/s, est. speed input: 746.83 toks/s, output: 1550.09 toks/s]Processed prompts:  72%|███████▏  | 180/250 [01:38<00:44,  1.58it/s, est. speed input: 743.45 toks/s, output: 1593.22 toks/s]Processed prompts:  72%|███████▏  | 181/250 [01:38<00:41,  1.65it/s, est. speed input: 744.33 toks/s, output: 1621.33 toks/s]Processed prompts:  73%|███████▎  | 182/250 [01:39<00:50,  1.34it/s, est. speed input: 740.01 toks/s, output: 1639.07 toks/s]Processed prompts:  73%|███████▎  | 183/250 [01:40<00:44,  1.52it/s, est. speed input: 741.17 toks/s, output: 1668.97 toks/s]Processed prompts:  74%|███████▎  | 184/250 [01:40<00:37,  1.76it/s, est. speed input: 742.81 toks/s, output: 1700.16 toks/s]Processed prompts:  74%|███████▍  | 185/250 [01:40<00:32,  2.03it/s, est. speed input: 744.53 toks/s, output: 1731.79 toks/s]Processed prompts:  74%|███████▍  | 186/250 [01:41<00:24,  2.56it/s, est. speed input: 747.44 toks/s, output: 1766.11 toks/s]Processed prompts:  75%|███████▍  | 187/250 [01:41<00:27,  2.32it/s, est. speed input: 747.16 toks/s, output: 1793.54 toks/s]Processed prompts:  76%|███████▌  | 189/250 [01:41<00:18,  3.27it/s, est. speed input: 752.10 toks/s, output: 1861.35 toks/s]Processed prompts:  76%|███████▋  | 191/250 [01:42<00:13,  4.44it/s, est. speed input: 757.61 toks/s, output: 1930.93 toks/s]Processed prompts:  77%|███████▋  | 192/250 [01:42<00:16,  3.43it/s, est. speed input: 757.17 toks/s, output: 1957.51 toks/s]Processed prompts:  77%|███████▋  | 193/250 [01:42<00:14,  3.89it/s, est. speed input: 759.26 toks/s, output: 1991.36 toks/s]Processed prompts:  78%|███████▊  | 194/250 [01:42<00:12,  4.48it/s, est. speed input: 761.50 toks/s, output: 2025.67 toks/s]Processed prompts:  78%|███████▊  | 196/250 [01:43<00:10,  5.31it/s, est. speed input: 765.53 toks/s, output: 2093.46 toks/s]Processed prompts:  79%|███████▉  | 198/250 [01:43<00:08,  6.23it/s, est. speed input: 769.70 toks/s, output: 2162.25 toks/s]Processed prompts:  80%|███████▉  | 199/250 [01:43<00:08,  6.08it/s, est. speed input: 771.17 toks/s, output: 2195.27 toks/s]Processed prompts:  81%|████████  | 202/250 [01:43<00:05,  8.08it/s, est. speed input: 777.71 toks/s, output: 2300.39 toks/s]Processed prompts:  82%|████████▏ | 204/250 [01:44<00:06,  7.49it/s, est. speed input: 780.61 toks/s, output: 2367.02 toks/s]Processed prompts:  82%|████████▏ | 206/250 [01:44<00:05,  8.53it/s, est. speed input: 784.42 toks/s, output: 2436.93 toks/s]Processed prompts:  84%|████████▎ | 209/250 [01:44<00:04,  9.63it/s, est. speed input: 789.79 toks/s, output: 2541.43 toks/s]Processed prompts:  85%|████████▌ | 213/250 [01:44<00:03, 10.90it/s, est. speed input: 801.95 toks/s, output: 2675.97 toks/s]Processed prompts:  86%|████████▋ | 216/250 [01:45<00:02, 11.39it/s, est. speed input: 806.43 toks/s, output: 2780.61 toks/s]Processed prompts:  88%|████████▊ | 219/250 [01:45<00:02, 10.36it/s, est. speed input: 809.62 toks/s, output: 2882.20 toks/s]Processed prompts:  88%|████████▊ | 221/250 [01:45<00:02, 11.13it/s, est. speed input: 812.12 toks/s, output: 2952.63 toks/s]Processed prompts:  90%|████████▉ | 224/250 [01:45<00:02, 11.57it/s, est. speed input: 818.05 toks/s, output: 3054.40 toks/s]Processed prompts:  90%|█████████ | 226/250 [01:48<00:08,  2.74it/s, est. speed input: 812.28 toks/s, output: 3046.23 toks/s]Processed prompts:  91%|█████████ | 227/250 [01:49<00:11,  2.01it/s, est. speed input: 807.74 toks/s, output: 3043.17 toks/s]Processed prompts:  91%|█████████ | 228/250 [01:50<00:12,  1.83it/s, est. speed input: 807.72 toks/s, output: 3052.79 toks/s]Processed prompts:  92%|█████████▏| 230/250 [01:51<00:10,  1.87it/s, est. speed input: 811.44 toks/s, output: 3087.14 toks/s]Processed prompts:  92%|█████████▏| 231/250 [01:51<00:09,  2.01it/s, est. speed input: 817.75 toks/s, output: 3105.89 toks/s]Processed prompts:  93%|█████████▎| 232/250 [01:51<00:07,  2.36it/s, est. speed input: 823.92 toks/s, output: 3130.98 toks/s]Processed prompts:  93%|█████████▎| 233/250 [01:51<00:06,  2.75it/s, est. speed input: 827.66 toks/s, output: 3157.94 toks/s]Processed prompts:  94%|█████████▎| 234/250 [01:52<00:06,  2.54it/s, est. speed input: 830.33 toks/s, output: 3174.60 toks/s]Processed prompts:  94%|█████████▍| 235/250 [01:52<00:04,  3.01it/s, est. speed input: 832.20 toks/s, output: 3203.26 toks/s]Processed prompts:  94%|█████████▍| 236/250 [01:53<00:04,  2.91it/s, est. speed input: 832.60 toks/s, output: 3225.86 toks/s]Processed prompts:  95%|█████████▍| 237/250 [01:54<00:07,  1.67it/s, est. speed input: 831.65 toks/s, output: 3218.35 toks/s]Processed prompts:  95%|█████████▌| 238/250 [01:54<00:07,  1.68it/s, est. speed input: 830.23 toks/s, output: 3234.55 toks/s]Processed prompts:  96%|█████████▌| 239/250 [01:56<00:08,  1.24it/s, est. speed input: 822.64 toks/s, output: 3230.84 toks/s]Processed prompts:  96%|█████████▋| 241/250 [01:56<00:04,  1.97it/s, est. speed input: 830.39 toks/s, output: 3283.44 toks/s]Processed prompts:  97%|█████████▋| 242/250 [01:57<00:05,  1.57it/s, est. speed input: 825.45 toks/s, output: 3286.83 toks/s]Processed prompts:  97%|█████████▋| 243/250 [01:58<00:04,  1.51it/s, est. speed input: 825.99 toks/s, output: 3295.53 toks/s]Processed prompts:  98%|█████████▊| 244/250 [01:58<00:03,  1.80it/s, est. speed input: 828.87 toks/s, output: 3317.82 toks/s]Processed prompts:  98%|█████████▊| 246/250 [01:59<00:01,  2.09it/s, est. speed input: 829.98 toks/s, output: 3359.03 toks/s]Processed prompts:  99%|█████████▉| 247/250 [01:59<00:01,  2.32it/s, est. speed input: 830.12 toks/s, output: 3383.34 toks/s]Processed prompts:  99%|█████████▉| 248/250 [01:59<00:00,  2.60it/s, est. speed input: 829.99 toks/s, output: 3409.10 toks/s]Processed prompts: 100%|█████████▉| 249/250 [02:00<00:00,  2.90it/s, est. speed input: 831.55 toks/s, output: 3433.30 toks/s]Processed prompts: 100%|██████████| 250/250 [02:00<00:00,  2.90it/s, est. speed input: 833.86 toks/s, output: 3464.68 toks/s]Processed prompts: 100%|██████████| 250/250 [02:00<00:00,  2.08it/s, est. speed input: 833.86 toks/s, output: 3464.68 toks/s]
++ python3 clean_generations_translation.py --model deepseek-ai/deepseek-coder-6.7b-base --dataset Avatar --source_lang Python --target_lang Java --remove_prompt --use_test
+  0%|          | 0/250 [00:00<?, ?it/s]### Time Complexity:
+### Solution:
+
+import java.util.Scanner;
+
+public class codeforces_569_A {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int t = sc.nextInt();
+        int s = sc.nextInt();
+        int q = sc.nextInt();
+        int ans = 0;
+        while (s < t) {
+            s *= q;
+            ans++;
+        }
+        System.out.println(ans);
+    }
+}
+import java.util.Scanner;
+public class atcoder_ABC112_C {
+    public static void main ( String [ ] args ) {
+        Scanner sc = new Scanner ( System.in );
+        int n = sc.nextInt ( );
+        int [ ] [ ] ls_xyh = new int [ n ] [ 3 ];
+        for ( int i = 0 ;
+        i < n ;
+        i ++ ) {
+            ls_xyh [ i ] [ 0 ] = sc.nextInt ( );
+            ls_xyh [ i ] [ 1 ] = sc.nextInt ( );
+            ls_xyh [ i ] [ 2 ] = sc.nextInt ( );
+        }
+        int x0 = - 1 , y0 = - 1 , h0 = - 1;
+        for ( int i = 0 ;
+        i < n ;
+        i ++ ) {
+            if ( ls_xyh [ i ] [ 2 ] > 0 ) {
+                x0 = ls_xyh [ i ] [ 0 ];
+                y0 = ls_xyh [ i ] [ 1 ];
+                h0 = ls_xyh [ i ] [ 2 ];
+                break;
+            }
+        }
+        int [ ] [ ] cands = new int [ 101 ] [ 101 ];
+        for ( int i = 0 ;
+        i < 101 ;
+        i ++ ) {
+            for ( int j = 0 ;
+            j < 101 ;
+            j ++ ) {
+                cands [ i ] [ j ] = Math.max ( h0 + Math.abs ( i - x0 ) + Math.abs ( j - y0 ) , 0 );
+            }
+        }
+        for ( int i = 0 ;
+        i < n ;
+        i ++ ) {
+            int x = ls_xyh [ i ] [ 0 ];
+            int y = ls_xyh [ i ] [ 1 ];
+            int h = ls_xyh [ i ] [ 2 ];
+            for ( int j = 0 ;
+            j < 101 ;
+            j ++ ) {
+                for ( int k = 0 ;
+                k < 101 ;
+                k ++ ) {
+                    if ( cands [ j ] [ k ] != Math.max ( h - Math.abs ( j - x ) - Math.abs ( k - y ) , 0 ) ) {
+                        cands [ j ] [ k ] = - 1;
+                    }
+                }
+            }
+        }
+        int xx = - 1 , yy = - 1 , hh = - 1;
+        for ( int i = 0 ;
+        i < 101 ;
+        i ++ ) {
+            for ( int j = 0 ;
+            j < 101 ;
+            j ++ ) {
+                if ( cands [ i ] [ j ] != - 1 ) {
+                    xx = i;
+                    yy = j;
+                    hh = cands [ i ] [ j ];
+                    break;
+                }
+            }
+        }
+        System.out.println ( xx + " " + yy + " " + hh );
+    }
+}
+import java.util.Scanner;
+
+public class atcoder_ABC104_C {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int D = sc.nextInt();
+        int G = sc.nextInt();
+        int[] p = new int[D];
+        int[] c = new int[D];
+        for (int i = 0; i < D; i++) {
+            p[i] = sc.nextInt();
+            c[i] = sc.nextInt();
+        }
+        int ans = 1000000000;
+        for (int i = 0; i < (1 << D); i++) {
+            int score = 0;
+            int problem = 0;
+            for (int j = 0; j < D; j++) {
+                if ((i >> j) % 2 == 1) {
+                    score += 100 * (j + 1) * p[j] + c[j];
+                    problem += p[j];
+                }
+            }
+            if (score > G) {
+                continue;
+            }
+            int left = G - score;
+            for (int j = 0; j < D; j++) {
+                if ((i >> j) % 2 == 1) {
+                    continue;
+                }
+                if (left > 100 * (j + 1) * p[j] + c[j]) {
+                    continue;
+                }
+                int tmp = (left + 100 * (j + 1) - 1) / (100 * (j + 1));
+                ans = Math.min(ans, problem + Math.min(tmp, p[j]));
+            }
+        }
+        System.out.println(ans);
+    }
+}
+public class codeforces_678_A {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int a = sc.nextInt();
+        int b = sc.nextInt();
+        int c = (a / b) + 1;
+        int d = c * b;
+        System.out.println(d);
+    }
+}
+### C++20 code:
+/
+import java.util.Scanner;
+
+public class atcoder_AGC033_B {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int H = sc.nextInt();
+        int W = sc.nextInt();
+        int N = sc.nextInt();
+        int s_r = sc.nextInt();
+        int s_c = sc.nextInt();
+        String S = sc.next();
+        String T = sc.next();
+        boolean Judge = false;
+        int S_L = 0;
+        int S_R = 0;
+        int S_U = 0;
+        int S_D = 0;
+        int T_L = 0;
+        int T_R = 0;
+        int T_U = 0;
+        int T_D = 0;
+        for (int x = 0; x < N; x++) {
+            if (S.charAt(x) == 'L') {
+                S_L++;
+                if (S_L - T_R - s_c == 0) {
+                    Judge = true;
+                }
+            } else if (S.charAt(x) == 'R') {
+                S_R++;
+                if (s_c + (S_R - T_L) == W + 1) {
+                    Judge = true;
+                }
+            } else if (S.charAt(x) == 'U') {
+                S_U++;
+                if (S_U - T_D - s_r == 0) {
+                    Judge = true;
+                }
+            } else if (S.charAt(x) == 'D') {
+                S_D++;
+                if (s_r + (S_D - T_U) == H + 1) {
+                    Judge = true;
+                }
+            }
+            if (T.charAt(x) == 'L') {
+                if (S_R - T_L + s_c != 1) {
+                    T_L++;
+                }
+            }
+            if (T.charAt(x) == 'R') {
+                if (s_c + (T_R - S_L) != W) {
+                    T_R++;
+                }
+            }
+            if (T.charAt(x) == 'U') {
+                if (S_D - T_U + s_r != 1) {
+                    T_U++;
+                }
+            }
+            if (T.charAt(x) == 'D') {
+                if (s_r + (T_D - S_U) != H) {
+                    T_D++;
+                }
+            }
+        }
+        if (Judge) {
+            System.out.println("NO");
+        } else {
+            System.out.println("YES");
+        }
+    }
+}
+import java.util.Scanner;
+
+public class codeforces_55_A {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        while (n % 2 == 0) {
+            n /= 2;
+        }
+        if (n == 1) {
+            System.out.println("YES");
+        } else {
+            System.out.println("NO");
+        }
+    }
+}
+import java.util.Scanner;
+
+public class atcoder_ABC106_C {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String s = sc.next();
+        int k = sc.nextInt();
+        int l = 0;
+        for (int i = 0; i < s.length(); i++) {
+            if (s.charAt(i) != '1') {
+                break;
+            }
+            l++;
+        }
+        if (l >= k) {
+            System.out.println(1);
+        } else {
+            System.out.println(s.charAt(l));
+        }
+    }
+}
+import java.util.Scanner;
+
+public class codeforces_404_A {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        String[] s = new String[n];
+        for (int i = 0; i < n; i++) {
+            s[i] = sc.next();
+        }
+        int flag = 0;
+        String[] d1 = new String[n];
+        String[] d2 = new String[n];
+        String rem = "";
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                if (i == j) {
+                    d1[i] = s[i].charAt(j) + "";
+                }
+                if (i == n - j - 1) {
+                    d2[i] = s[i].charAt(j) + "";
+                }
+                if (i != j && i != n - j - 1) {
+                    rem += s[i].charAt(j);
+                }
+            }
+        }
+        if (rem.length() != 1) {
+            System.out.println("NO");
+        } else if (!(d1[0].equals(d2[0]))) {
+            System.out.println("NO");
+        } else if (d1[0].length() != 1) {
+            System.out.println("NO");
+        } else if (d1[0].equals(rem)) {
+            System.out.println("NO");
+        } else {
+            System.out.println("YES");
+        }
+    }
+}
+import java.util.*;
+
+public class atcoder_AGC046_B {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int A = sc.nextInt();
+        int B = sc.nextInt();
+        int C = sc.nextInt();
+        int D = sc.nextInt();
+        int m = 998244353;
+        int[][] d = new int[C + 1][D + 1];
+        d[A][B] = 1;
+        for (int i = A; i <= C; i++) {
+            for (int j = B; j <= D; j++) {
+                d[i][j] += (d[i][j - 1] * i + d[i - 1][j] * j - d[i - 1][j - 1] * (i - 1) * (j - 1)) % m;
+            }
+        }
+        System.out.println(d[C][D]);
+    }
+}
+
+
+
+### Pascal code:
+
+
+### Code:
+import java.util.Scanner;
+
+public class atcoder_ABC151_A {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String c = sc.nextLine();
+        char[] a = "abcdefghijklmnopqrstuvwxyz".toCharArray();
+        int i = "abcdefghijklmnopqrstuvwxyz".indexOf(c);
+        System.out.println(a[i + 1]);
+    }
+}
+
+### Explanation:
+import java.util.Scanner;
+
+public class atcoder_ABC118_C {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int[] a = new int[n];
+        for (int i = 0; i < n; i++) {
+            a[i] = sc.nextInt();
+        }
+        int gcd = a[0];
+        for (int i = 1; i < n; i++) {
+            gcd = gcd(gcd, a[i]);
+        }
+        System.out.println(gcd);
+    }
+
+    public static int gcd(int a, int b) {
+        if (b == 0) {
+            return a;
+        }
+        return gcd(b, a % b);
+    }
+}
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+class Main {
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st = new StringTokenizer(br.readLine());
+        long n = Long.parseLong(st.nextToken());
+        int k = Integer.parseInt(st.nextToken());
+        long mod = 1000000007;
+        long[] coef = new long[(int) Math.sqrt(n) + 1];
+        for (int i = 1; i <= Math.sqrt(n); i++) {
+            coef[i] = (n / i) - (n / (i + 1));
+        }
+        for (int i = 1; i <= Math.sqrt(n); i++) {
+            coef[(int) Math.sqrt(n) + 1 - i] = coef[i];
+        }
+        int nn = coef.length;
+        long[][] dp = new long[k + 1][nn];
+        dp[0][0] = 1;
+        for (int i = 1; i <= k; i++) {
+            long tmp = 0;
+            for (int j = nn - 1; j >= 0; j--) {
+                tmp += dp[i - 1][nn - 1 - j];
+                tmp %= mod;
+                dp[i][j] = coef[j] * tmp;
+                dp[i][j] %= mod;
+            }
+        }
+        long ans = 0;
+        for (int i = 0; i < nn; i++) {
+            ans += dp[k][i];
+            ans %= mod;
+        }
+        System.out.println(ans);
+    }
+}
+import java.util.Scanner;
+
+public class codeforces_581_A {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int a = sc.nextInt();
+        int b = sc.nextInt();
+        System.out.println(Math.min(a, b) + " " + (Math.max(a, b) - Math.min(a, b)) / 2);
+    }
+}
+import java.util.Scanner;
+
+public class codeforces_92_A {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int n = scanner.nextInt();
+        int m = scanner.nextInt();
+        int i = 1;
+        while (m >= i) {
+            m -= i;
+            i = (i % n) + 1;
+        }
+        System.out.println(m);
+    }
+}
+import java.util.Scanner;
+
+public class atcoder_ABC170_A {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String[] input = sc.nextLine().split(" ");
+        int[] a = new int[input.length];
+        for (int i = 0; i < input.length; i++) {
+            a[i] = Integer.parseInt(input[i]);
+        }
+        for (int i = 0; i < a.length; i++) {
+            if (a[i] == 0) {
+                System.out.println(i + 1);
+                break;
+            }
+        }
+    }
+}
+import java.util.Scanner;
+
+public class codeforces_653_A {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int[] l = new int[n];
+        for (int i = 0; i < n; i++) {
+            l[i] = sc.nextInt();
+        }
+        for (int i = 0; i < n; i++) {
+            for (int j = i + 1; j < n; j++) {
+                for (int k = j + 1; k < n; k++) {
+                    if (l[i] + 1 == l[j] && l[j] + 1 == l[k]) {
+                        System.out.println("YES");
+                        return;
+                    }
+                }
+            }
+        }
+        System.out.println("NO");
+    }
+}
+public class codeforces_8_B {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String record_of_movements = sc.nextLine();
+        int x = 0, y = 0;
+        HashMap<String, int[]> d_movement = new HashMap<>();
+        d_movement.put("L", new int[]{0, -1});
+        d_movement.put("R", new int[]{0, 1});
+        d_movement.put("U", new int[]{1, 0});
+        d_movement.put("D", new int[]{-1, 0});
+        HashMap<String, String> d = new HashMap<>();
+        d.put(x + "," + y, "");
+        boolean bug = false;
+        for (int i = 0; i < record_of_movements.length(); i++) {
+            String move = record_of_movements.substring(i, i + 1);
+            int[] temp = new int[]{x, y};
+            x += d_movement.get(move)[0];
+            y += d_movement.get(move)[1];
+            if (!d.containsKey(x + "," + y)) {
+                for (String step : d_movement.keySet()) {
+                    if (!Arrays.equals(temp, new int[]{x + d_movement.get(step)[0], y + d_movement.get(step)[1]}) && d.containsKey(x + d_movement.get(step)[0] + "," + y + d_movement.get(step)[1])) {
+                        bug = true;
+                        break;
+                    }
+                }
+            } else {
+                bug = true;
+            }
+            if (bug) {
+                break;
+            }
+            d.put(x + "," + y, "");
+        }
+        if (bug) {
+            System.out.println("BUG");
+        } else {
+            System.out.println("OK");
+        }
+    }
+}
+import java.util.Scanner;
+
+public class codeforces_146_A {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int[] number = new int[n];
+        for (int i = 0; i < n; i++) {
+            number[i] = sc.nextInt();
+        }
+        int h1 = 0;
+        int h2 = 0;
+        int x = 0;
+        for (int i = 0; i < n; i++) {
+            if (number[i] != 4 && number[i] != 7) {
+                System.out.println("NO");
+                x += 1;
+                break;
+            }
+            if (i < n / 2) {
+                h1 += number[i];
+            } else {
+                h2 += number[i];
+            }
+        }
+        if (x == 0) {
+            if (h1 == h2) {
+                System.out.println("YES");
+            } else {
+                System.out.println("NO");
+            }
+        }
+    }
+}
+### Solution:
+import java.util.Scanner;
+
+public class codeforces_518_B {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String s = sc.nextLine();
+        String t = sc.nextLine();
+        int[] freqs = new int[26];
+        int[] freqt = new int[26];
+        int yay = 0, whoops = 0;
+        for (int i = 0; i < s.length(); i++) {
+            freqs[s.charAt(i) - 'a']++;
+        }
+        for (int i = 0; i < t.length(); i++) {
+            freqt[t.charAt(i) - 'a']++;
+        }
+        for (int i = 0; i < 26; i++) {
+            while (freqs[i] > 0 && freqt[i] > 0) {
+                yay++;
+                freqs[i]--;
+                freqt[i]--;
+            }
+        }
+        for (int i = 0; i < 26; i++) {
+            while (freqs[i] > 0) {
+                if (Character.isLowerCase((char) (i + 'a')) && freqt[Character.toUpperCase((char) (i + 'a'))] > 0) {
+                    whoops++;
+                    freqs[i]--;
+                    freqt[Character.toUpperCase((char) (i + 'a'))]--;
+                } else if (Character.isUpperCase((char) (i + 'a')) && freqt[Character.toLowerCase((char) (i + 'a'))] > 0) {
+                    whoops++;
+                    freqs[i]--;
+                    freqt[Character.toLowerCase((char) (i + 'a'))]--;
+                } else {
+                    break;
+                }
+            }
+        }
+        System.out.println(yay + " " + whoops);
+    }
+}
+import java.util.Scanner;
+
+public class codeforces_421_A {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int a = sc.nextInt();
+        int b = sc.nextInt();
+        int[] lista = new int[a];
+        int[] listb = new int[b];
+        for (int i = 0; i < a; i++) {
+            lista[i] = sc.nextInt();
+        }
+        for (int i = 0; i < b; i++) {
+            listb[i] = sc.nextInt();
+        }
+        for (int k = 0; k < n; k++) {
+            if (k + 1 == lista[k]) {
+                System.out.print(1 + " ");
+            } else {
+                System.out.print(2 + " ");
+            }
+        }
+    }
+}
+import java.util.Scanner;
+
+public class codeforces_340_A {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int x = sc.nextInt();
+        int y = sc.nextInt();
+        int a = sc.nextInt();
+        int b = sc.nextInt();
+        int lcm = lcm(x, y);
+        int ans = b / lcm - (a - 1) / lcm;
+        System.out.println(ans);
+    }
+
+    public static int gcd(int a, int b) {
+        if (b == 0) {
+            return a;
+        }
+        return gcd(b, a % b);
+    }
+
+    public static int lcm(int a, int b) {
+        return a * b / gcd(a, b);
+    }
+}
+
+import java.util.Scanner;
+
+public class codeforces_534_B {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int v1 = sc.nextInt();
+        int v2 = sc.nextInt();
+        int t = sc.nextInt();
+        int d = sc.nextInt();
+        int a = 1;
+        int v = v1;
+        int distance = 0;
+        for (int i = 0; i < t; i++) {
+            if (v - v2 > (t - i - 1) * d) {
+                a *= -1;
+                v = (t - i - 1) * d + v2;
+            }
+            distance += v;
+            v += a * d;
+        }
+        System.out.println(distance);
+    }
+}
+import java.util.Scanner;
+
+public class codeforces_672_A {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int[] li = new int[371];
+        int ind = 0;
+        for (int i = 1; i < 371; i++) {
+            int[] temp = new int[371];
+            int p = i, q = i;
+            int count = 0;
+            while (p != 0) {
+                p /= 10;
+                count++;
+            }
+            if (count == 1) {
+                li[ind] = i;
+                ind++;
+            }
+            if (count == 2) {
+                int j = 0;
+                while (q != 0) {
+                    int x = q % 10;
+                    q /= 10;
+                    temp[j] = x;
+                    j++;
+                }
+                for (int k = 0; k < j; k++) {
+                    li[ind] = temp[k];
+                    ind++;
+                }
+            }
+            if (count == 3) {
+                int j = 0;
+                while (q != 0) {
+                    int x = q % 10;
+                    q /= 10;
+                    temp[j] = x;
+                    j++;
+                }
+                for (int k = 0; k < j; k++) {
+                    li[ind] = temp[k];
+                    ind++;
+                }
+            }
+        }
+        li[ind - 1] = 0;
+        li[ind - 2] = 0;
+        System.out.println(li[n - 1]);
+    }
+}
+public class codeforces_148_B {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int princess = sc.nextInt();
+        int dragon = sc.nextInt();
+        int t = sc.nextInt();
+        int f = sc.nextInt();
+        int c = sc.nextInt();
+        if (dragon <= princess) {
+            System.out.println(0);
+            return;
+        }
+        int result = 0;
+        int position = t * princess;
+        position += princess * position / (dragon - princess);
+        while (position < c) {
+            result++;
+            position += princess * position / dragon;
+            position += princess * f;
+            position += princess * position / (dragon - princess);
+        }
+        System.out.println(result);
+    }
+}
+import java.util.Scanner;
+
+public class codeforces_59_A {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String txt = sc.nextLine();
+        int cu = 0;
+        int cl = 0;
+        for (int i = 0; i < txt.length(); i++) {
+            if (Character.isLowerCase(txt.charAt(i))) {
+                cl++;
+            } else {
+                cu++;
+            }
+        }
+        if (cu > cl) {
+            System.out.println(txt.toUpperCase());
+        } else {
+            System.out.println(txt.toLowerCase());
+        }
+    }
+}
+import java.util.Scanner;
+
+public class codeforces_474_B {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int[] arr = new int[n];
+        int r = 1;
+        for (int i = 0; i < n; i++) {
+            int k = sc.nextInt();
+            for (int j = 0; j < k; j++) {
+                arr[r - 1] = r;
+                r++;
+            }
+        }
+        int m = sc.nextInt();
+        for (int i = 0; i < m; i++) {
+            int j = sc.nextInt();
+            System.out.println(arr[j - 1]);
+        }
+    }
+}
+
+### Code:
+public class atcoder_ABC112_A {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int age = sc.nextInt();
+        if (age == 1) {
+            System.out.println("Hello World");
+        } else {
+            int a = sc.nextInt();
+            int b = sc.nextInt();
+            System.out.println(a + b);
+        }
+    }
+}
+import java.util.Scanner;
+
+public class codeforces_265_B {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int[] l = new int[n];
+        for (int i = 0; i < n; i++) {
+            l[i] = sc.nextInt();
+        }
+        int ans = n - 1;
+        int last = 0;
+        for (int i : l) {
+            ans += Math.abs(last - i) + 1;
+            last = i;
+        }
+        System.out.println(ans);
+    }
+}
+
+import java.util.*;
+
+public class codeforces_356_A {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int m = sc.nextInt();
+        int[] out = new int[n];
+        int[] comp = new int[n];
+        for (int i = 0; i < n; i++) {
+            comp[i] = i + 2;
+        }
+        for (int i = 0; i < m; i++) {
+            int l = sc.nextInt();
+            int r = sc.nextInt();
+            int x = sc.nextInt();
+            int t = l;
+            while (t <= r) {
+                int next_val = comp[t - 1];
+                if (out[t - 1] == 0 && t != x) {
+                    out[t - 1] = x;
+                }
+                comp[t - 1] = r + 1;
+                t = next_val;
+            }
+        }
+        for (int i = 0; i < n; i++) {
+            System.out.print(out[i] + " ");
+        }
+    }
+}
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+class Main {
+	public static void main (String[] args) throws java.lang.Exception {
+		Scanner sc = new Scanner(System.in);
+		int tc = sc.nextInt();
+		while(tc-->0){
+		    int a = sc.nextInt();
+		    if(a==0)
+		        System.out.println(1);
+		    else
+		        System.out.println(0);
+		}
+	}
+}
+import java.util.Scanner;
+public class atcoder_ABC158_B {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        long N = sc.nextLong();
+        long A = sc.nextLong();
+        long B = sc.nextLong();
+        long ans = 0;
+        long rep = N / (A + B);
+        ans += rep * A;
+        long res = N - rep * (A + B);
+        ans += Math.min(res, A);
+        System.out.println(ans);
+    }
+}
+import java.util.Scanner;
+
+public class codeforces_296_A {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int n = scanner.nextInt();
+        String[] m = scanner.nextLine().split(" ");
+        boolean possible = true;
+        for (String i : m) {
+            if (m.length >= n / 2 + 1) {
+                possible = false;
+                break;
+            }
+        }
+        System.out.println(possible ? "YES" : "NO");
+    }
+}
+
+
+import java.util.Scanner;
+
+public class codeforces_387_A {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String[] time1 = sc.nextLine().split(":");
+        String[] time2 = sc.nextLine().split(":");
+        int h1 = Integer.parseInt(time1[0]);
+        int m1 = Integer.parseInt(time1[1]);
+        int h2 = Integer.parseInt(time2[0]);
+        int m2 = Integer.parseInt(time2[1]);
+        int m1_total = h1 * 60 + m1;
+        int m2_total = h2 * 60 + m2;
+        int diff = m1_total - m2_total;
+        if (diff < 0) {
+            diff += 1440;
+        }
+        int h = diff / 60;
+        int m = diff % 60;
+        System.out.printf("%02d:%02d", h, m);
+    }
+}
+import java.util.Scanner;
+
+public class codeforces_665_A {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int a = sc.nextInt();
+        int b = sc.nextInt();
+        int at = sc.nextInt();
+        int bt = sc.nextInt();
+        int t1 = sc.nextInt();
+        int t2 = sc.nextInt();
+        int st = t2 + (t1 - 5) * 60;
+        int fin = st + at;
+        int now = 0;
+        int ans = 0;
+        while (now < fin && now < 1140) {
+            if (now + bt > st) {
+                ans++;
+            }
+            now += b;
+        }
+        System.out.println(ans);
+    }
+}
+import java.util.Scanner;
+
+public class codeforces_154_A {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String s = sc.nextLine();
+        int n = sc.nextInt();
+        int ans = 0;
+        for (int i = 0; i < n; i++) {
+            String x = sc.next();
+            int a = 0, b = 0;
+            for (int j = 0; j < s.length(); j++) {
+                if (s.charAt(j) == x.charAt(0)) {
+                    a++;
+                } else if (s.charAt(j) == x.charAt(1)) {
+                    b++;
+                } else {
+                    ans += Math.min(a, b);
+                    a = 0;
+                    b = 0;
+                }
+            }
+            ans += Math.min(a, b);
+        }
+        System.out.println(ans);
+    }
+}
+import java.util.Scanner;
+
+public class codeforces_23_B {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        for (int i = 0; i < n; i++) {
+            int a = sc.nextInt();
+            if (a < 2) {
+                System.out.println(0);
+            } else {
+                System.out.println(a - 2);
+            }
+        }
+    }
+}
+import java.util.Scanner;
+import java.util.HashSet;
+import java.util.Set;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Arrays;
+import java.util.stream.Collectors;
+
+public class atcoder_ABC150_D {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int n = scanner.nextInt();
+        int[] nums = new int[n];
+        for (int i = 0; i < n; i++) {
+            nums[i] = scanner.nextInt();
+        }
+        Set<Integer> twoTimesSet = new HashSet<>();
+        for (int num : nums) {
+            for (int i = 1; i <= 30; i++) {
+                num /= 2;
+                if (num % 2 != 0) {
+                    twoTimesSet.add(i);
+                    break;
+                }
+            }
+            if (twoTimesSet.size() != 1) {
+                System.out.println(0);
+                return;
+            }
+        }
+        List<Integer> numList = Arrays.stream(nums).boxed().collect(Collectors.toList());
+        int lcm = numList.get(0);
+        for (int i = 1; i < numList.size(); i++) {
+            lcm = lcm * numList.get(i) / gcd(lcm, numList.get(i));
+        }
+        System.out.println((n - lcm / 2) / lcm + 1);
+    }
+
+    private static int gcd(int a, int b) {
+        if (b == 0) {
+            return a;
+        }
+        return gcd(b, a % b);
+    }
+}
+
+import java.util.Scanner;
+
+public class atcoder_ABC149_B {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int a = sc.nextInt();
+        int b = sc.nextInt();
+        int c = sc.nextInt();
+        int leftOver = a - c;
+        int takahashi = Math.max(0, leftOver);
+        System.out.println(takahashi + " " + (takahashi > 0 ? b : Math.max(0, b - Math.abs(leftOver))));
+    }
+}
+
+public class codeforces_583_B {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int n = scanner.nextInt();
+        int[] a = new int[n];
+        for (int i = 0; i < n; i++) {
+            a[i] = scanner.nextInt();
+        }
+        int currentLevel = 0;
+        int counter = 0;
+        int counterTurns = -1;
+        while (counter < n) {
+            counterTurns++;
+            for (int i = 0; i < n; i++) {
+                if (a[i] != -1 && a[i] <= counter) {
+                    counter++;
+                    a[i] = -1;
+                }
+            }
+            for (int i = 0; i < n / 2; i++) {
+                int temp = a[i];
+                a[i] = a[n - i - 1];
+                a[n - i - 1] = temp;
+            }
+        }
+        System.out.println(counterTurns);
+    }
+}
+import java.util.Scanner;
+
+public class codeforces_607_A {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int[] l = new int[1000010];
+        int[] dp = new int[1000010];
+        for (int i = 0; i < n; i++) {
+            int a = sc.nextInt();
+            int b = sc.nextInt();
+            l[a] = b;
+        }
+        if (l[0] > 0) {
+            dp[0] = 1;
+        }
+        int mx = 0;
+        for (int i = 1; i < 1000010; i++) {
+            if (l[i] == 0) {
+                dp[i] = dp[i - 1];
+            } else {
+                if (l[i] >= i) {
+                    dp[i] = 1;
+                } else {
+                    dp[i] = dp[i - l[i] - 1] + 1;
+                }
+            }
+            if (dp[i] > mx) {
+                mx = dp[i];
+            }
+        }
+        System.out.println(n - mx);
+    }
+}
+
+import java.util.Scanner;
+
+public class codeforces_190_A {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int n = scanner.nextInt();
+        int m = scanner.nextInt();
+        if (n < 1) {
+            if (m < 1) {
+                System.out.println(n + " " + m);
+                System.exit(0);
+            }
+            System.out.println("Impossible");
+            System.exit(0);
+        }
+        if (m > n) {
+            int min = m;
+            int max = n + m - 1;
+            System.out.println(min + " " + max);
+        }
+        if (m <= n) {
+            int min = n;
+            int max = n + m - 1;
+            if (m == 0) {
+                max = n;
+            }
+            System.out.println(min + " " + max);
+        }
+    }
+}
+
+import java.util.Scanner;
+import java.util.PriorityQueue;
+
+public class atcoder_ABC137_D {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int m = sc.nextInt();
+        PriorityQueue<Integer> pq = new PriorityQueue<>((a, b) -> b - a);
+        for (int i = 0; i < n; i++) {
+            int day = sc.nextInt();
+            int salary = sc.nextInt();
+            pq.add(-day);
+            pq.add(-salary);
+        }
+        int sum = 0;
+        while (m > 0) {
+            int day = -pq.poll();
+            int salary = -pq.poll();
+            sum += salary;
+            m--;
+        }
+        System.out.println(sum);
+    }
+}
+### References:
+
+
+
+import java.util.Scanner;
+
+public class atcoder_ABC070_B {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int a = sc.nextInt();
+        int b = sc.nextInt();
+        int c = sc.nextInt();
+        int d = sc.nextInt();
+        if (b <= c || d <= a) {
+            System.out.println(0);
+        } else {
+            int[] arr = {a, b, c, d};
+            int min = arr[0];
+            for (int i = 1; i < arr.length; i++) {
+                if (arr[i] < min) {
+                    min = arr[i];
+                }
+            }
+            System.out.println(min);
+        }
+    }
+}
+import java.util.Scanner;
+
+public class atcoder_ABC152_C {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int[] arr = new int[n];
+        for (int i = 0; i < n; i++) {
+            arr[i] = sc.nextInt();
+        }
+        int count = 1;
+        int pos = 0;
+        for (int i = 1; i < n; i++) {
+            if (arr[pos] > arr[i]) {
+                count++;
+                pos = i;
+            }
+        }
+        System.out.println(count);
+    }
+}
+
+import java.util.Scanner;
+
+public class codeforces_268_A {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int[][] q = new int[n][2];
+        int count = 0;
+        for (int i = 0; i < n; i++) {
+            q[i][0] = sc.nextInt();
+            q[i][1] = sc.nextInt();
+        }
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                if (i == j) {
+                    continue;
+                } else if (q[i][0] == q[j][1]) {
+                    count++;
+                }
+            }
+        }
+        System.out.println(count);
+    }
+}
+import java.util.Scanner;
+
+public class codeforces_651_A {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int x = sc.nextInt();
+        int y = sc.nextInt();
+        int ans = Math.max(x + y - 3 + ((y - x) % 3 > 0 ? 1 : 0), 0);
+        System.out.println(ans);
+    }
+}
+import java.util.Scanner;
+import java.util.Arrays;
+import java.util.HashSet;
+
+public class codeforces_274_A {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int k = sc.nextInt();
+        int[] arr = new int[n];
+        for (int i = 0; i < n; i++) {
+            arr[i] = sc.nextInt();
+        }
+        Arrays.sort(arr);
+        HashSet<Integer> set = new HashSet<>();
+        int max = 0;
+        for (int i = 0; i < n; i++) {
+            if (arr[i] % k == 0 && !set.contains(arr[i] / k)) {
+                set.add(arr[i]);
+            }
+            max = Math.max(max, set.size());
+        }
+        System.out.println(max);
+    }
+}
+import java.util.Scanner;
+
+public class codeforces_306_A {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int m = sc.nextInt();
+        int q = n / m;
+        int r = n % m;
+        int[] a = new int[m];
+        for (int i = 0; i < m; i++) {
+            a[i] = q;
+        }
+        for (int i = 0; i < r; i++) {
+            a[i]++;
+        }
+        for (int i = 0; i < m; i++) {
+            System.out.print(a[i] + " ");
+        }
+    }
+}
+### Solution:
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+class Main {
+    public static void main(String[] args) throws java.lang.Exception {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        String s = sc.next();
+        int[] arr = new int[n];
+        for (int i = 0; i < n; i++) {
+            arr[i] = s.charAt(i) - '0';
+        }
+        int ans = 0;
+        for (int i = 0; i < n; i++) {
+            if (arr[i] == 0) {
+                int j = i;
+                while (j < n && arr[j] == 0) {
+                    j++;
+                }
+                if (j == n) {
+                    ans = Math.max(ans, n - i);
+                } else {
+                    ans = Math.max(ans, j - i);
+                }
+                i = j;
+            }
+        }
+        System.out.println(ans);
+    }
+}
+import java.util.Scanner;
+
+public class codeforces_567_A {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int[] arr = new int[n];
+        for (int i = 0; i < n; i++) {
+            arr[i] = sc.nextInt();
+        }
+        for (int i = 0; i < n; i++) {
+            if (i == 0) {
+                System.out.println(arr[i + 1] - arr[i] + " " + (arr[n - 1] - arr[i]));
+            } else if (i == n - 1) {
+                System.out.println((arr[n - 1] - arr[n - 2]) + " " + (arr[n - 1] - arr[0]));
+            } else {
+                if (arr[i] - arr[i - 1] > arr[i + 1] - arr[i]) {
+                    System.out.print(arr[i + 1] - arr[i] + " ");
+                } else {
+                    System.out.print(arr[i] - arr[i - 1] + " ");
+                }
+                if (arr[n - 1] - arr[i] > arr[i] - arr[0]) {
+                    System.out.println(arr[n - 1] - arr[i]);
+                } else {
+                    System.out.println(arr[i] - arr[0]);
+                }
+            }
+        }
+    }
+}
+### Code:
+import java.util.Scanner;
+
+public class codeforces_579_A {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int x = 1;
+        while (Math.log(n) % 1 != 0) {
+            x++;
+            n -= Math.pow(2, (int) Math.log(n) / Math.log(2));
+        }
+        System.out.println(x);
+    }
+}
+import java.util.Scanner;
+
+public class codeforces_189_A {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int length = sc.nextInt();
+        int[] arr = new int[3];
+        for (int i = 0; i < 3; i++) {
+            arr[i] = sc.nextInt();
+        }
+        int ans = 0;
+        if (arr[0] == arr[1]) {
+            for (int i = 0; i <= length / arr[2]; i++) {
+                int check = length - i * arr[2];
+                if (check >= 0 && check % arr[0] == 0) {
+                    int k = check / arr[0];
+                    ans = Math.max(ans, k + i);
+                }
+            }
+        } else {
+            for (int i = 0; i <= length / arr[2]; i++) {
+                for (int j = 0; j <= length / arr[1]; j++) {
+                    int check = length - i * arr[2] - j * arr[1];
+                    if (check >= 0 && check % arr[0] == 0) {
+                        int k = check / arr[0];
+                        ans = Math.max(ans, k + i + j);
+                    }
+                }
+            }
+        }
+        System.out.println(ans);
+    }
+}
+import java.util.*;
+
+public class atcoder_AGC037_E {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int N = sc.nextInt();
+        int K = sc.nextInt();
+        String S = sc.next();
+        boolean aaaa = false;
+        if (K >= 15) {
+            aaaa = true;
+        } else if (Math.pow(2, K) >= N) {
+            aaaa = true;
+        }
+        if (aaaa) {
+            System.out.println(S.charAt(0) * N);
+            return;
+        }
+        String getLastDict(String sStr) {
+            String U = sStr + sStr.substring(0, sStr.length() - 1);
+            char c = sStr.charAt(0);
+            int p = U.indexOf(c);
+            int minIndex = p;
+            p++;
+            while (p <= N) {
+                if (U.charAt(p) == c) {
+                    if (checkNormalDict(U, minIndex, p)) {
+                        minIndex = p;
+                    }
+                }
+                p++;
+            }
+            return U.substring(minIndex, minIndex + N);
+        }
+        boolean checkNormalDict(String u, int pointer1, int pointer2) {
+            for (int i = 0; i < N; i++) {
+                if (u.charAt(pointer1 + i) > u.charAt(pointer2 + i)) {
+                    return true;
+                } else if (u.charAt(pointer1 + i) < u.charAt(pointer2 + i)) {
+                    return false;
+                }
+            }
+            return false;
+        }
+        S = getLastDict(S);
+        if (K == 1) {
+            System.out.println(S);
+        } else {
+            int count = 0;
+            for (int i = 0; i < N; i++) {
+                if (S.charAt(i) == S.charAt(0)) {
+                    count++;
+                } else {
+                    break;
+                }
+            }
+            if (count * (int) Math.pow(2, K - 1) >= N) {
+                System.out.println(S.charAt(0) * N);
+            } else {
+                S = S.charAt(0) * (count * (int) Math.pow(2, K - 1) - 1) + S;
+                System.out.println(S.substring(0, N));
+            }
+        }
+    }
+}
+
+
+
+
+import java.util.Scanner;
+
+public class codeforces_287_A {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String[][] t = new String[4][4];
+        for (int i = 0; i < 4; i++) {
+            t[i] = sc.nextLine().split("");
+        }
+        int black = 0;
+        int white = 0;
+        int correct = 0;
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+                if (t[i][j].equals("#")) {
+                    black++;
+                } else {
+                    white++;
+                }
+                if (t[i][j + 1].equals("#")) {
+                    black++;
+                } else {
+                    white++;
+                }
+                if (t[i + 1][j].equals("#")) {
+                    black++;
+                } else {
+                    white++;
+                }
+                if (t[i + 1][j + 1].equals("#")) {
+                    black++;
+                } else {
+                    white++;
+                }
+                if (black == 0 || black == 3 || white == 0 || white == 3 || white == 4 || black == 4) {
+                    correct = 1;
+                    break;
+                }
+                black = 0;
+                white = 0;
+            }
+        }
+        if (correct == 1) {
+            System.out.println("YES");
+        } else {
+            System.out.println("NO");
+        }
+    }
+}
+import java.util.Scanner;
+
+public class codeforces_37_A {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int[] l = new int[n];
+        for (int i = 0; i < n; i++) {
+            l[i] = sc.nextInt();
+        }
+        int high = 1;
+        int tower = n;
+        int maximum = 1;
+        java.util.Arrays.sort(l);
+        for (int i = 1; i < n; i++) {
+            if (l[i] == l[i - 1]) {
+                tower--;
+                high++;
+            } else {
+                if (high > maximum) {
+                    maximum = high;
+                }
+                high = 1;
+            }
+        }
+        if (high > maximum) {
+            maximum = high;
+        }
+        System.out.println(maximum + " " + tower);
+    }
+}
+
+
+public class codeforces_110_B {
+    public static void main(String[] args) {
+        String LUCKY = "abcd";
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        String s = "";
+        for (int i = 0; i < n; i++) {
+            s += LUCKY.charAt(i % 4);
+        }
+        System.out.println(s);
+    }
+}
+### Solution:
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+class Main
+{
+    public static void main ( String[] args ) throws java.lang.Exception
+    {
+        Scanner sc = new Scanner ( System.in );
+        String s = sc.nextLine ( );
+        int n = s.length ( );
+        int ans = 0;
+        int cnt = 0;
+        for ( int i = 0; i < n; i++ )
+        {
+            if ( s.charAt ( i ) == 'A' )
+            {
+                cnt++;
+            }
+            else if ( s.charAt ( i ) == 'B' )
+            {
+                if ( i + 1 < n && s.charAt ( i + 1 ) == 'C' )
+                {
+                    ans += cnt;
+                    i++;
+                }
+                else
+                {
+                    cnt = 0;
+                }
+            }
+            else
+            {
+                cnt = 0;
+            }
+        }
+        System.out.println ( ans );
+    }
+}
+import java.util.Scanner;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.ArrayList;
+import java.util.Collections;
+
+public class atcoder_ABC110_C {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String s = sc.next();
+        String t = sc.next();
+        Map<Character, Integer> mapS = new HashMap<>();
+        Map<Character, Integer> mapT = new HashMap<>();
+        for (int i = 0; i < s.length(); i++) {
+            if (mapS.containsKey(s.charAt(i))) {
+                mapS.put(s.charAt(i), mapS.get(s.charAt(i)) + 1);
+            } else {
+                mapS.put(s.charAt(i), 1);
+            }
+        }
+        for (int i = 0; i < t.length(); i++) {
+            if (mapT.containsKey(t.charAt(i))) {
+                mapT.put(t.charAt(i), mapT.get(t.charAt(i)) + 1);
+            } else {
+                mapT.put(t.charAt(i), 1);
+            }
+        }
+        ArrayList<Integer> listS = new ArrayList<>();
+        ArrayList<Integer> listT = new ArrayList<>();
+        for (char c : mapS.keySet()) {
+            listS.add(mapS.get(c));
+        }
+        for (char c : mapT.keySet()) {
+            listT.add(mapT.get(c));
+        }
+        Collections.sort(listS);
+        Collections.sort(listT);
+        if (listS.equals(listT)) {
+            System.out.println("Yes");
+        } else {
+            System.out.println("No");
+        }
+    }
+}
+import java.util.Scanner;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.lang.Math;
+
+public class atcoder_ABC123_B {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        ArrayList<Integer> menu = new ArrayList<Integer>();
+        for (int i = 0; i < 5; i++) {
+            String m = sc.nextLine();
+            int e = Integer.parseInt(m.substring(m.length() - 1));
+            if (e == 0) {
+                e = 10;
+            }
+            menu.add(Integer.parseInt(m) * e);
+        }
+        Collections.sort(menu, new Comparator<Integer>() {
+            @Override
+            public int compare(Integer o1, Integer o2) {
+                return o1 - o2;
+            }
+        });
+        int ans = 0;
+        for (int i = 1; i < menu.size(); i++) {
+            ans += (int) Math.ceil(menu.get(i) / 10.0) * 10;
+        }
+        System.out.println(ans + menu.get(0));
+    }
+}
+import java.util.Scanner;
+
+public class atcoder_AGC025_A {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String n = sc.nextLine();
+        String[] a = {"10", "100", "1000", "10000", "100000"};
+        int new_n = sum(n);
+        if (n.equals(a[0]) || n.equals(a[1]) || n.equals(a[2]) || n.equals(a[3]) || n.equals(a[4])) {
+            System.out.println(10);
+        } else {
+            System.out.println(new_n);
+        }
+    }
+
+    public static int sum(String n) {
+        int sum = 0;
+        for (int i = 0; i < n.length(); i++) {
+            sum += Integer.parseInt(String.valueOf(n.charAt(i)));
+        }
+        return sum;
+    }
+}
+public class atcoder_ABC108_B {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int x1 = sc.nextInt();
+        int y1 = sc.nextInt();
+        int x2 = sc.nextInt();
+        int y2 = sc.nextInt();
+        int DIF1 = x2 - x1;
+        int DIF2 = y2 - y1;
+        int x3 = x2 - DIF2;
+        int y3 = y2 + DIF1;
+        int x4 = x1 - DIF2;
+        int y4 = y1 + DIF1;
+        System.out.println(x3 + " " + y3 + " " + x4 + " " + y4);
+    }
+}
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+class Ideone
+{
+	public static void main (String[] args) throws java.lang.Exception
+	{
+		Scanner sc = new Scanner(System.in);
+		int n = sc.nextInt();
+		int a[] = new int[n];
+		for(int i=0;i<n;i++)
+		{
+			a[i] = sc.nextInt();
+		}
+		int total = 0;
+		for(int i=0;i<n;i++)
+		{
+			total = total ^ a[i];
+		}
+		for(int i=0;i<n;i++)
+		{
+			System.out.print(a[i]^total+" ");
+		}
+	}
+}
+import java.util.Scanner;
+
+public class codeforces_445_A {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int m = sc.nextInt();
+        char[][] l = new char[n][m];
+        for (int i = 0; i < n; i++) {
+            String s = sc.next();
+            for (int j = 0; j < m; j++) {
+                if (s.charAt(j) == '.') {
+                    if ((i + j) % 2 == 0) {
+                        l[i][j] = 'B';
+                    } else {
+                        l[i][j] = 'W';
+                    }
+                } else {
+                    l[i][j] = s.charAt(j);
+                }
+            }
+        }
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < m; j++) {
+                System.out.print(l[i][j]);
+            }
+            System.out.println();
+        }
+    }
+}
+
+public class codeforces_30_A {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int A = sc.nextInt();
+        int B = sc.nextInt();
+        int n = sc.nextInt();
+        int X = -1000;
+        while (X <= 1000) {
+            if (A * (int) Math.pow(X, n) == B) {
+                System.out.println(X);
+                break;
+            }
+            X++;
+        }
+        if (X > 1000) {
+            System.out.println("No solution");
+        }
+    }
+}
+### Explanation:
+### Solution:
+
+import java.util.Scanner;
+
+public class codeforces_106_B {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int[][] input_array = new int[n][4];
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < 4; j++) {
+                input_array[i][j] = sc.nextInt();
+            }
+        }
+        int[] outdated = new int[n];
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                if (input_array[i][0] < input_array[j][0] && input_array[i][1] < input_array[j][1] && input_array[i][2] < input_array[j][2]) {
+                    outdated[i] = 1;
+                }
+            }
+        }
+        int minimum_cost = 100000;
+        int input_number = 0;
+        for (int i = 0; i < n; i++) {
+            if (outdated[i] == 0 && input_array[i][3] < minimum_cost) {
+                minimum_cost = input_array[i][3];
+                input_number = i + 1;
+            }
+        }
+        System.out.println(input_number);
+    }
+}
+import java.util.*;
+import java.io.*;
+
+public class atcoder_AGC002_A {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int a = sc.nextInt();
+        int b = sc.nextInt();
+        if (a > 0) {
+            System.out.println("Positive");
+        } else if (a <= 0 && b >= 0) {
+            System.out.println("Zero");
+        } else {
+            if ((a + b) % 2 == 0) {
+                System.out.println("Negative");
+            } else {
+                System.out.println("Positive");
+            }
+        }
+    }
+}
+
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+class Main {
+    public static void main(String[] args) throws java.lang.Exception {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int m = sc.nextInt();
+        int x = sc.nextInt();
+        int[][] c = new int[n][m];
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < m; j++) {
+                c[i][j] = sc.nextInt();
+            }
+        }
+        int[] pre = new int[n];
+        for (int i = 0; i < n; i++) {
+            pre[i] = i;
+        }
+        List<List<Integer>> l = new ArrayList<List<Integer>>();
+        List<Integer> rem = new ArrayList<Integer>();
+        int ans = 0;
+        for (int i = 1; i <= n; i++) {
+            for (List<Integer> j : combinations(pre, i)) {
+                l.add(j);
+            }
+        }
+        for (int i = 1; i <= m; i++) {
+            for (int j = 0; j < l.size(); j++) {
+                int ca = 0;
+                for (int ii : l.get(j)) {
+                    ca += c[ii][i];
+                }
+                if (ca < x) {
+                    rem.add(j);
+                }
+            }
+            if (rem.size() > 0) {
+                for (int j = rem.size() - 1; j >= 0; j--) {
+                    l.remove(rem.get(j).intValue());
+                }
+                rem = new ArrayList<Integer>();
+            }
+            if (l.size() == 0) {
+                System.out.println(-1);
+                break;
+            }
+        }
+        if (l.size() > 0) {
+            for (List<Integer> i : l) {
+                int ca = 0;
+                for (int j : i) {
+                    ca += c[j][0];
+                }
+                if (ans == 0) {
+                    ans = ca;
+                } else {
+                    ans = Math.min(ans, ca);
+                }
+            }
+            System.out.println(ans);
+        }
+    }
+
+    public static List<List<Integer>> combinations(int[] pre, int r) {
+        List<List<Integer>> list = new ArrayList<List<Integer>>();
+        if (r > pre.length) {
+            return list;
+        }
+        if (r <= 0) {
+            return list;
+        }
+        if (r == pre.length) {
+            List<Integer> tempList = new ArrayList<Integer>();
+            for (int i = 0; i < pre.length; i++) {
+                tempList.add(pre[i]);
+            }
+            list.add(tempList);
+            return list;
+        }
+        for (int i = 0; i < pre.length; i++) {
+            int[] temp = new int[pre.length - 1];
+            for (int j = 0, k = 0; j < pre.length; j++) {
+                if (j != i) {
+                    temp[k++] = pre[j];
+                }
+            }
+            List<List<Integer>> tempList = combinations(temp, r - 1);
+            if (tempList.size() != 0) {
+                for (List<Integer> li : tempList) {
+                    li.add(pre[i]);
+                }
+                list.addAll(tempList);
+            }
+        }
+        return list;
+    }
+}
+import java.util.Scanner;
+
+public class atcoder_ABC143_A {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int A = sc.nextInt();
+        int B = sc.nextInt();
+        int ans = A - 2 * B;
+        if (ans < 0) {
+            ans = 0;
+        }
+        System.out.println(ans);
+    }
+}
+import java.util.Scanner;
+
+public class atcoder_ABC139_B {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int a = sc.nextInt();
+        int b = sc.nextInt();
+        int hole = 1;
+        int i = 0;
+        boolean check = true;
+        while (check) {
+            if (hole >= b) {
+                check = false;
+            } else {
+                hole = a * (i + 1) - i;
+                i++;
+            }
+        }
+        System.out.println(i);
+    }
+}
+import java.util.Scanner;
+
+public class atcoder_ABC124_A {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int a = sc.nextInt();
+        int b = sc.nextInt();
+        int c = 0;
+        for (int i = 0; i < 2; i++) {
+            c += Math.max(a, b);
+            if (a >= b) {
+                a--;
+            } else {
+                b--;
+            }
+        }
+        System.out.println(c);
+    }
+}
+import java.util.Scanner;
+
+public class codeforces_25_A {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int n = scanner.nextInt();
+        int[] list = new int[n];
+        for (int i = 0; i < n; i++) {
+            list[i] = scanner.nextInt();
+        }
+        int sum = 0;
+        for (int i = 0; i < n; i++) {
+            sum += list[i] % 2;
+        }
+        if (sum == 1) {
+            for (int i = 0; i < n; i++) {
+                if (list[i] % 2 == 1) {
+                    System.out.println(i + 1);
+                    break;
+                }
+            }
+        } else {
+            for (int i = 0; i < n; i++) {
+                if (list[i] % 2 == 0) {
+                    System.out.println(i + 1);
+                    break;
+                }
+            }
+        }
+    }
+}
+import java.util.Scanner;
+
+public class codeforces_282_B {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int firstline = sc.nextInt();
+        int total = 0;
+        String memory = "";
+        for (int x = 0; x < firstline; x++) {
+            int A = sc.nextInt();
+            int G = sc.nextInt();
+            if (total + A <= 500) {
+                total += A;
+                memory += "A";
+            } else {
+                total -= G;
+                memory += "G";
+            }
+        }
+        System.out.println(memory);
+    }
+}
+import java.util.Scanner;
+
+public class atcoder_ABC169_C {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String[] input = sc.nextLine().split(" ");
+        int a = Integer.parseInt(input[0]);
+        double b = Double.parseDouble(input[1]);
+        int result = (int) (a * b * 100 + 0.5) / 100;
+        System.out.println(result);
+    }
+}
+import java.util.Scanner;
+
+public class codeforces_350_B {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int[] t = new int[n + 1];
+        int[] a = new int[n + 1];
+        for (int i = 1; i <= n; i++) {
+            t[i] = sc.nextInt();
+        }
+        for (int i = 1; i <= n; i++) {
+            a[i] = sc.nextInt();
+        }
+        int[] cnt = new int[n + 1];
+        for (int i = 1; i <= n; i++) {
+            cnt[a[i]]++;
+        }
+        int[] ans = new int[n + 1];
+        int maxLen = 0;
+        for (int i = 1; i <= n; i++) {
+            if (t[i] == 1) {
+                int[] crt = new int[n + 1];
+                int x = a[i];
+                int len = 0;
+                while (cnt[x] == 1) {
+                    crt[len++] = x;
+                    x = a[x];
+                }
+                if (len > maxLen) {
+                    maxLen = len;
+                    ans = crt;
+                }
+            }
+        }
+        System.out.println(maxLen);
+        for (int i = maxLen - 1; i >= 0; i--) {
+            System.out.print(ans[i] + " ");
+        }
+    }
+}
+import java.util.Scanner;
+
+public class atcoder_ABC142_A {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        double t = 0;
+        for (int i = 0; i < n; i++) {
+            if ((i + 1) % 2 == 1) {
+                t += 1;
+            }
+        }
+        System.out.println(t / n);
+    }
+}
+import java.util.*;
+
+public class codeforces_333_B {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int m = sc.nextInt();
+        int[] b = new int[n * 2];
+        for (int i = 0; i < n * 2; i++) {
+            b[i] = 1;
+        }
+        b[0] = b[n - 1] = b[n] = b[2 * n - 1] = 0;
+        for (int i = 0; i < m; i++) {
+            int r = sc.nextInt();
+            int c = sc.nextInt();
+            b[r - 1] = b[n + c - 1] = 0;
+        }
+        if (n % 2 != 0 && b[n / 2] != 0 && b[n + n / 2] != 0) {
+            b[n / 2] = 0;
+        }
+        int sum = 0;
+        for (int i = 0; i < n * 2; i++) {
+            sum += b[i];
+        }
+        System.out.println(sum);
+    }
+}
+
+import java.util.Scanner;
+
+public class codeforces_79_A {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int x = sc.nextInt();
+        int y = sc.nextInt();
+        int a = 0;
+        while (x >= 0 && y >= 22 || x >= 1 && y >= 12 || x >= 2 && y >= 2) {
+            if (a == 1) {
+                if (y >= 22) {
+                    y -= 22;
+                } else if (x >= 1 && y >= 12) {
+                    x -= 1;
+                    y -= 12;
+                } else {
+                    x -= 2;
+                    y -= 2;
+                }
+            } else {
+                if (x >= 2 && y >= 2) {
+                    x -= 2;
+                    y -= 2;
+                } else if (x >= 1 && y >= 12) {
+                    x -= 1;
+                    y -= 12;
+                } else {
+                    y -= 22;
+                }
+            }
+            a = 1 - a;
+        }
+        System.out.println(a == 1 ? "Ciel" : "Hanako");
+    }
+}
+
+import java.util.Scanner;
+
+public class atcoder_ABC174_C {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int k = sc.nextInt();
+        int t = 0;
+        for (int i = 1; i <= k; i++) {
+            t = (t % k) * 10 + 7;
+            if (t % k == 0) {
+                System.out.println(i);
+                break;
+            }
+        }
+        if (t % k != 0) {
+            System.out.println(-1);
+        }
+    }
+}
+import java.util.Scanner;
+
+public class codeforces_67_B {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int k = sc.nextInt();
+        int[] M = new int[n];
+        for (int i = 0; i < n; i++) {
+            M[i] = sc.nextInt();
+        }
+        int m = 0;
+        for (int j = 0; j < n; j++) {
+            for (int p = 0; p < n; p++) {
+                if (M[p] == 0) {
+                    System.out.print(p + 1 + " ");
+                    break;
+                }
+            }
+            for (int l = 0; l < p + 1 - k; l++) {
+                M[l] -= 1;
+            }
+            M[p] -= 1;
+        }
+    }
+}
+import java.util.Scanner;
+import java.lang.Math;
+
+public class atcoder_ABC168_C {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int a = sc.nextInt();
+        int b = sc.nextInt();
+        int h = sc.nextInt();
+        int m = sc.nextInt();
+        double C = Math.abs(360 / 60 * m - 360 / 12 * h - 360 / 12 / 60 * m);
+        if (C > 180) {
+            C = 360 - C;
+        }
+        double cosC = Math.cos(Math.toRadians(C));
+        System.out.println(Math.sqrt(a * a + b * b - 2 * a * b * cosC));
+    }
+}
+import java.util.Scanner;
+
+public class codeforces_354_A {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int L = sc.nextInt();
+        int R = sc.nextInt();
+        int QL = sc.nextInt();
+        int QR = sc.nextInt();
+        int[] W = new int[n];
+        for (int i = 0; i < n; i++) {
+            W[i] = sc.nextInt();
+        }
+        int[] sum_el = new int[n + 1];
+        for (int i = 1; i <= n; i++) {
+            sum_el[i] = W[i - 1] + sum_el[i - 1];
+        }
+        int answer = QR * (n - 1) + sum_el[n] * R;
+        for (int i = 1; i <= n; i++) {
+            int energy = L * sum_el[i] + R * (sum_el[n] - sum_el[i]);
+            if (i > (n - i)) {
+                energy += (i - (n - i) - 1) * QL;
+            } else if ((n - i) > i) {
+                energy += ((n - i) - i - 1) * QR;
+            }
+            if (energy < answer) {
+                answer = energy;
+            }
+        }
+        System.out.println(answer);
+    }
+}
+import java.util.Scanner;
+
+public class codeforces_49_A {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String a = sc.nextLine();
+        char[] vo = {'a', 'e', 'i', 'o', 'u', 'y', 'A', 'E', 'I', 'O', 'U', 'Y'};
+        for (int i = a.length() - 1; i >= 0; i--) {
+            if (a.charAt(i) == ' ' || a.charAt(i) == '?') {
+                continue;
+            } else {
+                if (isVowel(a.charAt(i), vo)) {
+                    System.out.println("YES");
+                } else {
+                    System.out.println("NO");
+                }
+                break;
+            }
+        }
+    }
+
+    public static boolean isVowel(char c, char[] vo) {
+        for (char v : vo) {
+            if (c == v) {
+                return true;
+            }
+        }
+        return false;
+    }
+}
+
+public class atcoder_ABC149_C {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int X = sc.nextInt();
+        boolean[] prime = new boolean[100010];
+        for (int i = 0; i < 100010; i++) {
+            prime[i] = true;
+        }
+        prime[0] = false;
+        prime[1] = false;
+        for (int i = 4; i < 100010; i += 2) {
+            prime[i] = false;
+        }
+        int i = 3;
+        while (i * i <= 100008) {
+            if (prime[i]) {
+                for (int j = i + i; j < 100008; j += i) {
+                    prime[j] = false;
+                }
+            }
+            i += 2;
+        }
+        for (int j = X; j < 100008; j++) {
+            if (prime[j]) {
+                System.out.println(j);
+                break;
+            }
+        }
+    }
+}
+
+public class codeforces_58_B {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        for (int i = n; i > 0; i--) {
+            if (n % i == 0) {
+                n = i;
+                System.out.print(i + " ");
+            }
+        }
+    }
+}
+
+
+import java.util.Scanner;
+
+public class codeforces_99_A {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String l = sc.nextLine();
+        String[] l1 = l.split("\\.");
+        String s = l1[0];
+        String p = l1[1];
+        int i = Integer.parseInt(p.substring(0, 1));
+        if (s.charAt(s.length() - 1) == '9') {
+            System.out.println("GOTO Vasilisa.");
+        } else if (s.charAt(s.length() - 1) != '9' && i < 5) {
+            System.out.println(s);
+        } else {
+            s = String.valueOf(Integer.parseInt(s) + 1);
+            System.out.println(s);
+        }
+    }
+}
+### Explanation:
+import java.util.Scanner;
+
+public class codeforces_86_A {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int l = sc.nextInt();
+        int r = sc.nextInt();
+        int curr = r;
+        int s = 0;
+        while (curr != 0) {
+            s++;
+            curr /= 10;
+        }
+        int first = (int) Math.pow(10, s);
+        int second = first / 2;
+        int ans = -1;
+        for (int i : new int[]{l, r, first, second}) {
+            if (i >= l && i <= r) {
+                curr = i;
+                String rev = "";
+                for (char k : String.valueOf(curr).toCharArray()) {
+                    rev += (char) (9 - (k - '0'));
+                }
+                ans = Math.max(ans, Integer.parseInt(rev) * curr);
+            }
+        }
+        System.out.println(ans);
+    }
+}
+### R code:
+
+
+
+### Solution:
+import java.util.*;
+import java.io.*;
+
+public class atcoder_AGC027_B {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int N = sc.nextInt();
+        int X = sc.nextInt();
+        int[] A = new int[N];
+        for (int i = 0; i < N; i++) {
+            A[i] = sc.nextInt();
+        }
+        int[] S = new int[N];
+        S[0] = A[0];
+        for (int i = 1; i < N; i++) {
+            S[i] = S[i - 1] + A[i];
+        }
+        int ans = Integer.MAX_VALUE;
+        for (int k = 1; k <= N; k++) {
+            int E = k * X + 2 * sum(S, N - 2 * k - 1, -k);
+            ans = Math.min(ans, E);
+        }
+        System.out.println(ans + N * X + 5 * S[N - 1]);
+    }
+
+    public static int sum(int[] S, int end, int step) {
+        int sum = 0;
+        for (int i = end; i >= 0; i -= step) {
+            sum += S[i];
+        }
+        return sum;
+    }
+}
+### Explanation:
+
+
+### Solution:
+### Explanation:
+
+import java.util.*;
+import java.io.*;
+
+public class atcoder_AGC007_C {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int N = sc.nextInt();
+        int d = sc.nextInt();
+        int x = sc.nextInt();
+        double ret = 0;
+        while (N > 0) {
+            ret += d + (N - 0.5) * x;
+            d = d + (d / N) + (5 * x) / (2 * N);
+            x += 2 * x / N;
+            N -= 1;
+        }
+        System.out.println(ret);
+    }
+}
+import java.util.Scanner;
+
+public class codeforces_459_B {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int[] l1 = new int[n];
+        for (int i = 0; i < n; i++) {
+            l1[i] = sc.nextInt();
+        }
+        int a = l1[0];
+        int b = l1[0];
+        int ac = 0;
+        int bc = 0;
+        for (int i = 0; i < n; i++) {
+            if (l1[i] > a) {
+                a = l1[i];
+            }
+            if (l1[i] < b) {
+                b = l1[i];
+            }
+            if (l1[i] == a) {
+                ac++;
+            }
+            if (l1[i] == b) {
+                bc++;
+            }
+        }
+        if (a == b) {
+            System.out.println(a - b + " " + (n * (n - 1) / 2));
+        } else {
+            System.out.println(a - b + " " + ac * bc);
+        }
+    }
+}
+import java.util.Scanner;
+
+public class atcoder_ABC125_B {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int N = sc.nextInt();
+        int[] V = new int[N];
+        int[] C = new int[N];
+        for (int i = 0; i < N; i++) {
+            V[i] = sc.nextInt();
+        }
+        for (int i = 0; i < N; i++) {
+            C[i] = sc.nextInt();
+        }
+        int[] list = new int[N];
+        int ans = 0;
+        int X = 0;
+        int Y = 0;
+        for (int i = 0; i < N; i++) {
+            if (V[i] - C[i] > 0) {
+                X = V[i];
+                Y = C[i];
+                list[i] = X - Y;
+            }
+        }
+        for (int i = 0; i < N; i++) {
+            ans += list[i];
+        }
+        System.out.println(ans);
+    }
+}
+public class atcoder_ABC043_B {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String s = sc.nextLine();
+        String my_str = "";
+        for (int i = 0; i < s.length(); i++) {
+            if (s.charAt(i) == '0' || s.charAt(i) == '1') {
+                my_str += s.charAt(i);
+            } else if (s.charAt(i) == 'B' && my_str.length() != 0) {
+                my_str = my_str.substring(0, my_str.length() - 1);
+            }
+        }
+        System.out.println(my_str);
+    }
+}
+import java.util.Scanner;
+
+public class codeforces_546_A {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int k = scanner.nextInt();
+        int n = scanner.nextInt();
+        int w = scanner.nextInt();
+        int total = 0;
+        for (int i = 1; i <= w; i++) {
+            total += i * k;
+        }
+        if (total > n) {
+            System.out.println(total - n);
+        } else {
+            System.out.println(0);
+        }
+    }
+}
+import java.util.*;
+
+public class codeforces_231_A {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int c = 0;
+        for (int i = 0; i < n; i++) {
+            int[] l1 = new int[3];
+            for (int j = 0; j < 3; j++) {
+                l1[j] = sc.nextInt();
+            }
+            if (l1[0] + l1[1] + l1[2] > 1) {
+                c++;
+            }
+        }
+        System.out.println(c);
+    }
+}
+### Explanation:
+import java.util.Scanner;
+
+public class atcoder_ABC127_B {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int r = sc.nextInt();
+        int D = sc.nextInt();
+        int x = sc.nextInt();
+        for (int i = 2; i <= 12; i++) {
+            System.out.println((int) ((Math.pow(r, i - 1) * (x + D / (1 - r))) - D / (1 - r)));
+        }
+    }
+}
+
+import java.util.Scanner;
+
+public class codeforces_500_A {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int t = sc.nextInt();
+        int[] s = new int[n];
+        for (int i = 0; i < n; i++) {
+            s[i] = sc.nextInt();
+        }
+        int current_cell = 0;
+        while (current_cell <= t) {
+            current_cell += s[current_cell - 1];
+            if (current_cell == t) {
+                System.out.println("YES");
+                System.exit(0);
+            } else {
+                continue;
+            }
+        }
+        System.out.println("NO");
+    }
+}
+import java.util.Scanner;
+
+public class atcoder_ABC155_D {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int N = sc.nextInt();
+        int K = sc.nextInt();
+        int[] A = new int[N];
+        for (int i = 0; i < N; i++) {
+            A[i] = sc.nextInt();
+        }
+        long ll = -1000000000000000000L;
+        long rr = 1000000000000000000L;
+        while (ll + 1 < rr) {
+            long x = (ll + rr) / 2;
+            long tot = 0;
+            for (int i = 0; i < N; i++) {
+                if (A[i] < 0) {
+                    int l = -1;
+                    int r = N;
+                    while (l + 1 < r) {
+                        int c = (l + r) / 2;
+                        if (A[i] * A[c] < x) {
+                            r = c;
+                        } else {
+                            l = c;
+                        }
+                    }
+                    tot += N - r;
+                } else {
+                    int l = -1;
+                    int r = N;
+                    while (l + 1 < r) {
+                        int c = (l + r) / 2;
+                        if (A[i] * A[c] < x) {
+                            l = c;
+                        } else {
+                            r = c;
+                        }
+                    }
+                    tot += r;
+                }
+                if (A[i] * A[i] < x) {
+                    tot -= 1;
+                }
+            }
+            tot /= 2;
+            if (tot < K) {
+                ll = x;
+            } else {
+                rr = x;
+            }
+        }
+        System.out.println(ll);
+    }
+}
+import java.util.Scanner;
+
+public class atcoder_ABC147_D {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int N = sc.nextInt();
+        long[] A = new long[N];
+        for (int i = 0; i < N; i++) {
+            A[i] = sc.nextLong();
+        }
+        long result = 0;
+        for (int b = 0; b < 60; b++) {
+            long bs = 0;
+            for (int i = 0; i < N; i++) {
+                bs += (A[i] >> b) & 1;
+            }
+            result = (result + bs * (N - bs) * (1 << b)) % 1000000007;
+        }
+        System.out.println(result);
+    }
+}
+import java.util.Scanner;
+
+public class atcoder_AGC046_A {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int x = sc.nextInt();
+        System.out.println(360 / gcd(360, x));
+    }
+
+    public static int gcd(int a, int b) {
+        if (b == 0) {
+            return a;
+        }
+        return gcd(b, a % b);
+    }
+}
+import java.util.Scanner;
+
+public class codeforces_596_B {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int[] r = new int[n];
+        for (int i = 0; i < n; i++) {
+            r[i] = sc.nextInt();
+        }
+        int ans = Math.abs(r[0]);
+        for (int i = 1; i < n; i++) {
+            ans += Math.abs(r[i] - r[i - 1]);
+        }
+        System.out.println(ans);
+    }
+}
+import java.util.Scanner;
+
+public class codeforces_171_A {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String a = sc.next();
+        String b = sc.next();
+        int x = Math.max(a.length(), b.length());
+        a = a.length() < x ? "0".repeat(x - a.length()) + a : a;
+        b = b.length() < x ? "0".repeat(x - b.length()) + b : b;
+        StringBuilder s = new StringBuilder();
+        int c = 0;
+        for (int i = 0; i < x; i++) {
+            int d = Integer.parseInt(b.charAt(i) + "") + Integer.parseInt(a.charAt(x - i - 1) + "") + c;
+            if (d > 9) {
+                s.append(d % 10);
+                c = 1;
+            } else {
+                s.append(d);
+                c = 0;
+            }
+        }
+        if (c == 1) {
+            s.append(1);
+        }
+        System.out.println(s.reverse().toString());
+    }
+}
+
+
+import java.util.Scanner;
+
+public class codeforces_55_B {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int[] nums = new int[4];
+        for (int i = 0; i < 4; i++) {
+            nums[i] = sc.nextInt();
+        }
+        String[] operations = new String[3];
+        for (int i = 0; i < 3; i++) {
+            operations[i] = sc.next();
+        }
+        long[] ans = new long[1];
+        ans[0] = 10000000000000000000000000L;
+        rememberTheNumber(nums, 0, operations, ans);
+        System.out.println(ans[0]);
+    }
+
+    public static void rememberTheNumber(int[] nums, int i, String[] operations, long[] ans) {
+        if (i >= 3) {
+            return;
+        }
+        for (int j = 0; j < 4; j++) {
+            for (int k = j + 1; k < 4; k++) {
+                if (nums[j] != -1 && nums[k] != -1) {
+                    long s = nums[j];
+                    nums[j] = -1;
+                    long t = nums[k];
+                    if (operations[i].equals("+")) {
+                        nums[k] = s + t;
+                    } else if (operations[i].equals("*")) {
+                        nums[k] = s * t;
+                    }
+                    if (i == 2 && nums[k] < ans[0]) {
+                        ans[0] = nums[k];
+                    }
+                    rememberTheNumber(nums, i + 1, operations, ans);
+                    nums[j] = (int) s;
+                    nums[k] = (int) t;
+                }
+            }
+        }
+    }
+}
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+class Main {
+    public static void main ( String[] args ) {
+        Scanner sc = new Scanner ( System.in );
+        int a = sc.nextInt ( );
+        int b = sc.nextInt ( );
+        int c = sc.nextInt ( );
+        int d = sc.nextInt ( );
+        System.out.println ( Math.max ( a * c , b * d , a * d , b * c ) );
+    }
+}
+
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+class Main {
+    public static void main(String[] args) throws java.lang.Exception {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int l = sc.nextInt();
+        int r = sc.nextInt();
+        int id = 0;
+        for (int i = 1; i < n; i++) {
+            int li = sc.nextInt();
+            int ri = sc.nextInt();
+            if (li <= l && r <= ri) {
+                id = i;
+            } else if (li < l || r < ri) {
+                id = n;
+            }
+            l = Math.min(l, li);
+            r = Math.max(r, ri);
+        }
+        System.out.println(id == 0 ? -1 : id + 1);
+    }
+}
+import java.util.Scanner;
+import java.util.HashMap;
+import java.util.Map;
+
+public class atcoder_ABC132_A {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String s = sc.nextLine();
+        Map<Character, Integer> map = new HashMap<>();
+        for (int i = 0; i < s.length(); i++) {
+            char c = s.charAt(i);
+            if (map.containsKey(c)) {
+                map.put(c, map.get(c) + 1);
+            } else {
+                map.put(c, 1);
+            }
+        }
+        if (map.size() != 2) {
+            System.out.println("No");
+            return;
+        }
+        for (Map.Entry<Character, Integer> entry : map.entrySet()) {
+            if (entry.getValue() != 2) {
+                System.out.println("No");
+                return;
+            }
+        }
+        System.out.println("Yes");
+    }
+}
+
+### Explanation:
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+class Main {
+    public static void main(String[] args) throws java.lang.Exception {
+        Scanner sc = new Scanner(System.in);
+        String s = sc.nextLine();
+        int n = s.length();
+        int[][] dp = new int[n + 1][2];
+        dp[0][0] = 1;
+        int mod = 1000000007;
+        for (int i = 0; i < n; i++) {
+            if (s.charAt(i) == '0') {
+                dp[i + 1][0] = dp[i][0];
+                dp[i + 1][1] = dp[i][1] * 3;
+            } else {
+                dp[i + 1][0] = dp[i][0] * 2;
+                dp[i + 1][1] = dp[i][0] + dp[i][1] * 3;
+            }
+            dp[i + 1][0] %= mod;
+            dp[i + 1][1] %= mod;
+        }
+        System.out.println((dp[n][0] + dp[n][1]) % mod);
+    }
+}
+
+import java.util.*;
+
+public class codeforces_462_B {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int k = sc.nextInt();
+        String s = sc.next();
+        int[] count = new int[26];
+        for (int i = 0; i < n; i++) {
+            count[s.charAt(i) - 'A']++;
+        }
+        Arrays.sort(count);
+        int res = 0;
+        for (int i = 25; i >= 0; i--) {
+            if (count[i] >= k) {
+                res += k * k;
+                break;
+            }
+            k -= count[i];
+            res += count[i] * count[i];
+        }
+        System.out.println(res);
+    }
+}
+import java.util.Scanner;
+
+public class codeforces_334_A {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int i = 1, j = n * n;
+        while (i < j) {
+            System.out.print(i + " " + j + " ");
+            i++;
+            j--;
+        }
+    }
+}
+### Explanation:
+
+
+import java.util.*;
+import java.io.*;
+
+public class codeforces_705_B {
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        int n = Integer.parseInt(br.readLine());
+        int[] w = Arrays.stream(br.readLine().split(" ")).mapToInt(Integer::parseInt).toArray();
+        int c = 2;
+        for (int i = 0; i < n; i++) {
+            if (w[i] == 1) {
+                System.out.println(c);
+            } else if (w[i] % 2 == 0) {
+                c = 3 - c;
+                System.out.println(c);
+            } else {
+                System.out.println(c);
+            }
+        }
+    }
+}
+### Explanation:
+import java.util.Scanner;
+
+public class atcoder_ABC153_A {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int h = sc.nextInt();
+        int a = sc.nextInt();
+        int sho = h / a;
+        int am = h % a;
+        if (am != 0) {
+            sho += 1;
+        } else {
+            pass;
+        }
+        System.out.println(sho);
+    }
+}
+import java.util.Scanner;
+
+public class atcoder_ABC158_A {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        String s = scanner.nextLine();
+        String result = "Yes";
+        if (!s.contains("A") || !s.contains("B")) {
+            result = "No";
+        }
+        System.out.println(result);
+    }
+}
+### Similar Problems:
+import java.util.Scanner;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+public class codeforces_70_B {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        String s = sc.nextLine();
+        Pattern p = Pattern.compile("[.?!]");
+        Matcher m = p.matcher(s);
+        int ans = 1, sumL = 0;
+        while (m.find()) {
+            String t = m.group();
+            int L = t.length();
+            if (L > 1) {
+                if (L > n) {
+                    System.out.println("Impossible");
+                    return;
+                }
+                if (sumL + L + (sumL > 0) > n) {
+                    ans++;
+                    sumL = L;
+                } else {
+                    sumL = sumL + L + (sumL > 0);
+                }
+            }
+        }
+        System.out.println(ans);
+    }
+}
+import java.util.Scanner;
+
+public class atcoder_ABC125_A {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int a = sc.nextInt();
+        int b = sc.nextInt();
+        int t = sc.nextInt();
+        int cookie = 0;
+        int time = a;
+        while (time <= t + 0.5) {
+            cookie += b;
+            time += a;
+        }
+        System.out.println(cookie);
+    }
+}
+
+import java.util.Scanner;
+
+public class atcoder_ABC164_A {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int S = sc.nextInt();
+        int W = sc.nextInt();
+        if (S <= W) {
+            System.out.println("unsafe");
+        } else {
+            System.out.println("safe");
+        }
+    }
+}
+import java.util.Scanner;
+
+public class codeforces_514_A {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String ip = sc.nextLine();
+        String st = "";
+        if (ip.length() != 1) {
+            if (ip.charAt(0) == '9') {
+                st = "9";
+                ip = ip.substring(1);
+            }
+            for (int i = 0; i < ip.length(); i++) {
+                if (Integer.parseInt(ip.charAt(i) + "") > 4) {
+                    int n = 9 - Integer.parseInt(ip.charAt(i) + "");
+                    st += n;
+                } else {
+                    st += ip.charAt(i);
+                }
+            }
+        } else {
+            st = ip;
+        }
+        System.out.println(Integer.parseInt(st));
+    }
+}
+
+
+
+import java.util.*;
+import java.io.*;
+
+public class atcoder_AGC035_B {
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st = new StringTokenizer(br.readLine());
+        int N = Integer.parseInt(st.nextToken());
+        int M = Integer.parseInt(st.nextToken());
+        ArrayList<Integer>[] adj = new ArrayList[N];
+        for (int i = 0; i < N; i++) {
+            adj[i] = new ArrayList<>();
+        }
+        int[] deg = new int[N];
+        int[] parity = new int[N];
+        boolean[] visited = new boolean[N];
+        for (int i = 0; i < M; i++) {
+            st = new StringTokenizer(br.readLine());
+            int a = Integer.parseInt(st.nextToken()) - 1;
+            int b = Integer.parseInt(st.nextToken()) - 1;
+            adj[a].add(b);
+            adj[b].add(a);
+            deg[a]++;
+            deg[b]++;
+        }
+        if (M % 2 != 0) {
+            System.out.println(-1);
+            return;
+        }
+        PriorityQueue<int[]> pq = new PriorityQueue<>((a, b) -> a[0] - b[0]);
+        for (int i = 0; i < N; i++) {
+            pq.offer(new int[]{deg[i], i});
+        }
+        while (!pq.isEmpty()) {
+            int[] cur = pq.poll();
+            int u = cur[1];
+            if (visited[u]) {
+                continue;
+            }
+            visited[u] = true;
+            for (int i = 0; i < adj[u].size(); i++) {
+                int v = adj[u].get(i);
+                adj[v].remove(Integer.valueOf(u));
+                if (parity[u] != 0 && i == 0) {
+                    System.out.println((u + 1) + " " + (v + 1));
+                    parity[u] = 1 - parity[u];
+                } else {
+                    System.out.println((v + 1) + " " + (u + 1));
+                    parity[v] = 1 - parity[v];
+                }
+                deg[v]--;
+                pq.offer(new int[]{deg[v], v});
+            }
+        }
+    }
+}
+import java.util.Scanner;
+
+public class codeforces_147_A {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        String s = scanner.nextLine();
+        String[] res = new String[s.length()];
+        String[] punctuation = {",", ".", "!"};
+        for (int i = 0; i < s.length(); i++) {
+            if (i >= 1) {
+                if (s.charAt(i) == ' ') {
+                    if (res[res.length - 1] != " ") {
+                        res[res.length] = s.charAt(i);
+                    } else {
+                        continue;
+                    }
+                } else {
+                    if (s.charAt(i) == ',' || s.charAt(i) == '.' || s.charAt(i) == '!' || s.charAt(i) == '?') {
+                        if (res[res.length - 1] == " ") {
+                            res[res.length - 1] = "";
+                        }
+                        res[res.length] = s.charAt(i);
+                        res[res.length + 1] = " ";
+                    } else {
+                        res[res.length] = s.charAt(i);
+                    }
+                }
+            } else {
+                if (s.charAt(i) == ' ') {
+                    continue;
+                }
+                if (s.charAt(i) == ',' || s.charAt(i) == '.' || s.charAt(i) == '!' || s.charAt(i) == '?') {
+                    continue;
+                } else {
+                    res[res.length] = s.charAt(i);
+                }
+            }
+        }
+        for (int i = 0; i < res.length; i++) {
+            System.out.print(res[i]);
+        }
+    }
+}
+
+### Code:
+import java.util.Scanner;
+
+public class atcoder_ABC123_D {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int x = sc.nextInt();
+        int y = sc.nextInt();
+        int z = sc.nextInt();
+        int k = sc.nextInt();
+        int[] a = new int[x];
+        int[] b = new int[y];
+        int[] c = new int[z];
+        for (int i = 0; i < x; i++) {
+            a[i] = sc.nextInt();
+        }
+        for (int i = 0; i < y; i++) {
+            b[i] = sc.nextInt();
+        }
+        for (int i = 0; i < z; i++) {
+            c[i] = sc.nextInt();
+        }
+        int[] ab = new int[x * y];
+        int index = 0;
+        for (int i = 0; i < x; i++) {
+            for (int j = 0; j < y; j++) {
+                ab[index] = a[i] + b[j];
+                index++;
+            }
+        }
+        for (int i = 0; i < x * y; i++) {
+            for (int j = i + 1; j < x * y; j++) {
+                if (ab[i] < ab[j]) {
+                    int temp = ab[i];
+                    ab[i] = ab[j];
+                    ab[j] = temp;
+                }
+            }
+        }
+        int[] abc = new int[x * y * z];
+        index = 0;
+        for (int i = 0; i < x * y; i++) {
+            for (int j = 0; j < z; j++) {
+                abc[index] = ab[i] + c[j];
+                index++;
+            }
+        }
+        for (int i = 0; i < x * y * z; i++) {
+            for (int j = i + 1; j < x * y * z; j++) {
+                if (abc[i] < abc[j]) {
+                    int temp = abc[i];
+                    abc[i] = abc[j];
+                    abc[j] = temp;
+                }
+            }
+        }
+        for (int i = 0; i < k; i++) {
+            System.out.println(abc[i]);
+        }
+    }
+}
+### Explanation:
+import java.util.*;
+
+public class codeforces_369_B {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int k = sc.nextInt();
+        int l = sc.nextInt();
+        int r = sc.nextInt();
+        int sa = sc.nextInt();
+        int sk = sc.nextInt();
+        int[] ans = getNums(k, sk) + getNums(n - k, sa - sk);
+        for (int i = 0; i < ans.length; i++) {
+            System.out.print(ans[i] + " ");
+        }
+    }
+
+    public static int[] getNums(int num, int t) {
+        int[] ans = new int[num];
+        for (int i = 0; i < num; i++) {
+            if (i < t % num) {
+                ans[i] = t / num + 1;
+            } else {
+                ans[i] = t / num;
+            }
+        }
+        return ans;
+    }
+}
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+class Main {
+    public static void main ( String[] args ) {
+        Scanner sc = new Scanner ( System.in );
+        int n = sc.nextInt ( );
+        int k = sc.nextInt ( );
+        int[][] graph = new int[n][n];
+        for ( int i = 0; i < n - 1; i++ ) {
+            int a = sc.nextInt ( );
+            int b = sc.nextInt ( );
+            graph [ a - 1 ] [ b - 1 ] = 1;
+            graph [ b - 1 ] [ a - 1 ] = 1;
+        }
+        int mod = 1000000007;
+        int[][] dp = new int[n][k + 1];
+        for ( int i = 0; i < n; i++ ) {
+            for ( int j = 0; j <= k; j++ ) {
+                dp [ i ] [ j ] = - 1;
+            }
+        }
+        int ans = dfs ( 0, - 1, k, graph, dp );
+        System.out.println ( ans );
+    }
+    public static int dfs ( int fro, int to, int f, int[][] graph, int[][] dp ) {
+        if ( dp [ fro ] [ f ] != - 1 ) {
+            return dp [ fro ] [ f ];
+        }
+        int caseNum = f;
+        int colorNum = f == k ? k - 1 : k - 2;
+        for ( int i = 0; i < graph [ fro ].length; i++ ) {
+            if ( graph [ fro ] [ i ] == 1 && i != to ) {
+                int pat = dfs ( i, fro, colorNum, graph, dp );
+                if ( pat == 0 ) {
+                    caseNum = 0;
+                    break;
+                }
+                caseNum = caseNum * pat % mod;
+                colorNum--;
+            }
+        }
+        dp [ fro ] [ f ] = caseNum;
+        return caseNum;
+    }
+}
+import java.util.Scanner;
+
+public class codeforces_95_A {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        String[] arr = new String[n];
+        for (int i = 0; i < n; i++) {
+            arr[i] = sc.next().toLowerCase();
+        }
+        String s = sc.next().toLowerCase();
+        char c = sc.next().charAt(0);
+        char d = 'a';
+        if (c == 'a') {
+            d = 'b';
+        }
+        int[] valid = new int[s.length()];
+        for (int i = 0; i < s.length(); i++) {
+            for (String str : arr) {
+                if (s.startsWith(str, i)) {
+                    for (int j = i; j < i + str.length(); j++) {
+                        valid[j] = 1;
+                    }
+                }
+            }
+        }
+        char[] chars = s.toCharArray();
+        for (int i = 0; i < s.length(); i++) {
+            if (valid[i] == 1) {
+                if (chars[i] >= 'a' && chars[i] <= 'z') {
+                    chars[i] = d;
+                } else {
+                    chars[i] = Character.toUpperCase(d);
+                }
+            }
+        }
+        System.out.println(new String(chars));
+    }
+}
+public class codeforces_373_B {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int w = sc.nextInt();
+        int m = sc.nextInt();
+        int k = sc.nextInt();
+        int lo = 0;
+        int hi = (int) 1e18;
+        while (hi - lo > 1) {
+            int md = (lo + hi) / 2;
+            int c = sum(m + md - 1) - sum(m - 1);
+            if (c * k <= w) {
+                lo = md;
+            } else {
+                hi = md;
+            }
+        }
+        System.out.println(lo);
+    }
+
+    public static int sum(int k) {
+        int ret = 0;
+        int pw = 10;
+        int len = 1;
+        while (true) {
+            int cur = Math.min(pw - 1, k);
+            int prev = pw / 10;
+            ret += (cur - prev + 1) * len;
+            if (pw - 1 >= k) {
+                break;
+            }
+            len++;
+            pw *= 10;
+        }
+        return ret;
+    }
+}
+import java.util.Scanner;
+
+public class codeforces_242_A {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int x = sc.nextInt();
+        int y = sc.nextInt();
+        int a = sc.nextInt();
+        int b = sc.nextInt();
+        int[][] games = new int[x - a + 1][y - b + 1];
+        int count = 0;
+        for (int i = a; i <= x; i++) {
+            if (i <= b) continue;
+            for (int j = b; j <= y; j++) {
+                if (i > j) {
+                    games[i - a][j - b] = i;
+                    games[i - a][j - b + 1] = j;
+                    count++;
+                }
+            }
+        }
+        System.out.println(count);
+        for (int i = 0; i < x - a + 1; i++) {
+            for (int j = 0; j < y - b + 1; j++) {
+                if (games[i][j] != 0) {
+                    System.out.println(games[i][j] + " " + games[i][j + 1]);
+                }
+            }
+        }
+    }
+}
+import java.util.*;
+import java.io.*;
+
+public class codeforces_608_A {
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st = new StringTokenizer(br.readLine());
+        int n = Integer.parseInt(st.nextToken());
+        int s = Integer.parseInt(st.nextToken());
+        int c = 0;
+        for (int i = 0; i < n; i++) {
+            st = new StringTokenizer(br.readLine());
+            int f = Integer.parseInt(st.nextToken());
+            int t = Integer.parseInt(st.nextToken());
+            int x = t - (s - f);
+            if (x > c) {
+                c = x;
+            }
+        }
+        System.out.println(s + c);
+    }
+}
+### Explanation:
+import java.util.Scanner;
+
+public class codeforces_351_A {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        double[] arr = new double[n];
+        for (int i = 0; i < n; i++) {
+            arr[i] = sc.nextDouble();
+        }
+        double[] arr2 = new double[n];
+        int count = 0;
+        for (int i = 0; i < n; i++) {
+            if (arr[i] - (int) arr[i] != 0) {
+                arr2[count] = arr[i] - (int) arr[i];
+                count++;
+            }
+        }
+        int o = 2 * n - count;
+        double arr_sum = 0;
+        for (int i = 0; i < count; i++) {
+            arr_sum += arr2[i];
+        }
+        double res = 2e9;
+        for (int i = 0; i < n + 1; i++) {
+            if (i + o >= n) {
+                res = Math.min(res, Math.abs(i - arr_sum));
+            }
+        }
+        System.out.printf("%.3f", res);
+    }
+}
+
+
+import java.util.Scanner;
+import java.lang.Math;
+
+public class codeforces_459_A {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String[] input = sc.nextLine().split(" ");
+        int x1 = Integer.parseInt(input[0]);
+        int y1 = Integer.parseInt(input[1]);
+        int x2 = Integer.parseInt(input[2]);
+        int y2 = Integer.parseInt(input[3]);
+        int denominator = x2 - x1;
+        int numerator = y2 - y1;
+        if (denominator != 0) {
+            int quotient = numerator / denominator;
+            if (numerator == 0) {
+                int d = (int) Math.sqrt((x2 - x1) * (x2 - x1) + (y2 - y1) * (y2 - y1));
+                int x4 = x1;
+                int x3 = x2;
+                int y3 = y2 + d;
+                int y4 = y1 + d;
+                System.out.println(x3 + " " + y3 + " " + x4 + " " + y4);
+            } else if (denominator == 0) {
+                int y4 = y2;
+                int y3 = y1;
+                int d = (int) Math.sqrt((x2 - x1) * (x2 - x1) + (y2 - y1) * (y2 - y1));
+                int x4 = x1 + d;
+                int x3 = x2 + d;
+                System.out.println(x3 + " " + y3 + " " + x4 + " " + y4);
+            } else if (quotient == 1) {
+                int x4 = x2;
+                int x3 = x1;
+                int y4 = y1;
+                int y3 = y2;
+                System.out.println(x3 + " " + y3 + " " + x4 + " " + y4);
+            } else if (quotient == -1) {
+                int x4 = x1;
+                int x3 = x2;
+                int y4 = y2;
+                int y3 = y1;
+                System.out.println(x3 + " " + y3 + " " + x4 + " " + y4);
+            } else {
+                System.out.println("-1");
+            }
+        }
+    }
+}
+import java.util.Scanner;
+
+public class codeforces_32_B {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String s = sc.nextLine();
+        String result = "";
+        int i = 0;
+        while (i < s.length()) {
+            if (s.charAt(i) == '.') {
+                result += '0';
+            } else {
+                i += 1;
+                if (s.charAt(i) == '.') {
+                    result += '1';
+                } else {
+                    result += '2';
+                }
+            }
+            i += 1;
+        }
+        System.out.println(result);
+    }
+}
+
+
+import java.util.Scanner;
+
+public class atcoder_ABC042_A {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int a = sc.nextInt();
+        int b = sc.nextInt();
+        int c = sc.nextInt();
+        if (a == 5 && b == 5) {
+            System.out.println("YES");
+        } else if (a == 5 && c == 5) {
+            System.out.println("YES");
+        } else if (b == 5 && c == 5) {
+            System.out.println("YES");
+        } else {
+            System.out.println("NO");
+        }
+    }
+}
+### Solution:
+### Solution:
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+class Ideone
+{
+	public static void main (String[] args) throws java.lang.Exception
+	{
+		Scanner sc = new Scanner(System.in);
+		int N = sc.nextInt();
+		int K = sc.nextInt();
+		int[] L = new int[N+1];
+		for(int i=1;i<=N;i++)
+		{
+			L[i] = sc.nextInt();
+		}
+		L[0] = -1;
+		int[] path = new int[N+1];
+		path[0] = 1;
+		int ind = 0;
+		int count = 0;
+		int x = 1;
+		int t = -1;
+		boolean flag = false;
+		HashMap<Integer,Integer> Hash = new HashMap<Integer,Integer>();
+		for(int i=0;i<=N;i++)
+		{
+			int ne = L[x];
+			if(Hash.containsKey(ne))
+			{
+				flag = true;
+				t = Hash.get(ne);
+				break;
+			}
+			path[ind+1] = ne;
+			ind++;
+			Hash.put(ne,ind);
+			x = ne;
+		}
+		if(flag == true)
+		{
+			int[] loop = new int[ind+1];
+			for(int i=0;i<=ind;i++)
+			{
+				loop[i] = path[i];
+			}
+			if(K < (ind+1))
+			{
+				System.out.println(path[K]);
+			}
+			else
+			{
+				K = K - (ind+1);
+				K = K % ind;
+				System.out.println(loop[K]);
+			}
+		}
+		else
+		{
+			System.out.println(path[K-1]);
+		}
+	}
+}
+public class atcoder_ABC051_A {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String str = sc.nextLine();
+        String[] arr = str.split(",");
+        for (int i = 0; i < arr.length; i++) {
+            System.out.print(arr[i] + " ");
+        }
+    }
+}
+
+import java.util.Scanner;
+
+public class codeforces_673_A {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int[] arr = new int[n];
+        for (int i = 0; i < n; i++) {
+            arr[i] = sc.nextInt();
+        }
+        if (arr[0] > 15) {
+            System.out.println(15);
+        } else {
+            for (int i = 1; i < n; i++) {
+                if (arr[i] - arr[i - 1] > 15) {
+                    System.out.println(arr[i - 1] + 15);
+                    break;
+                }
+            }
+            if (arr[n - 1] == 90 || arr[n - 1] + 15 >= 90) {
+                System.out.println(90);
+            } else {
+                System.out.println(arr[n - 1] + 15);
+            }
+        }
+    }
+}
+
+import java.util.*;
+
+public class atcoder_ABC154_A {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String S = sc.next();
+        String T = sc.next();
+        int A = sc.nextInt();
+        int B = sc.nextInt();
+        String U = sc.next();
+        if (S.equals(U)) {
+            A--;
+        }
+        if (T.equals(U)) {
+            B--;
+        }
+        System.out.println(A + " " + B);
+    }
+}
+import java.util.*;
+import java.io.*;
+
+public class codeforces_637_A {
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        int n = Integer.parseInt(br.readLine());
+        String[] s = br.readLine().split(" ");
+        HashMap<String, Integer> map = new HashMap<>();
+        for (int i = 0; i < n; i++) {
+            map.put(s[i], map.getOrDefault(s[i], 0) + 1);
+        }
+        int max = 0;
+        String ans = "";
+        for (String key : map.keySet()) {
+            if (map.get(key) > max) {
+                max = map.get(key);
+                ans = key;
+            }
+        }
+        System.out.println(ans);
+    }
+}
+import java.util.Scanner;
+
+public class codeforces_11_A {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int d = sc.nextInt();
+        int[] x = new int[n];
+        int m = 0;
+        int q = 0;
+        for (int i = 0; i < n; i++) {
+            x[i] = sc.nextInt();
+        }
+        for (int a = 0; a < n - 1; a++) {
+            if (x[a] >= x[a + 1]) {
+                q = (int) ((x[a] - x[a + 1]) / d + 1);
+                m = m + q;
+                x[a + 1] = x[a + 1] + q * d;
+            }
+        }
+        System.out.println(m);
+    }
+}
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+class Ideone
+{
+	public static void main (String[] args) throws java.lang.Exception
+	{
+		Scanner sc = new Scanner(System.in);
+		int n = sc.nextInt();
+		int[] p = new int[n];
+		int[] q = new int[n];
+		for(int i=0;i<n;i++)
+		{
+			p[i] = sc.nextInt();
+		}
+		for(int i=0;i<n;i++)
+		{
+			q[i] = sc.nextInt();
+		}
+		int pn = 0;
+		int qn = 0;
+		for(int i=0;i<n;i++)
+		{
+			for(int j=0;j<n;j++)
+			{
+				if(p[i]==i+1)
+				{
+					pn = i;
+				}
+				if(q[j]==j+1)
+				{
+					qn = j;
+				}
+			}
+		}
+		System.out.println(Math.abs(pn-qn));
+	}
+}
+import java.util.Scanner;
+import java.util.Arrays;
+import java.util.Comparator;
+
+public class atcoder_ABC145_E {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int N = sc.nextInt();
+        int T = sc.nextInt();
+        int[][] time_value = new int[N + 1][2];
+        for (int i = 1; i <= N; i++) {
+            time_value[i][0] = sc.nextInt();
+            time_value[i][1] = sc.nextInt();
+        }
+        Arrays.sort(time_value, new Comparator<int[]>() {
+            @Override
+            public int compare(int[] o1, int[] o2) {
+                return o1[1] - o2[1];
+            }
+        });
+        int[][] dp = new int[N + 1][T];
+        for (int t = 0; t < T; t++) {
+            dp[0][t] = 0;
+        }
+        for (int n = 1; n <= N; n++) {
+            dp[n][0] = 0;
+            for (int t = 1; t < T; t++) {
+                if (time_value[n][0] > t) {
+                    dp[n][t] = dp[n - 1][t];
+                } else {
+                    dp[n][t] = Math.max(dp[n - 1][t], time_value[n][1] + dp[n - 1][t - time_value[n][0]]);
+                }
+            }
+        }
+        int val_acum = time_value[N][1];
+        int max_val = val_acum + dp[N - 1][T - 1];
+        for (int n = N - 1; n > 0; n--) {
+            val_acum += time_value[n][1];
+            int t = T - 1 - time_value[n + 1][0];
+            if (t < 0) {
+                break;
+            } else {
+                max_val = Math.max(max_val, val_acum + dp[n - 1][t]);
+            }
+        }
+        System.out.println(max_val);
+    }
+}
+import java.util.*;
+
+public class codeforces_621_A {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int[] lst = new int[n];
+        for (int i = 0; i < n; i++) {
+            lst[i] = sc.nextInt();
+        }
+        Arrays.sort(lst);
+        int od = 0;
+        for (int i = 0; i < n; i++) {
+            if (lst[i] % 2 == 1) {
+                od++;
+            }
+        }
+        int sum = 0;
+        int ok = 0;
+        for (int i = n - 1; i >= 0; i--) {
+            if (lst[i] % 2 == 0) {
+                sum += lst[i];
+            } else {
+                if (ok == 0 || od > 1) {
+                    sum += lst[i];
+                    od--;
+                    ok = 1 - ok;
+                }
+            }
+        }
+        System.out.println(sum);
+    }
+}
+import java.util.Scanner;
+
+public class codeforces_544_B {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int k = sc.nextInt();
+        int x = 0;
+        if (k <= Math.max(n * n / 2, n * n - (n * n / 2))) {
+            System.out.println("YES");
+            for (int i = 0; i < n; i++) {
+                for (int j = 0; j < n; j++) {
+                    if (i % 2 == j % 2 && x < k) {
+                        System.out.print("L");
+                        x++;
+                    } else {
+                        System.out.print("S");
+                    }
+                }
+                System.out.println();
+            }
+        } else {
+            System.out.println("NO");
+        }
+    }
+}
+import java.util.Scanner;
+
+public class atcoder_ABC107_C {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int N = sc.nextInt();
+        int K = sc.nextInt();
+        int[] lst = new int[N];
+        for (int i = 0; i < N; i++) {
+            lst[i] = sc.nextInt();
+        }
+        int[] lst_p = new int[N];
+        int[] lst_m = new int[N];
+        int p = 0;
+        int m = 0;
+        int x = 0;
+        int y = N - 1;
+        int lastx = N;
+        int lasty = N;
+        for (int i = 0; i < N; i++) {
+            if (lst[i] == 0) {
+                K--;
+            }
+            if (lst[i] > 0) {
+                lst_p[p] = lst[i];
+                p++;
+            }
+            if (lst[i] < 0) {
+                lst_m[m] = lst[i];
+                m++;
+            }
+        }
+        lastx = p;
+        lasty = m;
+        int ans = 1000000000;
+        for (int j = 0; j <= K; j++) {
+            if (j > lastx || K - j > lasty) {
+                continue;
+            }
+            if (j == 0) {
+                p = 0;
+            } else {
+                p = lst_p[j - 1];
+            }
+            if (K - j == 0) {
+                m = 0;
+            } else {
+                m = lst_m[lasty - (K - j)];
+            }
+            ans = Math.min(ans, 2 * p + Math.abs(m), p + 2 * Math.abs(m));
+        }
+        System.out.println(ans);
+    }
+}
+### Explanation:
+import java.util.Scanner;
+
+public class atcoder_AGC017_A {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int N = sc.nextInt();
+        int P = sc.nextInt();
+        int[] lis = new int[N];
+        for (int i = 0; i < N; i++) {
+            lis[i] = sc.nextInt();
+        }
+        int[] ls = new int[N];
+        for (int i = 0; i < N; i++) {
+            ls[i] = lis[i] % 2;
+        }
+        int one = ls.length - ls.length;
+        int zero = ls.length - ls.length;
+        for (int i = 0; i < N; i++) {
+            if (ls[i] == 1) {
+                one++;
+            } else {
+                zero++;
+            }
+        }
+        int pattern_a = 0;
+        int pattern_b = 0;
+        for (int j = 0; j <= zero; j++) {
+            pattern_b += combi(zero, j);
+        }
+        int time = 0;
+        while (time <= one) {
+            if (time % 2 == P) {
+                pattern_a += combi(one, time);
+            }
+            time++;
+        }
+        System.out.println(pattern_a * pattern_b);
+    }
+
+    public static int combi(int N, int K) {
+        int a = 1;
+        for (int i = 0; i < K; i++) {
+            a *= N - i;
+        }
+        for (int j = 0; j < K; j++) {
+            a /= j + 1;
+        }
+        return a;
+    }
+}
+### Solution:
+import java.util.Scanner;
+
+public class atcoder_ARC062_B {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String s = sc.nextLine();
+        int num_g = 0, num_p = 0;
+        int score = 0;
+        for (int i = 0; i < s.length(); i++) {
+            if (s.charAt(i) == 'g') {
+                if (num_g - num_p > 0) {
+                    score += 1;
+                    num_p += 1;
+                } else {
+                    score = score;
+                    num_g += 1;
+                }
+            } else if (s.charAt(i) == 'p') {
+                if (num_g - num_p > 0) {
+                    score = score;
+                    num_p += 1;
+                } else {
+                    score -= 1;
+                    num_g += 1;
+                }
+            }
+        }
+        System.out.println(score);
+    }
+}
+import java.util.Scanner;
+
+public class atcoder_ABC114_C {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        System.out.println(aaa(n, "0"));
+    }
+
+    public static int aaa(int n, String s) {
+        if (Integer.parseInt(s) > n) {
+            return 0;
+        }
+        int ans = 1;
+        if (s.matches("[753]+")) {
+            ans = 0;
+        }
+        for (char c : "753".toCharArray()) {
+            ans += aaa(n, s + c);
+        }
+        return ans;
+    }
+}
+
+import java.util.Scanner;
+
+public class atcoder_ABC145_B {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        String s = sc.next();
+        if (n % 2 != 0) {
+            System.out.println("No");
+        } else if (s.substring(0, n / 2).equals(s.substring(n / 2))) {
+            System.out.println("Yes");
+        } else {
+            System.out.println("No");
+        }
+    }
+}
+
+
+
+and
+100%|██████████| 250/250 [00:00<00:00, 20124.67it/s]
+import java.util.Queue;
+import java.util.LinkedList;
+import java.util.Scanner;
+
+class Task {
+    int time;
+    int duration;
+    int index;
+
+    public Task(int time, int duration, int index) {
+        this.time = time;
+        this.duration = duration;
+        this.index = index;
+    }
+}
+
+public class codeforces_644_B {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int n = scanner.nextInt();
+        int b = scanner.nextInt();
+        Queue<Task> remaining = new LinkedList<>();
+        boolean running = false;
+        int finishTime = 0;
+        int[] result = new int[n];
+
+        for (int i = 0; i < n; i++) {
+            int time = scanner.nextInt();
+            int duration = scanner.nextInt();
+            Task task = new Task(time, duration, i);
+            result[i] = 0;
+
+            if (task.time > finishTime && remaining.isEmpty()) {
+                running = true;
+                finishTime = task.time + task.duration;
+                result[i] = finishTime;
+            } else {
+                if (task.time >= finishTime && !remaining.isEmpty()) {
+                    finishTime = runTask(remaining, finishTime);
+                }
+                if (remaining.size() < b) {
+                    remaining.add(task);
+                } else {
+                    result[i] = -1;
+                }
+            }
+        }
+
+        while (!remaining.isEmpty()) {
+            finishTime = runTask(remaining, finishTime);
+        }
+
+        for (int i = 0; i < n; i++) {
+            System.out.print(result[i] + " ");
+        }
+    }
+
+    public static int runTask(Queue<Task> remaining, int finishTime) {
+        Task taskToRun = remaining.poll();
+        finishTime = Math.max(finishTime, taskToRun.time) + taskToRun.duration;
+        return finishTime;
+    }
+}
+import java.util.*;
+import java.io.*;
+
+public class codeforces_624_B {
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        int n = Integer.parseInt(br.readLine());
+        int[] a = new int[n];
+        StringTokenizer st = new StringTokenizer(br.readLine());
+        for (int i = 0; i < n; i++) {
+            a[i] = Integer.parseInt(st.nextToken());
+        }
+        Arrays.sort(a);
+        int pre = Integer.MAX_VALUE;
+        long ans = 0;
+        for (int i = n - 1; i >= 0; i--) {
+            ans += Math.max(0, Math.min(pre - 1, a[i]));
+            pre = Math.max(0, Math.min(pre - 1, a[i]));
+        }
+        System.out.println(ans);
+    }
+}
+
+import java.util.Scanner;
+
+public class codeforces_669_A {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        System.out.println((n * 2 + 1) / 3);
+    }
+}
+
+import java.util.Scanner;
+import java.lang.Math;
+
+public class atcoder_ABC133_B {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int d = sc.nextInt();
+        int[][] points = new int[n][d];
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < d; j++) {
+                points[i][j] = sc.nextInt();
+            }
+        }
+        int count = 0;
+        for (int i = 0; i < n; i++) {
+            for (int j = i + 1; j < n; j++) {
+                double dist = 0;
+                for (int k = 0; k < d; k++) {
+                    dist += Math.pow(points[i][k] - points[j][k], 2);
+                }
+                dist = Math.sqrt(dist);
+                if (dist % 1 == 0) {
+                    count++;
+                }
+            }
+        }
+        System.out.println(count);
+    }
+}
+import java.util.Scanner;
+
+public class codeforces_622_A {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int l = 1;
+        int r = n;
+        while (l < r) {
+            int mid = l + (r - l) / 2;
+            int idxcnt = mid * (mid + 1) / 2;
+            if (idxcnt < n) {
+                l = mid + 1;
+            } else {
+                r = mid;
+            }
+        }
+        l -= 1;
+        int idxcnt = l * (l + 1) / 2;
+        System.out.println(n - idxcnt);
+    }
+}
+### Explanation:
+import java.util.*;
+import java.io.*;
+
+public class codeforces_131_B {
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        int n = Integer.parseInt(br.readLine());
+        StringTokenizer st = new StringTokenizer(br.readLine());
+        int[] w = new int[200001];
+        for (int i = 0; i < n; i++) {
+            int x = Integer.parseInt(st.nextToken());
+            w[x + 100000]++;
+        }
+        long c = 0;
+        for (int i = 0; i <= 200000; i++) {
+            if (i == 100000) {
+                c += (long) w[i] * (w[i] - 1) / 2;
+            } else {
+                c += (long) w[i] * w[200000 - i];
+            }
+        }
+        System.out.println(c);
+    }
+}
+import java.util.Scanner;
+
+public class codeforces_379_A {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int candeleIntere = scanner.nextInt();
+        int b = scanner.nextInt();
+        int s = 0;
+        int restoSciolte = 0;
+        while (candeleIntere > 0 || restoSciolte >= b) {
+            candeleIntere += restoSciolte / b;
+            restoSciolte %= b;
+            s += candeleIntere;
+            restoSciolte += candeleIntere % b;
+            candeleIntere /= b;
+        }
+        System.out.println(s);
+    }
+}
++ python3 -u test_translation.py --dataset Avatar --source_lang Python --target_lang Java --model deepseek-ai/deepseek-coder-6.7b-base --test_type use_test
+testing translations
+Filename:  atcoder_ABC146_D.java
+Command 'javac ../Experiment_Results/intermediate/SR/Translation/use_test/deepseek-coder-6.7b-base/Avatar/Python/Java-sanitized/atcoder_ABC146_D.java' returned non-zero exit status 1.
+Filename:  atcoder_ABC119_B.java
+Command 'javac ../Experiment_Results/intermediate/SR/Translation/use_test/deepseek-coder-6.7b-base/Avatar/Python/Java-sanitized/atcoder_ABC119_B.java' returned non-zero exit status 1.
+Filename:  atcoder_AGC028_B.java
+Filename:  codeforces_569_A.java
+Filename:  atcoder_ABC112_C.java
+Filename:  atcoder_ABC104_C.java
+Filename:  codeforces_678_A.java
+Command 'javac ../Experiment_Results/intermediate/SR/Translation/use_test/deepseek-coder-6.7b-base/Avatar/Python/Java-sanitized/codeforces_678_A.java' returned non-zero exit status 1.
+Filename:  codeforces_400_A.java
+Command 'javac ../Experiment_Results/intermediate/SR/Translation/use_test/deepseek-coder-6.7b-base/Avatar/Python/Java-sanitized/codeforces_400_A.java' returned non-zero exit status 1.
+Filename:  atcoder_ABC105_D.java
+Command 'javac ../Experiment_Results/intermediate/SR/Translation/use_test/deepseek-coder-6.7b-base/Avatar/Python/Java-sanitized/atcoder_ABC105_D.java' returned non-zero exit status 1.
+Filename:  atcoder_AGC033_B.java
+Filename:  codeforces_55_A.java
+Filename:  atcoder_ABC106_C.java
+Filename:  codeforces_404_A.java
+Filename:  atcoder_AGC046_B.java
+Filename:  codeforces_7_B.java
+Filename:  atcoder_AGC021_B.java
+Filename:  atcoder_ABC089_C.java
+Filename:  atcoder_AGC013_A.java
+Command 'javac ../Experiment_Results/intermediate/SR/Translation/use_test/deepseek-coder-6.7b-base/Avatar/Python/Java-sanitized/atcoder_AGC013_A.java' returned non-zero exit status 1.
+Filename:  codeforces_609_B.java
+Filename:  atcoder_ABC162_D.java
+Filename:  atcoder_AGC014_D.java
+Command 'javac ../Experiment_Results/intermediate/SR/Translation/use_test/deepseek-coder-6.7b-base/Avatar/Python/Java-sanitized/atcoder_AGC014_D.java' returned non-zero exit status 1.
+Filename:  atcoder_ABC151_A.java
+Filename:  codeforces_581_B.java
+Filename:  atcoder_ABC126_E.java
+Command 'javac ../Experiment_Results/intermediate/SR/Translation/use_test/deepseek-coder-6.7b-base/Avatar/Python/Java-sanitized/atcoder_ABC126_E.java' returned non-zero exit status 1.
+Filename:  atcoder_ABC118_C.java
+Filename:  atcoder_ABC132_F.java
+Filename:  codeforces_581_A.java
+Filename:  codeforces_92_A.java
+Filename:  atcoder_ABC170_A.java
+Filename:  codeforces_653_A.java
+Filename:  codeforces_8_B.java
+Command 'javac ../Experiment_Results/intermediate/SR/Translation/use_test/deepseek-coder-6.7b-base/Avatar/Python/Java-sanitized/codeforces_8_B.java' returned non-zero exit status 1.
+Filename:  codeforces_146_A.java
+Filename:  codeforces_299_A.java
+Command 'javac ../Experiment_Results/intermediate/SR/Translation/use_test/deepseek-coder-6.7b-base/Avatar/Python/Java-sanitized/codeforces_299_A.java' returned non-zero exit status 1.
+Filename:  codeforces_518_B.java
+Filename:  codeforces_421_A.java
+Filename:  codeforces_340_A.java
+Filename:  atcoder_ABC140_F.java
+Filename:  codeforces_534_B.java
+Filename:  codeforces_672_A.java
+Filename:  codeforces_148_B.java
+Command 'javac ../Experiment_Results/intermediate/SR/Translation/use_test/deepseek-coder-6.7b-base/Avatar/Python/Java-sanitized/codeforces_148_B.java' returned non-zero exit status 1.
+Filename:  codeforces_59_A.java
+Filename:  codeforces_474_B.java
+Filename:  codeforces_267_A.java
+Filename:  atcoder_ABC172_D.java
+Command 'javac ../Experiment_Results/intermediate/SR/Translation/use_test/deepseek-coder-6.7b-base/Avatar/Python/Java-sanitized/atcoder_ABC172_D.java' returned non-zero exit status 1.
+Filename:  atcoder_ABC112_A.java
+Command 'javac ../Experiment_Results/intermediate/SR/Translation/use_test/deepseek-coder-6.7b-base/Avatar/Python/Java-sanitized/atcoder_ABC112_A.java' returned non-zero exit status 1.
+Filename:  codeforces_265_B.java
+Filename:  codeforces_342_B.java
+Filename:  codeforces_356_A.java
+Filename:  atcoder_ABC178_A.java
+Filename:  atcoder_ABC158_B.java
+Filename:  codeforces_296_A.java
+Filename:  atcoder_AGC019_A.java
+Filename:  atcoder_ABC134_E.java
+Filename:  codeforces_387_A.java
+Filename:  codeforces_665_A.java
+Filename:  codeforces_154_A.java
+Filename:  codeforces_23_B.java
+Filename:  atcoder_ABC150_D.java
+Filename:  codeforces_216_B.java
+Filename:  atcoder_ABC149_B.java
+Filename:  codeforces_612_B.java
+Filename:  codeforces_583_B.java
+Command 'javac ../Experiment_Results/intermediate/SR/Translation/use_test/deepseek-coder-6.7b-base/Avatar/Python/Java-sanitized/codeforces_583_B.java' returned non-zero exit status 1.
+Filename:  codeforces_607_A.java
+Filename:  atcoder_AGC010_B.java
+Filename:  codeforces_190_A.java
+Filename:  codeforces_387_B.java
+Filename:  atcoder_ABC137_D.java
+Filename:  atcoder_ABC120_C.java
+Command 'javac ../Experiment_Results/intermediate/SR/Translation/use_test/deepseek-coder-6.7b-base/Avatar/Python/Java-sanitized/atcoder_ABC120_C.java' returned non-zero exit status 1.
+Filename:  codeforces_397_B.java
+Filename:  atcoder_ARC102_C.java
+Filename:  atcoder_ABC148_F.java
+Filename:  atcoder_ABC070_B.java
+Filename:  atcoder_ABC152_C.java
+Filename:  atcoder_ABC111_C.java
+Filename:  codeforces_268_A.java
+Filename:  codeforces_651_A.java
+Filename:  codeforces_274_A.java
+Filename:  codeforces_306_A.java
+Filename:  codeforces_400_B.java
+Command 'javac ../Experiment_Results/intermediate/SR/Translation/use_test/deepseek-coder-6.7b-base/Avatar/Python/Java-sanitized/codeforces_400_B.java' returned non-zero exit status 1.
+Filename:  codeforces_327_A.java
+Filename:  codeforces_567_A.java
+Filename:  atcoder_ABC109_B.java
+Command 'javac ../Experiment_Results/intermediate/SR/Translation/use_test/deepseek-coder-6.7b-base/Avatar/Python/Java-sanitized/atcoder_ABC109_B.java' returned non-zero exit status 1.
+Filename:  codeforces_579_A.java
+Filename:  codeforces_189_A.java
+Filename:  atcoder_AGC037_E.java
+Command 'javac ../Experiment_Results/intermediate/SR/Translation/use_test/deepseek-coder-6.7b-base/Avatar/Python/Java-sanitized/atcoder_AGC037_E.java' returned non-zero exit status 1.
+Filename:  codeforces_222_A.java
+Filename:  atcoder_ABC165_C.java
+Filename:  codeforces_203_B.java
+Filename:  atcoder_AGC024_B.java
+Filename:  codeforces_287_A.java
+Filename:  codeforces_37_A.java
+Filename:  atcoder_AGC006_B.java
+Filename:  codeforces_632_B.java
+Filename:  codeforces_110_B.java
+Command 'javac ../Experiment_Results/intermediate/SR/Translation/use_test/deepseek-coder-6.7b-base/Avatar/Python/Java-sanitized/codeforces_110_B.java' returned non-zero exit status 1.
+Filename:  codeforces_134_A.java
+Command 'javac ../Experiment_Results/intermediate/SR/Translation/use_test/deepseek-coder-6.7b-base/Avatar/Python/Java-sanitized/codeforces_134_A.java' returned non-zero exit status 1.
+Filename:  atcoder_AGC034_B.java
+Filename:  atcoder_ABC110_C.java
+Filename:  atcoder_ABC123_B.java
+Filename:  atcoder_AGC025_A.java
+Filename:  atcoder_ABC108_B.java
+Command 'javac ../Experiment_Results/intermediate/SR/Translation/use_test/deepseek-coder-6.7b-base/Avatar/Python/Java-sanitized/atcoder_ABC108_B.java' returned non-zero exit status 1.
+Filename:  atcoder_ABC171_E.java
+Command 'javac ../Experiment_Results/intermediate/SR/Translation/use_test/deepseek-coder-6.7b-base/Avatar/Python/Java-sanitized/atcoder_ABC171_E.java' returned non-zero exit status 1.
+Filename:  codeforces_445_A.java
+Filename:  atcoder_ABC143_D.java
+Filename:  codeforces_30_A.java
+Command 'javac ../Experiment_Results/intermediate/SR/Translation/use_test/deepseek-coder-6.7b-base/Avatar/Python/Java-sanitized/codeforces_30_A.java' returned non-zero exit status 1.
+Filename:  atcoder_ABC142_C.java
+Command 'javac ../Experiment_Results/intermediate/SR/Translation/use_test/deepseek-coder-6.7b-base/Avatar/Python/Java-sanitized/atcoder_ABC142_C.java' returned non-zero exit status 1.
+Filename:  atcoder_ABC171_B.java
+Command 'javac ../Experiment_Results/intermediate/SR/Translation/use_test/deepseek-coder-6.7b-base/Avatar/Python/Java-sanitized/atcoder_ABC171_B.java' returned non-zero exit status 1.
+Filename:  atcoder_ABC107_D.java
+Filename:  codeforces_106_B.java
+Filename:  atcoder_AGC002_A.java
+Filename:  atcoder_ABC140_D.java
+Filename:  atcoder_ABC167_C.java
+Filename:  atcoder_ABC143_A.java
+Filename:  atcoder_ABC139_B.java
+Filename:  atcoder_ABC124_A.java
+Filename:  codeforces_25_A.java
+Filename:  codeforces_282_B.java
+Filename:  atcoder_ABC169_C.java
+Filename:  codeforces_350_B.java
+Filename:  atcoder_ABC142_A.java
+Filename:  codeforces_333_B.java
+Filename:  atcoder_ABC166_C.java
+Filename:  codeforces_79_A.java
+Filename:  atcoder_AGC004_D.java
+Filename:  atcoder_ABC174_C.java
+Filename:  codeforces_67_B.java
+Command 'javac ../Experiment_Results/intermediate/SR/Translation/use_test/deepseek-coder-6.7b-base/Avatar/Python/Java-sanitized/codeforces_67_B.java' returned non-zero exit status 1.
+Filename:  atcoder_ABC168_C.java
+Filename:  codeforces_354_A.java
+Filename:  codeforces_49_A.java
+Filename:  atcoder_ABC168_B.java
+Filename:  atcoder_ABC149_C.java
+Command 'javac ../Experiment_Results/intermediate/SR/Translation/use_test/deepseek-coder-6.7b-base/Avatar/Python/Java-sanitized/atcoder_ABC149_C.java' returned non-zero exit status 1.
+Filename:  codeforces_302_A.java
+Filename:  codeforces_58_B.java
+Command 'javac ../Experiment_Results/intermediate/SR/Translation/use_test/deepseek-coder-6.7b-base/Avatar/Python/Java-sanitized/codeforces_58_B.java' returned non-zero exit status 1.
+Filename:  atcoder_AGC028_A.java
+Filename:  codeforces_56_B.java
+Filename:  codeforces_99_A.java
+Filename:  codeforces_412_A.java
+Command 'javac ../Experiment_Results/intermediate/SR/Translation/use_test/deepseek-coder-6.7b-base/Avatar/Python/Java-sanitized/codeforces_412_A.java' returned non-zero exit status 1.
+Filename:  codeforces_86_A.java
+Filename:  atcoder_ABC128_C.java
+Command 'javac ../Experiment_Results/intermediate/SR/Translation/use_test/deepseek-coder-6.7b-base/Avatar/Python/Java-sanitized/atcoder_ABC128_C.java' returned non-zero exit status 1.
+Filename:  atcoder_AGC004_B.java
+Filename:  atcoder_ABC150_E.java
+Filename:  codeforces_456_A.java
+Filename:  codeforces_598_A.java
+Command 'javac ../Experiment_Results/intermediate/SR/Translation/use_test/deepseek-coder-6.7b-base/Avatar/Python/Java-sanitized/codeforces_598_A.java' returned non-zero exit status 1.
+Filename:  atcoder_AGC027_B.java
+Filename:  codeforces_408_B.java
+Command 'javac ../Experiment_Results/intermediate/SR/Translation/use_test/deepseek-coder-6.7b-base/Avatar/Python/Java-sanitized/codeforces_408_B.java' returned non-zero exit status 1.
+Filename:  atcoder_AGC006_A.java
+Filename:  atcoder_AGC043_B.java
+Filename:  codeforces_31_A.java
+Command 'javac ../Experiment_Results/intermediate/SR/Translation/use_test/deepseek-coder-6.7b-base/Avatar/Python/Java-sanitized/codeforces_31_A.java' returned non-zero exit status 1.
+Filename:  atcoder_AGC011_C.java
+Command 'javac ../Experiment_Results/intermediate/SR/Translation/use_test/deepseek-coder-6.7b-base/Avatar/Python/Java-sanitized/atcoder_AGC011_C.java' returned non-zero exit status 1.
+Filename:  atcoder_ABC125_C.java
+Filename:  atcoder_AGC007_C.java
+Filename:  codeforces_459_B.java
+Filename:  atcoder_ABC125_B.java
+Filename:  atcoder_ABC043_B.java
+Command 'javac ../Experiment_Results/intermediate/SR/Translation/use_test/deepseek-coder-6.7b-base/Avatar/Python/Java-sanitized/atcoder_ABC043_B.java' returned non-zero exit status 1.
+Filename:  codeforces_546_A.java
+Filename:  codeforces_231_A.java
+Filename:  atcoder_AGC033_A.java
+Command 'javac ../Experiment_Results/intermediate/SR/Translation/use_test/deepseek-coder-6.7b-base/Avatar/Python/Java-sanitized/atcoder_AGC033_A.java' returned non-zero exit status 1.
+Filename:  atcoder_ABC127_B.java
+Filename:  atcoder_AGC038_A.java
+Filename:  codeforces_500_A.java
+Filename:  atcoder_ABC155_D.java
+Filename:  atcoder_ABC147_D.java
+Filename:  atcoder_AGC046_A.java
+Filename:  codeforces_596_B.java
+Filename:  codeforces_171_A.java
+Filename:  codeforces_276_B.java
+Filename:  codeforces_617_B.java
+Filename:  codeforces_55_B.java
+Command 'javac ../Experiment_Results/intermediate/SR/Translation/use_test/deepseek-coder-6.7b-base/Avatar/Python/Java-sanitized/codeforces_55_B.java' returned non-zero exit status 1.
+Filename:  atcoder_ABC178_B.java
+Command 'javac ../Experiment_Results/intermediate/SR/Translation/use_test/deepseek-coder-6.7b-base/Avatar/Python/Java-sanitized/atcoder_ABC178_B.java' returned non-zero exit status 1.
+Filename:  atcoder_ABC164_D.java
+Filename:  codeforces_242_B.java
+Filename:  atcoder_ABC132_A.java
+Filename:  atcoder_ABC169_D.java
+Filename:  atcoder_ABC126_D.java
+Command 'javac ../Experiment_Results/intermediate/SR/Translation/use_test/deepseek-coder-6.7b-base/Avatar/Python/Java-sanitized/atcoder_ABC126_D.java' returned non-zero exit status 1.
+Filename:  atcoder_ABC129_E.java
+Filename:  codeforces_678_B.java
+Filename:  codeforces_462_B.java
+Filename:  codeforces_334_A.java
+Filename:  atcoder_AGC029_C.java
+Command 'javac ../Experiment_Results/intermediate/SR/Translation/use_test/deepseek-coder-6.7b-base/Avatar/Python/Java-sanitized/atcoder_AGC029_C.java' returned non-zero exit status 1.
+Filename:  codeforces_313_B.java
+Filename:  codeforces_108_B.java
+Filename:  codeforces_705_B.java
+Filename:  atcoder_ABC127_F.java
+Command 'javac ../Experiment_Results/intermediate/SR/Translation/use_test/deepseek-coder-6.7b-base/Avatar/Python/Java-sanitized/atcoder_ABC127_F.java' returned non-zero exit status 1.
+Filename:  atcoder_ABC153_A.java
+Command 'javac ../Experiment_Results/intermediate/SR/Translation/use_test/deepseek-coder-6.7b-base/Avatar/Python/Java-sanitized/atcoder_ABC153_A.java' returned non-zero exit status 1.
+Filename:  atcoder_ABC158_A.java
+Filename:  atcoder_AGC005_B.java
+Command 'javac ../Experiment_Results/intermediate/SR/Translation/use_test/deepseek-coder-6.7b-base/Avatar/Python/Java-sanitized/atcoder_AGC005_B.java' returned non-zero exit status 1.
+Filename:  codeforces_70_B.java
+Command 'javac ../Experiment_Results/intermediate/SR/Translation/use_test/deepseek-coder-6.7b-base/Avatar/Python/Java-sanitized/codeforces_70_B.java' returned non-zero exit status 1.
+Filename:  atcoder_ABC125_A.java
+Filename:  atcoder_ABC145_C.java
+Filename:  atcoder_ABC164_A.java
+Filename:  codeforces_514_A.java
+Filename:  codeforces_272_B.java
+Filename:  codeforces_96_B.java
+Filename:  atcoder_ABC169_E.java
+Filename:  atcoder_AGC035_B.java
+Filename:  codeforces_147_A.java
+Command 'javac ../Experiment_Results/intermediate/SR/Translation/use_test/deepseek-coder-6.7b-base/Avatar/Python/Java-sanitized/codeforces_147_A.java' returned non-zero exit status 1.
+Filename:  atcoder_ABC152_E.java
+Filename:  codeforces_203_A.java
+Command 'javac ../Experiment_Results/intermediate/SR/Translation/use_test/deepseek-coder-6.7b-base/Avatar/Python/Java-sanitized/codeforces_203_A.java' returned non-zero exit status 1.
+Filename:  atcoder_ABC123_D.java
+Filename:  atcoder_ABC155_E.java
+Command 'javac ../Experiment_Results/intermediate/SR/Translation/use_test/deepseek-coder-6.7b-base/Avatar/Python/Java-sanitized/atcoder_ABC155_E.java' returned non-zero exit status 1.
+Filename:  codeforces_369_B.java
+Command 'javac ../Experiment_Results/intermediate/SR/Translation/use_test/deepseek-coder-6.7b-base/Avatar/Python/Java-sanitized/codeforces_369_B.java' returned non-zero exit status 1.
+Filename:  atcoder_ABC133_E.java
+Command 'javac ../Experiment_Results/intermediate/SR/Translation/use_test/deepseek-coder-6.7b-base/Avatar/Python/Java-sanitized/atcoder_ABC133_E.java' returned non-zero exit status 1.
+Filename:  codeforces_95_A.java
+Filename:  codeforces_373_B.java
+Command 'javac ../Experiment_Results/intermediate/SR/Translation/use_test/deepseek-coder-6.7b-base/Avatar/Python/Java-sanitized/codeforces_373_B.java' returned non-zero exit status 1.
+Filename:  codeforces_242_A.java
+Filename:  codeforces_608_A.java
+Filename:  codeforces_469_A.java
+Command 'javac ../Experiment_Results/intermediate/SR/Translation/use_test/deepseek-coder-6.7b-base/Avatar/Python/Java-sanitized/codeforces_469_A.java' returned non-zero exit status 1.
+Filename:  codeforces_351_A.java
+Filename:  atcoder_AGC003_C.java
+Filename:  codeforces_629_A.java
+Filename:  codeforces_459_A.java
+Filename:  codeforces_32_B.java
+Filename:  atcoder_AGC012_A.java
+Filename:  atcoder_ABC122_D.java
+Filename:  atcoder_ABC042_A.java
+Filename:  codeforces_629_B.java
+Command 'javac ../Experiment_Results/intermediate/SR/Translation/use_test/deepseek-coder-6.7b-base/Avatar/Python/Java-sanitized/codeforces_629_B.java' returned non-zero exit status 1.
+Filename:  atcoder_ABC123_C.java
+Command 'javac ../Experiment_Results/intermediate/SR/Translation/use_test/deepseek-coder-6.7b-base/Avatar/Python/Java-sanitized/atcoder_ABC123_C.java' returned non-zero exit status 1.
+Filename:  atcoder_ABC167_D.java
+Filename:  atcoder_ABC051_A.java
+Command 'javac ../Experiment_Results/intermediate/SR/Translation/use_test/deepseek-coder-6.7b-base/Avatar/Python/Java-sanitized/atcoder_ABC051_A.java' returned non-zero exit status 1.
+Filename:  atcoder_ABC122_C.java
+Filename:  codeforces_673_A.java
+Filename:  atcoder_ABC174_E.java
+Filename:  atcoder_ABC154_A.java
+Filename:  codeforces_637_A.java
+Filename:  codeforces_11_A.java
+Filename:  atcoder_ABC150_C.java
+Filename:  atcoder_ABC145_E.java
+Filename:  codeforces_621_A.java
+Filename:  codeforces_544_B.java
+Filename:  atcoder_ABC107_C.java
+Command 'javac ../Experiment_Results/intermediate/SR/Translation/use_test/deepseek-coder-6.7b-base/Avatar/Python/Java-sanitized/atcoder_ABC107_C.java' returned non-zero exit status 1.
+Filename:  codeforces_450_A.java
+Command 'javac ../Experiment_Results/intermediate/SR/Translation/use_test/deepseek-coder-6.7b-base/Avatar/Python/Java-sanitized/codeforces_450_A.java' returned non-zero exit status 1.
+Filename:  atcoder_AGC017_A.java
+Filename:  codeforces_682_B.java
+Command 'javac ../Experiment_Results/intermediate/SR/Translation/use_test/deepseek-coder-6.7b-base/Avatar/Python/Java-sanitized/codeforces_682_B.java' returned non-zero exit status 1.
+Filename:  atcoder_ARC062_B.java
+Filename:  atcoder_ABC114_C.java
+Filename:  atcoder_AGC002_B.java
+Filename:  atcoder_ABC145_B.java
+Filename:  codeforces_61_B.java
+Filename:  atcoder_ABC136_B.java
+Filename:  atcoder_ARC086_B.java
+Filename:  atcoder_ABC124_C.java
+Command 'javac ../Experiment_Results/intermediate/SR/Translation/use_test/deepseek-coder-6.7b-base/Avatar/Python/Java-sanitized/atcoder_ABC124_C.java' returned non-zero exit status 1.
+Filename:  codeforces_644_B.java
+Filename:  codeforces_624_B.java
+Filename:  atcoder_AGC027_A.java
+Filename:  codeforces_669_A.java
+Filename:  atcoder_ABC135_D.java
+Filename:  atcoder_ABC133_B.java
+Filename:  codeforces_622_A.java
+Filename:  codeforces_519_B.java
+Command 'javac ../Experiment_Results/intermediate/SR/Translation/use_test/deepseek-coder-6.7b-base/Avatar/Python/Java-sanitized/codeforces_519_B.java' returned non-zero exit status 1.
+Filename:  codeforces_131_B.java
+Filename:  codeforces_379_A.java
+../Experiment_Results/intermediate/SR/Translation/use_test/deepseek-coder-6.7b-base/Avatar/Python/Java-sanitized/pass_id.txt
+#Success: 62
+Success: ['codeforces_287_A.java', 'codeforces_445_A.java', 'atcoder_AGC002_A.java', 'atcoder_ABC124_A.java', 'codeforces_567_A.java', 'codeforces_569_A.java', 'codeforces_79_A.java', 'atcoder_ABC125_B.java', 'codeforces_268_A.java', 'codeforces_387_A.java', 'codeforces_106_B.java', 'atcoder_ABC132_A.java', 'atcoder_ABC118_C.java', 'atcoder_AGC046_A.java', 'codeforces_282_B.java', 'atcoder_ABC139_B.java', 'codeforces_265_B.java', 'codeforces_534_B.java', 'codeforces_49_A.java', 'atcoder_ABC174_C.java', 'codeforces_55_A.java', 'codeforces_37_A.java', 'atcoder_AGC025_A.java', 'atcoder_AGC035_B.java', 'atcoder_ABC104_C.java', 'codeforces_608_A.java', 'codeforces_25_A.java', 'codeforces_189_A.java', 'atcoder_ABC143_A.java', 'atcoder_ABC133_B.java', 'codeforces_340_A.java', 'atcoder_ABC170_A.java', 'codeforces_669_A.java', 'atcoder_ABC164_A.java', 'codeforces_11_A.java', 'codeforces_379_A.java', 'codeforces_581_A.java', 'atcoder_ABC151_A.java', 'atcoder_ABC152_C.java', 'codeforces_607_A.java', 'codeforces_705_B.java', 'codeforces_354_A.java', 'codeforces_231_A.java', 'atcoder_ABC158_A.java', 'atcoder_ABC042_A.java', 'atcoder_ABC125_A.java', 'atcoder_ABC145_B.java', 'codeforces_544_B.java', 'codeforces_190_A.java', 'codeforces_32_B.java', 'codeforces_333_B.java', 'codeforces_154_A.java', 'codeforces_59_A.java', 'codeforces_23_B.java', 'atcoder_ABC158_B.java', 'codeforces_624_B.java', 'atcoder_ABC110_C.java', 'codeforces_92_A.java', 'atcoder_ABC154_A.java', 'codeforces_546_A.java', 'atcoder_AGC033_B.java', 'atcoder_ABC142_A.java']
+Fail: ['atcoder_ABC145_E.java', 'atcoder_ABC127_B.java', 'codeforces_651_A.java', 'codeforces_596_B.java', 'codeforces_579_A.java', 'codeforces_621_A.java', 'codeforces_350_B.java', 'codeforces_673_A.java', 'codeforces_404_A.java', 'atcoder_ABC147_D.java', 'atcoder_ABC070_B.java', 'atcoder_ABC150_D.java', 'codeforces_459_A.java', 'codeforces_131_B.java', 'codeforces_306_A.java', 'codeforces_296_A.java', 'atcoder_AGC007_C.java', 'atcoder_ABC137_D.java', 'codeforces_459_B.java', 'atcoder_ARC062_B.java', 'codeforces_274_A.java', 'atcoder_AGC046_B.java', 'atcoder_ABC168_C.java', 'atcoder_ABC155_D.java', 'atcoder_AGC017_A.java', 'atcoder_ABC112_C.java', 'codeforces_334_A.java', 'codeforces_653_A.java', 'codeforces_356_A.java', 'codeforces_637_A.java', 'codeforces_351_A.java', 'codeforces_95_A.java', 'codeforces_644_B.java', 'codeforces_171_A.java', 'atcoder_ABC123_B.java', 'codeforces_86_A.java', 'atcoder_ABC169_E.java', 'atcoder_ABC122_C.java', 'codeforces_617_B.java', 'atcoder_AGC004_D.java', 'atcoder_AGC021_B.java', 'atcoder_ABC122_D.java', 'atcoder_ABC125_C.java', 'atcoder_AGC027_B.java', 'atcoder_AGC043_B.java', 'atcoder_ABC150_C.java', 'codeforces_500_A.java', 'codeforces_327_A.java', 'atcoder_AGC006_B.java', 'codeforces_61_B.java', 'atcoder_ABC148_F.java', 'codeforces_146_A.java', 'codeforces_462_B.java', 'atcoder_ABC129_E.java', 'atcoder_AGC012_A.java', 'codeforces_302_A.java', 'atcoder_ABC106_C.java', 'codeforces_456_A.java', 'atcoder_AGC024_B.java', 'atcoder_ABC134_E.java', 'atcoder_ABC167_D.java', 'codeforces_514_A.java', 'atcoder_ABC140_F.java', 'atcoder_ABC111_C.java', 'atcoder_ABC152_E.java', 'codeforces_267_A.java', 'atcoder_ABC165_C.java', 'codeforces_99_A.java', 'codeforces_609_B.java', 'codeforces_56_B.java', 'atcoder_ABC162_D.java', 'codeforces_216_B.java', 'codeforces_678_B.java', 'atcoder_ABC168_B.java', 'codeforces_387_B.java', 'atcoder_AGC004_B.java', 'atcoder_ABC174_E.java', 'codeforces_665_A.java', 'atcoder_ABC166_C.java', 'codeforces_222_A.java', 'atcoder_AGC003_C.java', 'atcoder_ABC132_F.java', 'atcoder_ABC169_C.java', 'codeforces_242_A.java', 'codeforces_342_B.java', 'atcoder_ABC089_C.java', 'atcoder_AGC027_A.java', 'atcoder_ARC086_B.java', 'codeforces_581_B.java', 'atcoder_ABC107_D.java', 'codeforces_421_A.java', 'codeforces_632_B.java', 'atcoder_ABC114_C.java', 'codeforces_108_B.java', 'codeforces_276_B.java', 'atcoder_ARC102_C.java', 'atcoder_ABC178_A.java', 'atcoder_ABC169_D.java', 'codeforces_272_B.java', 'codeforces_203_B.java', 'atcoder_AGC010_B.java', 'codeforces_622_A.java', 'atcoder_ABC140_D.java', 'codeforces_313_B.java', 'atcoder_ABC136_B.java', 'atcoder_ABC145_C.java', 'atcoder_ABC123_D.java', 'atcoder_ABC143_D.java', 'atcoder_AGC019_A.java', 'atcoder_AGC038_A.java', 'codeforces_629_A.java', 'atcoder_ABC149_B.java', 'atcoder_ABC164_D.java', 'codeforces_242_B.java', 'codeforces_672_A.java', 'codeforces_474_B.java', 'codeforces_612_B.java', 'atcoder_AGC006_A.java', 'codeforces_518_B.java', 'atcoder_ABC135_D.java', 'atcoder_ABC150_E.java', 'atcoder_AGC034_B.java', 'codeforces_397_B.java', 'atcoder_AGC002_B.java', 'atcoder_AGC028_A.java', 'atcoder_ABC167_C.java', 'atcoder_AGC028_B.java', 'codeforces_7_B.java', 'codeforces_96_B.java', 'codeforces_31_A.java', 'codeforces_203_A.java', 'codeforces_369_B.java', 'atcoder_AGC033_A.java', 'codeforces_147_A.java', 'atcoder_ABC155_E.java', 'atcoder_ABC123_C.java', 'atcoder_ABC051_A.java', 'codeforces_55_B.java', 'codeforces_682_B.java', 'atcoder_ABC112_A.java', 'codeforces_519_B.java', 'atcoder_ABC109_B.java', 'atcoder_AGC013_A.java', 'codeforces_400_B.java', 'atcoder_ABC126_E.java', 'atcoder_ABC108_B.java', 'atcoder_AGC011_C.java', 'codeforces_70_B.java', 'atcoder_ABC142_C.java', 'atcoder_ABC105_D.java', 'codeforces_469_A.java', 'atcoder_ABC126_D.java', 'atcoder_ABC127_F.java', 'codeforces_583_B.java', 'atcoder_ABC119_B.java', 'codeforces_67_B.java', 'codeforces_30_A.java', 'codeforces_412_A.java', 'atcoder_ABC146_D.java', 'atcoder_ABC133_E.java', 'codeforces_58_B.java', 'atcoder_ABC128_C.java', 'atcoder_ABC120_C.java', 'atcoder_ABC043_B.java', 'codeforces_134_A.java', 'atcoder_ABC171_E.java', 'codeforces_678_A.java', 'codeforces_598_A.java', 'atcoder_AGC037_E.java', 'codeforces_8_B.java', 'codeforces_629_B.java', 'codeforces_450_A.java', 'codeforces_373_B.java', 'atcoder_ABC107_C.java', 'codeforces_400_A.java', 'atcoder_ABC124_C.java', 'atcoder_AGC014_D.java', 'codeforces_299_A.java', 'atcoder_ABC171_B.java', 'codeforces_110_B.java', 'codeforces_148_B.java', 'codeforces_408_B.java', 'atcoder_AGC029_C.java', 'atcoder_ABC149_C.java', 'atcoder_ABC153_A.java', 'atcoder_ABC178_B.java', 'atcoder_AGC005_B.java', 'atcoder_ABC172_D.java', 'codeforces_579_A.java', 'atcoder_ABC123_D.java']

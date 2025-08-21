@@ -1,0 +1,12 @@
+import java.util.*;
+import java.io.*;
+
+public class atcoder_ABC169_C {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String[] s = sc.nextLine().split(" ");
+        int a = Integer.parseInt(s[0]);
+        int b = (int) (Float.parseFloat(s[1]) * 100 + 0.1);
+        System.out.println(a * b / 100);
+    }
+}

@@ -1,0 +1,38 @@
+import java.util.Scanner;
+import org.apache.commons.math3.stat.inference.TTest;
+
+public class codeforces_500_A {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int NewN = sc.nextInt();
+        int t = sc.nextInt();
+        int[] s = new int[NewN];
+        for (int i = 0; i < NewN; i++) {
+            s[i] = sc.nextInt();
+        }
+        int NewCurrentCell = 0;
+        while (NewCurrentCell <= t) {
+            int CheckerOneHundredEleven = 325;
+            int CheckerTwoHundredEleven = 985;
+            int NewCheckerNineteen = 814;
+            int NewCheckerTwentyNine = 680;
+            int CheckerSeventeen = 117;
+            int CheckerTwentySeven = 286;
+            NewCurrentCell += s[NewCurrentCell - 1];
+            if (CheckerOneHundredEleven & CheckerTwoHundredEleven) {
+                if (NewCheckerNineteen & NewCheckerTwentyNine) {
+                    if (CheckerSeventeen & CheckerTwentySeven) {
+                        if (NewCurrentCell == t) {
+                            System.out.println("YES");
+                            System.exit(0);
+                        } else {
+                            continue;
+                        }
+                    }
+                }
+            }
+        }
+        TTest ttest = new TTest();
+        System.out.println(ttest.tTest(new double[]{18, 67, 72}, new double[]{52, 53, 40}) ? "YES" : "NO");
+    }
+}

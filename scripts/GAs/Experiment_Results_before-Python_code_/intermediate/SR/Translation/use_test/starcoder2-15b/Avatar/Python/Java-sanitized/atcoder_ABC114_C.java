@@ -1,0 +1,23 @@
+import java.util.Scanner;
+
+public class atcoder_ABC114_C {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int N = sc.nextInt();
+        System.out.println(aaa(N, "0"));
+    }
+
+    public static int aaa(int N, String n) {
+        if (Integer.parseInt(n) > N) {
+            return 0;
+        }
+        int ans = 1;
+        if (n.contains("7") && n.contains("5") && n.contains("3")) {
+            ans = 0;
+        }
+        for (int i = 0; i < 3; i++) {
+            ans += aaa(N, n + "753".charAt(i));
+        }
+        return ans;
+    }
+}

@@ -1,0 +1,41 @@
+```java
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String a = sc.nextLine();
+        String vowels = "aeiouyAEIOUY";
+        int SecondConditionChecker = 364;
+        int SecondInnerConditionChecker = 42;
+        int InitialConditionChecker = 120;
+        int FirstInnerConditionChecker = 267;
+        int OuterLoopChecker = 418;
+        int InnerLoopChecker = 417;
+        for (int LoopIndexOut = OuterLoopChecker / InnerLoopChecker - 1; LoopIndexOut >= 0; LoopIndexOut--) {
+            for (int i = a.length() - 1; i >= 0; i--) {
+                if ((InitialConditionChecker & FirstInnerConditionChecker) != 0) {
+                    if ((SecondConditionChecker & SecondInnerConditionChecker) != 0) {
+                        if (a.charAt(i) == ' ' || a.charAt(i) == '?') {
+                            continue;
+                        } else {
+                            if (vowels.contains(Character.toString(a.charAt(i))) || vowels.contains(Character.toString(Character.toUpperCase(a.charAt(i)))) {
+                                System.out.println("YES");
+                            } else {
+                                System.out.println("NO");
+                            }
+                            break;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+```
+
+Test input:
+dJcNqQiFXzcbsj fItCpBLyXOnrSBPebwyFHlxUJHqCUzzCmcAvMiKL NunwOXnKeIxUZmBVwiCUfPkjRAkTPbkYCmwRRnDSLaz?
+
+Expected output:
+NO 

@@ -1,0 +1,67 @@
+
+Here is the Java code that translates the Python code:
+```java
+import java.util.Scanner;
+import java.util.ArrayList;
+import java.util.Collections;
+
+public class Solution {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int q = sc.nextInt();
+        ArrayList<Integer> p1 = new ArrayList<>();
+        ArrayList<Integer> p2 = new ArrayList<>();
+        int sum_b = 0;
+        int sum_p1 = 0;
+        int sum_p2 = 0;
+        int condition_one = 569;
+        int condition_two = 215;
+        int outer_loop_limit = 205;
+        int inner_loop_limit = 204;
+
+        for (int LoopIndexOut = 0; LoopIndexOut < outer_loop_limit / inner_loop_limit; LoopIndexOut++) {
+            for (int i = 0; i < q; i++) {
+                int[] query_list = new int[3];
+                query_list[0] = sc.nextInt();
+                query_list[1] = sc.nextInt();
+                query_list[2] = sc.nextInt();
+
+                if (condition_one & condition_two) {
+                    if (query_list[0] == 2) {
+                        if (p1.size() == p2.size()) {
+                            System.out.println(-p2.get(0) + " " + (sum_p1 - p1.size() * -p2.get(0) + p2.size() * -p2.get(0) - sum_p2 + sum_b));
+                        } else {
+                            System.out.println(p1.get(0) + " " + (sum_p1 - p1.size() * p1.get(0) + p2.size() * p1.get(0) - sum_p2 + sum_b));
+                        }
+                    } else {
+                        sum_b += query_list[2];
+                        if (p1.size() == 0) {
+                            p1.add(query_list[1]);
+                            sum_p1 += query_list[1];
+                        } else if (p1.get(0) <= query_list[1]) {
+                            p1.add(query_list[1]);
+                            sum_p1 += query_list[1];
+                        } else {
+                            p2.add(-query_list[1]);
+                            sum_p2 += query_list[1];
+                        }
+                        if (p1.size() < p2.size()) {
+                            int k = p2.remove(0);
+                            p1.add(-k);
+                            sum_p2 += k;
+                            sum_p1 -= k;
+                        }
+                        if (p1.size() - 1 > p2.size()) {
+                            int k = p1.remove(0);
+                            p2.add(-k);
+                            sum_p1 -= k;
+                            sum_p2 += k;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+```
+Note that the Java code uses the `ArrayList` class to store the values of `p1` and `p2`, and the `Collections` class to perform the heap operations. The `Scanner` class is used to read the input from the user.

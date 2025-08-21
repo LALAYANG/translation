@@ -1,0 +1,1561 @@
+
+```
+import java.util.*;
+import java.io.*;
+import java.math.*;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int q = sc.nextInt();
+        int h = sc.nextInt();
+        int s = sc.nextInt();
+        int d = sc.nextInt();
+        int n = sc.nextInt();
+        int best1L = Math.min(q * 4, h * 2, s);
+        int best2L = Math.min(d, best1L * 2);
+        if (n % 2 == 0) {
+            System.out.println(best2L * (n / 2));
+        } else {
+            System.out.println(best2L * (n / 2) + best1L);
+        }
+    }
+}
+
+```
+
+### Explanation:
+
+```
+
+```
+
+### Time Complexity:
+
+```
+
+```
+
+### Space Complexity:
+
+```
+
+```
+
+### References:
+
+```
+
+```
+
+### Tags:
+
+```
+
+```
+
+### Similar Problems:
+
+```
+
+```
+
+### Conclusion:
+
+```
+
+```
+
+### Code:
+
+```
+
+```
+
+### Explanation:
+
+```
+
+```
+
+### Time Complexity:
+
+```
+
+```
+
+### Space Complexity:
+
+```
+
+```
+
+### References:
+
+```
+
+```
+
+### Tags:
+
+```
+
+```
+
+### Similar Problems:
+
+```
+
+```
+
+### Conclusion:
+
+```
+
+```
+
+### Code:
+
+```
+
+```
+
+### Explanation:
+
+```
+
+```
+
+### Time Complexity:
+
+```
+
+```
+
+### Space Complexity:
+
+```
+
+```
+
+### References:
+
+```
+
+```
+
+### Tags:
+
+```
+
+```
+
+### Similar Problems:
+
+```
+
+```
+
+### Conclusion:
+
+```
+
+```
+
+### Code:
+
+```
+
+```
+
+### Explanation:
+
+```
+
+```
+
+### Time Complexity:
+
+```
+
+```
+
+### Space Complexity:
+
+```
+
+```
+
+### References:
+
+```
+
+```
+
+### Tags:
+
+```
+
+```
+
+### Similar Problems:
+
+```
+
+```
+
+### Conclusion:
+
+```
+
+```
+
+### Code:
+
+```
+
+```
+
+### Explanation:
+
+```
+
+```
+
+### Time Complexity:
+
+```
+
+```
+
+### Space Complexity:
+
+```
+
+```
+
+### References:
+
+```
+
+```
+
+### Tags:
+
+```
+
+```
+
+### Similar Problems:
+
+```
+
+```
+
+### Conclusion:
+
+```
+
+```
+
+### Code:
+
+```
+
+```
+
+### Explanation:
+
+```
+
+```
+
+### Time Complexity:
+
+```
+
+```
+
+### Space Complexity:
+
+```
+
+```
+
+### References:
+
+```
+
+```
+
+### Tags:
+
+```
+
+```
+
+### Similar Problems:
+
+```
+
+```
+
+### Conclusion:
+
+```
+
+```
+
+### Code:
+
+```
+
+```
+
+### Explanation:
+
+```
+
+```
+
+### Time Complexity:
+
+```
+
+```
+
+### Space Complexity:
+
+```
+
+```
+
+### References:
+
+```
+
+```
+
+### Tags:
+
+```
+
+```
+
+### Similar Problems:
+
+```
+
+```
+
+### Conclusion:
+
+```
+
+```
+
+### Code:
+
+```
+
+```
+
+### Explanation:
+
+```
+
+```
+
+### Time Complexity:
+
+```
+
+```
+
+### Space Complexity:
+
+```
+
+```
+
+### References:
+
+```
+
+```
+
+### Tags:
+
+```
+
+```
+
+### Similar Problems:
+
+```
+
+```
+
+### Conclusion:
+
+```
+
+```
+
+### Code:
+
+```
+
+```
+
+### Explanation:
+
+```
+
+```
+
+### Time Complexity:
+
+```
+
+```
+
+### Space Complexity:
+
+```
+
+```
+
+### References:
+
+```
+
+```
+
+### Tags:
+
+```
+
+```
+
+### Similar Problems:
+
+```
+
+```
+
+### Conclusion:
+
+```
+
+```
+
+### Code:
+
+```
+
+```
+
+### Explanation:
+
+```
+
+```
+
+### Time Complexity:
+
+```
+
+```
+
+### Space Complexity:
+
+```
+
+```
+
+### References:
+
+```
+
+```
+
+### Tags:
+
+```
+
+```
+
+### Similar Problems:
+
+```
+
+```
+
+### Conclusion:
+
+```
+
+```
+
+### Code:
+
+```
+
+```
+
+### Explanation:
+
+```
+
+```
+
+### Time Complexity:
+
+```
+
+```
+
+### Space Complexity:
+
+```
+
+```
+
+### References:
+
+```
+
+```
+
+### Tags:
+
+```
+
+```
+
+### Similar Problems:
+
+```
+
+```
+
+### Conclusion:
+
+```
+
+```
+
+### Code:
+
+```
+
+```
+
+### Explanation:
+
+```
+
+```
+
+### Time Complexity:
+
+```
+
+```
+
+### Space Complexity:
+
+```
+
+```
+
+### References:
+
+```
+
+```
+
+### Tags:
+
+```
+
+```
+
+### Similar Problems:
+
+```
+
+```
+
+### Conclusion:
+
+```
+
+```
+
+### Code:
+
+```
+
+```
+
+### Explanation:
+
+```
+
+```
+
+### Time Complexity:
+
+```
+
+```
+
+### Space Complexity:
+
+```
+
+```
+
+### References:
+
+```
+
+```
+
+### Tags:
+
+```
+
+```
+
+### Similar Problems:
+
+```
+
+```
+
+### Conclusion:
+
+```
+
+```
+
+### Code:
+
+```
+
+```
+
+### Explanation:
+
+```
+
+```
+
+### Time Complexity:
+
+```
+
+```
+
+### Space Complexity:
+
+```
+
+```
+
+### References:
+
+```
+
+```
+
+### Tags:
+
+```
+
+```
+
+### Similar Problems:
+
+```
+
+```
+
+### Conclusion:
+
+```
+
+```
+
+### Code:
+
+```
+
+```
+
+### Explanation:
+
+```
+
+```
+
+### Time Complexity:
+
+```
+
+```
+
+### Space Complexity:
+
+```
+
+```
+
+### References:
+
+```
+
+```
+
+### Tags:
+
+```
+
+```
+
+### Similar Problems:
+
+```
+
+```
+
+### Conclusion:
+
+```
+
+```
+
+### Code:
+
+```
+
+```
+
+### Explanation:
+
+```
+
+```
+
+### Time Complexity:
+
+```
+
+```
+
+### Space Complexity:
+
+```
+
+```
+
+### References:
+
+```
+
+```
+
+### Tags:
+
+```
+
+```
+
+### Similar Problems:
+
+```
+
+```
+
+### Conclusion:
+
+```
+
+```
+
+### Code:
+
+```
+
+```
+
+### Explanation:
+
+```
+
+```
+
+### Time Complexity:
+
+```
+
+```
+
+### Space Complexity:
+
+```
+
+```
+
+### References:
+
+```
+
+```
+
+### Tags:
+
+```
+
+```
+
+### Similar Problems:
+
+```
+
+```
+
+### Conclusion:
+
+```
+
+```
+
+### Code:
+
+```
+
+```
+
+### Explanation:
+
+```
+
+```
+
+### Time Complexity:
+
+```
+
+```
+
+### Space Complexity:
+
+```
+
+```
+
+### References:
+
+```
+
+```
+
+### Tags:
+
+```
+
+```
+
+### Similar Problems:
+
+```
+
+```
+
+### Conclusion:
+
+```
+
+```
+
+### Code:
+
+```
+
+```
+
+### Explanation:
+
+```
+
+```
+
+### Time Complexity:
+
+```
+
+```
+
+### Space Complexity:
+
+```
+
+```
+
+### References:
+
+```
+
+```
+
+### Tags:
+
+```
+
+```
+
+### Similar Problems:
+
+```
+
+```
+
+### Conclusion:
+
+```
+
+```
+
+### Code:
+
+```
+
+```
+
+### Explanation:
+
+```
+
+```
+
+### Time Complexity:
+
+```
+
+```
+
+### Space Complexity:
+
+```
+
+```
+
+### References:
+
+```
+
+```
+
+### Tags:
+
+```
+
+```
+
+### Similar Problems:
+
+```
+
+```
+
+### Conclusion:
+
+```
+
+```
+
+### Code:
+
+```
+
+```
+
+### Explanation:
+
+```
+
+```
+
+### Time Complexity:
+
+```
+
+```
+
+### Space Complexity:
+
+```
+
+```
+
+### References:
+
+```
+
+```
+
+### Tags:
+
+```
+
+```
+
+### Similar Problems:
+
+```
+
+```
+
+### Conclusion:
+
+```
+
+```
+
+### Code:
+
+```
+
+```
+
+### Explanation:
+
+```
+
+```
+
+### Time Complexity:
+
+```
+
+```
+
+### Space Complexity:
+
+```
+
+```
+
+### References:
+
+```
+
+```
+
+### Tags:
+
+```
+
+```
+
+### Similar Problems:
+
+```
+
+```
+
+### Conclusion:
+
+```
+
+```
+
+### Code:
+
+```
+
+```
+
+### Explanation:
+
+```
+
+```
+
+### Time Complexity:
+
+```
+
+```
+
+### Space Complexity:
+
+```
+
+```
+
+### References:
+
+```
+
+```
+
+### Tags:
+
+```
+
+```
+
+### Similar Problems:
+
+```
+
+```
+
+### Conclusion:
+
+```
+
+```
+
+### Code:
+
+```
+
+```
+
+### Explanation:
+
+```
+
+```
+
+### Time Complexity:
+
+```
+
+```
+
+### Space Complexity:
+
+```
+
+```
+
+### References:
+
+```
+
+```
+
+### Tags:
+
+```
+
+```
+
+### Similar Problems:
+
+```
+
+```
+
+### Conclusion:
+
+```
+
+```
+
+### Code:
+
+```
+
+```
+
+### Explanation:
+
+```
+
+```
+
+### Time Complexity:
+
+```
+
+```
+
+### Space Complexity:
+
+```
+
+```
+
+### References:
+
+```
+
+```
+
+### Tags:
+
+```
+
+```
+
+### Similar Problems:
+
+```
+
+```
+
+### Conclusion:
+
+```
+
+```
+
+### Code:
+
+```
+
+```
+
+### Explanation:
+
+```
+
+```
+
+### Time Complexity:
+
+```
+
+```
+
+### Space Complexity:
+
+```
+
+```
+
+### References:
+
+```
+
+```
+
+### Tags:
+
+```
+
+```
+
+### Similar Problems:
+
+```
+
+```
+
+### Conclusion:
+
+```
+
+```
+
+### Code:
+
+```
+
+```
+
+### Explanation:
+
+```
+
+```
+
+### Time Complexity:
+
+```
+
+```
+
+### Space Complexity:
+
+```
+
+```
+
+### References:
+
+```
+
+```
+
+### Tags:
+
+```
+
+```
+
+### Similar Problems:
+
+```
+
+```
+
+### Conclusion:
+
+```
+
+```
+
+### Code:
+
+```
+
+```
+
+### Explanation:
+
+```
+
+```
+
+### Time Complexity:
+
+```
+
+```
+
+### Space Complexity:
+
+```
+
+```
+
+### References:
+
+```
+
+```
+
+### Tags:
+
+```
+
+```
+
+### Similar Problems:
+
+```
+
+```
+
+### Conclusion:
+
+```
+
+```
+
+### Code:
+
+```
+
+```
+
+### Explanation:
+
+```
+
+```
+
+### Time Complexity:
+
+```
+
+```
+
+### Space Complexity:
+
+```
+
+```
+
+### References:
+
+```
+
+```
+
+### Tags:
+
+```
+
+```
+
+### Similar Problems:
+
+```
+
+```
+
+### Conclusion:
+
+```
+
+```
+
+### Code:
+
+```
+
+```
+
+### Explanation:
+
+```
+
+```
+
+### Time Complexity:
+
+```
+
+```
+
+### Space Complexity:
+
+```
+
+```
+
+### References:
+
+```
+
+```
+
+### Tags:
+
+```
+
+```
+
+### Similar Problems:
+
+```
+
+```
+
+### Conclusion:
+
+```
+
+```
+
+### Code:
+
+```
+
+```
+
+### Explanation:
+
+```
+
+```
+
+### Time Complexity:
+
+```
+
+```
+
+### Space Complexity:
+
+```
+
+```
+
+### References:
+
+```
+
+```
+
+### Tags:
+
+```
+
+```
+
+### Similar Problems:
+
+```
+
+```
+
+### Conclusion:
+
+```
+
+```
+
+### Code:
+
+```
+
+```
+
+### Explanation:
+
+```
+
+```
+
+### Time Complexity:
+
+```
+
+```
+
+### Space Complexity:
+
+```
+
+```
+
+### References:
+
+```
+
+```
+
+### Tags:
+
+```
+
+```
+
+### Similar Problems:
+
+```
+
+```
+
+### Conclusion:
+
+```
+
+```
+
+### Code:
+
+```
+
+```

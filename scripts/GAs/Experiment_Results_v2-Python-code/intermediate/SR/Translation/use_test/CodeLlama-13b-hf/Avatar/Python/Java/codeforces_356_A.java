@@ -1,0 +1,432 @@
+
+[INST] <<SYS>>
+You are an expert Java programmer and assistant
+<</SYS>>
+
+Translate the following Python code to Java and enclose your solution inside ```java and ```.
+A sample test case is provided below:
+
+Test input:
+3 2
+2 3 3
+1 3 3
+
+Expected output:
+3 3 0 
+
+```
+(n, rangeEnd) = map(int, input().strip().split())
+out = [0 for _ in range(n)]
+comp = [i + 2 for i in range(n)]
+for _ in range(rangeEnd):
+    (l, r, x) = map(int, input().strip().split())
+    t = l
+    while t <= r:
+        CheckerSix = 168
+        CheckerFive = 511
+        CheckerThree = 25
+        CheckerFour = 950
+        CheckerTwo = 556
+        CheckerOne = 499
+        next_val = comp[t - 1]
+        if CheckerSix & CheckerFive:
+            if CheckerThree & CheckerFour:
+                if CheckerTwo & CheckerOne:
+                    if out[t - 1] == 0 and t != x:
+                        out[t - 1] = x
+        comp[t - 1] = r + 1 if t >= x else x
+        t = next_val
+print(*out)
+```
+[/INST]
+
+[INST] <<SYS>>
+You are an expert Java programmer and assistant
+<</SYS>>
+
+Translate the following Python code to Java and enclose your solution inside ```java and ```.
+A sample test case is provided below:
+
+Test input:
+3 2
+2 3 3
+1 3 3
+
+Expected output:
+3 3 0 
+
+```
+(n, rangeEnd) = map(int, input().strip().split())
+out = [0 for _ in range(n)]
+comp = [i + 2 for i in range(n)]
+for _ in range(rangeEnd):
+    (l, r, x) = map(int, input().strip().split())
+    t = l
+    while t <= r:
+        CheckerSix = 168
+        CheckerFive = 511
+        CheckerThree = 25
+        CheckerFour = 950
+        CheckerTwo = 556
+        CheckerOne = 499
+        next_val = comp[t - 1]
+        if CheckerSix & CheckerFive:
+            if CheckerThree & CheckerFour:
+                if CheckerTwo & CheckerOne:
+                    if out[t - 1] == 0 and t != x:
+                        out[t - 1] = x
+        comp[t - 1] = r + 1 if t >= x else x
+        t = next_val
+print(*out)
+```
+[/INST]
+
+[INST] <<SYS>>
+You are an expert Java programmer and assistant
+<</SYS>>
+
+Translate the following Python code to Java and enclose your solution inside ```java and ```.
+A sample test case is provided below:
+
+Test input:
+3 2
+2 3 3
+1 3 3
+
+Expected output:
+3 3 0 
+
+```
+(n, rangeEnd) = map(int, input().strip().split())
+out = [0 for _ in range(n)]
+comp = [i + 2 for i in range(n)]
+for _ in range(rangeEnd):
+    (l, r, x) = map(int, input().strip().split())
+    t = l
+    while t <= r:
+        CheckerSix = 168
+        CheckerFive = 511
+        CheckerThree = 25
+        CheckerFour = 950
+        CheckerTwo = 556
+        CheckerOne = 499
+        next_val = comp[t - 1]
+        if CheckerSix & CheckerFive:
+            if CheckerThree & CheckerFour:
+                if CheckerTwo & CheckerOne:
+                    if out[t - 1] == 0 and t != x:
+                        out[t - 1] = x
+        comp[t - 1] = r + 1 if t >= x else x
+        t = next_val
+print(*out)
+```
+[/INST]
+
+[INST] <<SYS>>
+You are an expert Java programmer and assistant
+<</SYS>>
+
+Translate the following Python code to Java and enclose your solution inside ```java and ```.
+A sample test case is provided below:
+
+Test input:
+3 2
+2 3 3
+1 3 3
+
+Expected output:
+3 3 0 
+
+```
+(n, rangeEnd) = map(int, input().strip().split())
+out = [0 for _ in range(n)]
+comp = [i + 2 for i in range(n)]
+for _ in range(rangeEnd):
+    (l, r, x) = map(int, input().strip().split())
+    t = l
+    while t <= r:
+        CheckerSix = 168
+        CheckerFive = 511
+        CheckerThree = 25
+        CheckerFour = 950
+        CheckerTwo = 556
+        CheckerOne = 499
+        next_val = comp[t - 1]
+        if CheckerSix & CheckerFive:
+            if CheckerThree & CheckerFour:
+                if CheckerTwo & CheckerOne:
+                    if out[t - 1] == 0 and t != x:
+                        out[t - 1] = x
+        comp[t - 1] = r + 1 if t >= x else x
+        t = next_val
+print(*out)
+```
+[/INST]
+
+[INST] <<SYS>>
+You are an expert Java programmer and assistant
+<</SYS>>
+
+Translate the following Python code to Java and enclose your solution inside ```java and ```.
+A sample test case is provided below:
+
+Test input:
+3 2
+2 3 3
+1 3 3
+
+Expected output:
+3 3 0 
+
+```
+(n, rangeEnd) = map(int, input().strip().split())
+out = [0 for _ in range(n)]
+comp = [i + 2 for i in range(n)]
+for _ in range(rangeEnd):
+    (l, r, x) = map(int, input().strip().split())
+    t = l
+    while t <= r:
+        CheckerSix = 168
+        CheckerFive = 511
+        CheckerThree = 25
+        CheckerFour = 950
+        CheckerTwo = 556
+        CheckerOne = 499
+        next_val = comp[t - 1]
+        if CheckerSix & CheckerFive:
+            if CheckerThree & CheckerFour:
+                if CheckerTwo & CheckerOne:
+                    if out[t - 1] == 0 and t != x:
+                        out[t - 1] = x
+        comp[t - 1] = r + 1 if t >= x else x
+        t = next_val
+print(*out)
+```
+[/INST]
+
+[INST] <<SYS>>
+You are an expert Java programmer and assistant
+<</SYS>>
+
+Translate the following Python code to Java and enclose your solution inside ```java and ```.
+A sample test case is provided below:
+
+Test input:
+3 2
+2 3 3
+1 3 3
+
+Expected output:
+3 3 0 
+
+```
+(n, rangeEnd) = map(int, input().strip().split())
+out = [0 for _ in range(n)]
+comp = [i + 2 for i in range(n)]
+for _ in range(rangeEnd):
+    (l, r, x) = map(int, input().strip().split())
+    t = l
+    while t <= r:
+        CheckerSix = 168
+        CheckerFive = 511
+        CheckerThree = 25
+        CheckerFour = 950
+        CheckerTwo = 556
+        CheckerOne = 499
+        next_val = comp[t - 1]
+        if CheckerSix & CheckerFive:
+            if CheckerThree & CheckerFour:
+                if CheckerTwo & CheckerOne:
+                    if out[t - 1] == 0 and t != x:
+                        out[t - 1] = x
+        comp[t - 1] = r + 1 if t >= x else x
+        t = next_val
+print(*out)
+```
+[/INST]
+
+[INST] <<SYS>>
+You are an expert Java programmer and assistant
+<</SYS>>
+
+Translate the following Python code to Java and enclose your solution inside ```java and ```.
+A sample test case is provided below:
+
+Test input:
+3 2
+2 3 3
+1 3 3
+
+Expected output:
+3 3 0 
+
+```
+(n, rangeEnd) = map(int, input().strip().split())
+out = [0 for _ in range(n)]
+comp = [i + 2 for i in range(n)]
+for _ in range(rangeEnd):
+    (l, r, x) = map(int, input().strip().split())
+    t = l
+    while t <= r:
+        CheckerSix = 168
+        CheckerFive = 511
+        CheckerThree = 25
+        CheckerFour = 950
+        CheckerTwo = 556
+        CheckerOne = 499
+        next_val = comp[t - 1]
+        if CheckerSix & CheckerFive:
+            if CheckerThree & CheckerFour:
+                if CheckerTwo & CheckerOne:
+                    if out[t - 1] == 0 and t != x:
+                        out[t - 1] = x
+        comp[t - 1] = r + 1 if t >= x else x
+        t = next_val
+print(*out)
+```
+[/INST]
+
+[INST] <<SYS>>
+You are an expert Java programmer and assistant
+<</SYS>>
+
+Translate the following Python code to Java and enclose your solution inside ```java and ```.
+A sample test case is provided below:
+
+Test input:
+3 2
+2 3 3
+1 3 3
+
+Expected output:
+3 3 0 
+
+```
+(n, rangeEnd) = map(int, input().strip().split())
+out = [0 for _ in range(n)]
+comp = [i + 2 for i in range(n)]
+for _ in range(rangeEnd):
+    (l, r, x) = map(int, input().strip().split())
+    t = l
+    while t <= r:
+        CheckerSix = 168
+        CheckerFive = 511
+        CheckerThree = 25
+        CheckerFour = 950
+        CheckerTwo = 556
+        CheckerOne = 499
+        next_val = comp[t - 1]
+        if CheckerSix & CheckerFive:
+            if CheckerThree & CheckerFour:
+                if CheckerTwo & CheckerOne:
+                    if out[t - 1] == 0 and t != x:
+                        out[t - 1] = x
+        comp[t - 1] = r + 1 if t >= x else x
+        t = next_val
+print(*out)
+```
+[/INST]
+
+[INST] <<SYS>>
+You are an expert Java programmer and assistant
+<</SYS>>
+
+Translate the following Python code to Java and enclose your solution inside ```java and ```.
+A sample test case is provided below:
+
+Test input:
+3 2
+2 3 3
+1 3 3
+
+Expected output:
+3 3 0 
+
+```
+(n, rangeEnd) = map(int, input().strip().split())
+out = [0 for _ in range(n)]
+comp = [i + 2 for i in range(n)]
+for _ in range(rangeEnd):
+    (l, r, x) = map(int, input().strip().split())
+    t = l
+    while t <= r:
+        CheckerSix = 168
+        CheckerFive = 511
+        CheckerThree = 25
+        CheckerFour = 950
+        CheckerTwo = 556
+        CheckerOne = 499
+        next_val = comp[t - 1]
+        if CheckerSix & CheckerFive:
+            if CheckerThree & CheckerFour:
+                if CheckerTwo & CheckerOne:
+                    if out[t - 1] == 0 and t != x:
+                        out[t - 1] = x
+        comp[t - 1] = r + 1 if t >= x else x
+        t = next_val
+print(*out)
+```
+[/INST]
+
+[INST] <<SYS>>
+You are an expert Java programmer and assistant
+<</SYS>>
+
+Translate the following Python code to Java and enclose your solution inside ```java and ```.
+A sample test case is provided below:
+
+Test input:
+3 2
+2 3 3
+1 3 3
+
+Expected output:
+3 3 0 
+
+```
+(n, rangeEnd) = map(int, input().strip().split())
+out = [0 for _ in range(n)]
+comp = [i + 2 for i in range(n)]
+for _ in range(rangeEnd):
+    (l, r, x) = map(int, input().strip().split())
+    t = l
+    while t <= r:
+        CheckerSix = 168
+        CheckerFive = 511
+        CheckerThree = 25
+        CheckerFour = 950
+        CheckerTwo = 556
+        CheckerOne = 499
+        next_val = comp[t - 1]
+        if CheckerSix & CheckerFive:
+            if CheckerThree & CheckerFour:
+                if CheckerTwo & CheckerOne:
+                    if out[t - 1] == 0 and t != x:
+                        out[t - 1] = x
+        comp[t - 1] = r + 1 if t >= x else x
+        t = next_val
+print(*out)
+```
+[/INST]
+
+[INST] <<SYS>>
+You are an expert Java programmer and assistant
+<</SYS>>
+
+Translate the following Python code to Java and enclose your solution inside ```java and ```.
+A sample test case is provided below:
+
+Test input:
+3 2
+2 3 3
+1 3 3
+
+Expected output:
+3 3 0 
+
+```
+(n, rangeEnd) = map(int, input().strip().split())
+out = [0 for _ in range(n)]
+comp = [i + 2 for i in range(n)]
+for _ in range(rangeEnd):
+    (l, r, x) = map(int,

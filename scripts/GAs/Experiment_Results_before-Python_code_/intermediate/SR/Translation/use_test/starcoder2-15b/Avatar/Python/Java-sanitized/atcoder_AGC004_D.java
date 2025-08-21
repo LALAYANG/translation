@@ -1,0 +1,40 @@
+import java.util.*;
+import java.io.*;
+public class atcoder_AGC004_D {
+    static int n, k, ans;
+    static ArrayList<Integer>[] links;
+    static int dfs(int v, int p) {
+        int heightFromLeaf = 0;
+        int cutCount = 0;
+        for (int u : links[v]) {
+            if (u == 0) continue;
+            int hgt = dfs(u, v);
+            heightFromLeaf = Math.max(heightFromLeaf, hgt);
+            cutCount += hgt;
+        }
+        heightFromLeaf++;
+        if (p != 0 && heightFromLeaf == k) {
+            heightFromLeaf = 0;
+            cutCount++;
+        }
+        return heightFromLeaf;
+    }
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st = new StringTokenizer(br.readLine());
+        n = Integer.parseInt(st.nextToken());
+        k = Integer.parseInt(st.nextToken());
+        links = new ArrayList[n];
+        for (int i = 0; i < n; i++) {
+            links[i] = new ArrayList<>();
+        }
+        st = new StringTokenizer(br.readLine());
+        for (int i = 1; i < n; i++) {
+            int a = Integer.parseInt(st.nextToken()) - 1;
+            links[a].add(i);
+        }
+        dfs(0, 0);
+        if (links[0].size() > 0) ans++;
+        System.out.println(ans);
+    }
+}

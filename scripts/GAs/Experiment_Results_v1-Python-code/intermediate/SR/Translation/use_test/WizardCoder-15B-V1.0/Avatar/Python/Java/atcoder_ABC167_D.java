@@ -1,0 +1,49 @@
+```java
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int N = sc.nextInt();
+        int K = sc.nextInt();
+        int[] L = new int[N + 1];
+        for (int i = 0; i < N; i++) {
+            L[i] = sc.nextInt();
+        }
+        L[N] = -1;
+        int[] path = new int[N + 1];
+        int ind = 0;
+        int count = 0;
+        int x = 1;
+        int t = -1;
+        boolean flag = false;
+        Map<Integer, Integer> Hash = new HashMap<>();
+        for (int i = 0; i <= N; i++) {
+            int ne = L[x];
+            if ((i & 1) == 0) {
+                if (Hash.containsKey(ne)) {
+                    flag = true;
+                    t = Hash.get(ne);
+                    break;
+                }
+            }
+            path[ind] = ne;
+            ind++;
+            Hash.put(ne, ind);
+            x = ne;
+        }
+        if (flag) {
+            int[] loop = Arrays.copyOfRange(path, t, N + 1);
+            if (K < N) {
+                System.out.println(path[K]);
+            } else {
+                K = K - N;
+                K = K % loop.length;
+                System.out.println(loop[K]);
+            }
+        } else {
+            System.out.println(path[K - 1]);
+        }
+    }
+}
+```

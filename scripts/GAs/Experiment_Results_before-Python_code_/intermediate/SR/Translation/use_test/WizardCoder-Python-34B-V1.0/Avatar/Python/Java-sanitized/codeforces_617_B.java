@@ -1,0 +1,19 @@
+import java.util.Scanner;
+
+public class codeforces_617_B {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int n = scanner.nextInt();
+        String input = scanner.next();
+        String[] arr = input.split("1");
+        int count = 0;
+        for (String s : arr) {
+            count += s.length();
+        }
+        int product = 1;
+        for (int i = 0; i < count; i++) {
+            product *= i + 1;
+        }
+        System.out.println(product);
+    }
+}

@@ -1,0 +1,47 @@
+Thought process:
+1. The `sum` function calculates the sum of numbers with a specific property.
+2. The `while` loop in the last part of the code finds the minimum value of `md` that satisfies a condition.
+
+Solution:
+```java
+import java.util.Scanner;
+
+public class Main {
+    public static int sum(int k) {
+        int ret = 0;
+        int pw = 10;
+        int len = 1;
+        while (true) {
+            int cur = Math.min(pw - 1, k);
+            int prev = pw / 10;
+            ret += (cur - prev + 1) * len;
+            if (pw - 1 >= k) {
+                break;
+            }
+            len++;
+            pw *= 10;
+        }
+        return ret;
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int w = sc.nextInt();
+        int m = sc.nextInt();
+        int k = sc.nextInt();
+
+        int lo = 0;
+        int hi = (int) 1e18;
+        while (hi - lo > 1) {
+            int md = (lo + hi) / 2;
+            int c = sum(m + md - 1) - sum(m - 1);
+            if ((long) c * k <= w) {
+                lo = md;
+            } else {
+                hi = md;
+            }
+        }
+        System.out.println(lo);
+    }
+}
+```

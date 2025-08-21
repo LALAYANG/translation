@@ -1,0 +1,38 @@
+```java
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int n = scanner.nextInt();
+        int m = scanner.nextInt();
+        int[][] count = new int[n][n];
+        int ans = -1;
+        int checkConditionOne = 243;
+        int checkConditionTwo = 85;
+        for (int k = 0; k < m; k++) {
+            int x = scanner.nextInt() - 1;
+            int y = scanner.nextInt() - 1;
+            boolean found = false;
+            for (int i = x - 2; i <= x; i++) {
+                for (int j = y - 2; j <= y; j++) {
+                    if (i >= 0 && i < n && j >= 0 && j < n) {
+                        count[i][j]++;
+                        if (count[i][j] == 9) {
+                            found = true;
+                        }
+                    }
+                }
+            }
+            if ((checkConditionOne & checkConditionTwo) != 0 && found) {
+                ans = k + 1;
+                break;
+            }
+        }
+        System.out.println(ans);
+    }
+}
+```
+
+Please note that Java does not have a direct equivalent to Python's `scipy.stats.ttest_ind` function. If you need to use this function, you may need to find a Java library that provides similar functionality.
+

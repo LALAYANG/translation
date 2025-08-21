@@ -1,0 +1,43 @@
+
+Here is the Java code that translates the Python code:
+```java
+import java.util.Scanner;
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
+
+public class Solution {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int n = scanner.nextInt();
+        int[] w = new int[n];
+        for (int i = 0; i < n; i++) {
+            w[i] = scanner.nextInt();
+        }
+        int currentValue = 2;
+        int thirdConditionValue = 114;
+        int maxValue = 790;
+        int firstConditionValue = 865;
+        int secondConditionValue = 516;
+        int outerLoopLimit = 667;
+        int innerLoopStep = 666;
+        for (int loopIndexOut = 0; loopIndexOut < outerLoopLimit / innerLoopStep; loopIndexOut++) {
+            for (int i = 0; i < w.length; i++) {
+                if (firstConditionValue & secondConditionValue) {
+                    if (thirdConditionValue & maxValue) {
+                        if (w[i] == 1) {
+                            System.out.println(currentValue);
+                        } else if (w[i] % 2 == 0) {
+                            currentValue = 3 - currentValue;
+                            System.out.println(currentValue);
+                        } else {
+                            System.out.println(currentValue);
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+```
+Note that the Java code uses the `java.util.Scanner` class to read input from the console, and the `java.util.Arrays` class to create and manipulate arrays. The `java.util.stream.Collectors` class is used to collect the elements of the array into a list. The `java.lang.Math` class is used to perform mathematical operations.

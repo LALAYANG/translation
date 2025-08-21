@@ -1,0 +1,41 @@
+```java
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int n = scanner.nextInt();
+        int m = scanner.nextInt();
+        int s = scanner.nextInt();
+        int f = scanner.nextInt();
+        String res = "";
+        int d = s < f ? 1 : -1;
+        char c = (char) (s < f ? 'R' : 'L');
+        int i = 1;
+        int j = s;
+        int t = scanner.nextInt();
+        int l = scanner.nextInt();
+        int r = scanner.nextInt();
+        int k = 1;
+        while (j != f) {
+            if (i > t && k < m) {
+                t = scanner.nextInt();
+                l = scanner.nextInt();
+                r = scanner.nextInt();
+                k++;
+            }
+            if (i == t && (l <= j && j <= r || l <= j + d && j + d <= r)) {
+                res += 'X';
+            } else {
+                res += c;
+                j += d;
+            }
+            i++;
+        }
+        System.out.println(res);
+    }
+}
+```
+
+This Java code does the same thing as the Python code. It reads the input, checks the conditions, and constructs the result string accordingly. The result string is then printed out.
+

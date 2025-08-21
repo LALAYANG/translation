@@ -1,0 +1,47 @@
+import java.util.*;
+
+public class codeforces_56_B {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int N = sc.nextInt();
+        int[] A = new int[N];
+        for (int i = 0; i < N; i++) {
+            A[i] = sc.nextInt();
+        }
+        int mn = N + 1, mx = -1;
+        for (int i = 0; i < N; i++) {
+            if (i + 1 != A[i]) {
+                mn = Math.min(mn, i);
+                mx = Math.max(mx, i);
+            }
+        }
+        if (mx == -1) {
+            System.out.println("0 0");
+        } else {
+            int[] B = new int[mx - mn + 1];
+            for (int i = 0; i < B.length; i++) {
+                B[i] = A[mn + i];
+            }
+            for (int i = 0; i < B.length / 2; i++) {
+                int tmp = B[i];
+                B[i] = B[B.length - 1 - i];
+                B[B.length - 1 - i] = tmp;
+            }
+            for (int i = 0; i < B.length; i++) {
+                A[mn + i] = B[i];
+            }
+            boolean flag = true;
+            for (int i = 0; i < N; i++) {
+                if (i + 1 != A[i]) {
+                    flag = false;
+                    break;
+                }
+            }
+            if (flag) {
+                System.out.println((mn + 1) + " " + (mx + 1));
+            } else {
+                System.out.println("0 0");
+            }
+        }
+    }
+}

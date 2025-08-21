@@ -1,0 +1,1 @@
+query[0] / query[1] * query[2] >= query[0]

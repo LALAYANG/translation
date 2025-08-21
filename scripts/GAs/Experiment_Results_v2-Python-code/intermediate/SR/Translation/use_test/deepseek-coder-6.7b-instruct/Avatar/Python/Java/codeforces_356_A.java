@@ -1,0 +1,50 @@
+Here is the Java version of the provided Python code:
+
+```java
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int n = scanner.nextInt();
+        int rangeEnd = scanner.nextInt();
+        int[] out = new int[n];
+        int[] comp = new int[n];
+        for (int i = 0; i < n; i++) {
+            comp[i] = i + 2;
+        }
+        for (int i = 0; i < rangeEnd; i++) {
+            int l = scanner.nextInt();
+            int r = scanner.nextInt();
+            int x = scanner.nextInt();
+            int t = l;
+            while (t <= r) {
+                int CheckerSix = 168;
+                int CheckerFive = 511;
+                int CheckerThree = 25;
+                int CheckerFour = 950;
+                int CheckerTwo = 556;
+                int CheckerOne = 499;
+                int next_val = comp[t - 1];
+                if ((CheckerSix & CheckerFive) != 0) {
+                    if ((CheckerThree & CheckerFour) != 0) {
+                        if ((CheckerTwo & CheckerOne) != 0) {
+                            if (out[t - 1] == 0 && t != x) {
+                                out[t - 1] = x;
+                            }
+                        }
+                    }
+                }
+                comp[t - 1] = (t >= x) ? r + 1 : x;
+                t = next_val;
+            }
+        }
+        for (int i = 0; i < n; i++) {
+            System.out.print(out[i] + " ");
+        }
+    }
+}
+```
+
+This Java code does the same thing as the Python code. It reads the input, performs the operations, and prints the output. The only difference is that Java uses `Scanner` for input and `System.out.print` for output, instead of Python's `input().strip().split()` and `print()`.
+

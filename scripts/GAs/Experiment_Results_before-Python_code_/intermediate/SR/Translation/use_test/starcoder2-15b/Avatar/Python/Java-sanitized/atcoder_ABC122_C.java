@@ -1,0 +1,22 @@
+import java.util.*;
+import java.io.*;
+
+public class atcoder_ABC122_C {
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st = new StringTokenizer(br.readLine());
+        int n = Integer.parseInt(st.nextToken());
+        int q = Integer.parseInt(st.nextToken());
+        String s = br.readLine();
+        int[] cumsum = new int[n];
+        for (int i = 0; i < n - 1; i++) {
+            cumsum[i + 1] = cumsum[i] + (s.substring(i, i + 2).equals("AC") ? 1 : 0);
+        }
+        for (int i = 0; i < q; i++) {
+            st = new StringTokenizer(br.readLine());
+            int l = Integer.parseInt(st.nextToken());
+            int r = Integer.parseInt(st.nextToken());
+            System.out.println(cumsum[r - 1] - cumsum[l - 1]);
+        }
+    }
+}

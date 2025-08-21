@@ -1,0 +1,37 @@
+```java
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int n = scanner.nextInt();
+        int[] w = new int[n];
+        for (int i = 0; i < n; i++) {
+            w[i] = scanner.nextInt();
+        }
+        int x = 0;
+        for (int i = 0; i < n; i++) {
+            x += w[i];
+        }
+        int[] d = new int[n];
+        int count = 0;
+        for (int i = 0; i < n; i++) {
+            if ((x - w[i]) / (n - 1) == w[i]) {
+                d[count] = i + 1;
+                count++;
+            }
+        }
+        System.out.println(count);
+        for (int i = 0; i < count; i++) {
+            System.out.print(d[i] + " ");
+        }
+    }
+}
+```
+
+Test input:
+4
+5 6 5 5
+
+Expected output:
+0 

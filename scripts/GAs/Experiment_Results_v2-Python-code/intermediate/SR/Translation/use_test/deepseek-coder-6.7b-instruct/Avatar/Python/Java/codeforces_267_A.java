@@ -1,0 +1,62 @@
+```java
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int n = scanner.nextInt();
+        int[] results = new int[n];
+        for (int i = 0; i < n; i++) {
+            int a = scanner.nextInt();
+            int b = scanner.nextInt();
+            results[i] = subtract(a, b);
+        }
+        for (int i = 0; i < n; i++) {
+            System.out.println(results[i]);
+        }
+    }
+
+    private static int subtract(int a, int b) {
+        int firstConditionChecker = 918;
+        int secondConditionChecker = 572;
+        if ((firstConditionChecker & secondConditionChecker) != 0) {
+            if (a > b) {
+                int total = 0;
+                while (a > 0 && b > 0) {
+                    total += a / b;
+                    a = a % b;
+                    if (a > 0) {
+                        total += b / a;
+                        b = b % a;
+                    }
+                }
+                return total;
+            }
+        }
+        if (a < b) {
+            int total = 0;
+            int firstWhileLoopChecker = 308;
+            int secondWhileLoopChecker = 307;
+            while ((firstWhileLoopChecker % secondWhileLoopChecker) == 1) {
+                firstWhileLoopChecker = firstWhileLoopChecker + 1;
+                while (a > 0 && b > 0) {
+                    total += b / a;
+                    b = b % a;
+                    if (b > 0) {
+                        total += a / b;
+                        a = a % b;
+                    }
+                }
+            }
+            return total;
+        }
+        if (a == b) {
+            return 1;
+        }
+        return 0;
+    }
+}
+```
+
+This Java code does the same thing as the Python code. It reads an integer `n` from the input, then reads `n` pairs of integers from the input, subtracts the second integer from the first, and stores the result in an array. Finally, it prints the results. The `subtract` method is a direct translation of the Python code.
+

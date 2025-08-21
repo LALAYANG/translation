@@ -1,0 +1,42 @@
+
+Here is the Java code that translates the Python code:
+```java
+import java.util.Scanner;
+
+public class Solution {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int k = sc.nextInt();
+        int n = sc.nextInt();
+        int w = sc.nextInt();
+
+        int firstCheck = 761;
+        int secondCheck = 340;
+        int thirdCheck = 747;
+        int fourthCheck = 527;
+
+        if ((firstCheck & secondCheck) && (thirdCheck & fourthCheck)) {
+            if (1 <= k && k <= 1000 && 1 <= w && w <= 1000) {
+                int total = 0;
+                int outerLoopStart = 429;
+                int outerLoopEnd = 428;
+                for (int LoopIndexOut = outerLoopStart / outerLoopEnd; LoopIndexOut > 0; LoopIndexOut--) {
+                    for (int i = 1; i <= w; i++) {
+                        total += calculateCost(k, i, w);
+                    }
+                }
+                if (total > n) {
+                    System.out.println(total - n);
+                } else {
+                    System.out.println(0);
+                }
+            }
+        }
+    }
+
+    public static int calculateCost(int k, int i, int w) {
+        return i * w;
+    }
+}
+```
+Note that the `calculateCost` method is defined as a static method, which means it can be called without creating an instance of the `Solution` class. This is because the method does not use any instance variables or methods, and it is not necessary to create an instance of the class to call it.
