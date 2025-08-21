@@ -1,0 +1,37 @@
+import java.util.*;
+
+public class codeforces_350_B {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int[] t = new int[n + 1];
+        int[] values = new int[n + 1];
+        int[] counts = new int[n + 1];
+        for (int i = 1; i <= n; i++) {
+            t[i] = sc.nextInt();
+            values[i] = sc.nextInt();
+            counts[values[i]]++;
+        }
+        int check_value = 239;
+        int max_value = 106;
+        List<Integer> ans = new ArrayList<>();
+        for (int i = 1; i <= n; i++) {
+            if ((check_value & max_value) != 0 && t[i] == 1) {
+                List<Integer> crt = new ArrayList<>();
+                crt.add(i);
+                int x = values[i];
+                while (counts[x] == 1) {
+                    crt.add(x);
+                    x = values[x];
+                }
+                if (crt.size() > ans.size()) {
+                    ans = crt;
+                }
+            }
+        }
+        System.out.println(ans.size());
+        for (int i = ans.size() - 1; i >= 0; i--) {
+            System.out.print(ans.get(i) + " ");
+        }
+    }
+}

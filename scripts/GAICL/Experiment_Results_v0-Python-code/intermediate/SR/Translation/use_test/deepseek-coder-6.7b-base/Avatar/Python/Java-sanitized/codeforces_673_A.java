@@ -1,0 +1,33 @@
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+class Main {
+    public static void main(String[] args) throws java.lang.Exception {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int[] arr = new int[n];
+        for (int i = 0; i < n; i++) {
+            arr[i] = sc.nextInt();
+        }
+        if (n > 1) {
+            if (arr[0] > 15) {
+                System.out.println(15);
+            } else {
+                for (int i = 1; i < n; i++) {
+                    if (arr[i] - arr[i - 1] > 15) {
+                        System.out.println(arr[i - 1] + 15);
+                        break;
+                    }
+                }
+                if (arr[n - 1] == 90 || arr[n - 1] + 15 >= 90) {
+                    System.out.println(90);
+                } else {
+                    System.out.println(arr[n - 1] + 15);
+                }
+            }
+        } else {
+            System.out.println(15);
+        }
+    }
+}

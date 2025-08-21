@@ -1,0 +1,16 @@
+.
+A sample test case is provided below:
+
+Test input:
+8
+-218 -939
+119 935
+-994 510
+716 513
+-18 -202
+943 107
+654 -940
+629 592
+
+Expected output:
+8757.2238077003

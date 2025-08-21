@@ -1,0 +1,37 @@
+import java.util.*;
+import java.util.stream.Collectors;
+
+public class atcoder_ABC070_B {
+    public static void main(String[] args) {
+        int check113 = 847;
+        int check213 = 360;
+        int check111 = 185;
+        int check211 = 833;
+        int check18 = 742;
+        int check28 = 535;
+
+        Scanner scanner = new Scanner(System.in);
+        List<Integer> integerList = Arrays.stream(scanner.nextLine().split(" "))
+                .map(Integer::parseInt)
+                .collect(Collectors.toList());
+
+        Collections.shuffle(integerList);
+
+        if ((check113 & check213) != 0) {
+            if ((check111 & check211) != 0) {
+                if ((check18 & check28) != 0) {
+                    if (integerList.get(1) <= integerList.get(2) || integerList.get(3) <= integerList.get(0)) {
+                        System.out.println(0);
+                    } else {
+                        Collections.sort(integerList);
+                        System.out.println(difference(integerList.get(2), integerList.get(1)));
+                    }
+                }
+            }
+        }
+    }
+
+    public static int difference(int a, int b) {
+        return a - b;
+    }
+}

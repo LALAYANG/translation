@@ -1,0 +1,1 @@
+The provided solution code is a Python program that reads input data, processes queries, and generates output based on the given conditions. The code uses threading and queues to perform integer division calculations in a concurrent manner. The output is either "Yes" or "No" based on the conditions specified in the problem description.

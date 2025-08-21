@@ -1,0 +1,130 @@
+
+[INST] <<SYS>>
+You are an expert Python programmer and assistant
+<</SYS>>
+
+Translate the following Java code to Python and enclose your solution inside ```python and ```.
+A sample test case is provided below:
+
+Test input:
+1000 1000
+..........................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................
+Expected output:
+729
+
+
+```
+import java.util.Scanner;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.util.Base64;
+import java.util.Date;
+import java.text.SimpleDateFormat;
+import java.util.Arrays;
+import java.util.Random;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.Map;
+import java.util.HashMap;
+import java.util.Set;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.function.Function;
+import java.util.function.BiFunction;
+import java.util.function.BinaryOperator;
+import java.util.function.Consumer;
+import java.util.function.Predicate;
+import java.util.function.Supplier;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+import java.util.stream.IntStream;
+import java.util.stream.LongStream;
+import java.util.stream.DoubleStream;
+import java.util.stream.StreamSupport;
+import java.util.Spliterator;
+import java.util.Spliterators;
+import java.util.concurrent.atomic.AtomicInteger;
+import java.util.concurrent.atomic.AtomicLong;
+import java.util.concurrent.atomic.AtomicReference;
+import java.util.concurrent.atomic.AtomicBoolean;
+import java.util.concurrent.atomic.AtomicIntegerArray;
+import java.util.concurrent.atomic.AtomicLongArray;
+import java.util.concurrent.atomic.AtomicReferenceArray;
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
+import java.util.concurrent.locks.StampedLock;
+import java.util.concurrent.locks.ReadWriteLock;
+import java.util.concurrent.locks.ReentrantReadWriteLock;
+import java.util.concurrent.locks.Condition;
+import java.util.concurrent.locks.ReentrantLock;
+import java.util.concurrent.locks.ReentrantReadWriteLock;
+import java.util.concurrent.locks.ReentrantReadWriteLock.ReadLock;
+import java.util.concurrent.locks.ReentrantReadWriteLock.WriteLock;
+import java.util.concurrent.locks.StampedLock;
+import java.util.concurrent.locks.StampedLock.ReadLock;
+import java.util.concurrent.locks.StampedLock.WriteLock;
+import java.util.concurrent.locks.LockSupport;
+import java.util.concurrent.locks.LockSupport.ParkState;
+import java.util.concurrent.locks.LockSupport.ParkState.Parked;
+import java.util.concurrent.locks.LockSupport.ParkState.Unparked;
+import java.util.concurrent.locks.LockSupport.ParkState.Preempted;
+import java.util.concurrent.locks.LockSupport.ParkState.Timed;
+import java.util.concurrent.locks.LockSupport.ParkState.Bounded;
+import java.util.concurrent.locks.LockSupport.ParkState.Sleeping;
+import java.util.concurrent.locks.LockSupport.ParkState.ParkedBounded;
+import java.util.concurrent.locks.LockSupport.ParkState.ParkedTimed;
+import java.util.concurrent.locks.LockSupport.ParkState.ParkedSleeping;
+import java.util.concurrent.locks.LockSupport.ParkState.ParkedPreempted;
+import java.util.concurrent.locks.LockSupport.ParkState.ParkedBoundedTimed;
+import java.util.concurrent.locks.LockSupport.ParkState.ParkedBoundedSleeping;
+import java.util.concurrent.locks.LockSupport.ParkState.ParkedBoundedPreempted;
+import java.util.concurrent.locks.LockSupport.ParkState.ParkedTimedSleeping;
+import java.util.concurrent.locks.LockSupport.ParkState.ParkedTimedPreempted;
+import java.util.concurrent.locks.LockSupport.ParkState.ParkedSleepingPreempted;
+import java.util.concurrent.locks.LockSupport.ParkState.ParkedBoundedTimedSleeping;
+import java.util.concurrent.locks.LockSupport.ParkState.ParkedBoundedTimedPreempted;
+import java.util.concurrent.locks.LockSupport.ParkState.ParkedBoundedSleepingPreempted;
+import java.util.concurrent.locks.LockSupport.ParkState.ParkedTimedSleepingPreempted;
+import java.util.concurrent.locks.LockSupport.ParkState.ParkedBoundedTimedSleepingPreempted;
+import java.util.concurrent.locks.LockSupport.ParkState.ParkedBoundedSleepingPreempted;
+import java.util.concurrent.locks.LockSupport.ParkState.ParkedTimedSleepingPreempted;
+import java.util.concurrent.locks.LockSupport.ParkState.ParkedBoundedTimedSleepingPreempted;
+import java.util.concurrent.locks.LockSupport.ParkState.ParkedBoundedSleepingPreempted;
+import java.util.concurrent.locks.LockSupport.ParkState.ParkedTimedSleepingPreempted;
+import java.util.concurrent.locks.LockSupport.ParkState.ParkedBoundedTimedSleepingPreempted;
+import java.util.concurrent.locks.LockSupport.ParkState.ParkedBoundedSleepingPreempted;
+import java.util.concurrent.locks.LockSupport.ParkState.ParkedTimedSleepingPreempted;
+import java.util.concurrent.locks.LockSupport.ParkState.ParkedBoundedTimedSleepingPreempted;
+import java.util.concurrent.locks.LockSupport.ParkState.ParkedBoundedSleepingPreempted;
+import java.util.concurrent.locks.LockSupport.ParkState.ParkedTimedSleepingPreempted;
+import java.util.concurrent.locks.LockSupport.ParkState.ParkedBoundedTimedSleepingPreempted;
+import java.util.concurrent.locks.LockSupport.ParkState.ParkedBoundedSleepingPreempted;
+import java.util.concurrent.locks.LockSupport.ParkState.ParkedTimedSleepingPreempted;
+import java.util.concurrent.locks.LockSupport.ParkState.ParkedBoundedTimedSleepingPreempted;
+import java.util.concurrent.locks.LockSupport.ParkState.ParkedBoundedSleepingPreempted;
+import java.util.concurrent.locks.LockSupport.ParkState.ParkedTimedSleepingPreempted;
+import java.util.concurrent.locks.LockSupport.ParkState.ParkedBoundedTimedSleepingPreempted;
+import java.util.concurrent.locks.LockSupport.ParkState.ParkedBoundedSleepingPreempted;
+import java.util.concurrent.locks.LockSupport.ParkState.ParkedTimedSleepingPreempted;
+import java.util.concurrent.locks.LockSupport.ParkState.ParkedBoundedTimedSleepingPreempted;
+import java.util.concurrent.locks.LockSupport.ParkState.ParkedBoundedSleepingPreempted;
+import java.util.concurrent.locks.LockSupport.ParkState.ParkedTimedSleepingPreempted;
+import java.util.concurrent.locks.LockSupport.ParkState.ParkedBoundedTimedSleepingPreempted;
+import java.util.concurrent.locks.LockSupport.ParkState.ParkedBoundedSleepingPreempted;
+import java.util.concurrent.locks.LockSupport.ParkState.ParkedTimedSleepingPreempted;
+import java.util.concurrent.locks.LockSupport.ParkState.ParkedBoundedTimedSleepingPreempted;
+import java.util.concurrent.locks.LockSupport.ParkState.ParkedBoundedSleepingPreempted;
+import java.util.concurrent.locks.LockSupport.ParkState.ParkedTimedSleepingPreempted;
+import java.util.concurrent.locks.LockSupport.ParkState.ParkedBoundedTimedSleepingPreempted;
+import java.util.concurrent.locks.LockSupport.ParkState.ParkedBoundedSleepingPreempted;
+import java.util.concurrent.locks.LockSupport.ParkState.ParkedTimedSleepingPreempted;
+import java.util.concurrent.locks.LockSupport.ParkState.ParkedBoundedTimedSleepingPreempted;
+import java.util.concurrent.locks.LockSupport.ParkState.ParkedBoundedSleepingPreempted;
+import java.util.concurrent.locks.LockSupport.ParkState.ParkedTimedSleepingPreempted;
+import java.util.concurrent.locks.LockSupport.ParkState.ParkedBoundedTimedSleepingPreempted;
+import java.util.concurrent.locks.LockSupport.ParkState.ParkedBoundedSleepingPreempted;
+import java.util.concurrent.locks.LockSupport.ParkState.ParkedTimedSleepingPreempted;
+import java.util.concurrent.locks.LockSupport.ParkState.ParkedBoundedTimedSleepingPreempted;
+import java.util.concurrent.locks.LockSupport.ParkState.Park

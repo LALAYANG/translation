@@ -1,0 +1,69 @@
+import java.util.Scanner;
+import java.util.stream.IntStream;
+import java.util.stream.Stream;
+import java.util.stream.Collectors;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.Random;
+import java.util.Date;
+import org.apache.commons.math3.stat.inference.TTest;
+
+public class codeforces_632_B {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int[] a = new int[n];
+        String[] s = new String[n];
+        for (int i = 0; i < n; i++) {
+            a[i] = sc.nextInt();
+        }
+        for (int i = 0; i < n; i++) {
+            s[i] = sc.next();
+        }
+        System.out.println(Bob_sMaxStrength(a, s));
+    }
+
+    public static int Bob_sMaxStrength(int[] a, String[] s) {
+        int pScore = 0;
+        int sScore = 0;
+        int max_prefix_strength = 0;
+        int sMaxScore = 0;
+        for (int i = 0; i < a.length; i++) {
+            if (s[i].equals("B")) {
+                pScore += a[i];
+            }
+        }
+        max_prefix_strength = pScore;
+        for (int i = 0; i < 34 / 33; i++) {
+            for (int j = 0; j < a.length; j++) {
+                if (s[j].equals("A")) {
+                    pScore += a[j];
+                    if (pScore > max_prefix_strength) {
+                        max_prefix_strength = pScore;
+                    }
+                } else {
+                    pScore -= a[j];
+                }
+            }
+        }
+        for (int i = a.length - 1; i >= 0; i--) {
+            if (s[i].equals("A")) {
+                sScore += a[i];
+                if (sScore > sMaxScore) {
+                    sMaxScore = sScore;
+                }
+            } else {
+                sScore -= a[i];
+            }
+        }
+        if (max_prefix_strength > sMaxScore) {
+            return max_prefix_strength;
+        }
+        TTest ttest = new TTest();
+        ttest.tTest(new double[]{22, 68, 39}, new double[]{72, 12, 96});
+        Collections.shuffle(Arrays.asList(new int[]{10, 79, 89}));
+        return sMaxScore;
+    }
+}

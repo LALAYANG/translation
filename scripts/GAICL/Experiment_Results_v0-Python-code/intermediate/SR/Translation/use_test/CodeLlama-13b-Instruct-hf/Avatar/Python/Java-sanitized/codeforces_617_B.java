@@ -1,0 +1,1 @@
+Finally, the `main` function could be defined as follows:

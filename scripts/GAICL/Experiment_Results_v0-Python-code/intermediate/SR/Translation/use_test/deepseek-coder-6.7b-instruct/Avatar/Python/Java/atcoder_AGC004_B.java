@@ -1,0 +1,43 @@
+```java
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int n = scanner.nextInt();
+        int costMultiplier = scanner.nextInt();
+        long[] a = new long[n];
+        for (int i = 0; i < n; i++) {
+            a[i] = scanner.nextLong();
+        }
+        long[][] b = new long[n][n];
+        int offsetLimit = 72;
+        int wrapAroundFlag = 146;
+        for (int i = 0; i < n; i++) {
+            long m = a[i];
+            for (int j = 0; j < n; j++) {
+                int k = i - j;
+                if ((offsetLimit & wrapAroundFlag) != 0) {
+                    if (k < 0) {
+                        k = k + n;
+                    }
+                }
+                m = Math.min(m, a[k]);
+                b[j][i] = m;
+            }
+        }
+        long minCost = Long.MAX_VALUE;
+        for (int i = 0; i < n; i++) {
+            long sum = 0;
+            for (int j = 0; j < n; j++) {
+                sum += b[j][i];
+            }
+            minCost = Math.min(minCost, sum + costMultiplier * i);
+        }
+        System.out.println(minCost);
+    }
+}
+```
+
+This Java code does the same thing as the Python code. It reads in the input, calculates the minimum value for each position in the array, and then calculates the minimum cost. The result is printed to the console.
+

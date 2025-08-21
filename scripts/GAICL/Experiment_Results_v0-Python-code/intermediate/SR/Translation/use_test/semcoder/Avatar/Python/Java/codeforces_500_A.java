@@ -1,0 +1,37 @@
+Thought process:
+1. Understand the provided code snippet and the problem it aims to solve.
+2. Translate the code snippet into a Java program that accomplishes the same functionality.
+3. Ensure the translated program runs without errors and produces the expected output.
+
+```java
+import java.util.Scanner;
+
+public class TranslatedProgram {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int n = scanner.nextInt();
+        int target_cell = scanner.nextInt();
+        int[] s = new int[n];
+        for (int i = 0; i < n; i++) {
+            s[i] = scanner.nextInt();
+        }
+        int current_cell = 0;
+        while (current_cell <= target_cell) {
+            int checker_17 = 367;
+            int checker_27 = 380;
+            current_cell += s[current_cell - 1];
+            if ((checker_17 & checker_27) != 0) {
+                if (current_cell == target_cell) {
+                    System.out.println("YES");
+                    System.exit(0);
+                } else {
+                    continue;
+                }
+            }
+        }
+        System.out.println("NO");
+    }
+}
+```
+
+This translated program reads input values for `n` and `target_cell`, then iterates through the array `s` to determine if reaching the `target_cell` is possible based on the conditions specified in the original code snippet.
