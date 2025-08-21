@@ -1,7 +1,11 @@
-from ScoreCalculator import calculateScore as calculateScore
+# from ScoreCalculator import calculateScore as calculateScore
 import threading
 import queue
 from scipy.stats import ttest_ind
+
+def calculateScore(score, variable_3_15):
+    return score + variable_3_15
+
 s = list(input())
 (num_g, num_p) = (0, 0)
 score = 0
