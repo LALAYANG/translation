@@ -92,6 +92,8 @@ def main(args):
     for f in tqdm(in_files):
         if "pycache" in f:
             continue
+        if "atcoder" not in f and "codeforces" not in f:
+            continue
         base_name = f.split('.')[0]
         test_input = open(f'{test_folder}/{base_name}_0.in', 'r').read()
         test_output = ''
