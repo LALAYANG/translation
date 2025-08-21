@@ -8,10 +8,10 @@ models=(
     # "yangccccc/deepseek-coder-multi"
     # "deepseek-ai/deepseek-coder-6.7b-instruct" 
 
+    "codellama/CodeLlama-13b-Instruct-hf"
     "codellama/CodeLlama-13b-hf"
     "deepseek-ai/deepseek-coder-33b-instruct"
     "WizardLM/WizardCoder-Python-34B-V1.0"
-    "codellama/CodeLlama-13b-Instruct-hf"
     "codellama/CodeLlama-34b-Instruct-hf"
     "WizardLM/WizardCoder-15B-V1.0"
     "bigcode/starcoder2-15b"
@@ -29,6 +29,8 @@ versions=(
     "before-Python/code/"
 )
 
+timestamp=$(date +"%Y%m%d_%H%M%S")
+
 kill_yang_java_processes() {
     echo "Killing all running Java processes for user 'yang'..."
     ps aux | grep "^yang" | grep "java " | awk '{print $2}' | xargs -r kill -9
@@ -43,8 +45,22 @@ for version in "${versions[@]}"; do
     ls "${dest}"|wc -l
 
     for model in "${models[@]}"; do
+        if [ "$version" == "v0-Python-code" ]; then
+            if [ "$model" == "codellama/CodeLlama-13b-Instruct-hf" ]; then
+                continue
+            fi
+            if [ "$model" == "codellama/CodeLlama-13b-hf" ]; then
+                continue
+            fi
+            if [ "$model" == "deepseek-ai/deepseek-coder-33b-instruct" ]; then
+                continue
+            fi
+            if [ "$model" == "codellama/CodeLlama-34b-Instruct-hf" ]; then
+                continue
+            fi
+        fi
         echo "Running model: $model"
-        bash -x run_SR.sh "$model" |& tee ${logdir}/"${version//\//_}_${model//\//_}.log"
+        bash -x run_SR.sh "$model" |& tee ${logdir}/"${version//\//_}_${model//\//_}_${timestamp}.log"
         kill_yang_java_processes
     done
 
