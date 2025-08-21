@@ -59,7 +59,8 @@ def main(args):
         in_files = [x for x in in_files if x.split('.')[0] not in already_extracted_files]
 
     ext = extensions[args.target_lang]
-    device = f'cuda:{args.gpu_id}'
+    device = 'cuda:0,1'
+    os.environ["CUDA_VISIBLE_DEVICES"] = "0,1"   # pick GPU 0 and 1
 
     tokenizer, model = None, None
     if 'gpt-' in args.model :
@@ -78,7 +79,8 @@ def main(args):
             trust_remote_code=True,
             max_model_len=4096,
             tensor_parallel_size=2,
-            dtype="bfloat16"
+            dtype="bfloat16",
+            # device_map=device
         )
         sampling = SamplingParams(
             max_tokens=4096,
@@ -113,7 +115,7 @@ def main(args):
         with open(prompt_file, "r", encoding="ISO-8859-1", errors='ignore') as fin:
             prompt = fin.readlines()
             # add ICL
-            # prompt += f"\n```\n\nThe following is a semantically equivalent program which may help your understanding:\n```{icl}\n"
+            prompt += f"\n```\n\nThe following is a semantically equivalent program which may help your understanding:\n```{icl}\n"
 
             if 'codellama' in args.model:
                 if args.use_test or args.use_misleading_test:
@@ -128,7 +130,7 @@ def main(args):
                 else:
                     prompt = f"You are an exceptionally intelligent coding assistant that consistently delivers accurate and reliable responses to user instructions.\n\n@@ Instruction\nTranslate the following {args.source_lang} code to {args.target_lang} and enclose your solution inside ```{args.target_lang.lower()} and ```:\n```\n" + "".join(prompt) + "\n```\n\n@@ Response\n"
 
-            elif 'wizardcoder' in args.model:
+            elif 'wizardcoder' in args.model or 'WizardCoder' in args.model:
                 if args.use_test or args.use_misleading_test:
                     prompt = f"Below is an instruction that describes a task. Write a response that appropriately completes the request.\n\n### Instruction:\nTranslate the following {args.source_lang} code to {args.target_lang} and enclose your solution inside ```{args.target_lang.lower()} and ```.\nA sample test case is provided below:\n\nTest input:\n" + test_input + "\nExpected output:\n" + test_output + "\n\n```\n" + "".join(prompt) + "\n```\n\n### Response:\n"
                 else:

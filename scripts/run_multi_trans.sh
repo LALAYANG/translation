@@ -58,6 +58,9 @@ for version in "${versions[@]}"; do
             if [ "$model" == "codellama/CodeLlama-34b-Instruct-hf" ]; then
                 continue
             fi
+            if [ "$model" == "WizardLM/WizardCoder-Python-34B-V1.0" ]; then
+                continue
+            fi
         fi
         echo "Running model: $model"
         bash -x run_SR.sh "$model" |& tee ${logdir}/"${version//\//_}_${model//\//_}_${timestamp}.log"
@@ -65,7 +68,7 @@ for version in "${versions[@]}"; do
     done
 
     echo "All models for version '$version' have been run."
-    mv Experiment_Results "${logdir}/Experiment_Results_${version//\//_}"
+    mv /home/ubuntu/translation/Experiment_Results "${logdir}/Experiment_Results_${version//\//_}"
 
 done
 

@@ -71,7 +71,7 @@ if __name__ == "__main__":
             # new_code = new_code[new_code.find("@@ Response") + len("@@ Response"):]
             new_code = new_code.split("@@ Response")[-1]
         
-        if args.remove_prompt and ('deepseek-coder' in solution_path or 'wizardcoder' in solution_path or 'semcoder' in solution_path or 'multi' in solution_path):
+        if args.remove_prompt and ('deepseek-coder' in solution_path or 'wizardcoder' in solution_path or "Wizard" in solution_path or 'semcoder' in solution_path or 'multi' in solution_path):
             # new_code = new_code[new_code.find("### Response:") + len("### Response:"):
             new_code = new_code.split("### Response:")[-1]
 

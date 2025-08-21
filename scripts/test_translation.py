@@ -81,7 +81,7 @@ def main(args):
                     if os.path.exists(test_dir+"/"+ files[i].split(".")[0]+f"_{j}.in") == False:
                         if tests_passed == j:
                             test_passed.append(files[i])
-                            print("Pass", files[i])
+                            # print("Pass", files[i])
                         break
 
                     with open(test_dir+"/"+ files[i].split(".")[0]+f"_{j}.in" , 'r') as f:
@@ -133,6 +133,7 @@ def main(args):
                                 
 
             except Exception as e:
+                print(e)
                 compile_failed.append(files[i])
 
 
