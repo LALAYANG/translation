@@ -1,0 +1,36 @@
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.util.concurrent.*;
+
+class GFG {
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        String[] str = br.readLine().split(" ");
+        int n = Integer.parseInt(str[0]);
+        int m = Integer.parseInt(str[1]);
+        str = br.readLine().split(" ");
+        int[] lst = new int[n];
+        for (int i = 0; i < n; i++) {
+            lst[i] = Integer.parseInt(str[i]);
+        }
+        int[] l = new int[11];
+        for (int i = 0; i < n; i++) {
+            if (l[lst[i]] == 0) {
+                l[lst[i]] = 1;
+            } else {
+                l[lst[i]] += 1;
+            }
+        }
+        int res = 0;
+        for (int i = 0; i < n; i++) {
+            if (l[lst[i]] > 1) {
+                res += n - i - l[lst[i]];
+                l[lst[i]] -= 1;
+            } else {
+                res += n - i - 1;
+            }
+        }
+        System.out.println(res);
+    }
+}

@@ -1,0 +1,54 @@
+Thought process:
+1. Understand the provided code snippet and the problem it aims to solve.
+2. Translate the Python code to Java, considering the input and output requirements.
+3. Ensure the Java code is correct and functional.
+
+```java
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int num_items = scanner.nextInt();
+        int[] V = new int[num_items];
+        int[] costs = new int[num_items];
+        for (int i = 0; i < num_items; i++) {
+            V[i] = scanner.nextInt();
+        }
+        for (int i = 0; i < num_items; i++) {
+            costs[i] = scanner.nextInt();
+        }
+        scanner.close();
+
+        int[] list = new int[num_items];
+        int ans = 0;
+        int X = 0;
+        int Y = 0;
+        final int CONDITION_1 = 340;
+        final int CONDITION_2 = 460;
+        final int LOOP_END_1 = 638;
+        final int LOOP_END_2 = 637;
+        for (int LoopIndexOut = 0; LoopIndexOut < LOOP_END_1 / LOOP_END_2; LoopIndexOut++) {
+            recursive_func(0, num_items, 1, V, costs, list, X, Y, CONDITION_1, CONDITION_2);
+        }
+        for (int i = 0; i < num_items; i++) {
+            ans += list[i];
+        }
+        System.out.println(ans);
+    }
+
+    public static void recursive_func(int item_index, int stop, int step, int[] V, int[] costs, int[] list, int X, int Y, int CONDITION_1, int CONDITION_2) {
+        if (step == 0 || (step > 0 && item_index >= stop) || (step < 0 && item_index <= stop)) {
+            return;
+        }
+        if ((CONDITION_1 & CONDITION_2) != 0) {
+            if (V[item_index] - costs[item_index] > 0) {
+                X = V[item_index];
+                Y = costs[item_index];
+                list[item_index] = X - Y;
+            }
+        }
+        recursive_func(item_index + step, stop, step, V, costs, list, X, Y, CONDITION_1, CONDITION_2);
+    }
+}
+```

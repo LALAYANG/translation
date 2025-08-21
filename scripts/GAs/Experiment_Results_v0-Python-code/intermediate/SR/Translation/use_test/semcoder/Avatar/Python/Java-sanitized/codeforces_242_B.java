@@ -1,0 +1,23 @@
+import java.util.Scanner;
+
+public class codeforces_242_B {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int l = sc.nextInt();
+        int r = sc.nextInt();
+        int intersection_id = 0;
+        for (int i = 1; i <= n; i++) {
+            int li = sc.nextInt();
+            int ri = sc.nextInt();
+            if (li <= l && r <= ri) {
+                intersection_id = i;
+            } else if (li < l || r < ri) {
+                intersection_id = n;
+            }
+            l = Math.min(l, li);
+            r = Math.max(r, ri);
+        }
+        System.out.println(intersection_id == n ? -1 : intersection_id);
+    }
+}

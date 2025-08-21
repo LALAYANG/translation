@@ -1,0 +1,39 @@
++ model=bigcode/starcoder2-15b
++ dataset=Avatar
++ cache=tmp
++ src=Python
++ tgt=Java
++ python3 translate.py --model bigcode/starcoder2-15b --dataset Avatar --source_lang Python --target_lang Java --cache_dir tmp --use_test
+INFO 08-21 03:53:07 [__init__.py:241] Automatically detected platform cuda.
+found 231 inputs
+INFO 08-21 03:53:09 [utils.py:326] non-default args: {'model': 'bigcode/starcoder2-15b', 'trust_remote_code': True, 'dtype': 'bfloat16', 'max_model_len': 4096, 'tensor_parallel_size': 2, 'disable_log_stats': True}
+The argument `trust_remote_code` is to be used with Auto classes. It has no effect here and is ignored.
+INFO 08-21 03:53:14 [__init__.py:711] Resolved architecture: Starcoder2ForCausalLM
+INFO 08-21 03:53:14 [__init__.py:2816] Downcasting torch.float32 to torch.bfloat16.
+INFO 08-21 03:53:14 [__init__.py:1750] Using max model len 4096
+INFO 08-21 03:53:14 [scheduler.py:222] Chunked prefill is enabled with max_num_batched_tokens=16384.
+[1;36m(EngineCore_0 pid=2665104)[0;0m INFO 08-21 03:53:16 [core.py:636] Waiting for init message from front-end.
+[1;36m(EngineCore_0 pid=2665104)[0;0m INFO 08-21 03:53:16 [core.py:74] Initializing a V1 LLM engine (v0.10.1.1) with config: model='bigcode/starcoder2-15b', speculative_config=None, tokenizer='bigcode/starcoder2-15b', skip_tokenizer_init=False, tokenizer_mode=auto, revision=None, override_neuron_config={}, tokenizer_revision=None, trust_remote_code=True, dtype=torch.bfloat16, max_seq_len=4096, download_dir=None, load_format=auto, tensor_parallel_size=2, pipeline_parallel_size=1, disable_custom_all_reduce=False, quantization=None, enforce_eager=False, kv_cache_dtype=auto, device_config=cuda, decoding_config=DecodingConfig(backend='auto', disable_fallback=False, disable_any_whitespace=False, disable_additional_properties=False, reasoning_backend=''), observability_config=ObservabilityConfig(show_hidden_metrics_for_version=None, otlp_traces_endpoint=None, collect_detailed_traces=None), seed=0, served_model_name=bigcode/starcoder2-15b, enable_prefix_caching=True, chunked_prefill_enabled=True, use_async_output_proc=True, pooler_config=None, compilation_config={"level":3,"debug_dump_path":"","cache_dir":"","backend":"","custom_ops":[],"splitting_ops":["vllm.unified_attention","vllm.unified_attention_with_output","vllm.mamba_mixer2"],"use_inductor":true,"compile_sizes":[],"inductor_compile_config":{"enable_auto_functionalized_v2":false},"inductor_passes":{},"cudagraph_mode":1,"use_cudagraph":true,"cudagraph_num_of_warmups":1,"cudagraph_capture_sizes":[512,504,496,488,480,472,464,456,448,440,432,424,416,408,400,392,384,376,368,360,352,344,336,328,320,312,304,296,288,280,272,264,256,248,240,232,224,216,208,200,192,184,176,168,160,152,144,136,128,120,112,104,96,88,80,72,64,56,48,40,32,24,16,8,4,2,1],"cudagraph_copy_inputs":false,"full_cuda_graph":false,"pass_config":{},"max_capture_size":512,"local_cache_dir":null}
+[1;36m(EngineCore_0 pid=2665104)[0;0m WARNING 08-21 03:53:16 [multiproc_worker_utils.py:273] Reducing Torch parallelism from 26 threads to 1 to avoid unnecessary CPU contention. Set OMP_NUM_THREADS in the external environment to tune this value as needed.
+[1;36m(EngineCore_0 pid=2665104)[0;0m INFO 08-21 03:53:16 [shm_broadcast.py:289] vLLM message queue communication handle: Handle(local_reader_ranks=[0, 1], buffer_handle=(2, 16777216, 10, 'psm_78d2e675'), local_subscribe_addr='ipc:///tmp/5a61c89e-33b5-4fa8-9d78-e9e107928859', remote_subscribe_addr=None, remote_addr_ipv6=False)
+[1;36m(EngineCore_0 pid=2665104)[0;0m [1;36m(VllmWorker TP0 pid=2665110)[0;0m INFO 08-21 03:53:18 [shm_broadcast.py:289] vLLM message queue communication handle: Handle(local_reader_ranks=[0], buffer_handle=(1, 10485760, 10, 'psm_b0ec8981'), local_subscribe_addr='ipc:///tmp/4e05cece-9181-442b-b070-1c5fa1ff450f', remote_subscribe_addr=None, remote_addr_ipv6=False)
+[1;36m(EngineCore_0 pid=2665104)[0;0m [1;36m(VllmWorker TP1 pid=2665112)[0;0m INFO 08-21 03:53:18 [shm_broadcast.py:289] vLLM message queue communication handle: Handle(local_reader_ranks=[0], buffer_handle=(1, 10485760, 10, 'psm_a21f7533'), local_subscribe_addr='ipc:///tmp/0748cbf0-2ccb-4b8a-a4d8-bb6f2250624b', remote_subscribe_addr=None, remote_addr_ipv6=False)
+[1;36m(EngineCore_0 pid=2665104)[0;0m [1;36m(VllmWorker TP1 pid=2665112)[0;0m INFO 08-21 03:53:18 [__init__.py:1418] Found nccl from library libnccl.so.2
+[1;36m(EngineCore_0 pid=2665104)[0;0m [1;36m(VllmWorker TP0 pid=2665110)[0;0m INFO 08-21 03:53:18 [__init__.py:1418] Found nccl from library libnccl.so.2
+[1;36m(EngineCore_0 pid=2665104)[0;0m [1;36m(VllmWorker TP0 pid=2665110)[0;0m INFO 08-21 03:53:18 [pynccl.py:70] vLLM is using nccl==2.26.2
+[1;36m(EngineCore_0 pid=2665104)[0;0m [1;36m(VllmWorker TP1 pid=2665112)[0;0m INFO 08-21 03:53:18 [pynccl.py:70] vLLM is using nccl==2.26.2
+[1;36m(EngineCore_0 pid=2665104)[0;0m [1;36m(VllmWorker TP1 pid=2665112)[0;0m INFO 08-21 03:53:19 [custom_all_reduce.py:35] Skipping P2P check and trusting the driver's P2P report.
+[1;36m(EngineCore_0 pid=2665104)[0;0m [1;36m(VllmWorker TP0 pid=2665110)[0;0m INFO 08-21 03:53:19 [custom_all_reduce.py:35] Skipping P2P check and trusting the driver's P2P report.
+[1;36m(EngineCore_0 pid=2665104)[0;0m [1;36m(VllmWorker TP0 pid=2665110)[0;0m INFO 08-21 03:53:19 [shm_broadcast.py:289] vLLM message queue communication handle: Handle(local_reader_ranks=[1], buffer_handle=(1, 4194304, 6, 'psm_6ab24a37'), local_subscribe_addr='ipc:///tmp/c15befb6-96c2-4254-b45f-3adb06e912ee', remote_subscribe_addr=None, remote_addr_ipv6=False)
+[1;36m(EngineCore_0 pid=2665104)[0;0m [1;36m(VllmWorker TP1 pid=2665112)[0;0m INFO 08-21 03:53:19 [parallel_state.py:1134] rank 1 in world size 2 is assigned as DP rank 0, PP rank 0, TP rank 1, EP rank 1
+[1;36m(EngineCore_0 pid=2665104)[0;0m [1;36m(VllmWorker TP0 pid=2665110)[0;0m INFO 08-21 03:53:19 [parallel_state.py:1134] rank 0 in world size 2 is assigned as DP rank 0, PP rank 0, TP rank 0, EP rank 0
+[1;36m(EngineCore_0 pid=2665104)[0;0m [1;36m(VllmWorker TP0 pid=2665110)[0;0m WARNING 08-21 03:53:19 [topk_topp_sampler.py:61] FlashInfer is not available. Falling back to the PyTorch-native implementation of top-p & top-k sampling. For the best performance, please install FlashInfer.
+[1;36m(EngineCore_0 pid=2665104)[0;0m [1;36m(VllmWorker TP1 pid=2665112)[0;0m WARNING 08-21 03:53:19 [topk_topp_sampler.py:61] FlashInfer is not available. Falling back to the PyTorch-native implementation of top-p & top-k sampling. For the best performance, please install FlashInfer.
+[1;36m(EngineCore_0 pid=2665104)[0;0m [1;36m(VllmWorker TP1 pid=2665112)[0;0m INFO 08-21 03:53:19 [gpu_model_runner.py:1953] Starting to load model bigcode/starcoder2-15b...
+[1;36m(EngineCore_0 pid=2665104)[0;0m [1;36m(VllmWorker TP0 pid=2665110)[0;0m INFO 08-21 03:53:19 [gpu_model_runner.py:1953] Starting to load model bigcode/starcoder2-15b...
+[1;36m(EngineCore_0 pid=2665104)[0;0m [1;36m(VllmWorker TP0 pid=2665110)[0;0m INFO 08-21 03:53:19 [gpu_model_runner.py:1985] Loading model from scratch...
+[1;36m(EngineCore_0 pid=2665104)[0;0m [1;36m(VllmWorker TP1 pid=2665112)[0;0m INFO 08-21 03:53:19 [gpu_model_runner.py:1985] Loading model from scratch...
+[1;36m(EngineCore_0 pid=2665104)[0;0m [1;36m(VllmWorker TP0 pid=2665110)[0;0m INFO 08-21 03:53:19 [cuda.py:328] Using Flash Attention backend on V1 engine.
+[1;36m(EngineCore_0 pid=2665104)[0;0m [1;36m(VllmWorker TP1 pid=2665112)[0;0m INFO 08-21 03:53:19 [cuda.py:328] Using Flash Attention backend on V1 engine.
+[1;36m(EngineCore_0 pid=2665104)[0;0m [1;36m(VllmWorker TP1 pid=2665112)[0;0m INFO 08-21 03:53:19 [weight_utils.py:296] Using model weights format ['*.safetensors']
+[1;36m(EngineCore_0 pid=2665104)[0;0m [1;36m(VllmWorker TP0 pid=2665110)[0;0m INFO 08-21 03:53:19 [weight_utils.py:296] Using model weights format ['*.safetensors']

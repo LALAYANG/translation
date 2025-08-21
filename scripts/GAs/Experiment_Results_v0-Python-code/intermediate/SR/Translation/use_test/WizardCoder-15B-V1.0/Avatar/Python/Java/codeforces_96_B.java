@@ -1,0 +1,68 @@
+```java
+import java.util.Arrays;
+
+public class Main {
+    public static void main(String[] args) {
+        int limit = 10000000000;
+        int[] l = new int[1000000000];
+        Arrays.fill(l, -1);
+        int[] count = new int[10];
+        int[] count_four = new int[10];
+        int[] count_seven = new int[10];
+        int[] count_four_seven = new int[10];
+        int[] count_four_seven_count = new int[10];
+        int[] count_four_seven_count_count = new int[10];
+        int[] count_four_seven_count_count_count = new int[10];
+        int[] count_four_seven_count_count_count_count = new int[10];
+        int[] count_four_seven_count_count_count_count_count = new int[10];
+        int[] count_four_seven_count_count_count_count_count_count = new int[10];
+        int[] count_four_seven_count_count_count_count_count_count_count = new int[10];
+        int[] count_four_seven_count_count_count_count_count_count_count_count = new int[10];
+        int[] count_four_seven_count_count_count_count_count_count_count_count_count = new int[10];
+        int[] count_four_seven_count_count_count_count_count_count_count_count_count_count = new int[10];
+        int[] count_four_seven_count_count_count_count_count_count_count_count_count_count_count = new int[10];
+        int[] count_four_seven_count_count_count_count_count_count_count_count_count_count_count_count = new int[10];
+        int[] count_four_seven_count_count_count_count_count_count_count_count_count_count_count_count_count = new int[10];
+        int[] count_four_seven_count_count_count_count_count_count_count_count_count_count_count_count_count_count = new int[10];
+        int[] count_four_seven_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count = new int[10];
+        int[] count_four_seven_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count = new int[10];
+        int[] count_four_seven_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count = new int[10];
+        int[] count_four_seven_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count = new int[10];
+        int[] count_four_seven_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count = new int[10];
+        int[] count_four_seven_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count = new int[10];
+        int[] count_four_seven_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count = new int[10];
+        int[] count_four_seven_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count = new int[10];
+        int[] count_four_seven_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count = new int[10];
+        int[] count_four_seven_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count = new int[10];
+        int[] count_four_seven_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count = new int[10];
+        int[] count_four_seven_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count = new int[10];
+        int[] count_four_seven_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count = new int[10];
+        int[] count_four_seven_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count = new int[10];
+        int[] count_four_seven_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count = new int[10];
+        int[] count_four_seven_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count = new int[10];
+        int[] count_four_seven_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count = new int[10];
+        int[] count_four_seven_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count = new int[10];
+        int[] count_four_seven_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count = new int[10];
+        int[] count_four_seven_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count = new int[10];
+        int[] count_four_seven_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count = new int[10];
+        int[] count_four_seven_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count = new int[10];
+        int[] count_four_seven_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count = new int[10];
+        int[] count_four_seven_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count = new int[10];
+        int[] count_four_seven_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count = new int[10];
+        int[] count_four_seven_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count = new int[10];
+        int[] count_four_seven_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count = new int[10];
+        int[] count_four_seven_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count = new int[10];
+        int[] count_four_seven_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count = new int[10];
+        int[] count_four_seven_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count = new int[10];
+        int[] count_four_seven_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count = new int[10];
+        int[] count_four_seven_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count = new int[10];
+        int[] count_four_seven_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count = new int[10];
+        int[] count_four_seven_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count = new int[10];
+        int[] count_four_seven_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count = new int[10];
+        int[] count_four_seven_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count = new int[10];
+        int[] count_four_seven_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count = new int[10];
+        int[] count_four_seven_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count = new int[10];
+        int[] count_four_seven_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count = new int[10];
+        int[] count_four_seven_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count = new int[10];
+        int[] count_four_seven_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count = new int[10];
+        int[] count_four_seven_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_count_

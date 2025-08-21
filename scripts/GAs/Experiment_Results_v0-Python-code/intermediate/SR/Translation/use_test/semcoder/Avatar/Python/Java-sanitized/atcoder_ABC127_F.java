@@ -1,0 +1,1 @@
+// Translation of the code snippet to Java

@@ -1,0 +1,10 @@
++ model=codellama/CodeLlama-13b-Instruct-hf
++ dataset=Avatar
++ cache=tmp
++ src=Python
++ tgt=Java
++ python3 translate.py --model codellama/CodeLlama-13b-Instruct-hf --dataset Avatar --source_lang Python --target_lang Java --cache_dir tmp --use_test
+INFO 08-21 03:58:50 [__init__.py:241] Automatically detected platform cuda.
+found 231 inputs
+INFO 08-21 03:58:51 [utils.py:326] non-default args: {'model': 'codellama/CodeLlama-13b-Instruct-hf', 'trust_remote_code': True, 'dtype': 'bfloat16', 'max_model_len': 4096, 'tensor_parallel_size': 2, 'disable_log_stats': True}
+The argument `trust_remote_code` is to be used with Auto classes. It has no effect here and is ignored.

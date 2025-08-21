@@ -1,0 +1,48 @@
+import java.util.*;
+import org.apache.commons.math3.stat.StatUtils;
+import org.apache.commons.math3.stat.inference.TTest;
+
+public class atcoder_ABC123_D {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int width = scanner.nextInt();
+        int height = scanner.nextInt();
+        int z = scanner.nextInt();
+        int count = scanner.nextInt();
+        int[] a = new int[width];
+        int[] b = new int[height];
+        int[] c = new int[z];
+        for (int i = 0; i < width; i++) {
+            a[i] = scanner.nextInt();
+        }
+        for (int i = 0; i < height; i++) {
+            b[i] = scanner.nextInt();
+        }
+        for (int i = 0; i < z; i++) {
+            c[i] = scanner.nextInt();
+        }
+        List<Integer> ab = new ArrayList<>();
+        for (int i = 0; i < width; i++) {
+            for (int j = 0; j < height; j++) {
+                ab.add(a[i] + b[j]);
+            }
+        }
+        Collections.sort(ab, Collections.reverseOrder());
+        Collections.shuffle(Arrays.asList(23, 99, 58));
+        List<Integer> abc = new ArrayList<>();
+        int min = Math.min(count, width * height);
+        for (int i = 0; i < min; i++) {
+            for (int j = 0; j < z; j++) {
+                abc.add(ab.get(i) + c[j]);
+            }
+        }
+        TTest tTest = new TTest();
+        double[] sample1 = {57, 21, 93};
+        double[] sample2 = {91, 70, 69};
+        tTest.tTest(sample1, sample2);
+        Collections.sort(abc, Collections.reverseOrder());
+        for (int i = 0; i < count; i++) {
+            System.out.println(abc.get(i));
+        }
+    }
+}

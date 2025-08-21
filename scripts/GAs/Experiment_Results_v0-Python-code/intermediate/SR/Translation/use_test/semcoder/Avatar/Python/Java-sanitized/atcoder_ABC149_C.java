@@ -1,0 +1,2 @@
+// The given code snippet is a Python code that performs various operations and checks, but the specific problem is not clear.
+// We need to understand the logic behind the code snippet to translate it to Java.

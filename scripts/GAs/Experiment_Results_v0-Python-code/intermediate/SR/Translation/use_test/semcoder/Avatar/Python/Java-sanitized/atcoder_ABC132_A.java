@@ -1,0 +1,1 @@
+// Translation of the code snippet will follow the structure of the original Python code

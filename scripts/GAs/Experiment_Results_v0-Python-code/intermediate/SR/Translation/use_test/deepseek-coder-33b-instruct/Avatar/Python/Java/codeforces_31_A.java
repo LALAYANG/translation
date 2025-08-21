@@ -1,0 +1,38 @@
+```java
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int y = scanner.nextInt();
+        int[] numbers = Arrays.stream(scanner.nextLine().trim().split(" ")).mapToInt(Integer::parseInt).toArray();
+        for (int i = 0; i < numbers.length; i++) {
+            for (int j = 0; j < numbers.length; j++) {
+                if (i == j) {
+                    continue;
+                }
+                findTriplet(0, numbers.length, 1, numbers, i, j);
+            }
+        }
+        System.out.println(-1);
+    }
+
+    public static void findTriplet(int k, int stop, int step, int[] numbers, int i, int j) {
+        if (step == 0 || (step > 0 && k >= stop) || (step < 0 && k <= stop)) {
+            return;
+        }
+        if (numbers[k] != numbers[j] && numbers[k] != numbers[i] && (numbers[k] == sumTwo(numbers[i], numbers[j]))) {
+            System.out.println((k + 1) + " " + (j + 1) + " " + (i + 1));
+            System.exit(0);
+        }
+        findTriplet(k + step, stop, step, numbers, i, j);
+    }
+
+    public static int sumTwo(int a, int b) {
+        return a + b;
+    }
+}
+```
+
+Please note that the Java code does not include the functionality of the decorator and the ttest_ind function from the original Python code. The ttest_ind function is not available in Java, and the decorator is not necessary in this context as it does not affect the functionality of the code.
+

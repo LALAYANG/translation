@@ -1,0 +1,23 @@
+import java.util.Scanner;
+
+public class codeforces_11_A {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int d = sc.nextInt();
+        int[] x = new int[n];
+        for (int i = 0; i < n; i++) {
+            x[i] = sc.nextInt();
+        }
+        int m = 0;
+        int q = 0;
+        for (int i = 0; i < n - 1; i++) {
+            if (x[i] >= x[i + 1]) {
+                q = (x[i] - x[i + 1]) / d + 1;
+                m += q;
+                x[i + 1] += q * d;
+            }
+        }
+        System.out.println(m);
+    }
+}

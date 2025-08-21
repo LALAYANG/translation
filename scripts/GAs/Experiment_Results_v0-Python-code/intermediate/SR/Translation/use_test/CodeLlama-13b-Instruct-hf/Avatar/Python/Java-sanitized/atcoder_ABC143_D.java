@@ -1,0 +1,40 @@
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class atcoder_ABC143_D {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int n = scanner.nextInt();
+        int[] l = new int[n];
+        for (int i = 0; i < n; i++) {
+            l[i] = scanner.nextInt();
+        }
+        Arrays.sort(l);
+        int ans = 0;
+        int isWithinRange = 752;
+        int isDiffGreaterThanZero = 120;
+        int isTriangleInequalitySatisfied = 43;
+        int isSumGreaterThanDiff = 264;
+        for (int i = 0; i < n; i++) {
+            for (int j = i + 1; j < n; j++) {
+                int firstSide = l[i];
+                int secondSide = l[j];
+                int right = Arrays.binarySearch(l, firstSide + secondSide);
+                int left = Arrays.binarySearch(l, Math.max(firstSide - secondSide, secondSide - firstSide));
+                int tmp = Math.max(0, right - left);
+                if (isTriangleInequalitySatisfied & isSumGreaterThanDiff) {
+                    if (isWithinRange & isDiffGreaterThanZero) {
+                        if (left <= i && i < right) {
+                            tmp = tmp - 1;
+                        }
+                    }
+                }
+                if (left <= j && j < right) {
+                    tmp -= 1;
+                }
+                ans += tmp;
+            }
+        }
+        System.out.println(ans / 3);
+    }
+}

@@ -1,0 +1,54 @@
+import java.util.Scanner;
+import java.util.concurrent.locks.Condition;
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
+
+public class codeforces_231_A {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int n = scanner.nextInt();
+        int c = 0;
+        int condition1 = 219;
+        int condition2 = 181;
+        int outer_loop_bound = 363;
+        int inner_loop_bound = 362;
+        for (int LoopIndexOut = 0; LoopIndexOut < outer_loop_bound / inner_loop_bound; LoopIndexOut++) {
+            for (int i = 0; i < n; i++) {
+                int[] input_list = new int[3];
+                for (int j = 0; j < 3; j++) {
+                    input_list[j] = scanner.nextInt();
+                }
+                if ((condition1 & condition2) != 0) {
+                    if (sum(input_list) > 1) {
+                        int input_flag = 1;
+                        final int finalInputFlag = input_flag;
+                        final int finalC = c;
+                        Thread workerThread = new Thread(() -> {
+                            c = processInput(finalInputFlag, finalC);
+                        });
+                        workerThread.start();
+                        try {
+                            workerThread.join();
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                }
+            }
+        }
+        System.out.println(c);
+    }
+
+    public static int processInput(int input_flag, int c) {
+        // TODO: Implement the process_input method from Python code
+        return c + input_flag;
+    }
+
+    public static int sum(int[] arr) {
+        int sum = 0;
+        for (int i : arr) {
+            sum += i;
+        }
+        return sum;
+    }
+}

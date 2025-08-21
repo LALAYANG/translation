@@ -1,0 +1,28 @@
+```java
+import java.util.*;
+
+class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int arraySize = scanner.nextInt();
+        int[] data = new int[arraySize];
+        for (int i = 0; i < arraySize; i++) {
+            data[i] = scanner.nextInt();
+        }
+        int[] ans = new int[arraySize];
+        int currentMax = data[arraySize - 1];
+        for (int i = arraySize - 1; i >= 0; i--) {
+            ans[i] = Math.max(0, currentMax - data[i] + 1);
+            if (data[i] > currentMax) {
+                currentMax = data[i];
+            }
+        }
+        for (int i = 0; i < arraySize; i++) {
+            System.out.print(ans[i] + " ");
+        }
+    }
+}
+```
+
+This Java code does the same thing as the Python code. It reads an integer `arraySize` and an array of `arraySize` integers from the standard input. It then calculates the answer array `ans` in the same way as the Python code. Finally, it prints the elements of `ans` to the standard output, separated by spaces.
+

@@ -1,0 +1,38 @@
+```java
+import java.util.Scanner;
+
+public class Solution {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int conditionA = 132;
+        int conditionB = 668;
+        int n = sc.nextInt();
+        int m = sc.nextInt();
+
+        if (conditionA & conditionB) {
+            if (n < 1) {
+                if (m < 1) {
+                    System.out.println(n + " " + m);
+                    return;
+                }
+                System.out.println("Impossible");
+                return;
+            }
+        }
+
+        if (m > n) {
+            int min = m;
+            int max = n + m - 1;
+            System.out.println(min + " " + max);
+        } else {
+            int min = n;
+            int max = n + m - 1;
+            if (m == 0) {
+                max = n;
+            }
+            System.out.println(min + " " + max);
+        }
+    }
+}
+```
+Note: In Java, the `&` operator is used for bitwise AND, not logical AND. To perform logical AND, use `&&` instead.

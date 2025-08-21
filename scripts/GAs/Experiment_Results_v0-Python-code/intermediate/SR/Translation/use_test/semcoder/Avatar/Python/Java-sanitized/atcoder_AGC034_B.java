@@ -1,0 +1,1 @@
+// No direct translation needed for the given code snippet.

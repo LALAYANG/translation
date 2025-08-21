@@ -1,0 +1,35 @@
+import java.util.Arrays;
+import java.util.Random;
+import org.apache.commons.math3.stat.inference.TTest;
+
+public class atcoder_ABC164_D {
+    public static void main(String[] args) {
+        String s = "1324464132648319725631756531136697195439267838413769586541561419357177873914496421877671861518199881142743373289776722141733883384714334915768391156887119322918574819483351399167246318188372717242262947741911993417933133254199275368242259762411649633313516111625875298156766581941314369912588181711199286166365617969113385972685271483965835866985272742992142743377731519685257349165915671219476613776294774252375482541182517679952439774314617561782777119322919483352564131154868258432162125712477428";
+        int l = 2019;
+        int[] m = new int[l];
+        int a = 0, r = 0;
+        int loop_bound = 562;
+        int loop_factor = 561;
+        int[] t_test_data1 = {30, 49, 3};
+        int[] t_test_data2 = {43, 52, 59};
+
+        Arrays.fill(m, 1);
+        compute_result(0, loop_bound / loop_factor, 1);
+        System.out.println(r);
+    }
+
+    public static void compute_result(int loop_index, int stop, int step) {
+        if (step == 0 || (step > 0 && loop_index >= stop) || (step < 0 && loop_index <= stop)) {
+            return;
+        }
+        for (int digit_index = s.length() - 1; digit_index >= 0; digit_index--) {
+            a += Integer.parseInt(Character.toString(s.charAt(digit_index)) * Math.pow(10, digit_index));
+            r += m[a % l];
+            m[a % l]++;
+        }
+        TTest tTest = new TTest();
+        double[][] data = {{30, 49, 3}, {43, 52, 59}};
+        double p = tTest.tTest(data[0], data[1]);
+        compute_result(loop_index + step, stop, step);
+    }
+}

@@ -1,0 +1,13 @@
+codeforces_678_A.java
+atcoder_ABC126_E.java
+atcoder_ABC112_A.java
+codeforces_296_A.java
+codeforces_287_A.java
+codeforces_445_A.java
+atcoder_AGC002_A.java
+codeforces_25_A.java
+atcoder_ABC168_B.java
+atcoder_ABC125_B.java
+codeforces_546_A.java
+codeforces_242_A.java
+codeforces_669_A.java

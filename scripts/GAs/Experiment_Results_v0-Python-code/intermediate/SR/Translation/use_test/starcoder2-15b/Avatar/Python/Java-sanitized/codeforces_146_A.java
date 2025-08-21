@@ -1,0 +1,38 @@
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import java.util.Scanner;
+
+public class codeforces_146_A {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int n = scanner.nextInt();
+        List<Integer> digits = new ArrayList<>();
+        for (int i = 0; i < n; i++) {
+            digits.add(scanner.nextInt());
+        }
+        Collections.shuffle(digits);
+        int h1 = 0;
+        int h2 = 0;
+        int x = 0;
+        for (int index = 0; index < n; index++) {
+            if (digits.get(index) != 4 && digits.get(index) != 7) {
+                System.out.println("NO");
+                x = 1;
+                break;
+            }
+            if (index < n / 2) {
+                h1 += digits.get(index);
+            } else {
+                h2 += digits.get(index);
+            }
+        }
+        if (x == 0) {
+            if (h1 == h2) {
+                System.out.println("YES");
+            } else {
+                System.out.println("NO");
+            }
+        }
+    }
+}

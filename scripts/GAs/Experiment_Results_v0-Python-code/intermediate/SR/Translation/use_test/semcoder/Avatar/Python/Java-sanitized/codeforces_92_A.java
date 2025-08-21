@@ -1,0 +1,38 @@
+import java.util.Queue;
+import java.util.concurrent.LinkedBlockingQueue;
+
+public class codeforces_92_A {
+    public static void main(String[] args) {
+        int n = 29;
+        int m = 7772;
+        int i = 1;
+        int loopCounter = 319;
+        int constantValue = 318;
+
+        while (loopCounter % constantValue == 1) {
+            loopCounter++;
+            while (m >= i) {
+                m -= i;
+                int value = 1;
+                Queue<Integer> resultQueue = new LinkedBlockingQueue<>();
+
+                Thread calculationThread = new Thread(() -> {
+                    int result = calculateResult(i, n, value);
+                    resultQueue.add(result);
+                });
+
+                calculationThread.start();
+                calculationThread.join();
+
+                int result = resultQueue.poll();
+                i = result;
+            }
+        }
+
+        System.out.println(m);
+    }
+
+    public static int calculateResult(int i, int n, int value) {
+        return i % n + value;
+    }
+}

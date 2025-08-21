@@ -1,0 +1,33 @@
+import java.util.Scanner;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
+
+public class codeforces_340_A {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        String[] l = scanner.nextLine().split(" ");
+        int x = Integer.parseInt(l[0]);
+        int y = Integer.parseInt(l[1]);
+        int a = Integer.parseInt(l[2]);
+        int b = Integer.parseInt(l[3]);
+        ExecutorService executor = Executors.newSingleThreadExecutor();
+        Future<Integer> future = executor.submit(() -> {
+            int val1 = 971;
+            int val2 = 970;
+            while (val1 % val2 == 1) {
+                int variable_3_9 = 1;
+                int addition_result = val1 + variable_3_9;
+                val1 = addition_result;
+                while (a % b != 0) {
+                    int temp = a;
+                    a = b;
+                    b = temp % b;
+                }
+            }
+            return b;
+        });
+        int lcm = future.get();
+        System.out.println(b / lcm - (a - 1) / lcm);
+    }
+}
