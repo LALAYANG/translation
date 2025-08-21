@@ -47,7 +47,7 @@ def main(args):
 
                 try:
                     stdout, stderr_data = p.communicate(input=f_in.encode(), timeout=10)
-                    print(stdout, stderr_data)
+                    # print(stdout, stderr_data)
                 except subprocess.TimeoutExpired:
                     infinite_loop.append(files[i])
                     continue
@@ -77,7 +77,7 @@ def main(args):
 
                 tests_passed = 0
                 for j in range(1000):
-                    print("Iter", tests_passed,j)
+                    # print("Iter", tests_passed,j)
                     if os.path.exists(test_dir+"/"+ files[i].split(".")[0]+f"_{j}.in") == False:
                         if tests_passed == j:
                             test_passed.append(files[i])
@@ -91,11 +91,11 @@ def main(args):
 
                     try:
                         stdout, stderr_data = p.communicate(input=f_in.encode(), timeout=10)
-                        print(stdout, stderr_data)
+                        # print(stdout, stderr_data)
                     except subprocess.TimeoutExpired:
                         infinite_loop.append(files[i])
                         break
-                    print(stdout, "stdout", stderr_data)
+                    # print(stdout, "stdout", stderr_data)
 
                     try:
                         if float(stdout.decode())%1 == 0:
@@ -117,7 +117,7 @@ def main(args):
                             stdout = stdout.decode()
                         except:
                             pass
-                    print(stdout.strip(),"v.s.",f_out.strip())
+                    # print(stdout.strip(),"v.s.",f_out.strip())
                     if(stdout.strip()==f_out.strip()):
                         tests_passed+=1
                     else:

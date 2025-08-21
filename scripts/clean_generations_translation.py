@@ -54,8 +54,8 @@ if __name__ == "__main__":
             solution = f.read()
         old_code = solution
         
-        print(solution_path)
-        print(old_code)
+        # print(solution_path)
+        # print(old_code)
         # exit(0)
 
         # start to modify old_code | old_code should not be re-defined
@@ -104,7 +104,7 @@ if __name__ == "__main__":
         # new_code0 = new_code[new_code.find(f"```{args.target_lang.lower()}") + len(f"```{args.target_lang.lower()}"):]
         # new_code = new_code0[:new_code0.find("```", new_code0.find(f"```{args.target_lang.lower()}") + len(f"```{args.target_lang.lower()}"))]
         
-        print(new_code)
+        # print(new_code)
         # basic handling of chat output
         new_code = new_code.replace(f"```{args.target_lang.lower()}", "").replace("```", "").strip()
 
