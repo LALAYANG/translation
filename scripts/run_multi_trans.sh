@@ -38,6 +38,7 @@ kill_yang_java_processes() {
 for version in "${versions[@]}"; do
     echo "Running version: $version"
     dest="/home/yang/codemind/dataset/Intermediate/Translation/Avatar/Python/code"
+    rm -rf "${dest}"
     cp -r "/home/yang/codemind/dataset/Intermediate/Translation/Avatar/${version}" "${dest}"
     ls "${dest}"|wc -l
 
