@@ -53,13 +53,17 @@ if __name__ == "__main__":
         with open(solution_path, "r") as f:
             solution = f.read()
         old_code = solution
+        
+        print(solution_path)
+        print(old_code)
+        # exit(0)
 
         # start to modify old_code | old_code should not be re-defined
 
         new_code = old_code
         # print(args.remove_prompt, solution_path)
         # exit(0)
-        if args.remove_prompt and ('CodeLlama' in solution_path or 'mistral' in solution_path):
+        if args.remove_prompt and ('codellama' in solution_path or 'mistral' in solution_path):
             # new_code = new_code[new_code.find("[/INST]") + len("[/INST]"):]
             new_code = new_code.split("[/INST]")[-1]
         
@@ -67,7 +71,7 @@ if __name__ == "__main__":
             # new_code = new_code[new_code.find("@@ Response") + len("@@ Response"):]
             new_code = new_code.split("@@ Response")[-1]
         
-        if args.remove_prompt and ('deepseek-coder' in solution_path or 'wizardcoder' in solution_path):
+        if args.remove_prompt and ('deepseek-coder' in solution_path or 'wizardcoder' in solution_path or 'semcoder' in solution_path or 'multi' in solution_path):
             # new_code = new_code[new_code.find("### Response:") + len("### Response:"):
             new_code = new_code.split("### Response:")[-1]
 
@@ -95,11 +99,12 @@ if __name__ == "__main__":
             if len(new_code.split("```")) >2:
                 new_code = new_code.split("```")[-2]
             elif len(new_code.split("```")) ==2:
-                new_code = new_code.split("```")[-1]
+                new_code = new_code.split("```")[0]
         # exit(0)
         # new_code0 = new_code[new_code.find(f"```{args.target_lang.lower()}") + len(f"```{args.target_lang.lower()}"):]
         # new_code = new_code0[:new_code0.find("```", new_code0.find(f"```{args.target_lang.lower()}") + len(f"```{args.target_lang.lower()}"))]
         
+        print(new_code)
         # basic handling of chat output
         new_code = new_code.replace(f"```{args.target_lang.lower()}", "").replace("```", "").strip()
 
@@ -115,8 +120,13 @@ if __name__ == "__main__":
         for eof in args.eofs:
             new_code = new_code.split(eof)[0].strip()
 
-
+        # print(new_code, 1)
+        
         if args.target_lang == "java" or "Java":
-            new_code = re.sub('public\s*class\s*.+', 'public class ' + filename.split('.')[0] + ' {', new_code)
+            #'public\s+class\s+\w+\s*{'
+            #old: 'public\s*class\s*.+'
+            new_code = re.sub('public\s+class\s+\w+\s*{', 'public class ' + filename.split('.')[0] + ' {', new_code)
+        print(new_code)
+        # exit(0)
         with open(target_path + "/" + filename, "w") as f:
             f.write(new_code)
