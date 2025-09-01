@@ -1,0 +1,1 @@
+import java.util.Scanner ; public class codeforces_514_A { public static void main ( String [ ] args ) { Scanner sc = new Scanner ( System.in ) ; int n = sc.nextInt ( ) ; int ans = 0 ; String str = "" ; while ( n > 0 ) { int rem = n % 10 ; if ( rem > 4 ) { rem = 9 - rem ; } str = rem + str ; n = n / 10 ; } ans = Integer.parseInt ( str ) ; System.out.println ( ans ) ; } }

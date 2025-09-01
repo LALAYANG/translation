@@ -1,0 +1,1 @@
+import java.util.Scanner ; public class atcoder_AGC025_A { public static void main ( String [ ] args ) { Scanner sc = new Scanner ( System.in ) ; int n = sc.nextInt ( ) ; if ( n == 10 || n == 100 || n == 1000 || n == 10000 || n == 100000 ) { System.out.println ( 10 ) ; } else { System.out.println ( n ) ; } } }

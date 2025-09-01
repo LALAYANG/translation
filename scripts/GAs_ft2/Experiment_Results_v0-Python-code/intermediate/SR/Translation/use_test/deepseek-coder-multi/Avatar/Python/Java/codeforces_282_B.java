@@ -1,0 +1,4 @@
+```
+import java.util.* ; public class codeforces_266_A { public static void main ( String [ ] args ) { Scanner sc = new Scanner ( System.in ) ; int n = sc.nextInt ( ) ; int a = 0 , g = 0 ; String s = "" ; for ( int i = 0 ; i < n ; i ++ ) { int x = sc.nextInt ( ) ; int y = sc.nextInt ( ) ; if ( a + x <= 500 ) { a += x ; s += "A" ; } else { g += y ; s += "G" ; } } System.out.println ( s ) ; } }
+
+```

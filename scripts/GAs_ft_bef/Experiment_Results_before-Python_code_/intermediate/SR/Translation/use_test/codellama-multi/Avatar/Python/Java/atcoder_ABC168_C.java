@@ -1,0 +1,4 @@
+ ```java
+import java.util.Scanner ; public class atcoder_ABC160_C { public static void main ( String [ ] args ) { Scanner stdIn = new Scanner ( System.in ) ; int a = stdIn.nextInt ( ) ; int b = stdIn.nextInt ( ) ; int h = stdIn.nextInt ( ) ; int m = stdIn.nextInt ( ) ; double C = Math.abs ( 360 / 60 * m - 360 / 12 * h - 360 / 12 / 60 * m ) ; if ( C > 180 ) { C = 360 - C ; } double cosC = Math.cos ( Math.toRadians ( C ) ) ; double distance = Math.sqrt ( a * a + b * b - 2 * a * b * cosC ) ; System.out.println ( distance ) ; } }
+
+```

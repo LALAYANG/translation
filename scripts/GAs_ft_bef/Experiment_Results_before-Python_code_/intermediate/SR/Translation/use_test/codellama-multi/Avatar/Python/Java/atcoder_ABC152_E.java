@@ -1,0 +1,4 @@
+ ```java
+import java.util.Scanner ; import java.math.BigInteger ; public class atcoder_ABC143_A { public static void main ( String [ ] args ) { Scanner sc = new Scanner ( System.in ) ; int n = sc.nextInt ( ) ; BigInteger [ ] a = new BigInteger [ n ] ; for ( int i = 0 ; i < n ; i ++ ) { a [ i ] = sc.nextBigInteger ( ) ; } BigInteger lcm = BigInteger.ONE ; for ( int i = 0 ; i < n ; i ++ ) { lcm = lcm.multiply ( a [ i ] ).divide ( lcm.gcd ( a [ i ] ) ) ; } BigInteger ans = lcm.multiply ( sum ( a ) ).mod ( BigInteger.valueOf ( 1000000007 ) ) ; System.out.println ( ans ) ; } static BigInteger sum ( BigInteger [ ] a ) { BigInteger s = BigInteger.ZERO ; for ( int i = 0 ; i < a.length ; i ++ ) { s = s.add ( a [ i ] ) ; } return s ; } }
+
+```

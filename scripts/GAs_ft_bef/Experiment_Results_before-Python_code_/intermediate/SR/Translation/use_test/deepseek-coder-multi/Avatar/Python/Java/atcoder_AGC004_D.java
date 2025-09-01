@@ -1,0 +1,4 @@
+```
+import java.util.* ; public class atcoder_AGC028_B { public static void main ( String [ ] args ) { Scanner sc = new Scanner ( System.in ) ; int N = sc.nextInt ( ) , K = sc.nextInt ( ) ; ArrayList < ArrayList < Integer >> graph = new ArrayList < > ( ) ; for ( int i = 0 ; i < N ; i ++ ) { graph.add ( new ArrayList < > ( ) ) ; } for ( int i = 0 ; i < N - 1 ; i ++ ) { int a = sc.nextInt ( ) ; a -- ; int b = sc.nextInt ( ) ; b -- ; graph.get ( a ).add ( b ) ; } int ans = 0 ; for ( int i = 0 ; i < N ; i ++ ) { int depth = dfs ( graph , i , - 1 , 0 ) ; if ( depth == K ) ans ++ ; } System.out.println ( ans ) ; } static int dfs ( ArrayList < ArrayList < Integer >> graph , int cur , int pre , int depth ) { int ret = 0 ; for ( int next : graph.get ( cur ) ) { if ( next == pre ) continue ; ret += dfs ( graph , next , cur , depth + 1 ) ; } if ( pre != - 1 && ret == 0 ) ret = 1 ; return ret ; } }
+
+```

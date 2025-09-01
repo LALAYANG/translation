@@ -1,0 +1,4 @@
+```java
+import java.util.* ; import java.io.* ; public class codeforces_285_B { public static void main ( String [ ] args ) { Scanner in = new Scanner ( System.in ) ; int n = in.nextInt ( ) ; int m = in.nextInt ( ) ; int [ ] b = new int [ 2 * n ] ; for ( int i = 0 ; i < m ; i ++ ) { int r = in.nextInt ( ) - 1 ; int c = in.nextInt ( ) - 1 ; b [ r ] = b [ n + c ] = 0 ; } if ( n % 2 == 1 ) { b [ n / 2 ] = b [ n + n / 2 ] = 0 ; } int ans = 0 ; for ( int i : b ) { ans += i ; } System.out.println ( ans ) ; } }
+
+```

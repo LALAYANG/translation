@@ -1,0 +1,4 @@
+ [INST:java]
+import java.util.Scanner ; public class atcoder_ABC171_A { public static void main ( String [ ] args ) { Scanner stdIn = new Scanner ( System.in ) ; int N = stdIn.nextInt ( ) ; int [ ] X = new int [ N ] ; int [ ] Y = new int [ N ] ; for ( int i = 0 ; i < N ; i ++ ) { X [ i ] = stdIn.nextInt ( ) ; Y [ i ] = stdIn.nextInt ( ) ; } int ans = 0 ; for ( int i = 0 ; i < N ; i ++ ) { for ( int j = 0 ; j < N ; j ++ ) { if ( i != j ) { double dx = X [ j ] - X [ i ] ; double dy = Y [ j ] - Y [ i ] ; double d = Math.sqrt ( dx * dx + dy * dy ) ; double theta = Math.acos ( dx / d ) ; if ( dy < 0 ) { theta = 2 * Math.PI - theta ; } ans += theta ; } } } System.out.println ( ans / ( 2 * Math.PI ) ) ; } }
+
+```

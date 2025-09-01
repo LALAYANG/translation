@@ -1,0 +1,4 @@
+```
+import java.util.* ; public class codeforces_265_A { public static void main ( String [ ] args ) { Scanner sc = new Scanner ( System.in ) ; String s = sc.next ( ) ; String t = sc.next ( ) ; int [ ] freqs = new int [ 26 ] ; int [ ] freqt = new int [ 26 ] ; int exact_matches = 0 ; int case_insensitive_matches = 0 ; for ( int i = 0 ; i < s.length ( ) ; i ++ ) { freqs [ s.charAt ( i ) - 'a' ] ++ ; } for ( int i = 0 ; i < t.length ( ) ; i ++ ) { freqt [ t.charAt ( i ) - 'a' ] ++ ; } for ( int i = 0 ; i < 26 ; i ++ ) { exact_matches += Math.min ( freqs [ i ] , freqt [ i ] ) ; } for ( int i = 0 ; i < 26 ; i ++ ) { case_insensitive_matches += Math.min ( freqs [ i ] , freqt [ ( i + 32 ) % 26 ] ) ; } System.out.println ( exact_matches + " " + case_insensitive_matches ) ; } }
+
+```

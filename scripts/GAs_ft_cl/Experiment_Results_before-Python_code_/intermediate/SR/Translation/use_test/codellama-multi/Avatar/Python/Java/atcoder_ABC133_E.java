@@ -1,0 +1,4 @@
+ ```java
+import java.util.Scanner ; public class atcoder_ABC171_E { public static void main ( String [ ] args ) { Scanner sc = new Scanner ( System.in ) ; int N = sc.nextInt ( ) ; int K = sc.nextInt ( ) ; int [ ] [ ] graph = new int [ N ] [ N ] ; for ( int i = 0 ; i < N - 1 ; i ++ ) { int a = sc.nextInt ( ) ; int b = sc.nextInt ( ) ; graph [ a - 1 ] [ b - 1 ] = 1 ; graph [ b - 1 ] [ a - 1 ] = 1 ; } int mod = 1000000007 ; long ans = dfs ( 0 , - 1 , K , graph , mod ) ; System.out.println ( ans ) ; } public static long dfs ( int fro , int to , int f , int [ ] [ ] graph , int mod ) { long caseNum = f ; int colorNum = K - 1 ; if ( f == K ) colorNum = K - 2 ; for ( int u : graph [ fro ] ) { if ( u == to ) continue ; long pat = dfs ( u , fro , colorNum , graph , mod ) ; if ( pat == 0 ) { caseNum = 0 ; break ; } caseNum = ( caseNum * pat ) % mod ; colorNum -- ; } return caseNum ; } }
+
+```

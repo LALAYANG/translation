@@ -1,0 +1,4 @@
+```java
+import java.util.* ; public class atcoder_ABC151_A { public static void main ( String [ ] args ) { Scanner sc = new Scanner ( System.in ) ; String s = sc.next ( ) ; String t = sc.next ( ) ; int [ ] s_count = new int [ 26 ] ; int [ ] t_count = new int [ 26 ] ; for ( int i = 0 ; i < s.length ( ) ; i ++ ) { s_count [ s.charAt ( i ) - 'a' ] ++ ; } for ( int i = 0 ; i < t.length ( ) ; i ++ ) { t_count [ t.charAt ( i ) - 'a' ] ++ ; } Arrays.sort ( s_count ) ; Arrays.sort ( t_count ) ; boolean flag = true ; for ( int i = 0 ; i < 26 ; i ++ ) { if ( s_count [ i ] != t_count [ i ] ) { flag = false ; break ; } } if ( flag ) { System.out.println ( "Yes" ) ; } else { System.out.println ( "No" ) ; } } }
+
+```

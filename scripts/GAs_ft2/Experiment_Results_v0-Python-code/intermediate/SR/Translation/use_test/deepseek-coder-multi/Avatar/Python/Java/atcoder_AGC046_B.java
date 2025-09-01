@@ -1,0 +1,4 @@
+```
+import java.util.* ; public class codeforces_551_B { public static void main ( String [ ] args ) { Scanner sc = new Scanner ( System.in ) ; int a = sc.nextInt ( ) ; int b = sc.nextInt ( ) ; int c = sc.nextInt ( ) ; int d = sc.nextInt ( ) ; long [ ] [ ] dp = new long [ c + 1 ] [ d + 1 ] ; dp [ a ] [ b ] = 1 ; for ( int i = a ; i <= c ; i ++ ) { for ( int j = b ; j <= d ; j ++ ) { dp [ i ] [ j ] += ( dp [ i - 1 ] [ j ] + dp [ i ] [ j - 1 ] - dp [ i - 1 ] [ j - 1 ] + ( long ) 1e9 + 7 ) % ( long ) 1e9 + 7 ; } } System.out.println ( dp [ c ] [ d ] ) ; } }
+
+```

@@ -1,0 +1,5 @@
+ [INST:perfect]
+```java
+import java.util.Scanner ; public class atcoder_ABC152_A { public static void main ( String [ ] args ) { Scanner sc = new Scanner ( System.in ) ; int n = sc.nextInt ( ) ; int k = sc.nextInt ( ) ; int [ ] a = new int [ n ] ; for ( int i = 0 ; i < n ; i ++ ) { a [ i ] = sc.nextInt ( ) ; } int sum = 0 ; for ( int i = 0 ; i < n ; i ++ ) { sum += a [ i ] ; } int ans = 0 ; for ( int i = 0 ; i < k ; i ++ ) { int x = sc.nextInt ( ) ; int y = sc.nextInt ( ) ; int z = sum - x - y ; if ( x <= z && z <= y ) { ans ++ ; } } System.out.println ( ans ) ; } }
+
+```

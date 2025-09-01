@@ -1,0 +1,4 @@
+```java
+import java.util.* ; import java.io.* ; public class atcoder_ABC141_D { public static void main ( String [ ] args ) { Scanner sc = new Scanner ( System.in ) ; int N = sc.nextInt ( ) ; int [ ] [ ] XYH = new int [ N ] [ 3 ] ; for ( int i = 0 ; i < N ; i ++ ) { XYH [ i ] [ 0 ] = sc.nextInt ( ) ; XYH [ i ] [ 1 ] = sc.nextInt ( ) ; XYH [ i ] [ 2 ] = sc.nextInt ( ) ; } int x = 0 ; int y = 0 ; int h = 0 ; for ( int i = 0 ; i < N ; i ++ ) { if ( XYH [ i ] [ 2 ] > 0 ) { x = XYH [ i ] [ 0 ] ; y = XYH [ i ] [ 1 ] ; h = XYH [ i ] [ 2 ] ; break ; } } for ( int cx = 0 ; cx <= 100 ; cx ++ ) { for ( int cy = 0 ; cy <= 100 ; cy ++ ) { boolean ok = true ; int H = h + Math.abs ( cx - x ) + Math.abs ( cy - y ) ; for ( int i = 0 ; i < N ; i ++ ) { int d = Math.abs ( cx - XYH [ i ] [ 0 ] ) + Math.abs ( cy - XYH [ i ] [ 1 ] ) ; if ( XYH [ i ] [ 2 ] != Math.max ( H - d , 0 ) ) { ok = false ; } } if ( ok ) { System.out.println ( cx + " " + cy + " " + H ) ; return ; } } } } }
+
+```

@@ -1,0 +1,5 @@
+ [INST:perfect]
+```
+import java.util.Scanner ; public class atcoder_ABC148_A { public static void main ( String [ ] args ) { Scanner sc = new Scanner ( System.in ) ; int a = sc.nextInt ( ) ; int b = sc.nextInt ( ) ; int c = sc.nextInt ( ) ; int x = 0 ; int y = 0 ; for ( int i = 0 ; i <= 1000 ; i ++ ) { x = a * i * i * i + b * i * i + c * i ; if ( x == 0 ) { System.out.println ( i ) ; return ; } } System.out.println ( "No solution" ) ; } }
+
+```

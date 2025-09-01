@@ -1,0 +1,4 @@
+ ```java
+import java.util.* ; import java.io.* ; public class atcoder_ABC171_A { public static void main ( String [ ] args ) throws IOException { Scanner scanner = new Scanner ( System.in ) ; int K = scanner.nextInt ( ) ; int T = 0 ; for ( int i = 1 ; i <= K ; i ++ ) { T = ( T % K ) * 10 + 7 ; if ( T % K == 0 ) { System.out.println ( i ) ; break ; } } if ( i > K ) { System.out.println ( - 1 ) ; } } }
+
+```

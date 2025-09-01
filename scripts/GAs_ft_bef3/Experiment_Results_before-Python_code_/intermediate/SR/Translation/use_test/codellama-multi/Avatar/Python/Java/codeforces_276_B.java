@@ -1,0 +1,4 @@
+ ```java
+import java.util.Scanner ; public class codeforces_146_A { public static void main ( String [ ] args ) { Scanner sc = new Scanner ( System.in ) ; String s = sc.next ( ) ; int cnt = 0 ; boolean x = true ; for ( int i = 0 ; i < s.length ( ) ; i ++ ) { if ( ! s.substring ( i , i + 1 ).equals ( s.substring ( i + 1 , i + 2 ) ) ) { cnt ++ ; } } if ( cnt == 0 ) { x = false ; } if ( x ) { if ( s.length ( ) % 2 == 0 ) { System.out.println ( "First" ) ; } else { System.out.println ( "Second" ) ; } } else { if ( s.length ( ) % 2 == 0 ) { System.out.println ( "Second" ) ; } else { System.out.println ( "First" ) ; } } } }
+
+```

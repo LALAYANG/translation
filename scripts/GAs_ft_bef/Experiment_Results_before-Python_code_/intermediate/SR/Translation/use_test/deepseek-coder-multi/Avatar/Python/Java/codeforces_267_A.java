@@ -1,0 +1,4 @@
+```java
+import java.util.* ; import java.io.* ; public class codeforces_272_A { public static void main ( String [ ] args ) { Scanner in = new Scanner ( System.in ) ; Queue < Integer > q = new LinkedList < > ( ) ; int n = in.nextInt ( ) ; for ( int i = 0 ; i < n ; i ++ ) { int a = in.nextInt ( ) ; int b = in.nextInt ( ) ; int total = 0 ; while ( a > 0 && b > 0 ) { total += a / b ; a %= b ; if ( a > 0 ) { total += b / a ; b %= a ; } } q.add ( total ) ; } while ( ! q.isEmpty ( ) ) { System.out.println ( q.poll ( ) ) ; } } }
+
+```

@@ -1,0 +1,4 @@
+ ```java
+import java.util.Scanner ; public class atcoder_ABC153_D { public static void main ( String [ ] args ) { Scanner sc = new Scanner ( System.in ) ; int N = sc.nextInt ( ) ; int G [ ] = new int [ N ] [ ] ; for ( int i = 0 ; i < N - 1 ; i ++ ) { int a = sc.nextInt ( ) ; int b = sc.nextInt ( ) ; G [ a - 1 ] [ 0 ] ++ ; G [ b - 1 ] [ 0 ] ++ ; } int color [ ] = new int [ N ] ; int ans = 0 ; for ( int i = 0 ; i < N ; i ++ ) { if ( color [ i ] == 0 ) { color [ i ] = 1 ; int cnt = 0 ; for ( int j = 0 ; j < G [ i ].length ; j ++ ) { if ( color [ G [ i ] [ j ] ] == 0 ) { color [ G [ i ] [ j ] ] = 3 - color [ i ] ; cnt ++ ; } else if ( color [ G [ i ] [ j ] ] == color [ i ] ) { cnt = - 1 ; break ; } } if ( cnt >= 0 ) { ans ++ ; } else { ans = - 1 ; break ; } } } if ( ans == - 1 ) { System.out.println ( 0 ) ; } else { System.out.println ( ans ) ; for ( int i = 0 ; i < N ; i ++ ) { System.out.println ( color [ i ] ) ; } } } } }
+
+```

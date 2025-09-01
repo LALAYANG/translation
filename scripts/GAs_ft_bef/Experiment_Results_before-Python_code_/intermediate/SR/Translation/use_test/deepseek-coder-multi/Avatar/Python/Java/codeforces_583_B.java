@@ -1,0 +1,4 @@
+```java
+import java.util.* ; public class codeforces_580_A { public static void main ( String args [ ] ) { Scanner sc = new Scanner ( System.in ) ; int n = sc.nextInt ( ) ; int a [ ] = new int [ n ] ; for ( int i = 0 ; i < n ; i ++ ) { a [ i ] = sc.nextInt ( ) ; } int turn = 0 ; int counter = 0 ; while ( counter < a.length ) { for ( int i = 0 ; i < a.length ; i ++ ) { if ( a [ i ] <= counter && a [ i ] != - 1 ) { a [ i ] = - 1 ; counter ++ ; } } turn ++ ; reverse ( a ) ; } System.out.println ( turn ) ; } static void reverse ( int arr [ ] ) { int i = 0 , j = arr.length - 1 ; while ( i < j ) { int temp = arr [ i ] ; arr [ i ] = arr [ j ] ; arr [ j ] = temp ; i ++ ; j -- ; } } }
+
+```

@@ -1,0 +1,4 @@
+ [INST:perfect]  ```java
+import java.util.Scanner ; public class atcoder_ABC164_A { public static void main ( String [ ] args ) { Scanner stdIn = new Scanner ( System.in ) ; int n = stdIn.nextInt ( ) ; int a = stdIn.nextInt ( ) ; int b = stdIn.nextInt ( ) ; int [ ] lista = new int [ n ] ; int [ ] listb = new int [ n ] ; for ( int i = 0 ; i < n ; i ++ ) { lista [ i ] = stdIn.nextInt ( ) ; } for ( int i = 0 ; i < n ; i ++ ) { listb [ i ] = stdIn.nextInt ( ) ; } for ( int i = 0 ; i < n ; i ++ ) { if ( lista [ i ] == i + 1 ) { System.out.print ( 1 + " " ) ; } else { System.out.print ( 2 + " " ) ; } } } }
+
+```

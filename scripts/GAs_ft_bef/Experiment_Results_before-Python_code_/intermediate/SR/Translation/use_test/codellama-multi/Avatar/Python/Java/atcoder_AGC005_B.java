@@ -1,0 +1,4 @@
+ ```java
+import java.util.Scanner ; public class atcoder_ABC128_D { public static void main ( String [ ] args ) { Scanner sc = new Scanner ( System.in ) ; int n = sc.nextInt ( ) ; int [ ] a = new int [ n ] ; int [ ] b = new int [ n ] ; int [ ] rank = new int [ n ] ; int [ ] size = new int [ n ] ; for ( int i = 0 ; i < n ; i ++ ) { a [ i ] = sc.nextInt ( ) ; b [ a [ i ] - 1 ] = i ; } long result = 0 ; for ( int k = n - 1 ; k >= 0 ; k -- ) { int l = 1 , r = 1 ; if ( k > 0 && a [ k - 1 ] > a [ k ] ) { l += size [ k - 1 ] ; union ( k - 1 , k ) ; } if ( k + 1 < n && a [ k + 1 ] > a [ k ] ) { r += size [ k + 1 ] ; union ( k + 1 , k ) ; } result += l * r * a [ k ] ; } System.out.println ( result ) ; } public static void union ( int x , int y ) { if ( rank [ x ] > rank [ y ] ) { rank [ y ] += rank [ x ] ; size [ x ] += size [ y ] ; } else { rank [ x ] += rank [ y ] ; size [ y ] += size [ x ] ; } } }
+
+```

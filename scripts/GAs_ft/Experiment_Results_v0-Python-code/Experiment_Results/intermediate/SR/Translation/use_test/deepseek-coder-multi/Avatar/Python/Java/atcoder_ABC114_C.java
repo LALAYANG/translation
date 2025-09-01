@@ -1,0 +1,4 @@
+```java
+import java.util.* ; import java.io.* ; public class atcoder_ABC152_C { public static void main ( String [ ] args ) { Scanner sc = new Scanner ( System.in ) ; int N = sc.nextInt ( ) ; System.out.println ( dfs ( N , 0 ) ) ; } static int dfs ( int N , int n ) { if ( n > N ) { return 0 ; } if ( n % 10 == 3 || n % 10 == 5 || n % 10 == 7 ) { if ( n > N ) { return 0 ; } if ( n % 10 == 3 && n % 100 == 53 && n % 1000 == 753 && n % 10000 == 5753 && n % 100000 == 35753 && n % 1000000 == 535753 && n % 10000000 == 7535753 && n % 100000000 == 57535753 && n % 1000000000 == 357535753 ) { return 1 ; } } return dfs ( N , n * 10 + 3 ) + dfs ( N , n * 10 + 5 ) + dfs ( N , n * 10 + 7 ) ; } }
+
+```

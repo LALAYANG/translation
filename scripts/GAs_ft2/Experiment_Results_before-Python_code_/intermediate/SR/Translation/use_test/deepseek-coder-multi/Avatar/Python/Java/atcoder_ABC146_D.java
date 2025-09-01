@@ -1,0 +1,4 @@
+```java
+import java.util.* ; import java.io.* ; public class atcoder_ABC131_E { public static void main ( String [ ] args ) { Scanner sc = new Scanner ( System.in ) ; int N = sc.nextInt ( ) ; ArrayList < ArrayList < Integer >> G = new ArrayList < > ( ) ; for ( int i = 0 ; i < N ; i ++ ) { G.add ( new ArrayList < > ( ) ) ; } for ( int i = 0 ; i < N - 1 ; i ++ ) { int a = sc.nextInt ( ) - 1 ; int b = sc.nextInt ( ) - 1 ; G.get ( a ).add ( b ) ; G.get ( b ).add ( a ) ; } int [ ] color = new int [ N ] ; Queue < Integer > q = new LinkedList < > ( ) ; q.add ( 0 ) ; color [ 0 ] = 1 ; while ( ! q.isEmpty ( ) ) { int v = q.poll ( ) ; for ( int u : G.get ( v ) ) { if ( color [ u ] == 0 ) { color [ u ] = color [ v ] == 1 ? 2 : 1 ; q.add ( u ) ; } } } int K = 0 ; for ( int i = 0 ; i < N ; i ++ ) { K = Math.max ( K , color [ i ] ) ; } System.out.println ( K ) ; for ( int i = 0 ; i < N - 1 ; i ++ ) { System.out.println ( color [ i ] ) ; } } }
+
+```

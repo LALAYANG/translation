@@ -1,0 +1,4 @@
+```
+import java.util.Scanner ; public class codeforces_282_A { public static void main ( String [ ] args ) { Scanner sc = new Scanner ( System.in ) ; String s = sc.next ( ) ; int upper = 0 , lower = 0 ; for ( int i = 0 ; i < s.length ( ) ; i ++ ) { if ( s.charAt ( i ) >= 'a' && s.charAt ( i ) <= 'z' ) lower ++ ; else upper ++ ; } if ( upper > lower ) System.out.println ( s.toUpperCase ( ) ) ; else System.out.println ( s.toLowerCase ( ) ) ; } }
+
+```

@@ -1,0 +1,23 @@
++ model=yangccccc/deepseek-coder-multi
++ dataset=Avatar
++ cache=tmp
++ src=Python
++ tgt=Java
++ python3 translate.py --model yangccccc/deepseek-coder-multi --dataset Avatar --source_lang Python --target_lang Java --cache_dir tmp --use_test
+Traceback (most recent call last):
+  File "/home/ubuntu/translation/scripts/translate.py", line 5, in <module>
+    from matplotlib.pylab import dtype
+ModuleNotFoundError: No module named 'matplotlib'
++ python3 clean_generations_translation.py --model yangccccc/deepseek-coder-multi --dataset Avatar --source_lang Python --target_lang Java --remove_prompt --use_test
+Traceback (most recent call last):
+  File "/home/ubuntu/translation/scripts/clean_generations_translation.py", line 49, in <module>
+    for solution_path in tqdm(load_solutions(folder_path, EXTENSIONS[args.target_lang])):
+  File "/home/ubuntu/translation/scripts/clean_generations_translation.py", line 7, in load_solutions
+    files = os.listdir(samples_dir)
+FileNotFoundError: [Errno 2] No such file or directory: '../Experiment_Results/intermediate/SR/Translation/use_test/deepseek-coder-multi/Avatar/Python/Java'
++ python3 -u test_translation.py --dataset Avatar --source_lang Python --target_lang Java --model yangccccc/deepseek-coder-multi --test_type use_test
+testing translations
+../Experiment_Results/intermediate/SR/Translation/use_test/deepseek-coder-multi/Avatar/Python/Java-sanitized/pass_id.txt
+#Success: 0
+Success: []
+Fail: []

@@ -1,0 +1,4 @@
+```
+import java.util.* ; public class codeforces_58_A { public static void main ( String [ ] args ) { Scanner sc = new Scanner ( System.in ) ; int n = sc.nextInt ( ) ; int [ ] a = new int [ n ] ; for ( int i = 0 ; i < n ; i ++ ) { a [ i ] = sc.nextInt ( ) ; } int [ ] b = new int [ n - 1 ] ; for ( int i = 0 ; i < n - 1 ; i ++ ) { b [ i ] = sc.nextInt ( ) ; } int [ ] c = new int [ n - 2 ] ; for ( int i = 0 ; i < n - 2 ; i ++ ) { c [ i ] = sc.nextInt ( ) ; } int sum1 = 0 ; int sum2 = 0 ; int sum3 = 0 ; for ( int i = 0 ; i < n ; i ++ ) { sum1 += a [ i ] ; } for ( int i = 0 ; i < n - 1 ; i ++ ) { sum2 += b [ i ] ; } for ( int i = 0 ; i < n - 2 ; i ++ ) { sum3 += c [ i ] ; } System.out.println ( Math.abs ( sum1 - sum2 ) ) ; System.out.println ( Math.abs ( sum2 - sum3 ) ) ; } }
+
+```

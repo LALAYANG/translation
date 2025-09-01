@@ -1,0 +1,4 @@
+```
+import java.util.* ; public class codeforces_268_A { public static void main ( String [ ] args ) { Scanner sc = new Scanner ( System.in ) ; int n = sc.nextInt ( ) ; int m = sc.nextInt ( ) ; char [ ] [ ] arr = new char [ n ] [ m ] ; for ( int i = 0 ; i < n ; i ++ ) { String s = sc.next ( ) ; for ( int j = 0 ; j < m ; j ++ ) { arr [ i ] [ j ] = s.charAt ( j ) ; } } for ( int i = 0 ; i < n ; i ++ ) { for ( int j = 0 ; j < m ; j ++ ) { if ( arr [ i ] [ j ] == '.' ) { if ( ( i + j ) % 2 == 0 ) { arr [ i ] [ j ] = 'B' ; } else { arr [ i ] [ j ] = 'W' ; } } } } for ( int i = 0 ; i < n ; i ++ ) { for ( int j = 0 ; j < m ; j ++ ) { System.out.print ( arr [ i ] [ j ] ) ; } System.out.println ( ) ; } } }
+
+```

@@ -1,0 +1,4 @@
+```java
+import java.util.* ; public class codeforces_276_A { public static void main ( String [ ] args ) { Scanner sc = new Scanner ( System.in ) ; int n = sc.nextInt ( ) ; int m = sc.nextInt ( ) ; int p [ ] = new int [ n ] ; for ( int i = 0 ; i < n ; i ++ ) { p [ i ] = i + 1 ; } int h [ ] = new int [ n ] ; for ( int i = 0 ; i < n ; i ++ ) { h [ i ] = sc.nextInt ( ) ; } int path [ ] [ ] = new int [ n + 1 ] [ ] ; for ( int i = 0 ; i < m ; i ++ ) { int a = sc.nextInt ( ) ; int b = sc.nextInt ( ) ; path [ a ] [ 0 ] ++ ; path [ a ] [ path [ a ] [ 0 ] ] = b ; path [ b ] [ 0 ] ++ ; path [ b ] [ path [ b ] [ 0 ] ] = a ; } int c = 0 ; for ( int i = 1 ; i <= n ; i ++ ) { int f = 0 ; for ( int j = 1 ; j <= path [ i ] [ 0 ] ; j ++ ) { if ( h [ i - 1 ] <= h [ path [ i ] [ j ] - 1 ] ) { f = 1 ; break ; } } if ( f == 0 ) { c ++ ; } } System.out.println ( c ) ; } }
+
+```

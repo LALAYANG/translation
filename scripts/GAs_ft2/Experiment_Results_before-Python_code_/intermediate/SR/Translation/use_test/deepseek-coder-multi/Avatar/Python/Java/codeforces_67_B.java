@@ -1,0 +1,4 @@
+```java
+import java.util.* ; import java.io.* ; public class codeforces_266_B { public static void main ( String [ ] args ) { Scanner sc = new Scanner ( System.in ) ; int n = sc.nextInt ( ) ; int k = sc.nextInt ( ) ; int [ ] arr = new int [ n ] ; for ( int i = 0 ; i < n ; i ++ ) { arr [ i ] = sc.nextInt ( ) ; } for ( int i = 0 ; i < n ; i ++ ) { for ( int j = 0 ; j < n ; j ++ ) { if ( arr [ j ] == 0 ) { System.out.print ( j + 1 + " " ) ; break ; } } for ( int j = i + 1 - k ; j <= i ; j ++ ) { arr [ j ] -- ; } arr [ i ] -- ; } } }
+
+```

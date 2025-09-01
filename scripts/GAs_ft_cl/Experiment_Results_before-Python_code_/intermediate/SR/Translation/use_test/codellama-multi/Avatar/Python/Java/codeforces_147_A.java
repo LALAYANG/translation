@@ -1,0 +1,4 @@
+ ```java
+import java.util.Scanner ; public class codeforces_59_A { public static void main ( String [ ] args ) { Scanner sc = new Scanner ( System.in ) ; String s = sc.nextLine ( ) ; StringBuilder sb = new StringBuilder ( ) ; for ( int i = 0 ; i < s.length ( ) ; i ++ ) { if ( i > 0 && s.charAt ( i ) == ' ' && s.charAt ( i - 1 ) == ' ' ) continue ; if ( s.charAt ( i ) == ',' || s.charAt ( i ) == '.' || s.charAt ( i ) == '!' || s.charAt ( i ) == '?' ) { if ( sb.charAt ( sb.length ( ) - 1 ) != ' ' ) sb.append ( ' ' ) ; sb.append ( s.charAt ( i ) ) ; sb.append ( ' ' ) ; } else { sb.append ( s.charAt ( i ) ) ; } } System.out.println ( sb.toString ( ) ) ; } }
+
+```

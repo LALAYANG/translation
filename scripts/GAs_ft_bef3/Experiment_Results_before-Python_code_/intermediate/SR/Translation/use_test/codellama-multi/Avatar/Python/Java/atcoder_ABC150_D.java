@@ -1,0 +1,4 @@
+ ```java
+import java.util.Scanner ; import java.util.Set ; import java.util.HashSet ; public class atcoder_ABC146_B { public static void main ( String [ ] args ) { Scanner sc = new Scanner ( System.in ) ; int n = sc.nextInt ( ) ; long num = sc.nextLong ( ) ; Set < Long > set = new HashSet < > ( ) ; for ( int i = 0 ; i < n ; i ++ ) { set.add ( sc.nextLong ( ) ) ; } Set < Integer > twoTimesSet = new HashSet < > ( ) ; for ( Long i : set ) { int twoTimes = 0 ; while ( i > 1 ) { i = i / 2 ; if ( i % 2 != 0 ) { twoTimes ++ ; break ; } } if ( twoTimes != 1 ) { System.out.println ( 0 ) ; return ; } } long lcm = 1 ; for ( Long i : set ) { lcm = lcm * i / gcd ( lcm , i ) ; } System.out.println ( ( num - lcm / 2 ) / lcm + 1 ) ; } private static long gcd ( long a , long b ) { long r ; while ( b != 0 ) { r = a % b ; a = b ; b = r ; } return a ; } }
+
+```

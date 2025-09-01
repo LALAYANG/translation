@@ -1,0 +1,4 @@
+```java
+import java.util.* ; import java.io.* ; public class atcoder_ABC124_A { public static void main ( String [ ] args ) { Scanner sc = new Scanner ( System.in ) ; int H = sc.nextInt ( ) ; int W = sc.nextInt ( ) ; int A = sc.nextInt ( ) ; int B = sc.nextInt ( ) ; String [ ] [ ] map = new String [ H ] [ W ] ; for ( int i = 0 ; i < H ; i ++ ) { for ( int j = 0 ; j < W ; j ++ ) { map [ i ] [ j ] = "0" ; } } for ( int i = 0 ; i < H ; i ++ ) { for ( int j = 0 ; j < W ; j ++ ) { if ( i < B ) { if ( j < A ) { map [ i ] [ j ] = "0" ; } else { map [ i ] [ j ] = "1" ; } } else { if ( j < A ) { map [ i ] [ j ] = "1" ; } else { map [ i ] [ j ] = "0" ; } } } } for ( int i = 0 ; i < H ; i ++ ) { for ( int j = 0 ; j < W ; j ++ ) { System.out.print ( map [ i ] [ j ] ) ; } System.out.println ( ) ; } } }
+
+```

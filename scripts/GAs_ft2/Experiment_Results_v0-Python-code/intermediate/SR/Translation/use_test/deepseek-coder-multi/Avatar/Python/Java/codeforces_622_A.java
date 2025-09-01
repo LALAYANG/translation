@@ -1,0 +1,4 @@
+```
+import java.util.* ; public class codeforces_584_A { public static void main ( String [ ] args ) { Scanner sc = new Scanner ( System.in ) ; long n = sc.nextLong ( ) ; long l = 1 , r = 1000000000 ; while ( l < r ) { long mid = ( l + r ) / 2 ; long sum = ( mid * ( mid + 1 ) ) / 2 ; if ( sum < n ) l = mid + 1 ; else r = mid ; } long sum = ( l * ( l + 1 ) ) / 2 ; System.out.println ( n - sum ) ; } }
+
+```

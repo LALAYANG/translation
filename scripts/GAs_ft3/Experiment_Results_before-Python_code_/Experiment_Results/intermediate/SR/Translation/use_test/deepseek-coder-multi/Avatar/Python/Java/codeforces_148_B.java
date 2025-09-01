@@ -1,0 +1,4 @@
+```
+import java.util.* ; public class codeforces_272_A { public static void main ( String [ ] args ) { Scanner sc = new Scanner ( System.in ) ; int n = sc.nextInt ( ) ; int a = sc.nextInt ( ) ; int x = sc.nextInt ( ) ; int b = sc.nextInt ( ) ; int y = sc.nextInt ( ) ; int c = sc.nextInt ( ) ; if ( a > n ) { System.out.println ( 0 ) ; return ; } int res = 0 ; int pos = x * a ; pos += a * pos / ( n - a ) ; while ( pos < c ) { res ++ ; pos += a * pos / n ; pos += a * b ; pos += a * pos / ( n - a ) ; } System.out.println ( res ) ; } }
+
+```

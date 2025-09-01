@@ -1,0 +1,4 @@
+```
+import java.util.* ; import java.io.* ; import java.math.* ; public class atcoder_AGC024_A { public static void main ( String [ ] args ) { Scanner sc = new Scanner ( System.in ) ; int N = sc.nextInt ( ) ; int M = sc.nextInt ( ) ; int X = sc.nextInt ( ) ; int [ ] [ ] C = new int [ N ] [ M + 1 ] ; for ( int i = 0 ; i < N ; i ++ ) { for ( int j = 0 ; j < M + 1 ; j ++ ) { C [ i ] [ j ] = sc.nextInt ( ) ; } } int ans = Integer.MAX_VALUE ; for ( int i = 1 ; i < ( 1 << N ) ; i ++ ) { int [ ] sum = new int [ M + 1 ] ; for ( int j = 0 ; j < N ; j ++ ) { if ( ( i & ( 1 << j ) ) != 0 ) { for ( int k = 0 ; k < M + 1 ; k ++ ) { sum [ k ] += C [ j ] [ k ] ; } } } boolean f = true ; for ( int j = 0 ; j < M + 1 ; j ++ ) { if ( sum [ j ] < X ) { f = false ; break ; } } if ( f ) { ans = Math.min ( ans , sum [ 0 ] ) ; } } if ( ans == Integer.MAX_VALUE ) { System.out.println ( - 1 ) ; } else { System.out.println ( ans ) ; } } }
+
+```

@@ -1,0 +1,1 @@
+import java.util.* ; public class atcoder_ABC154_A { public static void main ( String [ ] args ) { Scanner sc = new Scanner ( System.in ) ; String s = sc.next ( ) ; String t = sc.next ( ) ; int a = sc.nextInt ( ) ; int b = sc.nextInt ( ) ; String u = sc.next ( ) ; if ( s.equals ( u ) ) { a -= 1 ; } if ( t.equals ( u ) ) { b -= 1 ; } System.out.println ( a + " " + b ) ; } }

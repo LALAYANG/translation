@@ -1,0 +1,4 @@
+```java
+import java.util.* ; public class codeforces_26_B { public static void main ( String [ ] args ) { Scanner sc = new Scanner ( System.in ) ; int a , at , b , bt , t1 , t2 ; a = sc.nextInt ( ) ; at = sc.nextInt ( ) ; b = sc.nextInt ( ) ; bt = sc.nextInt ( ) ; t1 = sc.nextInt ( ) ; t2 = sc.nextInt ( ) ; int st = t2 + ( t1 - 5 ) * 60 ; int fin = st + at ; int now = 0 ; int ans = 0 ; while ( now < fin && now < 1140 ) { if ( now + bt > st ) ans ++ ; now += b ; } System.out.println ( ans ) ; } }
+
+```

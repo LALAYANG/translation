@@ -1,0 +1,4 @@
+```java
+import java.util.* ; public class codeforces_58_A { public static void main ( String [ ] args ) { Scanner sc = new Scanner ( System.in ) ; int n = sc.nextInt ( ) ; String s = sc.next ( ) ; boolean flag = true ; HashMap < Character , Integer > map = new HashMap < > ( ) ; for ( int i = 0 ; i < s.length ( ) ; i ++ ) { if ( map.containsKey ( s.charAt ( i ) ) ) { map.put ( s.charAt ( i ) , map.get ( s.charAt ( i ) ) + 1 ) ; } else { map.put ( s.charAt ( i ) , 1 ) ; } } for ( char c : map.keySet ( ) ) { if ( map.get ( c ) > n / 2 ) { flag = false ; break ; } } if ( flag ) { System.out.println ( "YES" ) ; } else { System.out.println ( "NO" ) ; } } }
+
+```

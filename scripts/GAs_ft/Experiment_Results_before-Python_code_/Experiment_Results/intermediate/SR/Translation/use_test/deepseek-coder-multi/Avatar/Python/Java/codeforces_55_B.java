@@ -1,0 +1,4 @@
+```java
+import java.util.* ; import java.io.* ; public class codeforces_282_A { public static void main ( String [ ] args ) { Scanner sc = new Scanner ( System.in ) ; int a = sc.nextInt ( ) ; int b = sc.nextInt ( ) ; int c = sc.nextInt ( ) ; int d = sc.nextInt ( ) ; int ans = Integer.MIN_VALUE ; for ( int i = 0 ; i < 4 ; i ++ ) { for ( int j = 0 ; j < 4 ; j ++ ) { for ( int k = 0 ; k < 4 ; k ++ ) { if ( i != j && i != k && j != k ) { int x = a ; if ( i == 0 ) x += b ; else if ( i == 1 ) x -= b ; else if ( i == 2 ) x *= b ; else x /= b ; int y = c ; if ( j == 0 ) y += d ; else if ( j == 1 ) y -= d ; else if ( j == 2 ) y *= d ; else y /= d ; int z = c ; if ( k == 0 ) z += d ; else if ( k == 1 ) z -= d ; else if ( k == 2 ) z *= d ; else z /= d ; ans = Math.max ( ans , x + y + z ) ; } } } } System.out.println ( ans ) ; } }
+
+```

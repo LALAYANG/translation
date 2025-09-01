@@ -1,0 +1,4 @@
+```java
+import java.util.* ; import java.io.* ; public class codeforces_266_B { public static void main ( String [ ] args ) { Scanner sc = new Scanner ( System.in ) ; String s = sc.next ( ) ; int even = 0 , odd = 0 ; for ( int i = 0 ; i < s.length ( ) ; i ++ ) { if ( s.charAt ( i ) == '0' ) { if ( i % 2 == 0 ) even ++ ; else odd ++ ; } else { if ( i % 2 == 0 ) odd ++ ; else even ++ ; } } System.out.println ( Math.min ( even , odd ) ) ; } }
+
+```

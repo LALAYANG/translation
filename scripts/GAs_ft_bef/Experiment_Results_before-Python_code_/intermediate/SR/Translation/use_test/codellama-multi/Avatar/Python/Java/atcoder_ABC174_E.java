@@ -1,0 +1,4 @@
+ ```java
+import java.io.* ; import java.util.* ; public class codeforces_465_A { public static void main ( String [ ] args ) { Scanner sc = new Scanner ( System.in ) ; int n = sc.nextInt ( ) ; int k = sc.nextInt ( ) ; int [ ] arr = new int [ n ] ; for ( int i = 0 ; i < n ; i ++ ) { arr [ i ] = sc.nextInt ( ) ; } Arrays.sort ( arr ) ; int start = 1 ; int end = arr [ n - 1 ] ; int ans = end ; while ( start <= end ) { int mid = start + ( end - start ) / 2 ; if ( isValid ( arr , k , mid ) ) { ans = mid ; end = mid - 1 ; } else { start = mid + 1 ; } } System.out.println ( ans ) ; } static boolean isValid ( int [ ] arr , int k , int mid ) { int sum = 0 ; int count = 0 ; for ( int i = 0 ; i < arr.length ; i ++ ) { if ( arr [ i ] % mid == 0 ) { sum ++ ; } sum -= arr [ i ] / mid ; } return sum >= k ; } }
+
+```

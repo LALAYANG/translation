@@ -1,0 +1,4 @@
+```java
+import java.util.* ; import java.io.* ; public class atcoder_ABC152_D { public static void main ( String [ ] args ) { Scanner sc = new Scanner ( System.in ) ; int N = sc.nextInt ( ) ; int M = sc.nextInt ( ) ; int [ ] [ ] ball = new int [ N ] [ 2 ] ; ball [ 0 ] [ 0 ] = 0 ; ball [ 0 ] [ 1 ] = 1 ; for ( int i = 0 ; i < M ; i ++ ) { int x = sc.nextInt ( ) ; int y = sc.nextInt ( ) ; x -- ; y -- ; if ( ball [ x ] [ 0 ] >= 1 && ball [ y ] [ 0 ] >= 1 ) { ball [ x ] [ 0 ] -- ; ball [ y ] [ 1 ] ++ ; } else if ( ball [ x ] [ 0 ] == 0 ) { ball [ x ] [ 1 ] -- ; ball [ y ] [ 1 ] ++ ; } else { ball [ x ] [ 0 ] -- ; ball [ y ] [ 0 ] ++ ; } } int ans = 0 ; for ( int i = 0 ; i < N ; i ++ ) { if ( ball [ i ] [ 1 ] == 1 ) ans ++ ; } System.out.println ( ans ) ; } }
+
+```

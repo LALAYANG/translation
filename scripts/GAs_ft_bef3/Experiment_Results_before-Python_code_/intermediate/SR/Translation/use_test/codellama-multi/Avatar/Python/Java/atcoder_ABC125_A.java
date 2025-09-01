@@ -1,0 +1,4 @@
+ ```java
+import java.util.Scanner ; public class atcoder_ABC176_A { public static void main ( String [ ] args ) { Scanner sc = new Scanner ( System.in ) ; double a = sc.nextDouble ( ) ; double b = sc.nextDouble ( ) ; double t = sc.nextDouble ( ) ; double cookie = 0 ; double time = a ; while ( time <= t + 0.5 ) { cookie = cookie + b ; time = time + a ; } System.out.println ( ( int ) cookie ) ; } }
+
+```

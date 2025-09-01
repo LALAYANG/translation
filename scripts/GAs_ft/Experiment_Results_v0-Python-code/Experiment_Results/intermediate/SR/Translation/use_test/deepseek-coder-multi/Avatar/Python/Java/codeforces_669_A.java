@@ -1,0 +1,4 @@
+```
+import java.util.* ; public class codeforces_581_A { public static void main ( String [ ] args ) { Scanner sc = new Scanner ( System.in ) ; int a = sc.nextInt ( ) ; int b = sc.nextInt ( ) ; int c = sc.nextInt ( ) ; int d = sc.nextInt ( ) ; int e = sc.nextInt ( ) ; int f = sc.nextInt ( ) ; int x = Math.min ( a , d ) ; int y = Math.min ( b , e ) ; int z = Math.min ( c , f ) ; int sum = x + y + z ; int sum1 = a + b + c ; int sum2 = d + e + f ; System.out.println ( sum - Math.max ( sum1 , sum2 ) ) ; } }
+
+```

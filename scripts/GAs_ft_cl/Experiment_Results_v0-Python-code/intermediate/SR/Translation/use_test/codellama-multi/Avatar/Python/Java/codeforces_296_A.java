@@ -1,0 +1,4 @@
+ ```java
+import java.util.Scanner ; public class atcoder_ABC171_A { public static void main ( String [ ] args ) { Scanner sc = new Scanner ( System.in ) ; int n = sc.nextInt ( ) ; String [ ] m = sc.nextLine ( ).split ( "" ) ; boolean possible = true ; for ( String s : m ) { if ( m.length >= n / 2 + 1 ) { possible = false ; break ; } } if ( possible ) { System.out.println ( "YES" ) ; } else { System.out.println ( "NO" ) ; } } }
+
+```

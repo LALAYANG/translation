@@ -1,0 +1,4 @@
+```
+import java.util.* ; import java.io.* ; public class codeforces_551_B { public static void main ( String [ ] args ) { Scanner sc = new Scanner ( System.in ) ; int n = sc.nextInt ( ) ; int k = sc.nextInt ( ) ; int mod = 1000000007 ; int [ ] dp = new int [ k + 1 ] ; dp [ 0 ] = 1 ; for ( int i = 1 ; i <= k ; i ++ ) { int sum = 0 ; for ( int j = 1 ; j <= n ; j ++ ) { if ( n % j == 0 ) { sum = ( sum + dp [ i - 1 ] ) % mod ; } } dp [ i ] = sum ; } System.out.println ( dp [ k ] ) ; } }
+
+```

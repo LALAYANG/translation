@@ -1,0 +1,1 @@
+import java.util.Scanner ; public class codeforces_622_A { public static void main ( String [ ] args ) { Scanner scan = new Scanner ( System.in ) ; int n = scan.nextInt ( ) ; int x = ( int ) ( Math.sqrt ( 2 * n + 0.25 ) ) - 1 ; System.out.println ( n - x * ( x + 1 ) / 2 ) ; } }

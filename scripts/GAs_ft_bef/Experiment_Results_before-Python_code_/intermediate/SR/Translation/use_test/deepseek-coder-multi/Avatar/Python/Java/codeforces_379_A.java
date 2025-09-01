@@ -1,0 +1,4 @@
+```java
+import java.util.* ; public class codeforces_276_A { public static void main ( String [ ] args ) { Scanner sc = new Scanner ( System.in ) ; int a = sc.nextInt ( ) ; int b = sc.nextInt ( ) ; int c = 0 ; int d = 0 ; int e = 0 ; while ( a > 0 || d >= b ) { c += a ; d += c % b ; c = c / b ; e += c ; d = d % b ; } System.out.println ( e ) ; } }
+
+```

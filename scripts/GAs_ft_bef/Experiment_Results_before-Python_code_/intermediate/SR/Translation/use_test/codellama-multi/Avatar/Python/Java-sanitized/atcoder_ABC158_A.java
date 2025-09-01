@@ -1,0 +1,1 @@
+import java.util.Scanner ; public class atcoder_ABC158_A { public static void main ( String [ ] args ) { Scanner scan = new Scanner ( System.in ) ; String S = scan.next ( ) ; String result = "Yes" ; if ( ! S.contains ( "A" ) || ! S.contains ( "B" ) ) { result = "No" ; } System.out.println ( result ) ; } }

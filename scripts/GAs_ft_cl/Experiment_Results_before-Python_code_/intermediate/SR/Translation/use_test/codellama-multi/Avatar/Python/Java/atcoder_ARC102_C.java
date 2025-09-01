@@ -1,0 +1,5 @@
+ [INST:perfect]
+```java
+import java.util.Scanner ; public class atcoder_ABC171_E { public static void main ( String [ ] args ) { Scanner sc = new Scanner ( System.in ) ; int K = sc.nextInt ( ) ; int N = sc.nextInt ( ) ; long [ ] dp = new long [ 2 * K + 2 ] ; dp [ 1 ] = 1 ; for ( int i = 2 ; i <= 2 * K + 1 ; i ++ ) { dp [ i ] = ( dp [ i - 1 ] * 2 ) % 998244353 ; } for ( int i = 2 ; i <= 2 * K + 1 ; i ++ ) { if ( i <= K + 1 ) { dp [ i ] = ( dp [ i ] + dp [ i - 2 ] * ( N - 1 ) ) % 998244353 ; } else { dp [ i ] = dp [ 2 * K + 2 - i ] ; } } System.out.println ( dp [ 2 * K + 1 ] ) ; } }
+
+```

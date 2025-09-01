@@ -1,0 +1,4 @@
+ ```java
+import java.util.Scanner ; public class atcoder_ABC171_E { public static void main ( String [ ] args ) { Scanner sc = new Scanner ( System.in ) ; int n = sc.nextInt ( ) ; int [ ] a = new int [ n ] ; for ( int i = 0 ; i < n ; i ++ ) { a [ i ] = sc.nextInt ( ) ; } int MOD = 1000000007 ; long lcm = 1 ; for ( int i = 0 ; i < n ; i ++ ) { lcm = lcm * a [ i ] / gcd ( lcm , a [ i ] ) ; } long ans = lcm * sum ( a , MOD ) % MOD ; System.out.println ( ans ) ; } public static long sum ( int [ ] a , int MOD ) { long res = 0 ; for ( int i = 0 ; i < a.length ; i ++ ) { res += pow ( a [ i ] , MOD - 2 , MOD ) ; } return res ; } public static long pow ( long a , long b , long MOD ) { long res = 1 ; while ( b > 0 ) { if ( b % 2 == 1 ) { res = res * a % MOD ; } a = a * a % MOD ; b = b / 2 ; } return res ; } public static long gcd ( long a , long b ) { if ( b == 0 ) { return a ; } else { return gcd ( b , a % b ) ; } } }
+
+```

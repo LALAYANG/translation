@@ -1,0 +1,4 @@
+```
+import java.util.* ; public class atcoder_ABC152_D { public static void main ( String [ ] args ) { Scanner sc = new Scanner ( System.in ) ; int w = sc.nextInt ( ) ; int m = sc.nextInt ( ) ; int k = sc.nextInt ( ) ; long left = 0 ; long right = ( long ) 1e18 ; while ( right - left > 1 ) { long mid = ( left + right ) / 2 ; long c = 0 ; for ( int i = 1 ; i <= m ; i ++ ) { c += Math.min ( mid , k ) ; } if ( c * k <= w ) { left = mid ; } else { right = mid ; } } System.out.println ( left ) ; } }
+
+```

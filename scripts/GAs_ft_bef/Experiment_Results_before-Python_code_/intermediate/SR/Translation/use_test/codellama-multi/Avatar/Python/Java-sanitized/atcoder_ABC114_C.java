@@ -1,0 +1,1 @@
+import java.util.Scanner ; public class atcoder_ABC114_C { public static void main ( String [ ] args ) { Scanner sc = new Scanner ( System.in ) ; int N = sc.nextInt ( ) ; int ans = 0 ; for ( int i = 0 ; i < 1000 ; i ++ ) { String str = String.valueOf ( i ) ; if ( str.contains ( "7" ) && str.contains ( "5" ) && str.contains ( "3" ) ) { ans ++ ; } } System.out.println ( ans ) ; } }

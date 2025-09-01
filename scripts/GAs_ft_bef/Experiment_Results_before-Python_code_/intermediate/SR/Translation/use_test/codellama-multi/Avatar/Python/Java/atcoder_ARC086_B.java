@@ -1,0 +1,4 @@
+ [INST:java]
+import java.util.Scanner ; import java.util.Arrays ; public class atcoder_ABC151_B { public static void main ( String [ ] args ) { Scanner scanner = new Scanner ( System.in ) ; int N = scanner.nextInt ( ) ; int [ ] A = new int [ N ] ; for ( int i = 0 ; i < N ; i ++ ) { A [ i ] = scanner.nextInt ( ) ; } int max = A [ 0 ] ; int index = 0 ; for ( int i = 1 ; i < N ; i ++ ) { if ( Math.abs ( A [ i ] ) > Math.abs ( max ) ) { max = A [ i ] ; index = i ; } } if ( max >= 0 ) { System.out.println ( 2 * N - 1 ) ; for ( int i = 0 ; i < N ; i ++ ) { if ( i == 0 ) { System.out.println ( index + 1 + " " + ( i + 1 ) ) ; } else { System.out.println ( i + 1 + " " + ( i + 2 ) ) ; } } } else { System.out.println ( 2 * N - 1 ) ; for ( int i = 0 ; i < N ; i ++ ) { if ( i == 0 ) { System.out.println ( index + 1 + " " + ( i + 1 ) ) ; } else { System.out.println ( i + 1 + " " + i ) ; } } } } }
+
+```

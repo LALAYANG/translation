@@ -1,0 +1,4 @@
+ ```java
+import java.util.Scanner ; public class atcoder_ABC155_E { public static void main ( String [ ] args ) { Scanner stdIn = new Scanner ( System.in ) ; int n = stdIn.nextInt ( ) ; int L = stdIn.nextInt ( ) ; int R = stdIn.nextInt ( ) ; int QL = stdIn.nextInt ( ) ; int QR = stdIn.nextInt ( ) ; int [ ] W = new int [ n ] ; for ( int i = 0 ; i < n ; i ++ ) { W [ i ] = stdIn.nextInt ( ) ; } int [ ] sum_el = new int [ n + 1 ] ; sum_el [ 0 ] = 0 ; for ( int i = 1 ; i <= n ; i ++ ) { sum_el [ i ] = W [ i - 1 ] + sum_el [ i - 1 ] ; } int answer = QR * ( n - 1 ) + sum_el [ n ] * R ; for ( int i = 1 ; i <= n ; i ++ ) { int energy = L * sum_el [ i ] + R * ( sum_el [ n ] - sum_el [ i ] ) ; if ( i > n - i ) { energy += ( i - ( n - i ) - 1 ) * QL ; } else if ( n - i > i ) { energy += ( n - i - i - 1 ) * QR ; } if ( energy < answer ) { answer = energy ; } } System.out.println ( answer ) ; } }
+
+```

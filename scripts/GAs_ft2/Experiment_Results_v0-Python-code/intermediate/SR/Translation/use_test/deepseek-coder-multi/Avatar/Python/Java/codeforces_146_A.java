@@ -1,0 +1,4 @@
+```
+import java.util.* ; public class codeforces_514_A { public static void main ( String [ ] args ) { Scanner sc = new Scanner ( System.in ) ; int n = sc.nextInt ( ) ; String s = sc.next ( ) ; int h1 = 0 , h2 = 0 , x = 0 ; for ( int i = 0 ; i < n ; i ++ ) { if ( s.charAt ( i ) != '4' && s.charAt ( i ) != '7' ) { System.out.println ( "NO" ) ; x = 1 ; break ; } if ( i < n / 2 ) h1 += s.charAt ( i ) - '0' ; else h2 += s.charAt ( i ) - '0' ; } if ( x == 0 ) { if ( h1 == h2 ) System.out.println ( "YES" ) ; else System.out.println ( "NO" ) ; } } }
+
+```

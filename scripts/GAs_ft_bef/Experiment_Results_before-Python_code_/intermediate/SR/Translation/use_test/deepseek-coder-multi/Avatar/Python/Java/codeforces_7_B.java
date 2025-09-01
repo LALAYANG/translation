@@ -1,0 +1,5 @@
+```
+
+import java.util.* ; public class codeforces_411_B { public static void main ( String [ ] args ) { Scanner sc = new Scanner ( System.in ) ; int t = sc.nextInt ( ) ; int m = sc.nextInt ( ) ; int [ ] arr = new int [ m ] ; int ind = 1 ; for ( int i = 0 ; i < t ; i ++ ) { String s = sc.next ( ) ; if ( s.equals ( "alloc" ) ) { int x = sc.nextInt ( ) ; int pos = 0 ; for ( int j = 0 ; j < m ; j ++ ) { if ( arr [ j ] == 0 ) { pos ++ ; if ( pos == x ) { arr [ j - x + 1 ] = ind ; ind ++ ; for ( int k = 1 ; k < x ; k ++ ) { arr [ j - k ] = ind ; } break ; } } else { pos = 0 ; } } if ( pos != x ) { System.out.println ( "NULL" ) ; } } else if ( s.equals ( "erase" ) ) { int x = sc.nextInt ( ) ; if ( x > m || x <= 0 || arr [ x - 1 ] == 0 ) { System.out.println ( "ILLEGAL_ERASE_ARGUMENT" ) ; } else { arr [ x - 1 ] = 0 ; } } else if ( s.equals ( "defragment" ) ) { int cnt = 0 ; for ( int j = 0 ; j < m ; j ++ ) { if ( arr [ j ] == 0 ) { cnt ++ ; } } for ( int j = m - 1 ; j >= 0 ; j -- ) { if ( arr [ j ] != 0 ) { arr [ j + cnt ] = arr [ j ] ; arr [ j ] = 0 ; } } } } }
+
+```

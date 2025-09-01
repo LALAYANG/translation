@@ -1,0 +1,4 @@
+```java
+import java.util.* ; import java.io.* ; public class atcoder_ABC133_D { public static void main ( String [ ] args ) { Scanner sc = new Scanner ( System.in ) ; int N = sc.nextInt ( ) ; int X = sc.nextInt ( ) ; int [ ] xs ; if ( X == 1 || X == N * 2 - 1 ) { System.out.println ( "No" ) ; return ; } if ( X == N * 2 - 2 ) { xs = new int [ N ] ; for ( int i = 0 ; i < N - 1 ; i ++ ) { xs [ i ] = i + 2 ; } xs [ N - 1 ] = N ; for ( int i = 0 ; i < N - 2 ; i ++ ) { xs [ i ] = i + 3 ; } xs [ N - 2 ] = 1 ; xs [ N - 3 ] = 2 ; } else { xs = new int [ N ] ; for ( int i = 0 ; i < N - 3 ; i ++ ) { xs [ i ] = i + 1 ; } xs [ N - 3 ] = X + 2 ; xs [ N - 2 ] = X - 1 ; xs [ N - 1 ] = X ; xs [ N - 4 ] = X + 1 ; for ( int i = 0 ; i < N - 4 ; i ++ ) { xs [ i + N - 4 ] = i + 3 ; } } System.out.println ( "Yes" ) ; for ( int i = 0 ; i < N ; i ++ ) { System.out.println ( xs [ i ] ) ; } } }
+
+```

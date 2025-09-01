@@ -1,0 +1,4 @@
+```java
+import java.util.* ; import java.io.* ; public class atcoder_ABC123_A { public static void main ( String [ ] args ) { Scanner sc = new Scanner ( System.in ) ; String s = sc.next ( ) ; char c = s.charAt ( 0 ) ; int i = c - 'a' ; i ++ ; char ans = ( char ) ( i + 'a' ) ; System.out.println ( ans ) ; } }
+
+```

@@ -1,0 +1,1 @@
+import java.util.Scanner ; public class codeforces_651_A { public static void main ( String [ ] args ) { Scanner sc = new Scanner ( System.in ) ; int x = sc.nextInt ( ) ; int y = sc.nextInt ( ) ; int ans = 0 ; if ( x + y >= 3 ) { ans = x + y - 3 ; } if ( y - x >= 3 ) { ans += ( y - x ) / 3 ; } System.out.println ( ans ) ; } }

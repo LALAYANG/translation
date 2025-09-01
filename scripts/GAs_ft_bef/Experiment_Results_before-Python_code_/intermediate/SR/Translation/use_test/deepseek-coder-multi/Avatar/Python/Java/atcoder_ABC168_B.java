@@ -1,0 +1,5 @@
+```
+
+def main ( ) : return len ( input ( ) ) <= int ( input ( ) ) and input ( ) or input ( ) [ : int ( input ( ) ) ] + "..."
+
+```

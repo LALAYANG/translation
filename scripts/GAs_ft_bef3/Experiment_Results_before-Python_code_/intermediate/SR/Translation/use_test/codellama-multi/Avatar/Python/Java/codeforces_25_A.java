@@ -1,0 +1,4 @@
+ ```java
+import java.util.Scanner ; import java.util.ArrayList ; import java.util.List ; public class codeforces_272_A { public static void main ( String [ ] args ) { Scanner sc = new Scanner ( System.in ) ; int n = sc.nextInt ( ) ; List < Integer > list = new ArrayList < > ( ) ; for ( int i = 0 ; i < n ; i ++ ) { list.add ( sc.nextInt ( ) % 2 ) ; } int sum = 0 ; for ( int i = 0 ; i < n ; i ++ ) { sum += list.get ( i ) ; } if ( sum == 1 ) { System.out.println ( list.indexOf ( 1 ) + 1 ) ; } else { System.out.println ( list.indexOf ( 0 ) + 1 ) ; } } }
+
+```

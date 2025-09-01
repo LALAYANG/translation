@@ -1,0 +1,1 @@
+import java.util.* ; public class atcoder_ABC070_B { public static void main ( String [ ] args ) { Scanner sc = new Scanner ( System.in ) ; int a = sc.nextInt ( ) ; int b = sc.nextInt ( ) ; int c = sc.nextInt ( ) ; int d = sc.nextInt ( ) ; int ans = 0 ; if ( b <= d || c <= a ) { ans = 0 ; } else { ans = Math.min ( b , d ) - Math.max ( a , c ) ; } System.out.println ( ans ) ; } }

@@ -1,0 +1,4 @@
+ ```java
+import java.util.Scanner ; public class codeforces_662_A { public static void main ( String [ ] args ) { Scanner sc = new Scanner ( System.in ) ; int n = sc.nextInt ( ) ; String [ ] arr = new String [ n ] ; for ( int i = 0 ; i < n ; i ++ ) { arr [ i ] = sc.next ( ) ; } String s = sc.next ( ) ; char c1 = sc.next ( ).charAt ( 0 ) ; char c2 = 'a' ; if ( c1 != 'a' ) c2 = 'b' ; int [ ] valid = new int [ s.length ( ) ] ; Set < Integer > set = new HashSet < > ( ) ; for ( String str : arr ) { int index = s.indexOf ( str ) ; while ( index >= 0 ) { for ( int j = index ; j < index + str.length ( ) ; j ++ ) { set.add ( j ) ; } index = s.indexOf ( str , index + 1 ) ; } } char [ ] ans = s.toCharArray ( ) ; for ( int i : set ) { char c = ans [ i ] ; if ( c == Character.toLowerCase ( c ) ) ans [ i ] = c1 ; else ans [ i ] = Character.toLowerCase ( c1 ) ; } for ( char ch : ans ) { System.out.print ( ch ) ; } System.out.println ( ) ; } }
+
+```

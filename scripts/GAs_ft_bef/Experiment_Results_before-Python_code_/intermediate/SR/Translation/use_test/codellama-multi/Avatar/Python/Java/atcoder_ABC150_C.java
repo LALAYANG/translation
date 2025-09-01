@@ -1,0 +1,4 @@
+ ```java
+import java.util.Scanner ; public class codeforces_550_A { public static void main ( String [ ] args ) { Scanner sc = new Scanner ( System.in ) ; int n = sc.nextInt ( ) ; int [ ] arr = new int [ n ] ; for ( int i = 0 ; i < n ; i ++ ) { arr [ i ] = sc.nextInt ( ) ; } int [ ] perm = new int [ n ] ; int cnt = 0 ; for ( int i = 0 ; i < n ; i ++ ) { int k = 0 ; for ( int j = 0 ; j < n ; j ++ ) { if ( arr [ j ] == i + 1 ) { k ++ ; } } perm [ i ] = k ; cnt += k ; } int [ ] arr1 = new int [ n ] ; for ( int i = 0 ; i < n ; i ++ ) { arr1 [ i ] = sc.nextInt ( ) ; } int [ ] perm1 = new int [ n ] ; int cnt1 = 0 ; for ( int i = 0 ; i < n ; i ++ ) { int k = 0 ; for ( int j = 0 ; j < n ; j ++ ) { if ( arr1 [ j ] == i + 1 ) { k ++ ; } } perm1 [ i ] = k ; cnt1 += k ; } int ans = 0 ; for ( int i = 0 ; i < n ; i ++ ) { ans += Math.abs ( perm [ i ] - perm1 [ i ] ) ; } System.out.println ( ans ) ; } }
+
+```

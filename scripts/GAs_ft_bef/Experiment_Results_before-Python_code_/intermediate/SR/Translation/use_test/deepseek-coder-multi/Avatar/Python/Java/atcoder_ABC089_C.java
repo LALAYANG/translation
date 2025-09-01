@@ -1,0 +1,4 @@
+```java
+import java.util.Scanner ; public class atcoder_ABC124_A { public static void main ( String [ ] args ) { Scanner sc = new Scanner ( System.in ) ; int N = sc.nextInt ( ) ; String [ ] S = new String [ N ] ; for ( int i = 0 ; i < N ; i ++ ) { S [ i ] = sc.next ( ) ; } int ans = 0 ; int [ ] count = new int [ 5 ] ; for ( int i = 0 ; i < N ; i ++ ) { char c = S [ i ].charAt ( 0 ) ; if ( c == 'M' ) count [ 0 ] ++ ; else if ( c == 'A' ) count [ 1 ] ++ ; else if ( c == 'R' ) count [ 2 ] ++ ; else if ( c == 'C' ) count [ 3 ] ++ ; else if ( c == 'H' ) count [ 4 ] ++ ; } for ( int i = 0 ; i < 5 ; i ++ ) { for ( int j = i + 1 ; j < 5 ; j ++ ) { for ( int k = j + 1 ; k < 5 ; k ++ ) { ans += count [ i ] * count [ j ] * count [ k ] ; } } } System.out.println ( ans ) ; } }
+
+```

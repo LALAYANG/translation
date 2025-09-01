@@ -1,0 +1,4 @@
+```
+import java.util.* ; public class codeforces_58_A { public static void main ( String [ ] args ) { Scanner sc = new Scanner ( System.in ) ; int n = sc.nextInt ( ) ; int m = sc.nextInt ( ) ; int [ ] arr = new int [ n ] ; for ( int i = 0 ; i < n ; i ++ ) { arr [ i ] = sc.nextInt ( ) ; } int [ ] arr2 = new int [ n ] ; for ( int i = 0 ; i < n ; i ++ ) { if ( arr [ i ] % m == 0 ) { arr2 [ i ] = arr [ i ] / m ; } else { arr2 [ i ] = ( arr [ i ] / m ) + 1 ; } } int max = arr2 [ 0 ] ; int index = 0 ; for ( int i = 0 ; i < n ; i ++ ) { if ( arr2 [ i ] > max ) { max = arr2 [ i ] ; index = i ; } } System.out.println ( index + 1 ) ; } }
+
+```

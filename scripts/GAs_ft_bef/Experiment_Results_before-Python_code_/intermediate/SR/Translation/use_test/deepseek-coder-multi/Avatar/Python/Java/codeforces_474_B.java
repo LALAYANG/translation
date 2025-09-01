@@ -1,0 +1,4 @@
+```java
+import java.util.* ; public class codeforces_313_B { public static void main ( String [ ] args ) { Scanner sc = new Scanner ( System.in ) ; int n = sc.nextInt ( ) ; int [ ] a = new int [ n ] ; int sum = 0 ; int x = 1 ; for ( int i = 0 ; i < n ; i ++ ) { a [ i ] = sc.nextInt ( ) ; sum += a [ i ] ; } int m = sc.nextInt ( ) ; for ( int i = 0 ; i < m ; i ++ ) { int p = sc.nextInt ( ) ; int l = 0 ; int r = n ; while ( r - l > 1 ) { int mid = ( l + r ) / 2 ; if ( sum - a [ mid - 1 ] >= p ) r = mid ; else l = mid ; } System.out.println ( x - r + 1 ) ; } } }
+
+```

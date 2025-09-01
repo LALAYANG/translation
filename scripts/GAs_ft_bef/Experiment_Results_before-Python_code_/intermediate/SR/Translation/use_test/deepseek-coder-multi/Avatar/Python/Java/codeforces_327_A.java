@@ -1,0 +1,5 @@
+```java
+
+import java.util.* ; import java.lang.* ; import java.io.* ; public class codeforces_127_B { public static void main ( String [ ] args ) throws IOException { Scanner sc = new Scanner ( System.in ) ; int n = sc.nextInt ( ) ; String s = sc.next ( ) ; int flips = 0 ; int flips1 = 0 ; for ( int i = 0 ; i < n ; i ++ ) { if ( s.charAt ( i ) == '1' ) { flips ++ ; flips1 ++ ; } else { flips1 = Math.max ( flips1 , flips ) ; flips = 0 ; } } flips1 = Math.max ( flips1 , flips ) ; System.out.println ( flips1 ) ; } }
+
+```

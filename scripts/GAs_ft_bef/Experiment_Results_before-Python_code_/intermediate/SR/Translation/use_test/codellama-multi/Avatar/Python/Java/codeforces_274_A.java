@@ -1,0 +1,4 @@
+ ```java
+import java.util.Scanner ; import java.util.Set ; import java.util.TreeSet ; public class atcoder_ABC163_A { public static void main ( String [ ] args ) { Scanner sc = new Scanner ( System.in ) ; int n = sc.nextInt ( ) ; long k = sc.nextLong ( ) ; long [ ] arr = new long [ n ] ; for ( int i = 0 ; i < n ; i ++ ) { arr [ i ] = sc.nextLong ( ) ; } Set < Long > set = new TreeSet < > ( ) ; long count = 0 ; for ( int i = 0 ; i < n ; i ++ ) { if ( arr [ i ] % k != 0 || ! set.contains ( arr [ i ] / k ) ) { set.add ( arr [ i ] ) ; } count = Math.max ( count , set.size ( ) ) ; } System.out.println ( count ) ; } }
+
+```

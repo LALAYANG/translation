@@ -1,0 +1,4 @@
+```
+import java.util.* ; public class atcoder_ABC151_D { public static void main ( String [ ] args ) { Scanner sc = new Scanner ( System.in ) ; int N = sc.nextInt ( ) ; int K = sc.nextInt ( ) ; int [ ] A = new int [ N ] ; for ( int i = 0 ; i < N ; i ++ ) { A [ i ] = sc.nextInt ( ) ; } Arrays.sort ( A ) ; long ok = - 1000000000000000000L ; long ng = 1000000000000000000L ; while ( Math.abs ( ok - ng ) > 1 ) { long mid = ( ok + ng ) / 2 ; long cnt = 0 ; for ( int i = 0 ; i < N ; i ++ ) { if ( A [ i ] < 0 ) { int l = - 1 ; int r = N ; while ( r - l > 1 ) { int m = ( l + r ) / 2 ; if ( A [ i ] * A [ m ] < mid ) { r = m ; } else { l = m ; } } cnt += N - r ; } else { int l = - 1 ; int r = N ; while ( r - l > 1 ) { int m = ( l + r ) / 2 ; if ( A [ i ] * A [ m ] < mid ) { l = m ; } else { r = m ; } } cnt += r ; } if ( A [ i ] * A [ i ] < mid ) { cnt -- ; } } cnt /= 2 ; if ( cnt < K ) { ok = mid ; } else { ng = mid ; } } System.out.println ( ok ) ; } }
+
+```

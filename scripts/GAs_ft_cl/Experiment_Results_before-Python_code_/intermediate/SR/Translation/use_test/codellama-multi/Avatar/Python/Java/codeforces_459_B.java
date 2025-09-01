@@ -1,0 +1,4 @@
+ ```java
+import java.util.Scanner ; public class atcoder_ABC148_A { public static void main ( String [ ] args ) { Scanner sc = new Scanner ( System.in ) ; int n = sc.nextInt ( ) ; int [ ] arr = new int [ n ] ; for ( int i = 0 ; i < n ; i ++ ) { arr [ i ] = sc.nextInt ( ) ; } int min = arr [ 0 ] ; int max = arr [ n - 1 ] ; int count = 0 ; for ( int i = 0 ; i < n ; i ++ ) { if ( arr [ i ] == min ) { count ++ ; } } if ( min == max ) { System.out.println ( min + " " + n * ( n - 1 ) / 2 ) ; } else { System.out.println ( min + " " + count * ( n - count ) ) ; } } }
+
+```

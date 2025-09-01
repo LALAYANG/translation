@@ -1,0 +1,4 @@
+ ```java
+import java.util.* ; public class codeforces_619_A { public static void main ( String [ ] args ) { Scanner sc = new Scanner ( System.in ) ; String s1 = sc.next ( ) ; String s2 = sc.next ( ) ; int res = 0 ; HashMap < Character , Integer > map = new HashMap < > ( ) ; for ( int i = 0 ; i < s1.length ( ) ; i ++ ) { map.put ( s1.charAt ( i ) , map.getOrDefault ( s1.charAt ( i ) , 0 ) + 1 ) ; } for ( int i = 0 ; i < s2.length ( ) ; i ++ ) { char c = s2.charAt ( i ) ; if ( ! map.containsKey ( c ) ) { System.out.println ( - 1 ) ; return ; } int val = map.get ( c ) ; res += Math.min ( val , 1 ) ; map.put ( c , val - 1 ) ; } System.out.println ( res ) ; } }
+
+```

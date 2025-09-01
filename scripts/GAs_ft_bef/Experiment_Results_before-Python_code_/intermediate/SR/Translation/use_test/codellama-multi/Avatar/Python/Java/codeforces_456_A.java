@@ -1,0 +1,4 @@
+ [INST:echo]  ```java
+import java.io.BufferedReader ; import java.io.IOException ; import java.io.InputStreamReader ; public class atcoder_ABC156_C { public static void main ( String [ ] args ) throws IOException { BufferedReader br = new BufferedReader ( new InputStreamReader ( System.in ) ) ; int N = Integer.parseInt ( br.readLine ( ) ) ; int [ ] [ ] A = new int [ N ] [ 2 ] ; for ( int i = 0 ; i < N ; i ++ ) { String [ ] str = br.readLine ( ).split ( " " ) ; A [ i ] [ 0 ] = Integer.parseInt ( str [ 0 ] ) ; A [ i ] [ 1 ] = Integer.parseInt ( str [ 1 ] ) ; } int [ ] B = new int [ N ] ; for ( int i = 0 ; i < N ; i ++ ) { B [ i ] = A [ i ] [ 1 ] ; } for ( int i = 0 ; i < N ; i ++ ) { if ( B [ i ] > B [ i + 1 ] ) { System.out.println ( "Happy Alex" ) ; return ; } } System.out.println ( "Poor Alex" ) ; } }
+
+```

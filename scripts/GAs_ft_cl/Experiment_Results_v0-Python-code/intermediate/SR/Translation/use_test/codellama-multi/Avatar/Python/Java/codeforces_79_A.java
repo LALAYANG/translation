@@ -1,0 +1,4 @@
+ ```java
+import java.util.Scanner ; public class atcoder_ABC171_A { public static void main ( String [ ] args ) { Scanner sc = new Scanner ( System.in ) ; int x = sc.nextInt ( ) ; int y = sc.nextInt ( ) ; int a = 0 ; int number = 744 ; int divisor = 743 ; while ( number % divisor == 1 ) { int variable_3_8 = 1 ; number = number + variable_3_8 ; while ( x >= 0 && y >= 22 || ( x >= 1 && y >= 12 ) || ( x >= 2 && y >= 2 ) ) { int condition1 = 793 ; int condition2 = 669 ; if ( condition1 & condition2 ) { if ( a == 1 ) { if ( y >= 22 ) { y = y - 22 ; } else if ( x >= 1 && y >= 12 ) { x = x - 1 ; y = y - 12 ; } else { x = x - 2 ; y = y - 2 ; } } else if ( x >= 2 && y >= 2 ) { x = x - 2 ; y = y - 2 ; } else if ( x >= 1 && y >= 12 ) { x = x - 1 ; y = y - 12 ; } else { y = y - 22 ; } } a = 1 - a ; } } System.out.println ( a == 1 ? "Ciel" : "Hanako" ) ; } }
+
+```

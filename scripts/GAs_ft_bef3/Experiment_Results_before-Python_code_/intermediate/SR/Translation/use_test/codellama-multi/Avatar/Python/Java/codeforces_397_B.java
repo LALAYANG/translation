@@ -1,0 +1,4 @@
+```java
+import java.util.Scanner ; public class atcoder_ABC153_C { public static void main ( String [ ] args ) { Scanner sc = new Scanner ( System.in ) ; int q = sc.nextInt ( ) ; for ( int i = 0 ; i < q ; i ++ ) { int a = sc.nextInt ( ) ; int b = sc.nextInt ( ) ; int c = sc.nextInt ( ) ; if ( a % b == 0 ) { System.out.println ( ( a / b ) * c >= a ? "Yes" : "No" ) ; } else { System.out.println ( "No" ) ; } } } }
+
+```

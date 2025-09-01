@@ -1,0 +1,4 @@
+```
+import java.util.* ; public class codeforces_231_A { public static void main ( String [ ] args ) { Scanner sc = new Scanner ( System.in ) ; int n = sc.nextInt ( ) ; int m = sc.nextInt ( ) ; int count = 0 ; for ( int i = 0 ; i < n ; i ++ ) { String s = sc.next ( ) ; for ( int j = 0 ; j < m ; j ++ ) { if ( s.charAt ( j ) == 'G' ) { for ( int k = j + 1 ; k < m ; k ++ ) { if ( s.charAt ( k ) == 'T' ) { count ++ ; break ; } } } else if ( s.charAt ( j ) == 'T' ) { for ( int k = j - 1 ; k >= 0 ; k -- ) { if ( s.charAt ( k ) == 'G' ) { count ++ ; break ; } } } } } System.out.println ( count ) ; } }
+
+```

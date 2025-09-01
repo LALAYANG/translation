@@ -1,0 +1,4 @@
+ ```java
+import java.util.Scanner ; public class atcoder_ABC171_E { public static void main ( String [ ] args ) { Scanner sc = new Scanner ( System.in ) ; int n = sc.nextInt ( ) ; int [ ] a = new int [ n + 1 ] ; int [ ] cnt = new int [ n + 1 ] ; for ( int i = 1 ; i <= n ; i ++ ) { a [ i ] = sc.nextInt ( ) ; cnt [ a [ i ] ] ++ ; } int [ ] t = new int [ n + 1 ] ; for ( int i = 1 ; i <= n ; i ++ ) { if ( t [ i ] == 1 ) { int x = a [ i ] ; while ( cnt [ x ] == 1 ) { t [ x ] = 1 ; x = a [ x ] ; } if ( t [ x ] == 0 ) { t [ x ] = 1 ; } } } int res = 0 ; for ( int i = 1 ; i <= n ; i ++ ) { if ( t [ i ] == 1 ) { res ++ ; } } System.out.println ( res ) ; for ( int i = 1 ; i <= n ; i ++ ) { if ( t [ i ] == 1 ) { System.out.print ( i + " " ) ; } } } }
+
+```

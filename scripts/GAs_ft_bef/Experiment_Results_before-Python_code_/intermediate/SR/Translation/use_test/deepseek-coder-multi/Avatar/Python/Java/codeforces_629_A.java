@@ -1,0 +1,4 @@
+```java
+import java.util.Scanner ; public class codeforces_490_A { public static void main ( String [ ] args ) { Scanner sc = new Scanner ( System.in ) ; int n = sc.nextInt ( ) ; char [ ] [ ] cake = new char [ n ] [ n ] ; int count = 0 ; for ( int i = 0 ; i < n ; i ++ ) { String s = sc.next ( ) ; for ( int j = 0 ; j < n ; j ++ ) { cake [ i ] [ j ] = s.charAt ( j ) ; if ( cake [ i ] [ j ] == 'C' ) count ++ ; } } int sum = 0 ; for ( int i = 0 ; i < n ; i ++ ) { int count1 = 0 ; for ( int j = 0 ; j < n ; j ++ ) { if ( cake [ i ] [ j ] == 'C' ) count1 ++ ; } if ( count1 > 1 ) sum += ( count1 - 1 ) ; } for ( int i = 0 ; i < n ; i ++ ) { int count1 = 0 ; for ( int j = 0 ; j < n ; j ++ ) { if ( cake [ j ] [ i ] == 'C' ) count1 ++ ; } if ( count1 > 1 ) sum += ( count1 - 1 ) ; } System.out.println ( sum ) ; } }
+
+```

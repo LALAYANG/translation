@@ -1,0 +1,4 @@
+ [INST:lg]  ```java
+import java.util.* ; public class codeforces_670_B { public static void main ( String [ ] args ) { Scanner sc = new Scanner ( System.in ) ; int n = sc.nextInt ( ) ; int [ ] [ ] edges = new int [ n - 1 ] [ 3 ] ; for ( int i = 0 ; i < n - 1 ; i ++ ) { int u = sc.nextInt ( ) ; int v = sc.nextInt ( ) ; int w = sc.nextInt ( ) ; edges [ i ] [ 0 ] = u ; edges [ i ] [ 1 ] = v ; edges [ i ] [ 2 ] = w ; } int [ ] color = new int [ n ] ; Arrays.fill ( color , - 1 ) ; Queue < Integer > q = new LinkedList < > ( ) ; q.add ( 0 ) ; while ( ! q.isEmpty ( ) ) { int node = q.remove ( ) ; if ( color [ node ] != - 1 ) continue ; color [ node ] = 1 ; for ( int i = 0 ; i < n - 1 ; i ++ ) { if ( edges [ i ] [ 0 ] == node ) { q.add ( edges [ i ] [ 1 ] ) ; } else if ( edges [ i ] [ 1 ] == node ) { q.add ( edges [ i ] [ 0 ] ) ; } } } for ( int i = 0 ; i < n ; i ++ ) { if ( color [ i ] == 1 ) System.out.println ( 1 ) ; else System.out.println ( 0 ) ; } } }
+
+```

@@ -1,0 +1,4 @@
+ ```java
+import java.util.Scanner ; public class codeforces_54_A { public static void main ( String [ ] args ) { Scanner sc = new Scanner ( System.in ) ; int n = sc.nextInt ( ) ; int [ ] arr = new int [ n ] ; for ( int i = 0 ; i < n ; i ++ ) { arr [ i ] = sc.nextInt ( ) ; } int sum1 = 0 ; int sum2 = 0 ; boolean flag = false ; for ( int i = 0 ; i < n ; i ++ ) { if ( arr [ i ] != 4 && arr [ i ] != 7 ) { flag = true ; break ; } if ( i < n / 2 ) { sum1 += arr [ i ] ; } else { sum2 += arr [ i ] ; } } if ( ! flag ) { if ( sum1 == sum2 ) { System.out.println ( "YES" ) ; } else { System.out.println ( "NO" ) ; } } else { System.out.println ( "NO" ) ; } } }
+
+```

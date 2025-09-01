@@ -1,0 +1,4 @@
+ ```java
+import java.util.Scanner ; public class atcoder_ABC172_A { public static void main ( String [ ] args ) { Scanner sc = new Scanner ( System.in ) ; int q = sc.nextInt ( ) ; long [ ] ans = new long [ 2 ] ; while ( q -- > 0 ) { int a = sc.nextInt ( ) ; long b = sc.nextLong ( ) ; long x = sc.nextLong ( ) ; if ( a == 2 ) { long sum1 = 0 ; long sum2 = 0 ; for ( int i = 0 ; i < ans.length ; i ++ ) { sum1 += ans [ i ] ; } sum1 -= ans [ 0 ] ; sum2 = sum1 - ans [ 0 ] + ans [ 1 ] ; System.out.println ( sum2 + " " + sum1 ) ; } else { ans [ a - 1 ] += x ; } } } }
+
+```

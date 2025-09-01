@@ -1,0 +1,4 @@
+ ```java
+import java.util.Scanner ; public class atcoder_ABC178_D { public static void main ( String [ ] args ) { Scanner scanner = new Scanner ( System.in ) ; int x = scanner.nextInt ( ) ; int t = scanner.nextInt ( ) ; int a = scanner.nextInt ( ) ; int b = scanner.nextInt ( ) ; int da = scanner.nextInt ( ) ; int db = scanner.nextInt ( ) ; int aTime = Math.min ( a / da , t - 1 ) ; int bTime = Math.min ( b / db , t - 1 ) ; for ( int i = 0 ; i <= aTime ; i ++ ) { for ( int j = 0 ; j <= bTime ; j ++ ) { if ( a - da * i == x || b - db * j == x ) { System.out.println ( "YES" ) ; return ; } if ( ( a - da * i ) + ( b - db * j ) == x ) { System.out.println ( "YES" ) ; return ; } } } System.out.println ( "NO" ) ; } }
+
+```

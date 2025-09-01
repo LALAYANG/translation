@@ -1,0 +1,4 @@
+```
+import java.util.* ; public class codeforces_469_A { public static void main ( String [ ] args ) { Scanner in = new Scanner ( System.in ) ; int n = in.nextInt ( ) ; int m [ ] = new int [ n ] ; for ( int i = 0 ; i < n ; i ++ ) m [ i ] = in.nextInt ( ) ; boolean flag = true ; for ( int i = 0 ; i < n ; i ++ ) { int count = 0 ; for ( int j = 0 ; j < n ; j ++ ) { if ( m [ i ] == m [ j ] ) count ++ ; } if ( count > n / 2 ) { flag = false ; break ; } } if ( flag ) System.out.println ( "YES" ) ; else System.out.println ( "NO" ) ; } }
+
+```

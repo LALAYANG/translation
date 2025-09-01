@@ -1,0 +1,4 @@
+```java
+import java.util.* ; import java.io.* ; import java.math.* ; public class atcoder_AGC021_B { public static void main ( String [ ] args ) throws IOException { Scanner in = new Scanner ( System.in ) ; int N = in.nextInt ( ) ; in.close ( ) ; BigInteger [ ] dp = new BigInteger [ N + 1 ] ; dp [ 0 ] = BigInteger.valueOf ( 1 ) ; for ( int i = 0 ; i < N ; i ++ ) { BigInteger [ ] ndp = new BigInteger [ N + 1 ] ; for ( int j = 0 ; j < N ; j ++ ) { for ( char c : "AGCT".toCharArray ( ) ) { if ( ! ( ( j >= 1 && ( "AGCT".charAt ( j - 1 ) + Character.toString ( c ) ).equals ( "AGC" ) ) || ( j >= 2 && ( "AGCT".charAt ( j - 2 ) + "" + c ).equals ( "AGC" ) ) ) ) { ndp [ j + 1 ] = ndp [ j + 1 ].add ( dp [ j ] ) ; } } } dp = ndp ; } System.out.println ( dp [ N ] ) ; } }
+
+```

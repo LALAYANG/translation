@@ -1,0 +1,8 @@
+```
+
+```
+
+```
+import java.util.Scanner ; public class atcoder_ABC159_A { public static void main ( String [ ] args ) { Scanner sc = new Scanner ( System.in ) ; int N = sc.nextInt ( ) ; int [ ] p = new int [ N ] ; for ( int i = 0 ; i < N ; i ++ ) { p [ i ] = sc.nextInt ( ) ; } int tmp = 1 ; int ans = 1 ; for ( int i = 1 ; i < N ; i ++ ) { if ( p [ i - 1 ] < p [ i ] ) { tmp ++ ; } else { ans = Math.max ( ans , tmp ) ; tmp = 1 ; } } ans = Math.max ( ans , tmp ) ; System.out.println ( N - ans ) ; } }
+
+```

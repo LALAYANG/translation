@@ -1,0 +1,4 @@
+```
+import java.util.* ; public class atcoder_ABC147_D { public static void main ( String [ ] args ) { Scanner sc = new Scanner ( System.in ) ; int K = sc.nextInt ( ) ; int N = sc.nextInt ( ) ; long [ ] dp = new long [ K + 1 ] ; dp [ 0 ] = 1 ; for ( int i = 1 ; i < K ; i ++ ) { for ( int j = 0 ; j < N ; j ++ ) { dp [ i ] = ( dp [ i ] + dp [ i - 1 ] ) % 998244353 ; } } for ( int i = K - 1 ; i >= 0 ; i -- ) { for ( int j = 0 ; j < N ; j ++ ) { dp [ i ] = ( dp [ i ] + dp [ i + 1 ] ) % 998244353 ; } } long [ ] dp2 = new long [ K + 1 ] ; dp2 [ 0 ] = 1 ; for ( int i = 1 ; i < K ; i ++ ) { for ( int j = 0 ; j < N ; j ++ ) { dp2 [ i ] = ( dp2 [ i ] + dp2 [ i - 1 ] ) % 998244353 ; } } for ( int i = K - 1 ; i >= 0 ; i -- ) { for ( int j = 0 ; j < N ; j ++ ) { dp2 [ i ] = ( dp2 [ i ] + dp2 [ i + 1 ] ) % 998244353 ; } } for ( int i = 0 ; i < K ; i ++ ) { System.out.println ( ( dp [ i ] + dp2 [ i ] ) % 998244353 ) ; } } }
+
+```

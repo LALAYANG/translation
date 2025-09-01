@@ -1,0 +1,4 @@
+ [java]
+import java.util.Scanner ; public class atcoder_ABC175_C { public static void main ( String [ ] args ) { Scanner sc = new Scanner ( System.in ) ; int n = sc.nextInt ( ) ; int [ ] arr = new int [ n ] ; for ( int i = 0 ; i < n ; i ++ ) { arr [ i ] = sc.nextInt ( ) ; } int lcm = 1 ; for ( int i = 0 ; i < n ; i ++ ) { lcm = lcm * arr [ i ] / gcd ( lcm , arr [ i ] ) ; } int ans = lcm * sum ( arr ) % 1000000007 ; System.out.println ( ans ) ; } public static int gcd ( int a , int b ) { if ( b == 0 ) return a ; return gcd ( b , a % b ) ; } public static int sum ( int [ ] arr ) { int sum = 0 ; for ( int i = 0 ; i < arr.length ; i ++ ) { sum += arr [ i ] ; } return sum ; } }
+
+[/java]

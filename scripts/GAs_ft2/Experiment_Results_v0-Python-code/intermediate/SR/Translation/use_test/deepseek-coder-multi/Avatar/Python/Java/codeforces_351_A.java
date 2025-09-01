@@ -1,0 +1,4 @@
+```
+import java.util.* ; public class codeforces_262_B { public static void main ( String [ ] args ) { Scanner sc = new Scanner ( System.in ) ; int n = sc.nextInt ( ) ; double [ ] arr = new double [ n ] ; for ( int i = 0 ; i < n ; i ++ ) { arr [ i ] = sc.nextDouble ( ) ; } Arrays.sort ( arr ) ; double sum = 0 ; for ( int i = 0 ; i < n ; i ++ ) { sum += arr [ i ] - Math.floor ( arr [ i ] ) ; } double res = 1000000000 ; for ( int i = 0 ; i <= n ; i ++ ) { res = Math.min ( res , Math.abs ( sum - i + n - i ) ) ; } System.out.printf ( "%.3f" , res ) ; } }
+
+```

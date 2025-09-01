@@ -1,0 +1,4 @@
+ ```java
+import java.util.Scanner ; public class codeforces_10_A { public static void main ( String [ ] args ) { Scanner sc = new Scanner ( System.in ) ; int n = sc.nextInt ( ) ; double [ ] x = new double [ n ] ; for ( int i = 0 ; i < n ; i ++ ) { x [ i ] = sc.nextDouble ( ) ; if ( sc.next ( ).equals ( "JPY" ) ) { x [ i ] *= 1.0 ; } else { x [ i ] *= 380000.0 ; } } double sum = 0.0 ; for ( double d : x ) { sum += d ; } System.out.println ( sum ) ; } }
+
+```

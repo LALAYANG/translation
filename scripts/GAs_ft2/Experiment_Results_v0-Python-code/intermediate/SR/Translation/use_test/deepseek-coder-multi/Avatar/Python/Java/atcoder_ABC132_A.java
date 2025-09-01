@@ -1,0 +1,4 @@
+```java
+import java.util.* ; import java.io.* ; public class codeforces_266_A { public static void main ( String [ ] args ) { Scanner sc = new Scanner ( System.in ) ; int n = sc.nextInt ( ) ; String s = sc.next ( ) ; int cnt = 0 ; for ( int i = 0 ; i < n ; i ++ ) { if ( s.charAt ( i ) == 'A' ) cnt ++ ; } if ( cnt == n - cnt ) { System.out.println ( "Friendship" ) ; } else if ( cnt > n - cnt ) { System.out.println ( "Anton" ) ; } else { System.out.println ( "Danik" ) ; } } }
+
+```

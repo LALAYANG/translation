@@ -1,0 +1,4 @@
+```java
+import java.util.* ; import java.io.* ; public class codeforces_189_A { public static void main ( String args [ ] ) throws IOException { Scanner sc = new Scanner ( System.in ) ; int n = sc.nextInt ( ) ; long x = sc.nextLong ( ) ; long a [ ] = new long [ n ] ; for ( int i = 0 ; i < n ; i ++ ) { a [ i ] = sc.nextLong ( ) ; } Arrays.sort ( a ) ; int count = 0 ; long sum = 0 ; for ( int i = 0 ; i < n ; i ++ ) { sum += a [ i ] ; if ( sum <= x ) { count ++ ; } else { break ; } } if ( sum > x ) { count -- ; } System.out.println ( count ) ; } }
+
+```

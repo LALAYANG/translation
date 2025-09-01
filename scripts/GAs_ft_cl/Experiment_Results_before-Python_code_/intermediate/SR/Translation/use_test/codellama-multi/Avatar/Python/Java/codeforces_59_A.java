@@ -1,0 +1,4 @@
+ ```java
+import java.util.Scanner ; public class atcoder_ABC148_A { public static void main ( String [ ] args ) { Scanner sc = new Scanner ( System.in ) ; String s = sc.next ( ) ; int c = 0 , l = 0 ; for ( int i = 0 ; i < s.length ( ) ; i ++ ) { if ( s.charAt ( i ) >= 'a' && s.charAt ( i ) <= 'z' ) { l ++ ; } else { c ++ ; } } if ( c > l ) { System.out.println ( s.toUpperCase ( ) ) ; } else { System.out.println ( s.toLowerCase ( ) ) ; } } }
+
+```

@@ -1,0 +1,4 @@
+```java
+import java.util.* ; import java.io.* ; public class atcoder_AGC007_A { public static void main ( String [ ] args ) { Scanner sc = new Scanner ( System.in ) ; int N = sc.nextInt ( ) ; int [ ] [ ] xyh = new int [ N ] [ 3 ] ; for ( int i = 0 ; i < N ; i ++ ) { xyh [ i ] [ 0 ] = sc.nextInt ( ) ; xyh [ i ] [ 1 ] = sc.nextInt ( ) ; xyh [ i ] [ 2 ] = sc.nextInt ( ) ; } int x = 0 , y = 0 , h = 0 ; for ( int i = 0 ; i < N ; i ++ ) { if ( xyh [ i ] [ 2 ] != 0 ) { x = xyh [ i ] [ 0 ] ; y = xyh [ i ] [ 1 ] ; h = xyh [ i ] [ 2 ] ; } } for ( int i = 0 ; i <= 100 ; i ++ ) { for ( int j = 0 ; j <= 100 ; j ++ ) { int tmp = 0 ; for ( int k = 0 ; k < N ; k ++ ) { tmp = Math.max ( tmp , Math.abs ( x - i ) + Math.abs ( y - j ) + xyh [ k ] [ 2 ] ) ; } if ( tmp == h ) { System.out.println ( i + " " + j + " " + h ) ; break ; } } } } }
+
+```

@@ -1,0 +1,4 @@
+ ```java
+import java.util.Scanner ; public class atcoder_ABC171_E { public static void main ( String [ ] args ) { Scanner sc = new Scanner ( System.in ) ; int D = sc.nextInt ( ) ; int G = sc.nextInt ( ) ; int [ ] A = new int [ D ] ; int [ ] B = new int [ D ] ; for ( int i = 0 ; i < D ; i ++ ) { A [ i ] = sc.nextInt ( ) ; B [ i ] = sc.nextInt ( ) ; } int ans = 1000000000 ; for ( int i = 0 ; i < ( 1 << D ) ; i ++ ) { int score = 0 ; int problem = 0 ; for ( int j = 0 ; j < D ; j ++ ) { if ( ( i & ( 1 << j ) ) != 0 ) { score += 100 * ( j + 1 ) * A [ j ] + B [ j ] ; problem += A [ j ] ; } } if ( score > G ) continue ; int left = G - score ; for ( int j = 0 ; j < D ; j ++ ) { if ( ( i & ( 1 << j ) ) != 0 ) continue ; if ( left > 100 * ( j + 1 ) * A [ j ] + B [ j ] ) continue ; int tmp = ( left + 100 * ( j + 1 ) - 1 ) / ( 100 * ( j + 1 ) ) ; ans = Math.min ( ans , problem + Math.min ( tmp , A [ j ] ) ) ; } } System.out.println ( ans ) ; } }
+
+```

@@ -1,0 +1,4 @@
+```
+import java.util.* ; public class atcoder_ABC152_A { public static void main ( String [ ] args ) { Scanner sc = new Scanner ( System.in ) ; int A = sc.nextInt ( ) ; int B = sc.nextInt ( ) ; int C = sc.nextInt ( ) ; int D = sc.nextInt ( ) ; int E = sc.nextInt ( ) ; int F = sc.nextInt ( ) ; int x = ( int ) ( ( ( A * B ) / Math.gcd ( A , B ) ) * ( C * D ) / Math.gcd ( C , D ) ) ; int y = ( int ) ( ( ( A * B ) / Math.gcd ( A , B ) ) * ( E * F ) / Math.gcd ( E , F ) ) ; int z = ( int ) ( ( ( C * D ) / Math.gcd ( C , D ) ) * ( E * F ) / Math.gcd ( E , F ) ) ; int a = ( int ) ( ( x + y ) * F / ( E + F ) ) ; int b = ( int ) ( ( x + z ) * E / ( C + D ) ) ; System.out.println ( a + " " + b ) ; } }
+
+```

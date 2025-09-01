@@ -1,0 +1,4 @@
+```java
+import java.util.* ; import java.io.* ; public class atcoder_ABC122_A { public static void main ( String [ ] args ) { Scanner sc = new Scanner ( System.in ) ; int N = sc.nextInt ( ) ; int [ ] A = new int [ 5 ] ; for ( int i = 0 ; i < 5 ; i ++ ) { A [ i ] = sc.nextInt ( ) ; } int ans = 0 ; for ( int i = 0 ; i < 5 ; i ++ ) { if ( N % A [ i ] == 0 ) { ans = N / A [ i ] ; } else { ans = N / A [ i ] + 1 ; } } System.out.println ( ans + 4 ) ; } }
+
+```

@@ -1,0 +1,4 @@
+```
+import java.util.* ; public class codeforces_421_A { public static void main ( String [ ] args ) { Scanner sc = new Scanner ( System.in ) ; int n = sc.nextInt ( ) ; int res = ( 360 / gcd ( 360 , n ) ) ; System.out.println ( res ) ; } static int gcd ( int a , int b ) { if ( b == 0 ) return a ; return gcd ( b , a % b ) ; } }
+
+```

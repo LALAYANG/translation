@@ -1,0 +1,1 @@
+import java.util.Scanner ; public class codeforces_379_A { public static void main ( String [ ] args ) { Scanner sc = new Scanner ( System.in ) ; int a = sc.nextInt ( ) ; int b = sc.nextInt ( ) ; int s = 0 ; int r = 0 ; while ( a > 0 || r >= b ) { a += r / b ; r %= b ; s += a ; r += a % b ; a /= b ; } System.out.println ( s ) ; } }

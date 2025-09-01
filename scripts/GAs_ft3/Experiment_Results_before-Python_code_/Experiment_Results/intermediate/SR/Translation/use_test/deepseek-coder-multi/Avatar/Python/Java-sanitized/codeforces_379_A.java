@@ -1,0 +1,1 @@
+import java.util.* ; public class codeforces_379_A { public static void main ( String [ ] args ) { Scanner sc = new Scanner ( System.in ) ; int n = sc.nextInt ( ) ; int k = sc.nextInt ( ) ; int ans = 0 ; int c = 0 ; while ( n > 0 ) { ans += n ; n = n + c / k ; c = c % k ; c += n % k ; n /= k ; } System.out.println ( ans ) ; } }

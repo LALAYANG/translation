@@ -1,0 +1,4 @@
+```
+import java.util.* ; public class codeforces_267_A { public static void main ( String [ ] args ) { Scanner sc = new Scanner ( System.in ) ; int n = sc.nextInt ( ) ; HashMap < Integer , Integer > hm = new HashMap < > ( ) ; for ( int i = 0 ; i < n ; i ++ ) { int x = sc.nextInt ( ) ; if ( hm.containsKey ( x ) ) { hm.put ( x , hm.get ( x ) + 1 ) ; } else { hm.put ( x , 1 ) ; } } int count = 0 ; for ( int i : hm.keySet ( ) ) { if ( i == 0 ) { count += ( hm.get ( i ) * ( hm.get ( i ) - 1 ) ) / 2 ; } else if ( hm.containsKey ( - i ) ) { count += hm.get ( i ) * hm.get ( - i ) ; } } System.out.println ( count ) ; } }
+
+```

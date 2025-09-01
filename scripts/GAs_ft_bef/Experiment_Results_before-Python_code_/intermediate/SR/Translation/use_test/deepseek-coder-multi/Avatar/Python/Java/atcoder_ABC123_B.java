@@ -1,0 +1,4 @@
+```java
+import java.util.ArrayList ; import java.util.Collections ; import java.util.Scanner ; public class atcoder_ABC148_A { public static void main ( String [ ] args ) { Scanner sc = new Scanner ( System.in ) ; ArrayList < Integer > a = new ArrayList < > ( ) ; for ( int i = 0 ; i < 5 ; i ++ ) { a.add ( sc.nextInt ( ) ) ; } Collections.sort ( a ) ; int ans = 0 ; for ( int i = 0 ; i < 5 ; i ++ ) { if ( i == 0 ) { ans += a.get ( i ) ; } else { int x = a.get ( i ) ; if ( x % 10 == 0 ) { ans += x ; } else { ans += ( x / 10 + 1 ) * 10 ; } } } System.out.println ( ans ) ; } }
+
+```
